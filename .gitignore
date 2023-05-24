@@ -1,0 +1,16 @@
+.idea/
+bin/
+build*/
+cmake-*/
+libs/
+.DS_Store
+zipf_cache_*
+a.out
+data/
+log/
+adhoc/
+release/
+debug/
+log.txt
+git-ignore
+*#
