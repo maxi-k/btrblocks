@@ -31,6 +31,6 @@ file(MAKE_DIRECTORY ${FASTPFOR_INCLUDE_DIR})
 
 add_library(fastpfor STATIC IMPORTED)
 add_dependencies(fastpfor fastpfor_src)
+target_include_directories(fastpfor SYSTEM INTERFACE ${FASTPFOR_INCLUDE_DIR})
 
 set_property(TARGET fastpfor PROPERTY IMPORTED_LOCATION ${FASTPFOR_LIBRARY_PATH})
-set_property(TARGET fastpfor APPEND PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${FASTPFOR_INCLUDE_DIR})

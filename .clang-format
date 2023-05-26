@@ -1,6 +1,9 @@
 ﻿---
 BasedOnStyle: Chromium
-BreakBeforeBraces: Linux
+ColumnLimit: 100
 SpaceInEmptyParentheses: 'false'
-
+---
+Language: Cpp
+DerivePointerAlignment: false
+PointerAlignment: Left
 ...

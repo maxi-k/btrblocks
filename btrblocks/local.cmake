@@ -55,7 +55,9 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
     target_compile_options(btrblocks PUBLIC -g)
 endif ()
 
-target_link_libraries(btrblocks Threads::Threads fsst fastpfor tbb croaring) #asan
+target_link_libraries(btrblocks Threads::Threads fsst fastpfor croaring) #asan
+# TODO(open-sourcing) dependencies i'd like to remove from the core library
+target_link_libraries(btrblocks yaml tbb gflags)
 
 if (${WITH_LOGGING})
     target_include_directories(btrblocks PUBLIC ${SPDLOG_INCLUDE_DIR})

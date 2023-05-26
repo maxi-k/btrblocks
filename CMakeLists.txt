@@ -18,8 +18,8 @@ option(BUILD_SHARED_LIBRARY "BUILD_SHARED_LIBRARY" OFF)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pthread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -g")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pthread -g")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -g")
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -g")
 add_compile_options(-march=native -Wall -Wextra)
@@ -62,6 +62,7 @@ include("${CMAKE_VENDOR_DIR}/lz4.cmake")
 
 include("${CMAKE_SOURCE_DIR}/include/local.cmake")    # public headers
 include("${CMAKE_SOURCE_DIR}/btrblocks/local.cmake")  # btrblocks library
+include("${CMAKE_SOURCE_DIR}/test/local.cmake")       # btrblocks tests
 include("${CMAKE_SOURCE_DIR}/tools/local.cmake")      # btrblocks tooling
 include("${CMAKE_SOURCE_DIR}/benchmarks/local.cmake") # btrblocks benchmarks
 
@@ -69,7 +70,7 @@ include("${CMAKE_SOURCE_DIR}/benchmarks/local.cmake") # btrblocks benchmarks
 # Linting
 # ---------------------------------------------------------------------------
 
-if (${lint_targets})
+if (NOT "${lint_targets}" STREQUAL "")
   add_custom_target(lint)
   add_dependencies(lint ${lint_targets})
 endif()
