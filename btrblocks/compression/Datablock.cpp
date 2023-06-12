@@ -1,29 +1,17 @@
 // -------------------------------------------------------------------------------------
 #include "Datablock.hpp"
 // -------------------------------------------------------------------------------------
+#include "btrblocks.hpp"
 #include "common/Log.hpp"
 // -------------------------------------------------------------------------------------
 #include "storage/Chunk.hpp"
 // -------------------------------------------------------------------------------------
-#include "compression/cache/ThreadCache.hpp"
-#include "compression/schemes/CSchemePicker.hpp"
-#include "compression/schemes/CSchemePool.hpp"
-#include "schemes/CScheme.hpp"
+#include "cache/ThreadCache.hpp"
+#include "compression/SchemePicker.hpp"
+#include "scheme/CompressionScheme.hpp"
+#include "scheme/SchemePool.hpp"
 // -------------------------------------------------------------------------------------
-#include "compression/schemes/v1/double/OneValue.hpp"
-#include "compression/schemes/v1/double/Uncompressed.hpp"
-#include "compression/schemes/v1/integer/Dictionary.hpp"
-#include "compression/schemes/v1/integer/OneValue.hpp"
-#include "compression/schemes/v1/integer/Truncation.hpp"
-#include "compression/schemes/v1/integer/Uncompressed.hpp"
-#include "compression/schemes/v1/string/Dictionary.hpp"
-#include "compression/schemes/v1/string/OneValue.hpp"
-#include "compression/schemes/v1/string/Uncompressed.hpp"
-// -------------------------------------------------------------------------------------
-#include "compression/schemes/v2/bitmap/RoaringBitmap.hpp"
-#include "compression/schemes/v2/string/DynamicDictionary.hpp"
-// -------------------------------------------------------------------------------------
-#include "gflags/gflags.h"
+#include "extern/RoaringBitmap.hpp"
 // -------------------------------------------------------------------------------------
 #include <algorithm>
 #include <exception>
@@ -33,13 +21,9 @@
 #include <roaring/roaring.hh>
 #include <set>
 // -------------------------------------------------------------------------------------
-DEFINE_uint32(doubles_max_cascading_level, 3, "");
-DEFINE_uint32(integers_max_cascading_level, 3, "");
-DEFINE_uint32(strings_max_cascading_level, 3, "");
+namespace btrblocks {
 // -------------------------------------------------------------------------------------
-namespace btrblocks::db {
-// -------------------------------------------------------------------------------------
-Datablock::Datablock(const Relation& relation) : CMachine(relation) {}
+Datablock::Datablock(const Relation& relation) : RelationCompressor(relation) {}
 u32 Datablock::writeMetadata(const std::string& path,
                              std::vector<ColumnType> types,
                              vector<u32> part_counters,
@@ -68,6 +52,7 @@ u32 Datablock::writeMetadata(const std::string& path,
 }
 // -------------------------------------------------------------------------------------
 std::vector<u8> Datablock::compress(const InputChunk& input_chunk) {
+  auto& cfg = BtrBlocksConfig::get();
   // We do not now the exact output size. Therefore we allocate too much and
   // then simply make the space smaller afterwards
   const u32 size =
@@ -83,7 +68,7 @@ std::vector<u8> Datablock::compress(const InputChunk& input_chunk) {
     case ColumnType::INTEGER: {
       IntegerSchemePicker::compress(reinterpret_cast<INTEGER*>(input_chunk.data.get()),
                                     input_chunk.nullmap.get(), output_data, input_chunk.tuple_count,
-                                    FLAGS_integers_max_cascading_level, meta->nullmap_offset,
+                                    cfg.integers.max_cascade_depth, meta->nullmap_offset,
                                     meta->compression_type);
       break;
     }
@@ -91,7 +76,7 @@ std::vector<u8> Datablock::compress(const InputChunk& input_chunk) {
       // -------------------------------------------------------------------------------------
       DoubleSchemePicker::compress(reinterpret_cast<DOUBLE*>(input_chunk.data.get()),
                                    input_chunk.nullmap.get(), output_data, input_chunk.tuple_count,
-                                   FLAGS_doubles_max_cascading_level, meta->nullmap_offset,
+                                   cfg.doubles.max_cascade_depth, meta->nullmap_offset,
                                    meta->compression_type);
       // -------------------------------------------------------------------------------------
       break;
@@ -105,7 +90,7 @@ std::vector<u8> Datablock::compress(const InputChunk& input_chunk) {
       // -------------------------------------------------------------------------------------
       // Make decisions
       StringScheme& preferred_scheme =
-          StringSchemePicker::chooseScheme(stats, FLAGS_strings_max_cascading_level);
+          StringSchemePicker::chooseScheme(stats, cfg.strings.max_cascade_depth);
       // Update meta data
       meta->compression_type = static_cast<u8>(preferred_scheme.schemeType());
       // -------------------------------------------------------------------------------------
@@ -116,7 +101,7 @@ std::vector<u8> Datablock::compress(const InputChunk& input_chunk) {
           preferred_scheme.compress(str_viewer, input_chunk.nullmap.get(), output_data, stats);
       meta->nullmap_offset = after_column_size;
       // -------------------------------------------------------------------------------------
-      for (u8 i = 0; i < 5 - FLAGS_strings_max_cascading_level; i++) {
+      for (u8 i = 0; i < 5 - cfg.strings.max_cascade_depth; i++) {
         ThreadCache::get() << "\t";
       }
       ThreadCache::get() << "for : ? - scheme = " +
@@ -141,7 +126,7 @@ std::vector<u8> Datablock::compress(const InputChunk& input_chunk) {
   }
 
   // Compress bitmap
-  auto [nullmap_size, bitmap_type] = v2::bitmap::RoaringBitmap::compress(
+  auto [nullmap_size, bitmap_type] = bitmap::RoaringBitmap::compress(
       input_chunk.nullmap.get(), output_data + meta->nullmap_offset, input_chunk.tuple_count);
   meta->nullmap_type = bitmap_type;
   u32 total_size = sizeof(*meta) + meta->nullmap_offset + nullmap_size;
@@ -170,7 +155,7 @@ bool Datablock::decompress(const u8* data_in, BitmapWrapper** bitmap_out, u8* da
   bool requires_copy_out;
   switch (meta->type) {
     case ColumnType::INTEGER: {
-      auto& scheme = CSchemePool::available_schemes
+      auto& scheme = SchemePool::available_schemes
                          ->integer_schemes[static_cast<IntegerSchemeType>(meta->compression_type)];
       scheme->decompress(reinterpret_cast<INTEGER*>(data_out), *bitmap_out, meta->data,
                          meta->tuple_count, 0);
@@ -178,7 +163,7 @@ bool Datablock::decompress(const u8* data_in, BitmapWrapper** bitmap_out, u8* da
       break;
     }
     case ColumnType::DOUBLE: {
-      auto& scheme = CSchemePool::available_schemes
+      auto& scheme = SchemePool::available_schemes
                          ->double_schemes[static_cast<DoubleSchemeType>(meta->compression_type)];
       scheme->decompress(reinterpret_cast<DOUBLE*>(data_out), *bitmap_out, meta->data,
                          meta->tuple_count, 0);
@@ -186,7 +171,7 @@ bool Datablock::decompress(const u8* data_in, BitmapWrapper** bitmap_out, u8* da
       break;
     }
     case ColumnType::STRING: {
-      auto& scheme = CSchemePool::available_schemes
+      auto& scheme = SchemePool::available_schemes
                          ->string_schemes[static_cast<StringSchemeType>(meta->compression_type)];
       requires_copy_out =
           scheme->decompressNoCopy(data_out, *bitmap_out, meta->data, meta->tuple_count, 0);
@@ -201,6 +186,7 @@ bool Datablock::decompress(const u8* data_in, BitmapWrapper** bitmap_out, u8* da
 
 OutputBlockStats Datablock::compress(const Chunk& input_chunk, BytesArray& output_block) {
   // -------------------------------------------------------------------------------------
+  auto& cfg = BtrBlocksConfig::get();
   const u32 db_meta_buffer_size =
       sizeof(DatablockMeta) + (relation.columns.size() * sizeof(ColumnMeta));
   u32 input_chunk_total_data_size = 0;
@@ -249,7 +235,7 @@ OutputBlockStats Datablock::compress(const Chunk& input_chunk, BytesArray& outpu
         // Compression
         IntegerSchemePicker::compress(input_chunk.array<INTEGER>(column_i), nullmap,
                                       output_block.get() + db_write_offset, input_chunk.tuple_count,
-                                      FLAGS_integers_max_cascading_level, after_column_size,
+                                      cfg.integers.max_cascade_depth, after_column_size,
                                       column_meta.compression_type);
         after_column_size += sizeof(column_meta.bias);
         // -------------------------------------------------------------------------------------
@@ -260,7 +246,7 @@ OutputBlockStats Datablock::compress(const Chunk& input_chunk, BytesArray& outpu
         DoubleSchemePicker::compress(
             input_chunk.array<DOUBLE>(column_i), input_chunk.nullmap(column_i),
             output_block.get() + db_write_offset, input_chunk.tuple_count,
-            FLAGS_doubles_max_cascading_level, after_column_size, column_meta.compression_type);
+            cfg.doubles.max_cascade_depth, after_column_size, column_meta.compression_type);
         // -------------------------------------------------------------------------------------
         break;
       }
@@ -273,7 +259,7 @@ OutputBlockStats Datablock::compress(const Chunk& input_chunk, BytesArray& outpu
         // -------------------------------------------------------------------------------------
         // Make decisions
         StringScheme& preferred_scheme =
-            StringSchemePicker::chooseScheme(stats, FLAGS_strings_max_cascading_level);
+            StringSchemePicker::chooseScheme(stats, cfg.strings.max_cascade_depth);
         // Update meta data
         column_meta.compression_type = static_cast<u8>(preferred_scheme.schemeType());
         // -------------------------------------------------------------------------------------
@@ -283,7 +269,7 @@ OutputBlockStats Datablock::compress(const Chunk& input_chunk, BytesArray& outpu
         after_column_size = preferred_scheme.compress(str_viewer, input_chunk.nullmap(column_i),
                                                       output_block.get() + db_write_offset, stats);
         // -------------------------------------------------------------------------------------
-        for (u8 i = 0; i < 5 - FLAGS_strings_max_cascading_level; i++) {
+        for (u8 i = 0; i < 5 - cfg.strings.max_cascade_depth; i++) {
           ThreadCache::get() << "\t";
         }
         ThreadCache::get() << "for : ? - scheme = " +
@@ -313,7 +299,7 @@ OutputBlockStats Datablock::compress(const Chunk& input_chunk, BytesArray& outpu
     // -------------------------------------------------------------------------------------
     // Compress bitmap
     column_meta.nullmap_offset = db_write_offset;
-    auto [nullmap_size, bitmap_type] = v2::bitmap::RoaringBitmap::compress(
+    auto [nullmap_size, bitmap_type] = bitmap::RoaringBitmap::compress(
         input_chunk.nullmap(column_i), output_block.get() + db_write_offset,
         input_chunk.tuple_count);
     column_meta.bitmap_type = bitmap_type;
@@ -394,7 +380,7 @@ btrblocks::Chunk Datablock::decompress(const BytesArray& input_db) {
         auto column_dest_double_array = reinterpret_cast<DOUBLE*>(columns[column_i].get());
         const auto used_compression_scheme =
             static_cast<DoubleSchemeType>(column_meta.compression_type);
-        auto& scheme = CSchemePool::available_schemes->double_schemes[used_compression_scheme];
+        auto& scheme = SchemePool::available_schemes->double_schemes[used_compression_scheme];
         // -------------------------------------------------------------------------------------
         scheme->decompress(column_dest_double_array, &bitmap, input_db.get() + column_meta.offset,
                            tuple_count, 0);
@@ -405,7 +391,7 @@ btrblocks::Chunk Datablock::decompress(const BytesArray& input_db) {
         // -------------------------------------------------------------------------------------
         const auto used_compression_scheme =
             static_cast<StringSchemeType>(column_meta.compression_type);
-        auto& scheme = CSchemePool::available_schemes->string_schemes[used_compression_scheme];
+        auto& scheme = SchemePool::available_schemes->string_schemes[used_compression_scheme];
         // -------------------------------------------------------------------------------------
         sizes[column_i] = scheme->getDecompressedSizeNoCopy(input_db.get() + column_meta.offset,
                                                             tuple_count, &bitmap);
@@ -438,9 +424,9 @@ void Datablock::getCompressedColumn(const BytesArray& input_db, u32 col_i, u8*& 
   }
 }
 // -------------------------------------------------------------------------------------
-void CSchemePool::refresh() {
-  btrblocks::db::CSchemePool::available_schemes = make_unique<btrblocks::db::SchemesCollection>();
+void SchemePool::refresh() {
+  btrblocks::SchemePool::available_schemes = make_unique<btrblocks::SchemesCollection>();
 }
 // -------------------------------------------------------------------------------------
-}  // namespace btrblocks::db
+}  // namespace btrblocks
 // -------------------------------------------------------------------------------------

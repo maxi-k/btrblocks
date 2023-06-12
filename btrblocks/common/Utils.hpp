@@ -10,16 +10,20 @@ namespace btrblocks {
 // -------------------------------------------------------------------------------------
 class Utils {
  public:
-  static u64 alignBy(u64 num, u64 alignment, u64& diff) {
+  static constexpr u64 alignBy(u64 num, u64 alignment, u64& diff) {
     u64 new_num = (num + alignment - 1) & ~(alignment - 1);
     diff = new_num - num;
     return new_num;
   };
 
-  static u32 getBitsNeeded(u32 input) { return std::max(std::floor(std::log2(input)) + 1, 1.0); }
-  static u32 getBitsNeeded(u64 input) { return std::max(std::floor(std::log2(input)) + 1, 1.0); }
+  static constexpr u32 getBitsNeeded(u32 input) {
+    return std::max(std::floor(std::log2(input)) + 1, 1.0);
+  }
+  static constexpr u32 getBitsNeeded(u64 input) {
+    return std::max(std::floor(std::log2(input)) + 1, 1.0);
+  }
 
-  static u32 getBitsNeeded(s32 input) {
+  static constexpr u32 getBitsNeeded(s32 input) {
     if (input < 0) {
       return 32;
     }

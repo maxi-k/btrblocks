@@ -1,14 +1,13 @@
 #pragma once
 // -------------------------------------------------------------------------------------
+#include "compression/Compressor.hpp"
 #include "storage/Chunk.hpp"
-// -------------------------------------------------------------------------------------
-#include "CMachine.hpp"
-#include "schemes/CScheme.hpp"
+#include "scheme/CompressionScheme.hpp"
 // -------------------------------------------------------------------------------------
 #include <unordered_map>
 // -------------------------------------------------------------------------------------
-namespace btrblocks::db {
-
+namespace btrblocks {
+// -------------------------------------------------------------------------------------
 // Begin new chunking
 struct ColumnChunkMeta {
   u8 compression_type;
@@ -55,11 +54,11 @@ struct DatablockMeta {
 };
 static_assert(sizeof(DatablockMeta) == 16);
 // -------------------------------------------------------------------------------------
-class Datablock : public CMachine {
+class Datablock : public RelationCompressor {
  public:
   explicit Datablock(const Relation& relation);
   OutputBlockStats compress(const Chunk& input_chunk, BytesArray& output_block) override;
-  btrblocks::Chunk decompress(const BytesArray& input_block) override;
+  Chunk decompress(const BytesArray& input_block) override;
   virtual void getCompressedColumn(const BytesArray& input_db, u32 col_i, u8*& ptr, u32& size);
 
   static bool decompress(const u8* data_in, BitmapWrapper** bitmap_out, u8* data_out);
@@ -70,5 +69,5 @@ class Datablock : public CMachine {
                            u32 num_chunks);
 };
 // -------------------------------------------------------------------------------------
-}  // namespace btrblocks::db
+}  // namespace btrblocks
 // -------------------------------------------------------------------------------------

@@ -1,0 +1,3779 @@
+Arade/1/Arade_1/4_F4.double
+Arade/1/Arade_1/5_F5.double
+Arade/1/Arade_1/8_F8.double
+Arade/1/Arade_1/9_F9.double
+Bimbo/1/Bimbo_1/11_Venta_hoy.double
+Bimbo/1/Bimbo_1/5_Dev_proxima.double
+CityMaxCapita/1/CityMaxCapita_1/14_LPF.double
+CityMaxCapita/1/CityMaxCapita_1/16_Lat.double
+CityMaxCapita/1/CityMaxCapita_1/19_Long.double
+CityMaxCapita/1/CityMaxCapita_1/4_Created Date_Time.double
+CityMaxCapita/1/CityMaxCapita_1/5_Date Joined.double
+CityMaxCapita/1/CityMaxCapita_1/6_FF Ratio.double
+CMSprovider/1/CMSprovider_1/1_AVERAGE_MEDICARE_ALLOWED_AMT.double
+CMSprovider/1/CMSprovider_1/24_STDEV_MEDICARE_ALLOWED_AMT.double
+CMSprovider/1/CMSprovider_1/25_STDEV_MEDICARE_PAYMENT_AMT.double
+CMSprovider/1/CMSprovider_1/26_STDEV_SUBMITTED_CHRG_AMT.double
+CMSprovider/1/CMSprovider_1/2_AVERAGE_MEDICARE_PAYMENT_AMT.double
+CMSprovider/1/CMSprovider_1/3_AVERAGE_SUBMITTED_CHRG_AMT.double
+CMSprovider/1/CMSprovider_1/9_LINE_SRVC_CNT.double
+CMSprovider/2/CMSprovider_2/1_AVERAGE_MEDICARE_ALLOWED_AMT.double
+CMSprovider/2/CMSprovider_2/24_STDEV_MEDICARE_ALLOWED_AMT.double
+CMSprovider/2/CMSprovider_2/25_STDEV_MEDICARE_PAYMENT_AMT.double
+CMSprovider/2/CMSprovider_2/26_STDEV_SUBMITTED_CHRG_AMT.double
+CMSprovider/2/CMSprovider_2/2_AVERAGE_MEDICARE_PAYMENT_AMT.double
+CMSprovider/2/CMSprovider_2/3_AVERAGE_SUBMITTED_CHRG_AMT.double
+CMSprovider/2/CMSprovider_2/9_LINE_SRVC_CNT.double
+CommonGovernment/10/CommonGovernment_10/10_baseandalloptionsvalue.double
+CommonGovernment/10/CommonGovernment_10/11_baseandexercisedoptionsvalue.double
+CommonGovernment/10/CommonGovernment_10/26_ftsdollar.double
+CommonGovernment/10/CommonGovernment_10/30_gsadollar.double
+CommonGovernment/10/CommonGovernment_10/31_gsaotherdollar.double
+CommonGovernment/10/CommonGovernment_10/32_gwacs.double
+CommonGovernment/10/CommonGovernment_10/37_nongsadollar.double
+CommonGovernment/10/CommonGovernment_10/38_obligatedamount.double
+CommonGovernment/10/CommonGovernment_10/39_obligatedamount_1.double
+CommonGovernment/10/CommonGovernment_10/40_pbsdollar.double
+CommonGovernment/11/CommonGovernment_11/10_baseandalloptionsvalue.double
+CommonGovernment/11/CommonGovernment_11/11_baseandexercisedoptionsvalue.double
+CommonGovernment/11/CommonGovernment_11/26_ftsdollar.double
+CommonGovernment/11/CommonGovernment_11/30_gsadollar.double
+CommonGovernment/11/CommonGovernment_11/31_gsaotherdollar.double
+CommonGovernment/11/CommonGovernment_11/32_gwacs.double
+CommonGovernment/11/CommonGovernment_11/37_nongsadollar.double
+CommonGovernment/11/CommonGovernment_11/38_obligatedamount.double
+CommonGovernment/11/CommonGovernment_11/39_obligatedamount_1.double
+CommonGovernment/11/CommonGovernment_11/40_pbsdollar.double
+CommonGovernment/12/CommonGovernment_12/10_baseandalloptionsvalue.double
+CommonGovernment/12/CommonGovernment_12/11_baseandexercisedoptionsvalue.double
+CommonGovernment/12/CommonGovernment_12/26_ftsdollar.double
+CommonGovernment/12/CommonGovernment_12/30_gsadollar.double
+CommonGovernment/12/CommonGovernment_12/31_gsaotherdollar.double
+CommonGovernment/12/CommonGovernment_12/32_gwacs.double
+CommonGovernment/12/CommonGovernment_12/37_nongsadollar.double
+CommonGovernment/12/CommonGovernment_12/38_obligatedamount.double
+CommonGovernment/12/CommonGovernment_12/39_obligatedamount_1.double
+CommonGovernment/12/CommonGovernment_12/40_pbsdollar.double
+CommonGovernment/13/CommonGovernment_13/10_baseandalloptionsvalue.double
+CommonGovernment/13/CommonGovernment_13/11_baseandexercisedoptionsvalue.double
+CommonGovernment/13/CommonGovernment_13/26_ftsdollar.double
+CommonGovernment/13/CommonGovernment_13/30_gsadollar.double
+CommonGovernment/13/CommonGovernment_13/31_gsaotherdollar.double
+CommonGovernment/13/CommonGovernment_13/32_gwacs.double
+CommonGovernment/13/CommonGovernment_13/37_nongsadollar.double
+CommonGovernment/13/CommonGovernment_13/38_obligatedamount.double
+CommonGovernment/13/CommonGovernment_13/39_obligatedamount_1.double
+CommonGovernment/13/CommonGovernment_13/40_pbsdollar.double
+CommonGovernment/1/CommonGovernment_1/10_baseandalloptionsvalue.double
+CommonGovernment/1/CommonGovernment_1/11_baseandexercisedoptionsvalue.double
+CommonGovernment/1/CommonGovernment_1/26_ftsdollar.double
+CommonGovernment/1/CommonGovernment_1/30_gsadollar.double
+CommonGovernment/1/CommonGovernment_1/31_gsaotherdollar.double
+CommonGovernment/1/CommonGovernment_1/32_gwacs.double
+CommonGovernment/1/CommonGovernment_1/37_nongsadollar.double
+CommonGovernment/1/CommonGovernment_1/38_obligatedamount.double
+CommonGovernment/1/CommonGovernment_1/39_obligatedamount_1.double
+CommonGovernment/1/CommonGovernment_1/40_pbsdollar.double
+CommonGovernment/2/CommonGovernment_2/10_baseandalloptionsvalue.double
+CommonGovernment/2/CommonGovernment_2/11_baseandexercisedoptionsvalue.double
+CommonGovernment/2/CommonGovernment_2/26_ftsdollar.double
+CommonGovernment/2/CommonGovernment_2/30_gsadollar.double
+CommonGovernment/2/CommonGovernment_2/31_gsaotherdollar.double
+CommonGovernment/2/CommonGovernment_2/32_gwacs.double
+CommonGovernment/2/CommonGovernment_2/37_nongsadollar.double
+CommonGovernment/2/CommonGovernment_2/38_obligatedamount.double
+CommonGovernment/2/CommonGovernment_2/39_obligatedamount_1.double
+CommonGovernment/2/CommonGovernment_2/40_pbsdollar.double
+CommonGovernment/3/CommonGovernment_3/10_baseandalloptionsvalue.double
+CommonGovernment/3/CommonGovernment_3/11_baseandexercisedoptionsvalue.double
+CommonGovernment/3/CommonGovernment_3/26_ftsdollar.double
+CommonGovernment/3/CommonGovernment_3/30_gsadollar.double
+CommonGovernment/3/CommonGovernment_3/31_gsaotherdollar.double
+CommonGovernment/3/CommonGovernment_3/32_gwacs.double
+CommonGovernment/3/CommonGovernment_3/37_nongsadollar.double
+CommonGovernment/3/CommonGovernment_3/38_obligatedamount.double
+CommonGovernment/3/CommonGovernment_3/39_obligatedamount_1.double
+CommonGovernment/3/CommonGovernment_3/40_pbsdollar.double
+CommonGovernment/4/CommonGovernment_4/10_baseandalloptionsvalue.double
+CommonGovernment/4/CommonGovernment_4/11_baseandexercisedoptionsvalue.double
+CommonGovernment/4/CommonGovernment_4/26_ftsdollar.double
+CommonGovernment/4/CommonGovernment_4/30_gsadollar.double
+CommonGovernment/4/CommonGovernment_4/31_gsaotherdollar.double
+CommonGovernment/4/CommonGovernment_4/32_gwacs.double
+CommonGovernment/4/CommonGovernment_4/37_nongsadollar.double
+CommonGovernment/4/CommonGovernment_4/38_obligatedamount.double
+CommonGovernment/4/CommonGovernment_4/39_obligatedamount_1.double
+CommonGovernment/4/CommonGovernment_4/40_pbsdollar.double
+CommonGovernment/5/CommonGovernment_5/10_baseandalloptionsvalue.double
+CommonGovernment/5/CommonGovernment_5/11_baseandexercisedoptionsvalue.double
+CommonGovernment/5/CommonGovernment_5/26_ftsdollar.double
+CommonGovernment/5/CommonGovernment_5/30_gsadollar.double
+CommonGovernment/5/CommonGovernment_5/31_gsaotherdollar.double
+CommonGovernment/5/CommonGovernment_5/32_gwacs.double
+CommonGovernment/5/CommonGovernment_5/37_nongsadollar.double
+CommonGovernment/5/CommonGovernment_5/38_obligatedamount.double
+CommonGovernment/5/CommonGovernment_5/39_obligatedamount_1.double
+CommonGovernment/5/CommonGovernment_5/40_pbsdollar.double
+CommonGovernment/6/CommonGovernment_6/10_baseandalloptionsvalue.double
+CommonGovernment/6/CommonGovernment_6/11_baseandexercisedoptionsvalue.double
+CommonGovernment/6/CommonGovernment_6/26_ftsdollar.double
+CommonGovernment/6/CommonGovernment_6/30_gsadollar.double
+CommonGovernment/6/CommonGovernment_6/31_gsaotherdollar.double
+CommonGovernment/6/CommonGovernment_6/32_gwacs.double
+CommonGovernment/6/CommonGovernment_6/37_nongsadollar.double
+CommonGovernment/6/CommonGovernment_6/38_obligatedamount.double
+CommonGovernment/6/CommonGovernment_6/39_obligatedamount_1.double
+CommonGovernment/6/CommonGovernment_6/40_pbsdollar.double
+CommonGovernment/7/CommonGovernment_7/10_baseandalloptionsvalue.double
+CommonGovernment/7/CommonGovernment_7/11_baseandexercisedoptionsvalue.double
+CommonGovernment/7/CommonGovernment_7/26_ftsdollar.double
+CommonGovernment/7/CommonGovernment_7/30_gsadollar.double
+CommonGovernment/7/CommonGovernment_7/31_gsaotherdollar.double
+CommonGovernment/7/CommonGovernment_7/32_gwacs.double
+CommonGovernment/7/CommonGovernment_7/37_nongsadollar.double
+CommonGovernment/7/CommonGovernment_7/38_obligatedamount.double
+CommonGovernment/7/CommonGovernment_7/39_obligatedamount_1.double
+CommonGovernment/7/CommonGovernment_7/40_pbsdollar.double
+CommonGovernment/8/CommonGovernment_8/10_baseandalloptionsvalue.double
+CommonGovernment/8/CommonGovernment_8/11_baseandexercisedoptionsvalue.double
+CommonGovernment/8/CommonGovernment_8/26_ftsdollar.double
+CommonGovernment/8/CommonGovernment_8/30_gsadollar.double
+CommonGovernment/8/CommonGovernment_8/31_gsaotherdollar.double
+CommonGovernment/8/CommonGovernment_8/32_gwacs.double
+CommonGovernment/8/CommonGovernment_8/37_nongsadollar.double
+CommonGovernment/8/CommonGovernment_8/38_obligatedamount.double
+CommonGovernment/8/CommonGovernment_8/39_obligatedamount_1.double
+CommonGovernment/8/CommonGovernment_8/40_pbsdollar.double
+CommonGovernment/9/CommonGovernment_9/10_baseandalloptionsvalue.double
+CommonGovernment/9/CommonGovernment_9/11_baseandexercisedoptionsvalue.double
+CommonGovernment/9/CommonGovernment_9/26_ftsdollar.double
+CommonGovernment/9/CommonGovernment_9/30_gsadollar.double
+CommonGovernment/9/CommonGovernment_9/31_gsaotherdollar.double
+CommonGovernment/9/CommonGovernment_9/32_gwacs.double
+CommonGovernment/9/CommonGovernment_9/37_nongsadollar.double
+CommonGovernment/9/CommonGovernment_9/38_obligatedamount.double
+CommonGovernment/9/CommonGovernment_9/39_obligatedamount_1.double
+CommonGovernment/9/CommonGovernment_9/40_pbsdollar.double
+Euro2016/1/Euro2016_1/7_polarity_confidence.double
+Euro2016/1/Euro2016_1/9_subjectivity_confidence.double
+Food/1/Food_1/6_volume_total_bytes.double
+Generico/1/Generico_1/22_InversionQ.double
+Generico/1/Generico_1/23_InversionUS.double
+Generico/2/Generico_2/22_InversionQ.double
+Generico/2/Generico_2/23_InversionUS.double
+Generico/3/Generico_3/22_InversionQ.double
+Generico/3/Generico_3/23_InversionUS.double
+Generico/4/Generico_4/22_InversionQ.double
+Generico/4/Generico_4/23_InversionUS.double
+Generico/5/Generico_5/22_InversionQ.double
+Generico/5/Generico_5/23_InversionUS.double
+HashTags/1/HashTags_1/11_interaction#geo#latitude.double
+HashTags/1/HashTags_1/12_interaction#geo#longitude.double
+HashTags/1/HashTags_1/18_interaction#received_at.double
+HashTags/1/HashTags_1/26_twitter#geo#latitude.double
+HashTags/1/HashTags_1/27_twitter#geo#longitude.double
+HashTags/1/HashTags_1/29_twitter#id.double
+HashTags/1/HashTags_1/31_twitter#in_reply_to_status_id.double
+HashTags/1/HashTags_1/4_interaction#author#id.double
+HashTags/1/HashTags_1/54_twitter#user#id.double
+HashTags/1/HashTags_1/55_twitter#user#id_str.double
+Hatred/1/Hatred_1/13_Joined.double
+Hatred/1/Hatred_1/15_LPF.double
+Hatred/1/Hatred_1/17_Lat.double
+Hatred/1/Hatred_1/20_Long.double
+Hatred/1/Hatred_1/3_Created Date.double
+Hatred/1/Hatred_1/7_FF Ratio.double
+IGlocations2/1/IGlocations2_1/10_longitude.double
+IGlocations2/1/IGlocations2_1/16_Calculation_1750724145742463.double
+IGlocations2/1/IGlocations2_1/20_Calculation_9330724145728972.double
+IGlocations2/1/IGlocations2_1/7_latitude.double
+IGlocations2/2/IGlocations2_2/10_longitude.double
+IGlocations2/2/IGlocations2_2/16_Calculation_1750724145742463.double
+IGlocations2/2/IGlocations2_2/20_Calculation_9330724145728972.double
+IGlocations2/2/IGlocations2_2/7_latitude.double
+Medicare1/1/Medicare1_1/23_TOTAL_DRUG_COST.double
+Medicare1/1/Medicare1_1/24_TOTAL_DRUG_COST_GE65.double
+Medicare1/1/Medicare1_1/4_Calculation_3170826185336909.double
+Medicare1/1/Medicare1_1/5_Calculation_3170826185505725.double
+Medicare1/1/Medicare1_1/6_Calculation_7130826185400024.double
+Medicare1/1/Medicare1_1/7_Calculation_9030826185528129.double
+Medicare1/2/Medicare1_2/23_TOTAL_DRUG_COST.double
+Medicare1/2/Medicare1_2/24_TOTAL_DRUG_COST_GE65.double
+Medicare1/2/Medicare1_2/4_Calculation_3170826185336909.double
+Medicare1/2/Medicare1_2/5_Calculation_3170826185505725.double
+Medicare1/2/Medicare1_2/6_Calculation_7130826185400024.double
+Medicare1/2/Medicare1_2/7_Calculation_9030826185528129.double
+Medicare2/1/Medicare2_1/26_stdev_Medicare_allowed_amt.double
+Medicare2/1/Medicare2_1/27_stdev_Medicare_payment_amt.double
+Medicare2/1/Medicare2_1/28_stdev_submitted_chrg_amt.double
+Medicare2/1/Medicare2_1/2_average_Medicare_allowed_amt.double
+Medicare2/1/Medicare2_1/3_average_Medicare_payment_amt.double
+Medicare2/1/Medicare2_1/4_average_submitted_chrg_amt.double
+Medicare2/2/Medicare2_2/26_stdev_Medicare_allowed_amt.double
+Medicare2/2/Medicare2_2/27_stdev_Medicare_payment_amt.double
+Medicare2/2/Medicare2_2/28_stdev_submitted_chrg_amt.double
+Medicare2/2/Medicare2_2/2_average_Medicare_allowed_amt.double
+Medicare2/2/Medicare2_2/3_average_Medicare_payment_amt.double
+Medicare2/2/Medicare2_2/4_average_submitted_chrg_amt.double
+Medicare3/1/Medicare3_1/1_AVERAGE_MEDICARE_ALLOWED_AMT.double
+Medicare3/1/Medicare3_1/27_STDEV_MEDICARE_ALLOWED_AMT.double
+Medicare3/1/Medicare3_1/28_STDEV_MEDICARE_PAYMENT_AMT.double
+Medicare3/1/Medicare3_1/29_STDEV_SUBMITTED_CHRG_AMT.double
+Medicare3/1/Medicare3_1/2_AVERAGE_MEDICARE_PAYMENT_AMT.double
+Medicare3/1/Medicare3_1/3_AVERAGE_SUBMITTED_CHRG_AMT.double
+Medicare3/1/Medicare3_1/9_LINE_SRVC_CNT.double
+MedPayment1/1/MedPayment1_1/26_stdev_Medicare_allowed_amt.double
+MedPayment1/1/MedPayment1_1/27_stdev_Medicare_payment_amt.double
+MedPayment1/1/MedPayment1_1/28_stdev_submitted_chrg_amt.double
+MedPayment1/1/MedPayment1_1/2_average_Medicare_allowed_amt.double
+MedPayment1/1/MedPayment1_1/3_average_Medicare_payment_amt.double
+MedPayment1/1/MedPayment1_1/4_average_submitted_chrg_amt.double
+MedPayment1/1/MedPayment1_1/9_line_srvc_cnt.double
+MedPayment2/1/MedPayment2_1/26_stdev_Medicare_allowed_amt.double
+MedPayment2/1/MedPayment2_1/27_stdev_Medicare_payment_amt.double
+MedPayment2/1/MedPayment2_1/28_stdev_submitted_chrg_amt.double
+MedPayment2/1/MedPayment2_1/29_Calculation_0820513143749095.double
+MedPayment2/1/MedPayment2_1/2_average_Medicare_allowed_amt.double
+MedPayment2/1/MedPayment2_1/3_average_Medicare_payment_amt.double
+MedPayment2/1/MedPayment2_1/4_average_submitted_chrg_amt.double
+MedPayment2/1/MedPayment2_1/9_line_srvc_cnt.double
+MLB/10/MLB_10/13_ISO.double
+MLB/10/MLB_10/14_LD..double
+MLB/10/MLB_10/17_OBP.double
+MLB/10/MLB_10/19_PU..double
+MLB/10/MLB_10/23_SLG.double
+MLB/10/MLB_10/2_AVG.double
+MLB/10/MLB_10/34_wOBA.double
+MLB/10/MLB_10/35_wRAA.double
+MLB/10/MLB_10/37_wRC.double
+MLB/10/MLB_10/39_Calculation_40532458117263387.double
+MLB/10/MLB_10/3_BABIP.double
+MLB/10/MLB_10/40_Calculation_40532458113208334.double
+MLB/10/MLB_10/5_FB..double
+MLB/10/MLB_10/7_GB..double
+MLB/11/MLB_11/13_ISO.double
+MLB/11/MLB_11/14_LD..double
+MLB/11/MLB_11/17_OBP.double
+MLB/11/MLB_11/19_PU..double
+MLB/11/MLB_11/23_SLG.double
+MLB/11/MLB_11/2_AVG.double
+MLB/11/MLB_11/34_wOBA.double
+MLB/11/MLB_11/35_wRAA.double
+MLB/11/MLB_11/37_wRC.double
+MLB/11/MLB_11/39_Calculation_40532458117263387.double
+MLB/11/MLB_11/3_BABIP.double
+MLB/11/MLB_11/40_Calculation_40532458113208334.double
+MLB/11/MLB_11/5_FB..double
+MLB/11/MLB_11/7_GB..double
+MLB/12/MLB_12/15_ISO.double
+MLB/12/MLB_12/17_LD..double
+MLB/12/MLB_12/20_OBP.double
+MLB/12/MLB_12/22_PU..double
+MLB/12/MLB_12/26_SLG.double
+MLB/12/MLB_12/2_AVG.double
+MLB/12/MLB_12/3_BABIP.double
+MLB/12/MLB_12/42_wOBA.double
+MLB/12/MLB_12/43_wRAA.double
+MLB/12/MLB_12/45_wRC.double
+MLB/12/MLB_12/47_Calculation_40532458112880653.double
+MLB/12/MLB_12/48_Calculation_40532458117070874.double
+MLB/12/MLB_12/7_FB..double
+MLB/12/MLB_12/9_GB..double
+MLB/13/MLB_13/15_ISO.double
+MLB/13/MLB_13/17_LD..double
+MLB/13/MLB_13/20_OBP.double
+MLB/13/MLB_13/22_PU..double
+MLB/13/MLB_13/26_SLG.double
+MLB/13/MLB_13/2_AVG.double
+MLB/13/MLB_13/3_BABIP.double
+MLB/13/MLB_13/42_wOBA.double
+MLB/13/MLB_13/43_wRAA.double
+MLB/13/MLB_13/45_wRC.double
+MLB/13/MLB_13/47_Calculation_40532458112880653.double
+MLB/13/MLB_13/48_Calculation_40532458117070874.double
+MLB/13/MLB_13/7_FB..double
+MLB/13/MLB_13/9_GB..double
+MLB/14/MLB_14/15_ISO.double
+MLB/14/MLB_14/17_LD..double
+MLB/14/MLB_14/20_OBP.double
+MLB/14/MLB_14/22_PU..double
+MLB/14/MLB_14/26_SLG.double
+MLB/14/MLB_14/2_AVG.double
+MLB/14/MLB_14/3_BABIP.double
+MLB/14/MLB_14/42_wOBA.double
+MLB/14/MLB_14/43_wRAA.double
+MLB/14/MLB_14/45_wRC.double
+MLB/14/MLB_14/47_Calculation_40532458112880653.double
+MLB/14/MLB_14/48_Calculation_40532458117070874.double
+MLB/14/MLB_14/7_FB..double
+MLB/14/MLB_14/9_GB..double
+MLB/15/MLB_15/11_Ca..double
+MLB/15/MLB_15/12_Calculation_496521908233621517.double
+MLB/15/MLB_15/14_F..double
+MLB/15/MLB_15/15_FB..double
+MLB/15/MLB_15/18_GB..double
+MLB/15/MLB_15/24_ISO.double
+MLB/15/MLB_15/25_K..double
+MLB/15/MLB_15/26_LD..double
+MLB/15/MLB_15/29_OBP.double
+MLB/15/MLB_15/2_AVG.double
+MLB/15/MLB_15/31_PU..double
+MLB/15/MLB_15/36_SB..double
+MLB/15/MLB_15/3_BABIP.double
+MLB/15/MLB_15/40_SLG.double
+MLB/15/MLB_15/44_Str..double
+MLB/15/MLB_15/46_SwStr..double
+MLB/15/MLB_15/49_Wh.Sw.double
+MLB/15/MLB_15/4_BB..double
+MLB/15/MLB_15/62_wOBA.double
+MLB/15/MLB_15/63_wRAA.double
+MLB/15/MLB_15/65_wRC.double
+MLB/15/MLB_15/67_Calculation_40532458112270348.double
+MLB/15/MLB_15/68_Calculation_40532458116673561.double
+MLB/15/MLB_15/6_BIP..double
+MLB/15/MLB_15/8_Ba..double
+MLB/16/MLB_16/11_Ca..double
+MLB/16/MLB_16/12_Calculation_496521908233621517.double
+MLB/16/MLB_16/14_F..double
+MLB/16/MLB_16/15_FB..double
+MLB/16/MLB_16/18_GB..double
+MLB/16/MLB_16/24_ISO.double
+MLB/16/MLB_16/25_K..double
+MLB/16/MLB_16/26_LD..double
+MLB/16/MLB_16/29_OBP.double
+MLB/16/MLB_16/2_AVG.double
+MLB/16/MLB_16/31_PU..double
+MLB/16/MLB_16/36_SB..double
+MLB/16/MLB_16/3_BABIP.double
+MLB/16/MLB_16/40_SLG.double
+MLB/16/MLB_16/44_Str..double
+MLB/16/MLB_16/46_SwStr..double
+MLB/16/MLB_16/49_Wh.Sw.double
+MLB/16/MLB_16/4_BB..double
+MLB/16/MLB_16/62_wOBA.double
+MLB/16/MLB_16/63_wRAA.double
+MLB/16/MLB_16/65_wRC.double
+MLB/16/MLB_16/67_Calculation_40532458112270348.double
+MLB/16/MLB_16/68_Calculation_40532458116673561.double
+MLB/16/MLB_16/6_BIP..double
+MLB/16/MLB_16/8_Ba..double
+MLB/17/MLB_17/11_Ca..double
+MLB/17/MLB_17/12_Calculation_496521908233621517.double
+MLB/17/MLB_17/14_F..double
+MLB/17/MLB_17/15_FB..double
+MLB/17/MLB_17/18_GB..double
+MLB/17/MLB_17/24_ISO.double
+MLB/17/MLB_17/25_K..double
+MLB/17/MLB_17/26_LD..double
+MLB/17/MLB_17/29_OBP.double
+MLB/17/MLB_17/2_AVG.double
+MLB/17/MLB_17/31_PU..double
+MLB/17/MLB_17/36_SB..double
+MLB/17/MLB_17/3_BABIP.double
+MLB/17/MLB_17/40_SLG.double
+MLB/17/MLB_17/44_Str..double
+MLB/17/MLB_17/46_SwStr..double
+MLB/17/MLB_17/49_Wh.Sw.double
+MLB/17/MLB_17/4_BB..double
+MLB/17/MLB_17/62_wOBA.double
+MLB/17/MLB_17/63_wRAA.double
+MLB/17/MLB_17/65_wRC.double
+MLB/17/MLB_17/67_Calculation_40532458112270348.double
+MLB/17/MLB_17/68_Calculation_40532458116673561.double
+MLB/17/MLB_17/6_BIP..double
+MLB/17/MLB_17/8_Ba..double
+MLB/18/MLB_18/11_Ca..double
+MLB/18/MLB_18/12_Calculation_496521908233621517.double
+MLB/18/MLB_18/14_F..double
+MLB/18/MLB_18/15_FB..double
+MLB/18/MLB_18/18_GB..double
+MLB/18/MLB_18/24_ISO.double
+MLB/18/MLB_18/25_K..double
+MLB/18/MLB_18/26_LD..double
+MLB/18/MLB_18/29_OBP.double
+MLB/18/MLB_18/2_AVG.double
+MLB/18/MLB_18/31_PU..double
+MLB/18/MLB_18/36_SB..double
+MLB/18/MLB_18/3_BABIP.double
+MLB/18/MLB_18/40_SLG.double
+MLB/18/MLB_18/44_Str..double
+MLB/18/MLB_18/46_SwStr..double
+MLB/18/MLB_18/49_Wh.Sw.double
+MLB/18/MLB_18/4_BB..double
+MLB/18/MLB_18/62_wOBA.double
+MLB/18/MLB_18/63_wRAA.double
+MLB/18/MLB_18/65_wRC.double
+MLB/18/MLB_18/67_Calculation_40532458112270348.double
+MLB/18/MLB_18/68_Calculation_40532458116673561.double
+MLB/18/MLB_18/6_BIP..double
+MLB/18/MLB_18/8_Ba..double
+MLB/19/MLB_19/10_Ca..double
+MLB/19/MLB_19/11_Calculation_361765767527686145.double
+MLB/19/MLB_19/13_F..double
+MLB/19/MLB_19/14_FB..double
+MLB/19/MLB_19/17_GB..double
+MLB/19/MLB_19/23_ISO.double
+MLB/19/MLB_19/24_K..double
+MLB/19/MLB_19/25_LD..double
+MLB/19/MLB_19/28_OBP.double
+MLB/19/MLB_19/2_AVG.double
+MLB/19/MLB_19/30_PU..double
+MLB/19/MLB_19/35_SLG.double
+MLB/19/MLB_19/39_Str..double
+MLB/19/MLB_19/3_BABIP.double
+MLB/19/MLB_19/41_SwStr..double
+MLB/19/MLB_19/44_Wh.Sw.double
+MLB/19/MLB_19/4_BB..double
+MLB/19/MLB_19/55_wOBA.double
+MLB/19/MLB_19/56_wRAA.double
+MLB/19/MLB_19/58_wRC.double
+MLB/19/MLB_19/60_Calculation_40532458111905803.double
+MLB/19/MLB_19/61_Calculation_40532458116419608.double
+MLB/19/MLB_19/6_BIP..double
+MLB/19/MLB_19/8_Ba..double
+MLB/1/MLB_1/15_ISO.double
+MLB/1/MLB_1/17_LD..double
+MLB/1/MLB_1/20_OBP.double
+MLB/1/MLB_1/22_PU..double
+MLB/1/MLB_1/26_SLG.double
+MLB/1/MLB_1/2_AVG.double
+MLB/1/MLB_1/3_BABIP.double
+MLB/1/MLB_1/42_wOBA.double
+MLB/1/MLB_1/43_wRAA.double
+MLB/1/MLB_1/45_wRC.double
+MLB/1/MLB_1/47_Calculation_40532458112880653.double
+MLB/1/MLB_1/48_Calculation_40532458117070874.double
+MLB/1/MLB_1/7_FB..double
+MLB/1/MLB_1/9_GB..double
+MLB/20/MLB_20/10_Ca..double
+MLB/20/MLB_20/11_Calculation_361765767527686145.double
+MLB/20/MLB_20/13_F..double
+MLB/20/MLB_20/14_FB..double
+MLB/20/MLB_20/17_GB..double
+MLB/20/MLB_20/23_ISO.double
+MLB/20/MLB_20/24_K..double
+MLB/20/MLB_20/25_LD..double
+MLB/20/MLB_20/28_OBP.double
+MLB/20/MLB_20/2_AVG.double
+MLB/20/MLB_20/30_PU..double
+MLB/20/MLB_20/35_SLG.double
+MLB/20/MLB_20/39_Str..double
+MLB/20/MLB_20/3_BABIP.double
+MLB/20/MLB_20/41_SwStr..double
+MLB/20/MLB_20/44_Wh.Sw.double
+MLB/20/MLB_20/4_BB..double
+MLB/20/MLB_20/55_wOBA.double
+MLB/20/MLB_20/56_wRAA.double
+MLB/20/MLB_20/58_wRC.double
+MLB/20/MLB_20/60_Calculation_40532458111905803.double
+MLB/20/MLB_20/61_Calculation_40532458116419608.double
+MLB/20/MLB_20/6_BIP..double
+MLB/20/MLB_20/8_Ba..double
+MLB/21/MLB_21/10_Ca..double
+MLB/21/MLB_21/11_Calculation_361765767527686145.double
+MLB/21/MLB_21/13_F..double
+MLB/21/MLB_21/14_FB..double
+MLB/21/MLB_21/17_GB..double
+MLB/21/MLB_21/23_ISO.double
+MLB/21/MLB_21/24_K..double
+MLB/21/MLB_21/25_LD..double
+MLB/21/MLB_21/28_OBP.double
+MLB/21/MLB_21/2_AVG.double
+MLB/21/MLB_21/30_PU..double
+MLB/21/MLB_21/35_SLG.double
+MLB/21/MLB_21/39_Str..double
+MLB/21/MLB_21/3_BABIP.double
+MLB/21/MLB_21/41_SwStr..double
+MLB/21/MLB_21/44_Wh.Sw.double
+MLB/21/MLB_21/4_BB..double
+MLB/21/MLB_21/55_wOBA.double
+MLB/21/MLB_21/56_wRAA.double
+MLB/21/MLB_21/58_wRC.double
+MLB/21/MLB_21/60_Calculation_40532458111905803.double
+MLB/21/MLB_21/61_Calculation_40532458116419608.double
+MLB/21/MLB_21/6_BIP..double
+MLB/21/MLB_21/8_Ba..double
+MLB/22/MLB_22/10_Ca..double
+MLB/22/MLB_22/11_Calculation_496521908233404428.double
+MLB/22/MLB_22/13_F..double
+MLB/22/MLB_22/14_FB..double
+MLB/22/MLB_22/17_GB..double
+MLB/22/MLB_22/23_ISO.double
+MLB/22/MLB_22/24_K..double
+MLB/22/MLB_22/25_LD..double
+MLB/22/MLB_22/28_OBP.double
+MLB/22/MLB_22/2_AVG.double
+MLB/22/MLB_22/30_PU..double
+MLB/22/MLB_22/35_SLG.double
+MLB/22/MLB_22/39_Str..double
+MLB/22/MLB_22/3_BABIP.double
+MLB/22/MLB_22/41_SwStr..double
+MLB/22/MLB_22/44_Wh.Sw.double
+MLB/22/MLB_22/4_BB..double
+MLB/22/MLB_22/55_wOBA.double
+MLB/22/MLB_22/56_wRAA.double
+MLB/22/MLB_22/58_wRC.double
+MLB/22/MLB_22/60_Calculation_40532458111283210.double
+MLB/22/MLB_22/61_Calculation_40532458116173847.double
+MLB/22/MLB_22/6_BIP..double
+MLB/22/MLB_22/8_Ba..double
+MLB/23/MLB_23/10_Ca..double
+MLB/23/MLB_23/11_Calculation_496521908233404428.double
+MLB/23/MLB_23/13_F..double
+MLB/23/MLB_23/14_FB..double
+MLB/23/MLB_23/17_GB..double
+MLB/23/MLB_23/23_ISO.double
+MLB/23/MLB_23/24_K..double
+MLB/23/MLB_23/25_LD..double
+MLB/23/MLB_23/28_OBP.double
+MLB/23/MLB_23/2_AVG.double
+MLB/23/MLB_23/30_PU..double
+MLB/23/MLB_23/35_SLG.double
+MLB/23/MLB_23/39_Str..double
+MLB/23/MLB_23/3_BABIP.double
+MLB/23/MLB_23/41_SwStr..double
+MLB/23/MLB_23/44_Wh.Sw.double
+MLB/23/MLB_23/4_BB..double
+MLB/23/MLB_23/55_wOBA.double
+MLB/23/MLB_23/56_wRAA.double
+MLB/23/MLB_23/58_wRC.double
+MLB/23/MLB_23/60_Calculation_40532458111283210.double
+MLB/23/MLB_23/61_Calculation_40532458116173847.double
+MLB/23/MLB_23/6_BIP..double
+MLB/23/MLB_23/8_Ba..double
+MLB/24/MLB_24/10_Ca..double
+MLB/24/MLB_24/11_Calculation_496521908233404428.double
+MLB/24/MLB_24/13_F..double
+MLB/24/MLB_24/14_FB..double
+MLB/24/MLB_24/17_GB..double
+MLB/24/MLB_24/23_ISO.double
+MLB/24/MLB_24/24_K..double
+MLB/24/MLB_24/25_LD..double
+MLB/24/MLB_24/28_OBP.double
+MLB/24/MLB_24/2_AVG.double
+MLB/24/MLB_24/30_PU..double
+MLB/24/MLB_24/35_SLG.double
+MLB/24/MLB_24/39_Str..double
+MLB/24/MLB_24/3_BABIP.double
+MLB/24/MLB_24/41_SwStr..double
+MLB/24/MLB_24/44_Wh.Sw.double
+MLB/24/MLB_24/4_BB..double
+MLB/24/MLB_24/55_wOBA.double
+MLB/24/MLB_24/56_wRAA.double
+MLB/24/MLB_24/58_wRC.double
+MLB/24/MLB_24/60_Calculation_40532458111283210.double
+MLB/24/MLB_24/61_Calculation_40532458116173847.double
+MLB/24/MLB_24/6_BIP..double
+MLB/24/MLB_24/8_Ba..double
+MLB/25/MLB_25/10_Ca..double
+MLB/25/MLB_25/11_Calculation_496521908233248779.double
+MLB/25/MLB_25/13_F..double
+MLB/25/MLB_25/14_FB..double
+MLB/25/MLB_25/17_GB..double
+MLB/25/MLB_25/23_ISO.double
+MLB/25/MLB_25/24_K..double
+MLB/25/MLB_25/25_LD..double
+MLB/25/MLB_25/28_OBP.double
+MLB/25/MLB_25/2_AVG.double
+MLB/25/MLB_25/30_PU..double
+MLB/25/MLB_25/35_SLG.double
+MLB/25/MLB_25/39_Str..double
+MLB/25/MLB_25/3_BABIP.double
+MLB/25/MLB_25/41_SwStr..double
+MLB/25/MLB_25/44_Wh.Sw.double
+MLB/25/MLB_25/4_BB..double
+MLB/25/MLB_25/55_wOBA.double
+MLB/25/MLB_25/56_wRAA.double
+MLB/25/MLB_25/58_wRC.double
+MLB/25/MLB_25/60_Calculation_40532458110861321.double
+MLB/25/MLB_25/61_Calculation_40532458115964950.double
+MLB/25/MLB_25/6_BIP..double
+MLB/25/MLB_25/8_Ba..double
+MLB/26/MLB_26/10_Ca..double
+MLB/26/MLB_26/11_Calculation_496521908233248779.double
+MLB/26/MLB_26/13_F..double
+MLB/26/MLB_26/14_FB..double
+MLB/26/MLB_26/17_GB..double
+MLB/26/MLB_26/23_ISO.double
+MLB/26/MLB_26/24_K..double
+MLB/26/MLB_26/25_LD..double
+MLB/26/MLB_26/28_OBP.double
+MLB/26/MLB_26/2_AVG.double
+MLB/26/MLB_26/30_PU..double
+MLB/26/MLB_26/35_SLG.double
+MLB/26/MLB_26/39_Str..double
+MLB/26/MLB_26/3_BABIP.double
+MLB/26/MLB_26/41_SwStr..double
+MLB/26/MLB_26/44_Wh.Sw.double
+MLB/26/MLB_26/4_BB..double
+MLB/26/MLB_26/55_wOBA.double
+MLB/26/MLB_26/56_wRAA.double
+MLB/26/MLB_26/58_wRC.double
+MLB/26/MLB_26/60_Calculation_40532458110861321.double
+MLB/26/MLB_26/61_Calculation_40532458115964950.double
+MLB/26/MLB_26/6_BIP..double
+MLB/26/MLB_26/8_Ba..double
+MLB/27/MLB_27/10_Ca..double
+MLB/27/MLB_27/11_Calculation_496521908233248779.double
+MLB/27/MLB_27/13_F..double
+MLB/27/MLB_27/14_FB..double
+MLB/27/MLB_27/17_GB..double
+MLB/27/MLB_27/23_ISO.double
+MLB/27/MLB_27/24_K..double
+MLB/27/MLB_27/25_LD..double
+MLB/27/MLB_27/28_OBP.double
+MLB/27/MLB_27/2_AVG.double
+MLB/27/MLB_27/30_PU..double
+MLB/27/MLB_27/35_SLG.double
+MLB/27/MLB_27/39_Str..double
+MLB/27/MLB_27/3_BABIP.double
+MLB/27/MLB_27/41_SwStr..double
+MLB/27/MLB_27/44_Wh.Sw.double
+MLB/27/MLB_27/4_BB..double
+MLB/27/MLB_27/55_wOBA.double
+MLB/27/MLB_27/56_wRAA.double
+MLB/27/MLB_27/58_wRC.double
+MLB/27/MLB_27/60_Calculation_40532458110861321.double
+MLB/27/MLB_27/61_Calculation_40532458115964950.double
+MLB/27/MLB_27/6_BIP..double
+MLB/27/MLB_27/8_Ba..double
+MLB/28/MLB_28/10_Ca..double
+MLB/28/MLB_28/11_Calculation_496521908233248779.double
+MLB/28/MLB_28/13_F..double
+MLB/28/MLB_28/14_FB..double
+MLB/28/MLB_28/17_GB..double
+MLB/28/MLB_28/23_ISO.double
+MLB/28/MLB_28/24_K..double
+MLB/28/MLB_28/25_LD..double
+MLB/28/MLB_28/28_OBP.double
+MLB/28/MLB_28/2_AVG.double
+MLB/28/MLB_28/30_PU..double
+MLB/28/MLB_28/35_SLG.double
+MLB/28/MLB_28/39_Str..double
+MLB/28/MLB_28/3_BABIP.double
+MLB/28/MLB_28/41_SwStr..double
+MLB/28/MLB_28/44_Wh.Sw.double
+MLB/28/MLB_28/4_BB..double
+MLB/28/MLB_28/55_wOBA.double
+MLB/28/MLB_28/56_wRAA.double
+MLB/28/MLB_28/58_wRC.double
+MLB/28/MLB_28/60_Calculation_40532458110861321.double
+MLB/28/MLB_28/61_Calculation_40532458115964950.double
+MLB/28/MLB_28/6_BIP..double
+MLB/28/MLB_28/8_Ba..double
+MLB/29/MLB_29/10_Ca..double
+MLB/29/MLB_29/11_Calculation_496521908233248779.double
+MLB/29/MLB_29/13_F..double
+MLB/29/MLB_29/14_FB..double
+MLB/29/MLB_29/17_GB..double
+MLB/29/MLB_29/23_ISO.double
+MLB/29/MLB_29/24_K..double
+MLB/29/MLB_29/25_LD..double
+MLB/29/MLB_29/28_OBP.double
+MLB/29/MLB_29/2_AVG.double
+MLB/29/MLB_29/30_PU..double
+MLB/29/MLB_29/35_SLG.double
+MLB/29/MLB_29/39_Str..double
+MLB/29/MLB_29/3_BABIP.double
+MLB/29/MLB_29/41_SwStr..double
+MLB/29/MLB_29/44_Wh.Sw.double
+MLB/29/MLB_29/4_BB..double
+MLB/29/MLB_29/55_wOBA.double
+MLB/29/MLB_29/56_wRAA.double
+MLB/29/MLB_29/58_wRC.double
+MLB/29/MLB_29/60_Calculation_40532458110861321.double
+MLB/29/MLB_29/61_Calculation_40532458115964950.double
+MLB/29/MLB_29/6_BIP..double
+MLB/29/MLB_29/8_Ba..double
+MLB/2/MLB_2/16_our.x.double
+MLB/2/MLB_2/17_our.y.double
+MLB/2/MLB_2/20_r.double
+MLB/2/MLB_2/22_theta.double
+MLB/30/MLB_30/10_Ca..double
+MLB/30/MLB_30/11_Calculation_496521908233248779.double
+MLB/30/MLB_30/13_F..double
+MLB/30/MLB_30/14_FB..double
+MLB/30/MLB_30/17_GB..double
+MLB/30/MLB_30/23_ISO.double
+MLB/30/MLB_30/24_K..double
+MLB/30/MLB_30/25_LD..double
+MLB/30/MLB_30/28_OBP.double
+MLB/30/MLB_30/2_AVG.double
+MLB/30/MLB_30/30_PU..double
+MLB/30/MLB_30/35_SLG.double
+MLB/30/MLB_30/39_Str..double
+MLB/30/MLB_30/3_BABIP.double
+MLB/30/MLB_30/41_SwStr..double
+MLB/30/MLB_30/44_Wh.Sw.double
+MLB/30/MLB_30/4_BB..double
+MLB/30/MLB_30/55_wOBA.double
+MLB/30/MLB_30/56_wRAA.double
+MLB/30/MLB_30/58_wRC.double
+MLB/30/MLB_30/60_Calculation_40532458110861321.double
+MLB/30/MLB_30/61_Calculation_40532458115964950.double
+MLB/30/MLB_30/6_BIP..double
+MLB/30/MLB_30/8_Ba..double
+MLB/31/MLB_31/10_Ca..double
+MLB/31/MLB_31/12_F..double
+MLB/31/MLB_31/13_FB..double
+MLB/31/MLB_31/16_GB..double
+MLB/31/MLB_31/22_ISO.double
+MLB/31/MLB_31/23_K..double
+MLB/31/MLB_31/24_LD..double
+MLB/31/MLB_31/27_OBP.double
+MLB/31/MLB_31/2_AVG.double
+MLB/31/MLB_31/30_PU..double
+MLB/31/MLB_31/35_SLG.double
+MLB/31/MLB_31/39_Str..double
+MLB/31/MLB_31/3_BABIP.double
+MLB/31/MLB_31/41_SwStr..double
+MLB/31/MLB_31/44_Wh.Sw.double
+MLB/31/MLB_31/4_BB..double
+MLB/31/MLB_31/54_wOBA.double
+MLB/31/MLB_31/55_wRAA.double
+MLB/31/MLB_31/57_wRC.double
+MLB/31/MLB_31/59_Calculation_361765767503851520.double
+MLB/31/MLB_31/60_Calculation_40532458110562312.double
+MLB/31/MLB_31/61_Calculation_40532458115731477.double
+MLB/31/MLB_31/6_BIP..double
+MLB/31/MLB_31/8_Ba..double
+MLB/32/MLB_32/10_Ca..double
+MLB/32/MLB_32/12_F..double
+MLB/32/MLB_32/13_FB..double
+MLB/32/MLB_32/16_GB..double
+MLB/32/MLB_32/22_ISO.double
+MLB/32/MLB_32/23_K..double
+MLB/32/MLB_32/24_LD..double
+MLB/32/MLB_32/27_OBP.double
+MLB/32/MLB_32/2_AVG.double
+MLB/32/MLB_32/30_PU..double
+MLB/32/MLB_32/35_SLG.double
+MLB/32/MLB_32/39_Str..double
+MLB/32/MLB_32/3_BABIP.double
+MLB/32/MLB_32/41_SwStr..double
+MLB/32/MLB_32/44_Wh.Sw.double
+MLB/32/MLB_32/4_BB..double
+MLB/32/MLB_32/54_wOBA.double
+MLB/32/MLB_32/55_wRAA.double
+MLB/32/MLB_32/57_wRC.double
+MLB/32/MLB_32/59_Calculation_361765767503851520.double
+MLB/32/MLB_32/60_Calculation_40532458110562312.double
+MLB/32/MLB_32/61_Calculation_40532458115731477.double
+MLB/32/MLB_32/6_BIP..double
+MLB/32/MLB_32/8_Ba..double
+MLB/33/MLB_33/10_Ca..double
+MLB/33/MLB_33/12_F..double
+MLB/33/MLB_33/13_FB..double
+MLB/33/MLB_33/16_GB..double
+MLB/33/MLB_33/22_ISO.double
+MLB/33/MLB_33/23_K..double
+MLB/33/MLB_33/24_LD..double
+MLB/33/MLB_33/27_OBP.double
+MLB/33/MLB_33/2_AVG.double
+MLB/33/MLB_33/30_PU..double
+MLB/33/MLB_33/35_SLG.double
+MLB/33/MLB_33/39_Str..double
+MLB/33/MLB_33/3_BABIP.double
+MLB/33/MLB_33/41_SwStr..double
+MLB/33/MLB_33/44_Wh.Sw.double
+MLB/33/MLB_33/4_BB..double
+MLB/33/MLB_33/54_wOBA.double
+MLB/33/MLB_33/55_wRAA.double
+MLB/33/MLB_33/57_wRC.double
+MLB/33/MLB_33/59_Calculation_361765767503851520.double
+MLB/33/MLB_33/60_Calculation_40532458110562312.double
+MLB/33/MLB_33/61_Calculation_40532458115731477.double
+MLB/33/MLB_33/6_BIP..double
+MLB/33/MLB_33/8_Ba..double
+MLB/34/MLB_34/10_Ca..double
+MLB/34/MLB_34/12_F..double
+MLB/34/MLB_34/13_FB..double
+MLB/34/MLB_34/16_GB..double
+MLB/34/MLB_34/22_ISO.double
+MLB/34/MLB_34/23_K..double
+MLB/34/MLB_34/24_LD..double
+MLB/34/MLB_34/27_OBP.double
+MLB/34/MLB_34/2_AVG.double
+MLB/34/MLB_34/30_PU..double
+MLB/34/MLB_34/35_SLG.double
+MLB/34/MLB_34/39_Str..double
+MLB/34/MLB_34/3_BABIP.double
+MLB/34/MLB_34/41_SwStr..double
+MLB/34/MLB_34/44_Wh.Sw.double
+MLB/34/MLB_34/4_BB..double
+MLB/34/MLB_34/54_wOBA.double
+MLB/34/MLB_34/55_wRAA.double
+MLB/34/MLB_34/57_wRC.double
+MLB/34/MLB_34/59_Calculation_361765767503851520.double
+MLB/34/MLB_34/60_Calculation_40532458110562312.double
+MLB/34/MLB_34/61_Calculation_40532458115731477.double
+MLB/34/MLB_34/6_BIP..double
+MLB/34/MLB_34/8_Ba..double
+MLB/35/MLB_35/10_Ca..double
+MLB/35/MLB_35/12_F..double
+MLB/35/MLB_35/13_FB..double
+MLB/35/MLB_35/16_GB..double
+MLB/35/MLB_35/22_ISO.double
+MLB/35/MLB_35/23_K..double
+MLB/35/MLB_35/24_LD..double
+MLB/35/MLB_35/27_OBP.double
+MLB/35/MLB_35/2_AVG.double
+MLB/35/MLB_35/30_PU..double
+MLB/35/MLB_35/35_SLG.double
+MLB/35/MLB_35/39_Str..double
+MLB/35/MLB_35/3_BABIP.double
+MLB/35/MLB_35/41_SwStr..double
+MLB/35/MLB_35/44_Wh.Sw.double
+MLB/35/MLB_35/4_BB..double
+MLB/35/MLB_35/54_wOBA.double
+MLB/35/MLB_35/55_wRAA.double
+MLB/35/MLB_35/57_wRC.double
+MLB/35/MLB_35/59_Calculation_361765767503851520.double
+MLB/35/MLB_35/60_Calculation_40532458110562312.double
+MLB/35/MLB_35/61_Calculation_40532458115731477.double
+MLB/35/MLB_35/6_BIP..double
+MLB/35/MLB_35/8_Ba..double
+MLB/36/MLB_36/10_Ca..double
+MLB/36/MLB_36/12_F..double
+MLB/36/MLB_36/13_FB..double
+MLB/36/MLB_36/16_GB..double
+MLB/36/MLB_36/22_ISO.double
+MLB/36/MLB_36/23_K..double
+MLB/36/MLB_36/24_LD..double
+MLB/36/MLB_36/27_OBP.double
+MLB/36/MLB_36/2_AVG.double
+MLB/36/MLB_36/30_PU..double
+MLB/36/MLB_36/35_SLG.double
+MLB/36/MLB_36/39_Str..double
+MLB/36/MLB_36/3_BABIP.double
+MLB/36/MLB_36/41_SwStr..double
+MLB/36/MLB_36/44_Wh.Sw.double
+MLB/36/MLB_36/4_BB..double
+MLB/36/MLB_36/54_wOBA.double
+MLB/36/MLB_36/55_wRAA.double
+MLB/36/MLB_36/57_wRC.double
+MLB/36/MLB_36/59_Calculation_361765767503851520.double
+MLB/36/MLB_36/60_Calculation_40532458110562312.double
+MLB/36/MLB_36/61_Calculation_40532458115731477.double
+MLB/36/MLB_36/6_BIP..double
+MLB/36/MLB_36/8_Ba..double
+MLB/37/MLB_37/10_Ca..double
+MLB/37/MLB_37/12_F..double
+MLB/37/MLB_37/13_FB..double
+MLB/37/MLB_37/16_GB..double
+MLB/37/MLB_37/22_ISO.double
+MLB/37/MLB_37/23_K..double
+MLB/37/MLB_37/24_LD..double
+MLB/37/MLB_37/27_OBP.double
+MLB/37/MLB_37/2_AVG.double
+MLB/37/MLB_37/30_PU..double
+MLB/37/MLB_37/35_SLG.double
+MLB/37/MLB_37/39_Str..double
+MLB/37/MLB_37/3_BABIP.double
+MLB/37/MLB_37/41_SwStr..double
+MLB/37/MLB_37/44_Wh.Sw.double
+MLB/37/MLB_37/4_BB..double
+MLB/37/MLB_37/54_wOBA.double
+MLB/37/MLB_37/55_wRAA.double
+MLB/37/MLB_37/57_wRC.double
+MLB/37/MLB_37/59_Calculation_361765767503851520.double
+MLB/37/MLB_37/60_Calculation_40532458110562312.double
+MLB/37/MLB_37/61_Calculation_40532458115731477.double
+MLB/37/MLB_37/6_BIP..double
+MLB/37/MLB_37/8_Ba..double
+MLB/38/MLB_38/10_GB..double
+MLB/38/MLB_38/16_ISO.double
+MLB/38/MLB_38/17_K..double
+MLB/38/MLB_38/18_LD..double
+MLB/38/MLB_38/21_OBP.double
+MLB/38/MLB_38/23_PU..double
+MLB/38/MLB_38/27_SLG.double
+MLB/38/MLB_38/2_AVG.double
+MLB/38/MLB_38/3_BABIP.double
+MLB/38/MLB_38/43_wOBA.double
+MLB/38/MLB_38/44_wRAA.double
+MLB/38/MLB_38/46_wRC.double
+MLB/38/MLB_38/48_Calculation_40532458110046215.double
+MLB/38/MLB_38/49_Calculation_40532458115493908.double
+MLB/38/MLB_38/4_BB..double
+MLB/38/MLB_38/7_Calculation_496521908232941578.double
+MLB/38/MLB_38/8_FB..double
+MLB/39/MLB_39/10_GB..double
+MLB/39/MLB_39/16_ISO.double
+MLB/39/MLB_39/17_K..double
+MLB/39/MLB_39/18_LD..double
+MLB/39/MLB_39/21_OBP.double
+MLB/39/MLB_39/23_PU..double
+MLB/39/MLB_39/27_SLG.double
+MLB/39/MLB_39/2_AVG.double
+MLB/39/MLB_39/3_BABIP.double
+MLB/39/MLB_39/43_wOBA.double
+MLB/39/MLB_39/44_wRAA.double
+MLB/39/MLB_39/46_wRC.double
+MLB/39/MLB_39/48_Calculation_40532458110046215.double
+MLB/39/MLB_39/49_Calculation_40532458115493908.double
+MLB/39/MLB_39/4_BB..double
+MLB/39/MLB_39/7_Calculation_496521908232941578.double
+MLB/39/MLB_39/8_FB..double
+MLB/3/MLB_3/16_our.x.double
+MLB/3/MLB_3/17_our.y.double
+MLB/3/MLB_3/20_r.double
+MLB/3/MLB_3/22_theta.double
+MLB/40/MLB_40/10_GB..double
+MLB/40/MLB_40/16_ISO.double
+MLB/40/MLB_40/17_K..double
+MLB/40/MLB_40/18_LD..double
+MLB/40/MLB_40/21_OBP.double
+MLB/40/MLB_40/23_PU..double
+MLB/40/MLB_40/27_SLG.double
+MLB/40/MLB_40/2_AVG.double
+MLB/40/MLB_40/3_BABIP.double
+MLB/40/MLB_40/43_wOBA.double
+MLB/40/MLB_40/44_wRAA.double
+MLB/40/MLB_40/46_wRC.double
+MLB/40/MLB_40/48_Calculation_40532458110046215.double
+MLB/40/MLB_40/49_Calculation_40532458115493908.double
+MLB/40/MLB_40/4_BB..double
+MLB/40/MLB_40/7_Calculation_496521908232941578.double
+MLB/40/MLB_40/8_FB..double
+MLB/41/MLB_41/10_Calculation_496521908230012937.double
+MLB/41/MLB_41/12_F..double
+MLB/41/MLB_41/13_FB..double
+MLB/41/MLB_41/16_GB..double
+MLB/41/MLB_41/22_ISO.double
+MLB/41/MLB_41/23_K..double
+MLB/41/MLB_41/24_LD..double
+MLB/41/MLB_41/27_OBP.double
+MLB/41/MLB_41/29_PU..double
+MLB/41/MLB_41/2_AVG.double
+MLB/41/MLB_41/34_SLG.double
+MLB/41/MLB_41/3_BABIP.double
+MLB/41/MLB_41/41_Wh.Sw.double
+MLB/41/MLB_41/4_BB..double
+MLB/41/MLB_41/52_wOBA.double
+MLB/41/MLB_41/53_wRAA.double
+MLB/41/MLB_41/55_wRC.double
+MLB/41/MLB_41/57_Calculation_40532458109407238.double
+MLB/41/MLB_41/58_Calculation_40532458115264531.double
+MLB/41/MLB_41/6_BIP..double
+MLB/41/MLB_41/9_Ca..double
+MLB/42/MLB_42/10_Calculation_496521908230012937.double
+MLB/42/MLB_42/12_F..double
+MLB/42/MLB_42/13_FB..double
+MLB/42/MLB_42/16_GB..double
+MLB/42/MLB_42/22_ISO.double
+MLB/42/MLB_42/23_K..double
+MLB/42/MLB_42/24_LD..double
+MLB/42/MLB_42/27_OBP.double
+MLB/42/MLB_42/29_PU..double
+MLB/42/MLB_42/2_AVG.double
+MLB/42/MLB_42/34_SLG.double
+MLB/42/MLB_42/3_BABIP.double
+MLB/42/MLB_42/41_Wh.Sw.double
+MLB/42/MLB_42/4_BB..double
+MLB/42/MLB_42/52_wOBA.double
+MLB/42/MLB_42/53_wRAA.double
+MLB/42/MLB_42/55_wRC.double
+MLB/42/MLB_42/57_Calculation_40532458109407238.double
+MLB/42/MLB_42/58_Calculation_40532458115264531.double
+MLB/42/MLB_42/6_BIP..double
+MLB/42/MLB_42/9_Ca..double
+MLB/43/MLB_43/10_Calculation_496521908230012937.double
+MLB/43/MLB_43/12_F..double
+MLB/43/MLB_43/13_FB..double
+MLB/43/MLB_43/16_GB..double
+MLB/43/MLB_43/22_ISO.double
+MLB/43/MLB_43/23_K..double
+MLB/43/MLB_43/24_LD..double
+MLB/43/MLB_43/27_OBP.double
+MLB/43/MLB_43/29_PU..double
+MLB/43/MLB_43/2_AVG.double
+MLB/43/MLB_43/34_SLG.double
+MLB/43/MLB_43/3_BABIP.double
+MLB/43/MLB_43/41_Wh.Sw.double
+MLB/43/MLB_43/4_BB..double
+MLB/43/MLB_43/52_wOBA.double
+MLB/43/MLB_43/53_wRAA.double
+MLB/43/MLB_43/55_wRC.double
+MLB/43/MLB_43/57_Calculation_40532458109407238.double
+MLB/43/MLB_43/58_Calculation_40532458115264531.double
+MLB/43/MLB_43/6_BIP..double
+MLB/43/MLB_43/9_Ca..double
+MLB/44/MLB_44/10_Calculation_496521908230012937.double
+MLB/44/MLB_44/12_F..double
+MLB/44/MLB_44/13_FB..double
+MLB/44/MLB_44/16_GB..double
+MLB/44/MLB_44/22_ISO.double
+MLB/44/MLB_44/23_K..double
+MLB/44/MLB_44/24_LD..double
+MLB/44/MLB_44/27_OBP.double
+MLB/44/MLB_44/29_PU..double
+MLB/44/MLB_44/2_AVG.double
+MLB/44/MLB_44/34_SLG.double
+MLB/44/MLB_44/3_BABIP.double
+MLB/44/MLB_44/41_Wh.Sw.double
+MLB/44/MLB_44/4_BB..double
+MLB/44/MLB_44/52_wOBA.double
+MLB/44/MLB_44/53_wRAA.double
+MLB/44/MLB_44/55_wRC.double
+MLB/44/MLB_44/57_Calculation_40532458109407238.double
+MLB/44/MLB_44/58_Calculation_40532458115264531.double
+MLB/44/MLB_44/6_BIP..double
+MLB/44/MLB_44/9_Ca..double
+MLB/45/MLB_45/11_Ca..double
+MLB/45/MLB_45/12_Calculation_496521908229181448.double
+MLB/45/MLB_45/14_F..double
+MLB/45/MLB_45/15_FB..double
+MLB/45/MLB_45/18_GB..double
+MLB/45/MLB_45/24_ISO.double
+MLB/45/MLB_45/25_K..double
+MLB/45/MLB_45/26_LD..double
+MLB/45/MLB_45/29_OBP.double
+MLB/45/MLB_45/2_AVG.double
+MLB/45/MLB_45/31_PU..double
+MLB/45/MLB_45/36_SB..double
+MLB/45/MLB_45/3_BABIP.double
+MLB/45/MLB_45/40_SLG.double
+MLB/45/MLB_45/44_Str..double
+MLB/45/MLB_45/46_SwStr..double
+MLB/45/MLB_45/49_Wh.Sw.double
+MLB/45/MLB_45/4_BB..double
+MLB/45/MLB_45/60_wOBA.double
+MLB/45/MLB_45/61_wRAA.double
+MLB/45/MLB_45/63_wRC.double
+MLB/45/MLB_45/65_Calculation_40532458108895237.double
+MLB/45/MLB_45/66_Calculation_40532458114994194.double
+MLB/45/MLB_45/6_BIP..double
+MLB/45/MLB_45/8_Ba..double
+MLB/46/MLB_46/11_Ca..double
+MLB/46/MLB_46/12_Calculation_496521908229181448.double
+MLB/46/MLB_46/14_F..double
+MLB/46/MLB_46/15_FB..double
+MLB/46/MLB_46/18_GB..double
+MLB/46/MLB_46/24_ISO.double
+MLB/46/MLB_46/25_K..double
+MLB/46/MLB_46/26_LD..double
+MLB/46/MLB_46/29_OBP.double
+MLB/46/MLB_46/2_AVG.double
+MLB/46/MLB_46/31_PU..double
+MLB/46/MLB_46/36_SB..double
+MLB/46/MLB_46/3_BABIP.double
+MLB/46/MLB_46/40_SLG.double
+MLB/46/MLB_46/44_Str..double
+MLB/46/MLB_46/46_SwStr..double
+MLB/46/MLB_46/49_Wh.Sw.double
+MLB/46/MLB_46/4_BB..double
+MLB/46/MLB_46/60_wOBA.double
+MLB/46/MLB_46/61_wRAA.double
+MLB/46/MLB_46/63_wRC.double
+MLB/46/MLB_46/65_Calculation_40532458108895237.double
+MLB/46/MLB_46/66_Calculation_40532458114994194.double
+MLB/46/MLB_46/6_BIP..double
+MLB/46/MLB_46/8_Ba..double
+MLB/47/MLB_47/11_Ca..double
+MLB/47/MLB_47/12_Calculation_496521908229181448.double
+MLB/47/MLB_47/14_F..double
+MLB/47/MLB_47/15_FB..double
+MLB/47/MLB_47/18_GB..double
+MLB/47/MLB_47/24_ISO.double
+MLB/47/MLB_47/25_K..double
+MLB/47/MLB_47/26_LD..double
+MLB/47/MLB_47/29_OBP.double
+MLB/47/MLB_47/2_AVG.double
+MLB/47/MLB_47/31_PU..double
+MLB/47/MLB_47/36_SB..double
+MLB/47/MLB_47/3_BABIP.double
+MLB/47/MLB_47/40_SLG.double
+MLB/47/MLB_47/44_Str..double
+MLB/47/MLB_47/46_SwStr..double
+MLB/47/MLB_47/49_Wh.Sw.double
+MLB/47/MLB_47/4_BB..double
+MLB/47/MLB_47/60_wOBA.double
+MLB/47/MLB_47/61_wRAA.double
+MLB/47/MLB_47/63_wRC.double
+MLB/47/MLB_47/65_Calculation_40532458108895237.double
+MLB/47/MLB_47/66_Calculation_40532458114994194.double
+MLB/47/MLB_47/6_BIP..double
+MLB/47/MLB_47/8_Ba..double
+MLB/48/MLB_48/11_Ca..double
+MLB/48/MLB_48/12_Calculation_496521908229181448.double
+MLB/48/MLB_48/14_F..double
+MLB/48/MLB_48/15_FB..double
+MLB/48/MLB_48/18_GB..double
+MLB/48/MLB_48/24_ISO.double
+MLB/48/MLB_48/25_K..double
+MLB/48/MLB_48/26_LD..double
+MLB/48/MLB_48/29_OBP.double
+MLB/48/MLB_48/2_AVG.double
+MLB/48/MLB_48/31_PU..double
+MLB/48/MLB_48/36_SB..double
+MLB/48/MLB_48/3_BABIP.double
+MLB/48/MLB_48/40_SLG.double
+MLB/48/MLB_48/44_Str..double
+MLB/48/MLB_48/46_SwStr..double
+MLB/48/MLB_48/49_Wh.Sw.double
+MLB/48/MLB_48/4_BB..double
+MLB/48/MLB_48/60_wOBA.double
+MLB/48/MLB_48/61_wRAA.double
+MLB/48/MLB_48/63_wRC.double
+MLB/48/MLB_48/65_Calculation_40532458108895237.double
+MLB/48/MLB_48/66_Calculation_40532458114994194.double
+MLB/48/MLB_48/6_BIP..double
+MLB/48/MLB_48/8_Ba..double
+MLB/49/MLB_49/10_Ca..double
+MLB/49/MLB_49/11_Calculation_496521908228587527.double
+MLB/49/MLB_49/13_F..double
+MLB/49/MLB_49/14_FB..double
+MLB/49/MLB_49/17_GB..double
+MLB/49/MLB_49/23_ISO.double
+MLB/49/MLB_49/24_K..double
+MLB/49/MLB_49/25_LD..double
+MLB/49/MLB_49/28_OBP.double
+MLB/49/MLB_49/2_AVG.double
+MLB/49/MLB_49/30_PU..double
+MLB/49/MLB_49/35_SLG.double
+MLB/49/MLB_49/39_Str..double
+MLB/49/MLB_49/3_BABIP.double
+MLB/49/MLB_49/41_SwStr..double
+MLB/49/MLB_49/44_Wh.Sw.double
+MLB/49/MLB_49/4_BB..double
+MLB/49/MLB_49/56_wOBA.double
+MLB/49/MLB_49/57_wRAA.double
+MLB/49/MLB_49/59_wRC.double
+MLB/49/MLB_49/61_Calculation_40532458108489732.double
+MLB/49/MLB_49/62_Calculation_40532458114363409.double
+MLB/49/MLB_49/6_BIP..double
+MLB/49/MLB_49/8_Ba..double
+MLB/4/MLB_4/16_our.x.double
+MLB/4/MLB_4/17_our.y.double
+MLB/4/MLB_4/20_r.double
+MLB/4/MLB_4/22_theta.double
+MLB/50/MLB_50/10_Ca..double
+MLB/50/MLB_50/11_Calculation_496521908228587527.double
+MLB/50/MLB_50/13_F..double
+MLB/50/MLB_50/14_FB..double
+MLB/50/MLB_50/17_GB..double
+MLB/50/MLB_50/23_ISO.double
+MLB/50/MLB_50/24_K..double
+MLB/50/MLB_50/25_LD..double
+MLB/50/MLB_50/28_OBP.double
+MLB/50/MLB_50/2_AVG.double
+MLB/50/MLB_50/30_PU..double
+MLB/50/MLB_50/35_SLG.double
+MLB/50/MLB_50/39_Str..double
+MLB/50/MLB_50/3_BABIP.double
+MLB/50/MLB_50/41_SwStr..double
+MLB/50/MLB_50/44_Wh.Sw.double
+MLB/50/MLB_50/4_BB..double
+MLB/50/MLB_50/56_wOBA.double
+MLB/50/MLB_50/57_wRAA.double
+MLB/50/MLB_50/59_wRC.double
+MLB/50/MLB_50/61_Calculation_40532458108489732.double
+MLB/50/MLB_50/62_Calculation_40532458114363409.double
+MLB/50/MLB_50/6_BIP..double
+MLB/50/MLB_50/8_Ba..double
+MLB/51/MLB_51/10_Ca..double
+MLB/51/MLB_51/11_Calculation_496521908228587527.double
+MLB/51/MLB_51/13_F..double
+MLB/51/MLB_51/14_FB..double
+MLB/51/MLB_51/17_GB..double
+MLB/51/MLB_51/23_ISO.double
+MLB/51/MLB_51/24_K..double
+MLB/51/MLB_51/25_LD..double
+MLB/51/MLB_51/28_OBP.double
+MLB/51/MLB_51/2_AVG.double
+MLB/51/MLB_51/30_PU..double
+MLB/51/MLB_51/35_SLG.double
+MLB/51/MLB_51/39_Str..double
+MLB/51/MLB_51/3_BABIP.double
+MLB/51/MLB_51/41_SwStr..double
+MLB/51/MLB_51/44_Wh.Sw.double
+MLB/51/MLB_51/4_BB..double
+MLB/51/MLB_51/56_wOBA.double
+MLB/51/MLB_51/57_wRAA.double
+MLB/51/MLB_51/59_wRC.double
+MLB/51/MLB_51/61_Calculation_40532458108489732.double
+MLB/51/MLB_51/62_Calculation_40532458114363409.double
+MLB/51/MLB_51/6_BIP..double
+MLB/51/MLB_51/8_Ba..double
+MLB/52/MLB_52/10_PU..double
+MLB/52/MLB_52/11_SLG.double
+MLB/52/MLB_52/15_wOBA.double
+MLB/52/MLB_52/1_AVG.double
+MLB/52/MLB_52/2_BABIP.double
+MLB/52/MLB_52/3_FB..double
+MLB/52/MLB_52/4_GB..double
+MLB/52/MLB_52/5_ISO.double
+MLB/52/MLB_52/6_LD..double
+MLB/52/MLB_52/8_OBP.double
+MLB/52/MLB_52/9_OPS.double
+MLB/53/MLB_53/11_Ca..double
+MLB/53/MLB_53/12_Calculation_496521908228263942.double
+MLB/53/MLB_53/14_F..double
+MLB/53/MLB_53/15_FB..double
+MLB/53/MLB_53/18_GB..double
+MLB/53/MLB_53/24_ISO.double
+MLB/53/MLB_53/25_K..double
+MLB/53/MLB_53/26_LD..double
+MLB/53/MLB_53/29_OBP.double
+MLB/53/MLB_53/2_AVG.double
+MLB/53/MLB_53/31_PU..double
+MLB/53/MLB_53/36_SB..double
+MLB/53/MLB_53/3_BABIP.double
+MLB/53/MLB_53/40_SLG.double
+MLB/53/MLB_53/44_Str..double
+MLB/53/MLB_53/46_SwStr..double
+MLB/53/MLB_53/49_Wh.Sw.double
+MLB/53/MLB_53/4_BB..double
+MLB/53/MLB_53/60_wOBA.double
+MLB/53/MLB_53/61_wRAA.double
+MLB/53/MLB_53/63_wRC.double
+MLB/53/MLB_53/65_Calculation_212021079764389888.double
+MLB/53/MLB_53/66_Calculation_40532458107953155.double
+MLB/53/MLB_53/67_Calculation_40532458114015248.double
+MLB/53/MLB_53/6_BIP..double
+MLB/53/MLB_53/8_Ba..double
+MLB/54/MLB_54/11_Ca..double
+MLB/54/MLB_54/12_Calculation_496521908228263942.double
+MLB/54/MLB_54/14_F..double
+MLB/54/MLB_54/15_FB..double
+MLB/54/MLB_54/18_GB..double
+MLB/54/MLB_54/24_ISO.double
+MLB/54/MLB_54/25_K..double
+MLB/54/MLB_54/26_LD..double
+MLB/54/MLB_54/29_OBP.double
+MLB/54/MLB_54/2_AVG.double
+MLB/54/MLB_54/31_PU..double
+MLB/54/MLB_54/36_SB..double
+MLB/54/MLB_54/3_BABIP.double
+MLB/54/MLB_54/40_SLG.double
+MLB/54/MLB_54/44_Str..double
+MLB/54/MLB_54/46_SwStr..double
+MLB/54/MLB_54/49_Wh.Sw.double
+MLB/54/MLB_54/4_BB..double
+MLB/54/MLB_54/60_wOBA.double
+MLB/54/MLB_54/61_wRAA.double
+MLB/54/MLB_54/63_wRC.double
+MLB/54/MLB_54/65_Calculation_212021079764389888.double
+MLB/54/MLB_54/66_Calculation_40532458107953155.double
+MLB/54/MLB_54/67_Calculation_40532458114015248.double
+MLB/54/MLB_54/6_BIP..double
+MLB/54/MLB_54/8_Ba..double
+MLB/55/MLB_55/11_Ca..double
+MLB/55/MLB_55/12_Calculation_496521908228263942.double
+MLB/55/MLB_55/14_F..double
+MLB/55/MLB_55/15_FB..double
+MLB/55/MLB_55/18_GB..double
+MLB/55/MLB_55/24_ISO.double
+MLB/55/MLB_55/25_K..double
+MLB/55/MLB_55/26_LD..double
+MLB/55/MLB_55/29_OBP.double
+MLB/55/MLB_55/2_AVG.double
+MLB/55/MLB_55/31_PU..double
+MLB/55/MLB_55/36_SB..double
+MLB/55/MLB_55/3_BABIP.double
+MLB/55/MLB_55/40_SLG.double
+MLB/55/MLB_55/44_Str..double
+MLB/55/MLB_55/46_SwStr..double
+MLB/55/MLB_55/49_Wh.Sw.double
+MLB/55/MLB_55/4_BB..double
+MLB/55/MLB_55/60_wOBA.double
+MLB/55/MLB_55/61_wRAA.double
+MLB/55/MLB_55/63_wRC.double
+MLB/55/MLB_55/65_Calculation_212021079764389888.double
+MLB/55/MLB_55/66_Calculation_40532458107953155.double
+MLB/55/MLB_55/67_Calculation_40532458114015248.double
+MLB/55/MLB_55/6_BIP..double
+MLB/55/MLB_55/8_Ba..double
+MLB/56/MLB_56/11_Ca..double
+MLB/56/MLB_56/12_Calculation_496521908228263942.double
+MLB/56/MLB_56/14_F..double
+MLB/56/MLB_56/15_FB..double
+MLB/56/MLB_56/18_GB..double
+MLB/56/MLB_56/24_ISO.double
+MLB/56/MLB_56/25_K..double
+MLB/56/MLB_56/26_LD..double
+MLB/56/MLB_56/29_OBP.double
+MLB/56/MLB_56/2_AVG.double
+MLB/56/MLB_56/31_PU..double
+MLB/56/MLB_56/36_SB..double
+MLB/56/MLB_56/3_BABIP.double
+MLB/56/MLB_56/40_SLG.double
+MLB/56/MLB_56/44_Str..double
+MLB/56/MLB_56/46_SwStr..double
+MLB/56/MLB_56/49_Wh.Sw.double
+MLB/56/MLB_56/4_BB..double
+MLB/56/MLB_56/60_wOBA.double
+MLB/56/MLB_56/61_wRAA.double
+MLB/56/MLB_56/63_wRC.double
+MLB/56/MLB_56/65_Calculation_212021079764389888.double
+MLB/56/MLB_56/66_Calculation_40532458107953155.double
+MLB/56/MLB_56/67_Calculation_40532458114015248.double
+MLB/56/MLB_56/6_BIP..double
+MLB/56/MLB_56/8_Ba..double
+MLB/57/MLB_57/10_ISO.double
+MLB/57/MLB_57/11_K..double
+MLB/57/MLB_57/12_LD..double
+MLB/57/MLB_57/14_OBP.double
+MLB/57/MLB_57/15_OPS.double
+MLB/57/MLB_57/16_PU..double
+MLB/57/MLB_57/17_SLG.double
+MLB/57/MLB_57/18_Str..double
+MLB/57/MLB_57/19_SwStr..double
+MLB/57/MLB_57/1_AVG.double
+MLB/57/MLB_57/20_Wh.Sw.double
+MLB/57/MLB_57/22_wOBA.double
+MLB/57/MLB_57/2_BABIP.double
+MLB/57/MLB_57/3_BB..double
+MLB/57/MLB_57/4_BIP..double
+MLB/57/MLB_57/5_Ba..double
+MLB/57/MLB_57/6_Ca..double
+MLB/57/MLB_57/7_F..double
+MLB/57/MLB_57/8_FB..double
+MLB/57/MLB_57/9_GB..double
+MLB/58/MLB_58/12_Ca..double
+MLB/58/MLB_58/13_Calculation_496521907637829636.double
+MLB/58/MLB_58/15_F..double
+MLB/58/MLB_58/16_FB..double
+MLB/58/MLB_58/19_GB..double
+MLB/58/MLB_58/25_ISO.double
+MLB/58/MLB_58/26_K..double
+MLB/58/MLB_58/27_LD..double
+MLB/58/MLB_58/2_AVG.double
+MLB/58/MLB_58/30_OBP.double
+MLB/58/MLB_58/32_PU..double
+MLB/58/MLB_58/37_SB..double
+MLB/58/MLB_58/3_BABIP.double
+MLB/58/MLB_58/41_SLG.double
+MLB/58/MLB_58/45_Str..double
+MLB/58/MLB_58/47_SwStr..double
+MLB/58/MLB_58/4_BB..double
+MLB/58/MLB_58/51_Wh.Sw.double
+MLB/58/MLB_58/62_wOBA.double
+MLB/58/MLB_58/63_wRAA.double
+MLB/58/MLB_58/65_wRC.double
+MLB/58/MLB_58/67_Calculation_212021079765098497.double
+MLB/58/MLB_58/68_Calculation_40532458107371522.double
+MLB/58/MLB_58/69_Calculation_40532458113540111.double
+MLB/58/MLB_58/6_BIP..double
+MLB/58/MLB_58/9_Ba..double
+MLB/59/MLB_59/12_Ca..double
+MLB/59/MLB_59/13_Calculation_496521907637829636.double
+MLB/59/MLB_59/15_F..double
+MLB/59/MLB_59/16_FB..double
+MLB/59/MLB_59/19_GB..double
+MLB/59/MLB_59/25_ISO.double
+MLB/59/MLB_59/26_K..double
+MLB/59/MLB_59/27_LD..double
+MLB/59/MLB_59/2_AVG.double
+MLB/59/MLB_59/30_OBP.double
+MLB/59/MLB_59/32_PU..double
+MLB/59/MLB_59/37_SB..double
+MLB/59/MLB_59/3_BABIP.double
+MLB/59/MLB_59/41_SLG.double
+MLB/59/MLB_59/45_Str..double
+MLB/59/MLB_59/47_SwStr..double
+MLB/59/MLB_59/4_BB..double
+MLB/59/MLB_59/51_Wh.Sw.double
+MLB/59/MLB_59/62_wOBA.double
+MLB/59/MLB_59/63_wRAA.double
+MLB/59/MLB_59/65_wRC.double
+MLB/59/MLB_59/67_Calculation_212021079765098497.double
+MLB/59/MLB_59/68_Calculation_40532458107371522.double
+MLB/59/MLB_59/69_Calculation_40532458113540111.double
+MLB/59/MLB_59/6_BIP..double
+MLB/59/MLB_59/9_Ba..double
+MLB/5/MLB_5/20_our.x.double
+MLB/5/MLB_5/21_our.y.double
+MLB/5/MLB_5/24_r.double
+MLB/5/MLB_5/27_theta.double
+MLB/60/MLB_60/12_Ca..double
+MLB/60/MLB_60/13_Calculation_496521907637829636.double
+MLB/60/MLB_60/15_F..double
+MLB/60/MLB_60/16_FB..double
+MLB/60/MLB_60/19_GB..double
+MLB/60/MLB_60/25_ISO.double
+MLB/60/MLB_60/26_K..double
+MLB/60/MLB_60/27_LD..double
+MLB/60/MLB_60/2_AVG.double
+MLB/60/MLB_60/30_OBP.double
+MLB/60/MLB_60/32_PU..double
+MLB/60/MLB_60/37_SB..double
+MLB/60/MLB_60/3_BABIP.double
+MLB/60/MLB_60/41_SLG.double
+MLB/60/MLB_60/45_Str..double
+MLB/60/MLB_60/47_SwStr..double
+MLB/60/MLB_60/4_BB..double
+MLB/60/MLB_60/51_Wh.Sw.double
+MLB/60/MLB_60/62_wOBA.double
+MLB/60/MLB_60/63_wRAA.double
+MLB/60/MLB_60/65_wRC.double
+MLB/60/MLB_60/67_Calculation_212021079765098497.double
+MLB/60/MLB_60/68_Calculation_40532458107371522.double
+MLB/60/MLB_60/69_Calculation_40532458113540111.double
+MLB/60/MLB_60/6_BIP..double
+MLB/60/MLB_60/9_Ba..double
+MLB/61/MLB_61/12_Ca..double
+MLB/61/MLB_61/13_Calculation_496521907637829636.double
+MLB/61/MLB_61/15_F..double
+MLB/61/MLB_61/16_FB..double
+MLB/61/MLB_61/19_GB..double
+MLB/61/MLB_61/25_ISO.double
+MLB/61/MLB_61/26_K..double
+MLB/61/MLB_61/27_LD..double
+MLB/61/MLB_61/2_AVG.double
+MLB/61/MLB_61/30_OBP.double
+MLB/61/MLB_61/32_PU..double
+MLB/61/MLB_61/37_SB..double
+MLB/61/MLB_61/3_BABIP.double
+MLB/61/MLB_61/41_SLG.double
+MLB/61/MLB_61/45_Str..double
+MLB/61/MLB_61/47_SwStr..double
+MLB/61/MLB_61/4_BB..double
+MLB/61/MLB_61/51_Wh.Sw.double
+MLB/61/MLB_61/62_wOBA.double
+MLB/61/MLB_61/63_wRAA.double
+MLB/61/MLB_61/65_wRC.double
+MLB/61/MLB_61/67_Calculation_212021079765098497.double
+MLB/61/MLB_61/68_Calculation_40532458107371522.double
+MLB/61/MLB_61/69_Calculation_40532458113540111.double
+MLB/61/MLB_61/6_BIP..double
+MLB/61/MLB_61/9_Ba..double
+MLB/62/MLB_62/12_Ca..double
+MLB/62/MLB_62/13_Calculation_496521907637829636.double
+MLB/62/MLB_62/15_F..double
+MLB/62/MLB_62/16_FB..double
+MLB/62/MLB_62/19_GB..double
+MLB/62/MLB_62/25_ISO.double
+MLB/62/MLB_62/26_K..double
+MLB/62/MLB_62/27_LD..double
+MLB/62/MLB_62/2_AVG.double
+MLB/62/MLB_62/30_OBP.double
+MLB/62/MLB_62/32_PU..double
+MLB/62/MLB_62/37_SB..double
+MLB/62/MLB_62/3_BABIP.double
+MLB/62/MLB_62/41_SLG.double
+MLB/62/MLB_62/45_Str..double
+MLB/62/MLB_62/47_SwStr..double
+MLB/62/MLB_62/4_BB..double
+MLB/62/MLB_62/51_Wh.Sw.double
+MLB/62/MLB_62/62_wOBA.double
+MLB/62/MLB_62/63_wRAA.double
+MLB/62/MLB_62/65_wRC.double
+MLB/62/MLB_62/67_Calculation_212021079765098497.double
+MLB/62/MLB_62/68_Calculation_40532458107371522.double
+MLB/62/MLB_62/69_Calculation_40532458113540111.double
+MLB/62/MLB_62/6_BIP..double
+MLB/62/MLB_62/9_Ba..double
+MLB/63/MLB_63/11_Ca..double
+MLB/63/MLB_63/12_Calculation_496521907638001669.double
+MLB/63/MLB_63/14_F..double
+MLB/63/MLB_63/15_FB..double
+MLB/63/MLB_63/18_GB..double
+MLB/63/MLB_63/23_ISO.double
+MLB/63/MLB_63/24_K..double
+MLB/63/MLB_63/25_LD..double
+MLB/63/MLB_63/28_OBP.double
+MLB/63/MLB_63/29_P.PA.double
+MLB/63/MLB_63/2_AVG.double
+MLB/63/MLB_63/31_PU..double
+MLB/63/MLB_63/39_SLG.double
+MLB/63/MLB_63/3_BABIP.double
+MLB/63/MLB_63/43_Str..double
+MLB/63/MLB_63/45_SwStr..double
+MLB/63/MLB_63/48_Wh.Sw.double
+MLB/63/MLB_63/4_BB..double
+MLB/63/MLB_63/61_wOBA.double
+MLB/63/MLB_63/62_wRAA.double
+MLB/63/MLB_63/63_wRC..double
+MLB/63/MLB_63/64_wRC.double
+MLB/63/MLB_63/6_BIP..double
+MLB/63/MLB_63/8_Ba..double
+MLB/64/MLB_64/11_Ca..double
+MLB/64/MLB_64/12_Calculation_496521907638001669.double
+MLB/64/MLB_64/14_F..double
+MLB/64/MLB_64/15_FB..double
+MLB/64/MLB_64/18_GB..double
+MLB/64/MLB_64/23_ISO.double
+MLB/64/MLB_64/24_K..double
+MLB/64/MLB_64/25_LD..double
+MLB/64/MLB_64/28_OBP.double
+MLB/64/MLB_64/29_P.PA.double
+MLB/64/MLB_64/2_AVG.double
+MLB/64/MLB_64/31_PU..double
+MLB/64/MLB_64/39_SLG.double
+MLB/64/MLB_64/3_BABIP.double
+MLB/64/MLB_64/43_Str..double
+MLB/64/MLB_64/45_SwStr..double
+MLB/64/MLB_64/48_Wh.Sw.double
+MLB/64/MLB_64/4_BB..double
+MLB/64/MLB_64/61_wOBA.double
+MLB/64/MLB_64/62_wRAA.double
+MLB/64/MLB_64/63_wRC..double
+MLB/64/MLB_64/64_wRC.double
+MLB/64/MLB_64/6_BIP..double
+MLB/64/MLB_64/8_Ba..double
+MLB/65/MLB_65/11_Ca..double
+MLB/65/MLB_65/12_Calculation_496521907638001669.double
+MLB/65/MLB_65/14_F..double
+MLB/65/MLB_65/15_FB..double
+MLB/65/MLB_65/18_GB..double
+MLB/65/MLB_65/23_ISO.double
+MLB/65/MLB_65/24_K..double
+MLB/65/MLB_65/25_LD..double
+MLB/65/MLB_65/28_OBP.double
+MLB/65/MLB_65/29_P.PA.double
+MLB/65/MLB_65/2_AVG.double
+MLB/65/MLB_65/31_PU..double
+MLB/65/MLB_65/39_SLG.double
+MLB/65/MLB_65/3_BABIP.double
+MLB/65/MLB_65/43_Str..double
+MLB/65/MLB_65/45_SwStr..double
+MLB/65/MLB_65/48_Wh.Sw.double
+MLB/65/MLB_65/4_BB..double
+MLB/65/MLB_65/61_wOBA.double
+MLB/65/MLB_65/62_wRAA.double
+MLB/65/MLB_65/63_wRC..double
+MLB/65/MLB_65/64_wRC.double
+MLB/65/MLB_65/6_BIP..double
+MLB/65/MLB_65/8_Ba..double
+MLB/66/MLB_66/21_our.x.double
+MLB/66/MLB_66/22_our.y.double
+MLB/66/MLB_66/26_r.double
+MLB/66/MLB_66/29_theta.double
+MLB/67/MLB_67/16_our.x.double
+MLB/67/MLB_67/17_our.y.double
+MLB/67/MLB_67/20_r.double
+MLB/67/MLB_67/22_theta.double
+MLB/68/MLB_68/20_our.x.double
+MLB/68/MLB_68/21_our.y.double
+MLB/68/MLB_68/24_r.double
+MLB/68/MLB_68/27_theta.double
+MLB/6/MLB_6/20_our.x.double
+MLB/6/MLB_6/21_our.y.double
+MLB/6/MLB_6/24_r.double
+MLB/6/MLB_6/27_theta.double
+MLB/7/MLB_7/13_ISO.double
+MLB/7/MLB_7/14_LD..double
+MLB/7/MLB_7/17_OBP.double
+MLB/7/MLB_7/19_PU..double
+MLB/7/MLB_7/23_SLG.double
+MLB/7/MLB_7/2_AVG.double
+MLB/7/MLB_7/34_wOBA.double
+MLB/7/MLB_7/35_wRAA.double
+MLB/7/MLB_7/37_wRC.double
+MLB/7/MLB_7/39_Calculation_40532458117263387.double
+MLB/7/MLB_7/3_BABIP.double
+MLB/7/MLB_7/40_Calculation_40532458113208334.double
+MLB/7/MLB_7/5_FB..double
+MLB/7/MLB_7/7_GB..double
+MLB/8/MLB_8/13_ISO.double
+MLB/8/MLB_8/14_LD..double
+MLB/8/MLB_8/17_OBP.double
+MLB/8/MLB_8/19_PU..double
+MLB/8/MLB_8/23_SLG.double
+MLB/8/MLB_8/2_AVG.double
+MLB/8/MLB_8/34_wOBA.double
+MLB/8/MLB_8/35_wRAA.double
+MLB/8/MLB_8/37_wRC.double
+MLB/8/MLB_8/39_Calculation_40532458117263387.double
+MLB/8/MLB_8/3_BABIP.double
+MLB/8/MLB_8/40_Calculation_40532458113208334.double
+MLB/8/MLB_8/5_FB..double
+MLB/8/MLB_8/7_GB..double
+MLB/9/MLB_9/13_ISO.double
+MLB/9/MLB_9/14_LD..double
+MLB/9/MLB_9/17_OBP.double
+MLB/9/MLB_9/19_PU..double
+MLB/9/MLB_9/23_SLG.double
+MLB/9/MLB_9/2_AVG.double
+MLB/9/MLB_9/34_wOBA.double
+MLB/9/MLB_9/35_wRAA.double
+MLB/9/MLB_9/37_wRC.double
+MLB/9/MLB_9/39_Calculation_40532458117263387.double
+MLB/9/MLB_9/3_BABIP.double
+MLB/9/MLB_9/40_Calculation_40532458113208334.double
+MLB/9/MLB_9/5_FB..double
+MLB/9/MLB_9/7_GB..double
+Motos/1/Motos_1/22_InversionQ.double
+Motos/1/Motos_1/23_InversionUS.double
+Motos/2/Motos_2/22_InversionQ.double
+Motos/2/Motos_2/23_InversionUS.double
+NYC/1/NYC_1/26_Latitude.double
+NYC/1/NYC_1/29_Longitude.double
+NYC/2/NYC_2/26_Latitude.double
+NYC/2/NYC_2/29_Longitude.double
+PanCreactomy1/1/PanCreactomy1_1/1_AVERAGE_MEDICARE_ALLOWED_AMT.double
+PanCreactomy1/1/PanCreactomy1_1/27_STDEV_MEDICARE_ALLOWED_AMT.double
+PanCreactomy1/1/PanCreactomy1_1/28_STDEV_MEDICARE_PAYMENT_AMT.double
+PanCreactomy1/1/PanCreactomy1_1/29_STDEV_SUBMITTED_CHRG_AMT.double
+PanCreactomy1/1/PanCreactomy1_1/2_AVERAGE_MEDICARE_PAYMENT_AMT.double
+PanCreactomy1/1/PanCreactomy1_1/3_AVERAGE_SUBMITTED_CHRG_AMT.double
+PanCreactomy1/1/PanCreactomy1_1/9_LINE_SRVC_CNT.double
+PanCreactomy2/1/PanCreactomy2_1/1_AVERAGE_MEDICARE_ALLOWED_AMT.double
+PanCreactomy2/1/PanCreactomy2_1/27_STDEV_MEDICARE_ALLOWED_AMT.double
+PanCreactomy2/1/PanCreactomy2_1/28_STDEV_MEDICARE_PAYMENT_AMT.double
+PanCreactomy2/1/PanCreactomy2_1/29_STDEV_SUBMITTED_CHRG_AMT.double
+PanCreactomy2/1/PanCreactomy2_1/2_AVERAGE_MEDICARE_PAYMENT_AMT.double
+PanCreactomy2/1/PanCreactomy2_1/3_AVERAGE_SUBMITTED_CHRG_AMT.double
+PanCreactomy2/1/PanCreactomy2_1/9_LINE_SRVC_CNT.double
+PanCreactomy2/2/PanCreactomy2_2/1_AVERAGE_MEDICARE_ALLOWED_AMT.double
+PanCreactomy2/2/PanCreactomy2_2/27_STDEV_MEDICARE_ALLOWED_AMT.double
+PanCreactomy2/2/PanCreactomy2_2/28_STDEV_MEDICARE_PAYMENT_AMT.double
+PanCreactomy2/2/PanCreactomy2_2/29_STDEV_SUBMITTED_CHRG_AMT.double
+PanCreactomy2/2/PanCreactomy2_2/2_AVERAGE_MEDICARE_PAYMENT_AMT.double
+PanCreactomy2/2/PanCreactomy2_2/3_AVERAGE_SUBMITTED_CHRG_AMT.double
+PanCreactomy2/2/PanCreactomy2_2/9_LINE_SRVC_CNT.double
+Physicians/1/Physicians_1/26_stdev_Medicare_allowed_amt.double
+Physicians/1/Physicians_1/27_stdev_Medicare_payment_amt.double
+Physicians/1/Physicians_1/28_stdev_submitted_chrg_amt.double
+Physicians/1/Physicians_1/2_average_Medicare_allowed_amt.double
+Physicians/1/Physicians_1/3_average_Medicare_payment_amt.double
+Physicians/1/Physicians_1/4_average_submitted_chrg_amt.double
+Physicians/1/Physicians_1/9_line_srvc_cnt.double
+Provider/1/Provider_1/26_stdev_Medicare_allowed_amt.double
+Provider/1/Provider_1/27_stdev_Medicare_payment_amt.double
+Provider/1/Provider_1/28_stdev_submitted_chrg_amt.double
+Provider/1/Provider_1/2_average_Medicare_allowed_amt.double
+Provider/1/Provider_1/3_average_Medicare_payment_amt.double
+Provider/1/Provider_1/4_average_submitted_chrg_amt.double
+Provider/2/Provider_2/26_stdev_Medicare_allowed_amt.double
+Provider/2/Provider_2/27_stdev_Medicare_payment_amt.double
+Provider/2/Provider_2/28_stdev_submitted_chrg_amt.double
+Provider/2/Provider_2/2_average_Medicare_allowed_amt.double
+Provider/2/Provider_2/3_average_Medicare_payment_amt.double
+Provider/2/Provider_2/4_average_submitted_chrg_amt.double
+Provider/3/Provider_3/26_stdev_Medicare_allowed_amt.double
+Provider/3/Provider_3/27_stdev_Medicare_payment_amt.double
+Provider/3/Provider_3/28_stdev_submitted_chrg_amt.double
+Provider/3/Provider_3/2_average_Medicare_allowed_amt.double
+Provider/3/Provider_3/3_average_Medicare_payment_amt.double
+Provider/3/Provider_3/4_average_submitted_chrg_amt.double
+Provider/4/Provider_4/26_stdev_Medicare_allowed_amt.double
+Provider/4/Provider_4/27_stdev_Medicare_payment_amt.double
+Provider/4/Provider_4/28_stdev_submitted_chrg_amt.double
+Provider/4/Provider_4/2_average_Medicare_allowed_amt.double
+Provider/4/Provider_4/3_average_Medicare_payment_amt.double
+Provider/4/Provider_4/4_average_submitted_chrg_amt.double
+Provider/5/Provider_5/26_stdev_Medicare_allowed_amt.double
+Provider/5/Provider_5/27_stdev_Medicare_payment_amt.double
+Provider/5/Provider_5/28_stdev_submitted_chrg_amt.double
+Provider/5/Provider_5/2_average_Medicare_allowed_amt.double
+Provider/5/Provider_5/3_average_Medicare_payment_amt.double
+Provider/5/Provider_5/4_average_submitted_chrg_amt.double
+Provider/6/Provider_6/26_stdev_Medicare_allowed_amt.double
+Provider/6/Provider_6/27_stdev_Medicare_payment_amt.double
+Provider/6/Provider_6/28_stdev_submitted_chrg_amt.double
+Provider/6/Provider_6/2_average_Medicare_allowed_amt.double
+Provider/6/Provider_6/3_average_Medicare_payment_amt.double
+Provider/6/Provider_6/4_average_submitted_chrg_amt.double
+Provider/7/Provider_7/26_stdev_Medicare_allowed_amt.double
+Provider/7/Provider_7/27_stdev_Medicare_payment_amt.double
+Provider/7/Provider_7/28_stdev_submitted_chrg_amt.double
+Provider/7/Provider_7/2_average_Medicare_allowed_amt.double
+Provider/7/Provider_7/3_average_Medicare_payment_amt.double
+Provider/7/Provider_7/4_average_submitted_chrg_amt.double
+Provider/8/Provider_8/26_stdev_Medicare_allowed_amt.double
+Provider/8/Provider_8/27_stdev_Medicare_payment_amt.double
+Provider/8/Provider_8/28_stdev_submitted_chrg_amt.double
+Provider/8/Provider_8/2_average_Medicare_allowed_amt.double
+Provider/8/Provider_8/3_average_Medicare_payment_amt.double
+Provider/8/Provider_8/4_average_submitted_chrg_amt.double
+RealEstate1/1/RealEstate1_1/25_Calculation_2630509165701334.double
+RealEstate1/1/RealEstate1_1/28_average monthly price per km2 (copy).double
+RealEstate1/1/RealEstate1_1/7_Latitude.double
+RealEstate1/1/RealEstate1_1/9_Longitude.double
+RealEstate1/2/RealEstate1_2/25_Calculation_2630509165701334.double
+RealEstate1/2/RealEstate1_2/28_average monthly price per km2 (copy).double
+RealEstate1/2/RealEstate1_2/7_Latitude.double
+RealEstate1/2/RealEstate1_2/9_Longitude.double
+RealEstate2/1/RealEstate2_1/10_Longitude.double
+RealEstate2/1/RealEstate2_1/8_Latitude.double
+RealEstate2/2/RealEstate2_2/10_Longitude.double
+RealEstate2/2/RealEstate2_2/8_Latitude.double
+RealEstate2/3/RealEstate2_3/10_Longitude.double
+RealEstate2/3/RealEstate2_3/8_Latitude.double
+RealEstate2/4/RealEstate2_4/10_Longitude.double
+RealEstate2/4/RealEstate2_4/8_Latitude.double
+RealEstate2/5/RealEstate2_5/10_Longitude.double
+RealEstate2/5/RealEstate2_5/8_Latitude.double
+RealEstate2/6/RealEstate2_6/10_Longitude.double
+RealEstate2/6/RealEstate2_6/8_Latitude.double
+RealEstate2/7/RealEstate2_7/10_Longitude.double
+RealEstate2/7/RealEstate2_7/8_Latitude.double
+Redfin1/1/Redfin1_1/10_inventory_mom.double
+Redfin1/1/Redfin1_1/11_inventory_yoy.double
+Redfin1/1/Redfin1_1/12_median_dom.double
+Redfin1/1/Redfin1_1/13_median_dom_mom.double
+Redfin1/1/Redfin1_1/14_median_dom_yoy.double
+Redfin1/1/Redfin1_1/15_median_list_ppsf.double
+Redfin1/1/Redfin1_1/16_median_list_ppsf_mom.double
+Redfin1/1/Redfin1_1/17_median_list_ppsf_yoy.double
+Redfin1/1/Redfin1_1/18_median_list_price.double
+Redfin1/1/Redfin1_1/19_median_list_price_mom.double
+Redfin1/1/Redfin1_1/20_median_list_price_yoy.double
+Redfin1/1/Redfin1_1/21_median_ppsf.double
+Redfin1/1/Redfin1_1/22_median_ppsf_mom.double
+Redfin1/1/Redfin1_1/23_median_ppsf_yoy.double
+Redfin1/1/Redfin1_1/24_median_sale_price.double
+Redfin1/1/Redfin1_1/25_median_sale_price_mom.double
+Redfin1/1/Redfin1_1/26_median_sale_price_yoy.double
+Redfin1/1/Redfin1_1/28_new_listings_mom.double
+Redfin1/1/Redfin1_1/29_new_listings_yoy.double
+Redfin1/1/Redfin1_1/2_avg_sale_to_list.double
+Redfin1/1/Redfin1_1/33_price_drops.double
+Redfin1/1/Redfin1_1/34_price_drops_mom.double
+Redfin1/1/Redfin1_1/35_price_drops_yoy.double
+Redfin1/1/Redfin1_1/39_sold_above_list.double
+Redfin1/1/Redfin1_1/3_avg_sale_to_list_mom.double
+Redfin1/1/Redfin1_1/40_sold_above_list_mom.double
+Redfin1/1/Redfin1_1/41_sold_above_list_yoy.double
+Redfin1/1/Redfin1_1/4_avg_sale_to_list_yoy.double
+Redfin1/1/Redfin1_1/7_homes_sold_mom.double
+Redfin1/1/Redfin1_1/8_homes_sold_yoy.double
+Redfin1/2/Redfin1_2/10_inventory_mom.double
+Redfin1/2/Redfin1_2/11_inventory_yoy.double
+Redfin1/2/Redfin1_2/12_median_dom.double
+Redfin1/2/Redfin1_2/13_median_dom_mom.double
+Redfin1/2/Redfin1_2/14_median_dom_yoy.double
+Redfin1/2/Redfin1_2/15_median_list_ppsf.double
+Redfin1/2/Redfin1_2/16_median_list_ppsf_mom.double
+Redfin1/2/Redfin1_2/17_median_list_ppsf_yoy.double
+Redfin1/2/Redfin1_2/18_median_list_price.double
+Redfin1/2/Redfin1_2/19_median_list_price_mom.double
+Redfin1/2/Redfin1_2/20_median_list_price_yoy.double
+Redfin1/2/Redfin1_2/21_median_ppsf.double
+Redfin1/2/Redfin1_2/22_median_ppsf_mom.double
+Redfin1/2/Redfin1_2/23_median_ppsf_yoy.double
+Redfin1/2/Redfin1_2/24_median_sale_price.double
+Redfin1/2/Redfin1_2/25_median_sale_price_mom.double
+Redfin1/2/Redfin1_2/26_median_sale_price_yoy.double
+Redfin1/2/Redfin1_2/28_new_listings_mom.double
+Redfin1/2/Redfin1_2/29_new_listings_yoy.double
+Redfin1/2/Redfin1_2/2_avg_sale_to_list.double
+Redfin1/2/Redfin1_2/33_price_drops.double
+Redfin1/2/Redfin1_2/34_price_drops_mom.double
+Redfin1/2/Redfin1_2/35_price_drops_yoy.double
+Redfin1/2/Redfin1_2/39_sold_above_list.double
+Redfin1/2/Redfin1_2/3_avg_sale_to_list_mom.double
+Redfin1/2/Redfin1_2/40_sold_above_list_mom.double
+Redfin1/2/Redfin1_2/41_sold_above_list_yoy.double
+Redfin1/2/Redfin1_2/4_avg_sale_to_list_yoy.double
+Redfin1/2/Redfin1_2/7_homes_sold_mom.double
+Redfin1/2/Redfin1_2/8_homes_sold_yoy.double
+Redfin1/3/Redfin1_3/10_inventory_mom.double
+Redfin1/3/Redfin1_3/11_inventory_yoy.double
+Redfin1/3/Redfin1_3/12_median_dom.double
+Redfin1/3/Redfin1_3/13_median_dom_mom.double
+Redfin1/3/Redfin1_3/14_median_dom_yoy.double
+Redfin1/3/Redfin1_3/15_median_list_ppsf.double
+Redfin1/3/Redfin1_3/16_median_list_ppsf_mom.double
+Redfin1/3/Redfin1_3/17_median_list_ppsf_yoy.double
+Redfin1/3/Redfin1_3/18_median_list_price.double
+Redfin1/3/Redfin1_3/19_median_list_price_mom.double
+Redfin1/3/Redfin1_3/20_median_list_price_yoy.double
+Redfin1/3/Redfin1_3/21_median_ppsf.double
+Redfin1/3/Redfin1_3/22_median_ppsf_mom.double
+Redfin1/3/Redfin1_3/23_median_ppsf_yoy.double
+Redfin1/3/Redfin1_3/24_median_sale_price.double
+Redfin1/3/Redfin1_3/25_median_sale_price_mom.double
+Redfin1/3/Redfin1_3/26_median_sale_price_yoy.double
+Redfin1/3/Redfin1_3/28_new_listings_mom.double
+Redfin1/3/Redfin1_3/29_new_listings_yoy.double
+Redfin1/3/Redfin1_3/2_avg_sale_to_list.double
+Redfin1/3/Redfin1_3/33_price_drops.double
+Redfin1/3/Redfin1_3/34_price_drops_mom.double
+Redfin1/3/Redfin1_3/35_price_drops_yoy.double
+Redfin1/3/Redfin1_3/39_sold_above_list.double
+Redfin1/3/Redfin1_3/3_avg_sale_to_list_mom.double
+Redfin1/3/Redfin1_3/40_sold_above_list_mom.double
+Redfin1/3/Redfin1_3/41_sold_above_list_yoy.double
+Redfin1/3/Redfin1_3/4_avg_sale_to_list_yoy.double
+Redfin1/3/Redfin1_3/7_homes_sold_mom.double
+Redfin1/3/Redfin1_3/8_homes_sold_yoy.double
+Redfin1/4/Redfin1_4/10_inventory_mom.double
+Redfin1/4/Redfin1_4/11_inventory_yoy.double
+Redfin1/4/Redfin1_4/12_median_dom.double
+Redfin1/4/Redfin1_4/13_median_dom_mom.double
+Redfin1/4/Redfin1_4/14_median_dom_yoy.double
+Redfin1/4/Redfin1_4/15_median_list_ppsf.double
+Redfin1/4/Redfin1_4/16_median_list_ppsf_mom.double
+Redfin1/4/Redfin1_4/17_median_list_ppsf_yoy.double
+Redfin1/4/Redfin1_4/18_median_list_price.double
+Redfin1/4/Redfin1_4/19_median_list_price_mom.double
+Redfin1/4/Redfin1_4/20_median_list_price_yoy.double
+Redfin1/4/Redfin1_4/21_median_ppsf.double
+Redfin1/4/Redfin1_4/22_median_ppsf_mom.double
+Redfin1/4/Redfin1_4/23_median_ppsf_yoy.double
+Redfin1/4/Redfin1_4/24_median_sale_price.double
+Redfin1/4/Redfin1_4/25_median_sale_price_mom.double
+Redfin1/4/Redfin1_4/26_median_sale_price_yoy.double
+Redfin1/4/Redfin1_4/28_new_listings_mom.double
+Redfin1/4/Redfin1_4/29_new_listings_yoy.double
+Redfin1/4/Redfin1_4/2_avg_sale_to_list.double
+Redfin1/4/Redfin1_4/33_price_drops.double
+Redfin1/4/Redfin1_4/34_price_drops_mom.double
+Redfin1/4/Redfin1_4/35_price_drops_yoy.double
+Redfin1/4/Redfin1_4/39_sold_above_list.double
+Redfin1/4/Redfin1_4/3_avg_sale_to_list_mom.double
+Redfin1/4/Redfin1_4/40_sold_above_list_mom.double
+Redfin1/4/Redfin1_4/41_sold_above_list_yoy.double
+Redfin1/4/Redfin1_4/4_avg_sale_to_list_yoy.double
+Redfin1/4/Redfin1_4/7_homes_sold_mom.double
+Redfin1/4/Redfin1_4/8_homes_sold_yoy.double
+Redfin2/1/Redfin2_1/10_inventory_mom.double
+Redfin2/1/Redfin2_1/11_inventory_yoy.double
+Redfin2/1/Redfin2_1/12_median_dom.double
+Redfin2/1/Redfin2_1/13_median_dom_mom.double
+Redfin2/1/Redfin2_1/14_median_dom_yoy.double
+Redfin2/1/Redfin2_1/15_median_list_ppsf.double
+Redfin2/1/Redfin2_1/16_median_list_ppsf_mom.double
+Redfin2/1/Redfin2_1/17_median_list_ppsf_yoy.double
+Redfin2/1/Redfin2_1/18_median_list_price.double
+Redfin2/1/Redfin2_1/19_median_list_price_mom.double
+Redfin2/1/Redfin2_1/20_median_list_price_yoy.double
+Redfin2/1/Redfin2_1/21_median_ppsf.double
+Redfin2/1/Redfin2_1/22_median_ppsf_mom.double
+Redfin2/1/Redfin2_1/23_median_ppsf_yoy.double
+Redfin2/1/Redfin2_1/24_median_sale_price.double
+Redfin2/1/Redfin2_1/25_median_sale_price_mom.double
+Redfin2/1/Redfin2_1/26_median_sale_price_yoy.double
+Redfin2/1/Redfin2_1/28_new_listings_mom.double
+Redfin2/1/Redfin2_1/29_new_listings_yoy.double
+Redfin2/1/Redfin2_1/2_avg_sale_to_list.double
+Redfin2/1/Redfin2_1/33_price_drops.double
+Redfin2/1/Redfin2_1/34_price_drops_mom.double
+Redfin2/1/Redfin2_1/35_price_drops_yoy.double
+Redfin2/1/Redfin2_1/39_sold_above_list.double
+Redfin2/1/Redfin2_1/3_avg_sale_to_list_mom.double
+Redfin2/1/Redfin2_1/40_sold_above_list_mom.double
+Redfin2/1/Redfin2_1/41_sold_above_list_yoy.double
+Redfin2/1/Redfin2_1/4_avg_sale_to_list_yoy.double
+Redfin2/1/Redfin2_1/7_homes_sold_mom.double
+Redfin2/1/Redfin2_1/8_homes_sold_yoy.double
+Redfin2/2/Redfin2_2/10_inventory_mom.double
+Redfin2/2/Redfin2_2/11_inventory_yoy.double
+Redfin2/2/Redfin2_2/12_median_dom.double
+Redfin2/2/Redfin2_2/13_median_dom_mom.double
+Redfin2/2/Redfin2_2/14_median_dom_yoy.double
+Redfin2/2/Redfin2_2/15_median_list_ppsf.double
+Redfin2/2/Redfin2_2/16_median_list_ppsf_mom.double
+Redfin2/2/Redfin2_2/17_median_list_ppsf_yoy.double
+Redfin2/2/Redfin2_2/18_median_list_price.double
+Redfin2/2/Redfin2_2/19_median_list_price_mom.double
+Redfin2/2/Redfin2_2/20_median_list_price_yoy.double
+Redfin2/2/Redfin2_2/21_median_ppsf.double
+Redfin2/2/Redfin2_2/22_median_ppsf_mom.double
+Redfin2/2/Redfin2_2/23_median_ppsf_yoy.double
+Redfin2/2/Redfin2_2/24_median_sale_price.double
+Redfin2/2/Redfin2_2/25_median_sale_price_mom.double
+Redfin2/2/Redfin2_2/26_median_sale_price_yoy.double
+Redfin2/2/Redfin2_2/28_new_listings_mom.double
+Redfin2/2/Redfin2_2/29_new_listings_yoy.double
+Redfin2/2/Redfin2_2/2_avg_sale_to_list.double
+Redfin2/2/Redfin2_2/33_price_drops.double
+Redfin2/2/Redfin2_2/34_price_drops_mom.double
+Redfin2/2/Redfin2_2/35_price_drops_yoy.double
+Redfin2/2/Redfin2_2/39_sold_above_list.double
+Redfin2/2/Redfin2_2/3_avg_sale_to_list_mom.double
+Redfin2/2/Redfin2_2/40_sold_above_list_mom.double
+Redfin2/2/Redfin2_2/41_sold_above_list_yoy.double
+Redfin2/2/Redfin2_2/4_avg_sale_to_list_yoy.double
+Redfin2/2/Redfin2_2/7_homes_sold_mom.double
+Redfin2/2/Redfin2_2/8_homes_sold_yoy.double
+Redfin2/3/Redfin2_3/10_inventory_mom.double
+Redfin2/3/Redfin2_3/11_inventory_yoy.double
+Redfin2/3/Redfin2_3/12_median_dom.double
+Redfin2/3/Redfin2_3/13_median_dom_mom.double
+Redfin2/3/Redfin2_3/14_median_dom_yoy.double
+Redfin2/3/Redfin2_3/15_median_list_ppsf.double
+Redfin2/3/Redfin2_3/16_median_list_ppsf_mom.double
+Redfin2/3/Redfin2_3/17_median_list_ppsf_yoy.double
+Redfin2/3/Redfin2_3/18_median_list_price.double
+Redfin2/3/Redfin2_3/19_median_list_price_mom.double
+Redfin2/3/Redfin2_3/20_median_list_price_yoy.double
+Redfin2/3/Redfin2_3/21_median_ppsf.double
+Redfin2/3/Redfin2_3/22_median_ppsf_mom.double
+Redfin2/3/Redfin2_3/23_median_ppsf_yoy.double
+Redfin2/3/Redfin2_3/24_median_sale_price.double
+Redfin2/3/Redfin2_3/25_median_sale_price_mom.double
+Redfin2/3/Redfin2_3/26_median_sale_price_yoy.double
+Redfin2/3/Redfin2_3/28_new_listings_mom.double
+Redfin2/3/Redfin2_3/29_new_listings_yoy.double
+Redfin2/3/Redfin2_3/2_avg_sale_to_list.double
+Redfin2/3/Redfin2_3/33_price_drops.double
+Redfin2/3/Redfin2_3/34_price_drops_mom.double
+Redfin2/3/Redfin2_3/35_price_drops_yoy.double
+Redfin2/3/Redfin2_3/39_sold_above_list.double
+Redfin2/3/Redfin2_3/3_avg_sale_to_list_mom.double
+Redfin2/3/Redfin2_3/40_sold_above_list_mom.double
+Redfin2/3/Redfin2_3/41_sold_above_list_yoy.double
+Redfin2/3/Redfin2_3/4_avg_sale_to_list_yoy.double
+Redfin2/3/Redfin2_3/7_homes_sold_mom.double
+Redfin2/3/Redfin2_3/8_homes_sold_yoy.double
+Redfin3/1/Redfin3_1/10_inventory_mom.double
+Redfin3/1/Redfin3_1/11_inventory_yoy.double
+Redfin3/1/Redfin3_1/12_median_dom.double
+Redfin3/1/Redfin3_1/13_median_dom_mom.double
+Redfin3/1/Redfin3_1/14_median_dom_yoy.double
+Redfin3/1/Redfin3_1/15_median_list_ppsf.double
+Redfin3/1/Redfin3_1/16_median_list_ppsf_mom.double
+Redfin3/1/Redfin3_1/17_median_list_ppsf_yoy.double
+Redfin3/1/Redfin3_1/18_median_list_price.double
+Redfin3/1/Redfin3_1/19_median_list_price_mom.double
+Redfin3/1/Redfin3_1/20_median_list_price_yoy.double
+Redfin3/1/Redfin3_1/21_median_ppsf.double
+Redfin3/1/Redfin3_1/22_median_ppsf_mom.double
+Redfin3/1/Redfin3_1/23_median_ppsf_yoy.double
+Redfin3/1/Redfin3_1/24_median_sale_price.double
+Redfin3/1/Redfin3_1/25_median_sale_price_mom.double
+Redfin3/1/Redfin3_1/26_median_sale_price_yoy.double
+Redfin3/1/Redfin3_1/27_months_of_supply.double
+Redfin3/1/Redfin3_1/28_months_of_supply_mom.double
+Redfin3/1/Redfin3_1/29_months_of_supply_yoy.double
+Redfin3/1/Redfin3_1/2_avg_sale_to_list.double
+Redfin3/1/Redfin3_1/31_new_listings_mom.double
+Redfin3/1/Redfin3_1/32_new_listings_yoy.double
+Redfin3/1/Redfin3_1/36_price_drops.double
+Redfin3/1/Redfin3_1/37_price_drops_mom.double
+Redfin3/1/Redfin3_1/38_price_drops_yoy.double
+Redfin3/1/Redfin3_1/3_avg_sale_to_list_mom.double
+Redfin3/1/Redfin3_1/42_sold_above_list.double
+Redfin3/1/Redfin3_1/43_sold_above_list_mom.double
+Redfin3/1/Redfin3_1/44_sold_above_list_yoy.double
+Redfin3/1/Redfin3_1/4_avg_sale_to_list_yoy.double
+Redfin3/1/Redfin3_1/7_homes_sold_mom.double
+Redfin3/1/Redfin3_1/8_homes_sold_yoy.double
+Redfin3/2/Redfin3_2/10_inventory_mom.double
+Redfin3/2/Redfin3_2/11_inventory_yoy.double
+Redfin3/2/Redfin3_2/12_median_dom.double
+Redfin3/2/Redfin3_2/13_median_dom_mom.double
+Redfin3/2/Redfin3_2/14_median_dom_yoy.double
+Redfin3/2/Redfin3_2/15_median_list_ppsf.double
+Redfin3/2/Redfin3_2/16_median_list_ppsf_mom.double
+Redfin3/2/Redfin3_2/17_median_list_ppsf_yoy.double
+Redfin3/2/Redfin3_2/18_median_list_price.double
+Redfin3/2/Redfin3_2/19_median_list_price_mom.double
+Redfin3/2/Redfin3_2/20_median_list_price_yoy.double
+Redfin3/2/Redfin3_2/21_median_ppsf.double
+Redfin3/2/Redfin3_2/22_median_ppsf_mom.double
+Redfin3/2/Redfin3_2/23_median_ppsf_yoy.double
+Redfin3/2/Redfin3_2/24_median_sale_price.double
+Redfin3/2/Redfin3_2/25_median_sale_price_mom.double
+Redfin3/2/Redfin3_2/26_median_sale_price_yoy.double
+Redfin3/2/Redfin3_2/27_months_of_supply.double
+Redfin3/2/Redfin3_2/28_months_of_supply_mom.double
+Redfin3/2/Redfin3_2/29_months_of_supply_yoy.double
+Redfin3/2/Redfin3_2/2_avg_sale_to_list.double
+Redfin3/2/Redfin3_2/31_new_listings_mom.double
+Redfin3/2/Redfin3_2/32_new_listings_yoy.double
+Redfin3/2/Redfin3_2/36_price_drops.double
+Redfin3/2/Redfin3_2/37_price_drops_mom.double
+Redfin3/2/Redfin3_2/38_price_drops_yoy.double
+Redfin3/2/Redfin3_2/3_avg_sale_to_list_mom.double
+Redfin3/2/Redfin3_2/42_sold_above_list.double
+Redfin3/2/Redfin3_2/43_sold_above_list_mom.double
+Redfin3/2/Redfin3_2/44_sold_above_list_yoy.double
+Redfin3/2/Redfin3_2/4_avg_sale_to_list_yoy.double
+Redfin3/2/Redfin3_2/7_homes_sold_mom.double
+Redfin3/2/Redfin3_2/8_homes_sold_yoy.double
+Redfin4/1/Redfin4_1/10_inventory_mom.double
+Redfin4/1/Redfin4_1/11_inventory_yoy.double
+Redfin4/1/Redfin4_1/12_median_dom.double
+Redfin4/1/Redfin4_1/13_median_dom_mom.double
+Redfin4/1/Redfin4_1/14_median_dom_yoy.double
+Redfin4/1/Redfin4_1/15_median_list_ppsf.double
+Redfin4/1/Redfin4_1/16_median_list_ppsf_mom.double
+Redfin4/1/Redfin4_1/17_median_list_ppsf_yoy.double
+Redfin4/1/Redfin4_1/18_median_list_price.double
+Redfin4/1/Redfin4_1/19_median_list_price_mom.double
+Redfin4/1/Redfin4_1/20_median_list_price_yoy.double
+Redfin4/1/Redfin4_1/21_median_ppsf.double
+Redfin4/1/Redfin4_1/22_median_ppsf_mom.double
+Redfin4/1/Redfin4_1/23_median_ppsf_yoy.double
+Redfin4/1/Redfin4_1/24_median_sale_price.double
+Redfin4/1/Redfin4_1/25_Calculation_875105747585536000.double
+Redfin4/1/Redfin4_1/26_median_sale_price_mom.double
+Redfin4/1/Redfin4_1/27_median_sale_price_yoy.double
+Redfin4/1/Redfin4_1/28_months_of_supply.double
+Redfin4/1/Redfin4_1/29_months_of_supply_mom.double
+Redfin4/1/Redfin4_1/2_avg_sale_to_list.double
+Redfin4/1/Redfin4_1/30_months_of_supply_yoy.double
+Redfin4/1/Redfin4_1/32_new_listings_mom.double
+Redfin4/1/Redfin4_1/33_new_listings_yoy.double
+Redfin4/1/Redfin4_1/37_price_drops.double
+Redfin4/1/Redfin4_1/38_price_drops_mom.double
+Redfin4/1/Redfin4_1/39_price_drops_yoy.double
+Redfin4/1/Redfin4_1/3_avg_sale_to_list_mom.double
+Redfin4/1/Redfin4_1/43_sold_above_list.double
+Redfin4/1/Redfin4_1/44_sold_above_list_mom.double
+Redfin4/1/Redfin4_1/45_sold_above_list_yoy.double
+Redfin4/1/Redfin4_1/4_avg_sale_to_list_yoy.double
+Redfin4/1/Redfin4_1/7_homes_sold_mom.double
+Redfin4/1/Redfin4_1/8_homes_sold_yoy.double
+Rentabilidad/1/Rentabilidad_1/100_Rentabilidad.double
+Rentabilidad/1/Rentabilidad_1/10_BODEGA_Costo Arriendo Terceros.double
+Rentabilidad/1/Rentabilidad_1/113_T1_Cedis Propio.double
+Rentabilidad/1/Rentabilidad_1/114_T1_Distruidor Tercero.double
+Rentabilidad/1/Rentabilidad_1/118_TELEVENTA_Costo de Televendedor Normal.double
+Rentabilidad/1/Rentabilidad_1/120_TELEVENTA_Tiempos de Venta Televenta Normal.double
+Rentabilidad/1/Rentabilidad_1/121_TOTAL BODEGA C_ARRIENDOS.double
+Rentabilidad/1/Rentabilidad_1/122_TOTAL MERCADEO.double
+Rentabilidad/1/Rentabilidad_1/123_TOTAL REPARTO.double
+Rentabilidad/1/Rentabilidad_1/124_TOTAL T1.double
+Rentabilidad/1/Rentabilidad_1/125_TOTAL VENTA.double
+Rentabilidad/1/Rentabilidad_1/126_Total CdS.double
+Rentabilidad/1/Rentabilidad_1/129_Util. Bruta.double
+Rentabilidad/1/Rentabilidad_1/12_BODEGA_Distribuidores- Costos Fijos y Variables.double
+Rentabilidad/1/Rentabilidad_1/130_VENTA_MERMA DE VENTA.double
+Rentabilidad/1/Rentabilidad_1/133_VENTA_Costo Renta de Equipo Televenta Normal.double
+Rentabilidad/1/Rentabilidad_1/134_VENTA_Costo Total Mercaderistas.double
+Rentabilidad/1/Rentabilidad_1/135_VENTA_Costo de Handheld Rutas Autoventa.double
+Rentabilidad/1/Rentabilidad_1/136_VENTA_Costo de Handheld Rutas NCBs.double
+Rentabilidad/1/Rentabilidad_1/137_VENTA_Costo de Handheld Rutas Preventa.double
+Rentabilidad/1/Rentabilidad_1/138_VENTA_Costos EDI.double
+Rentabilidad/1/Rentabilidad_1/14_CF.double
+Rentabilidad/1/Rentabilidad_1/15_CU.double
+Rentabilidad/1/Rentabilidad_1/16_Calculation_1880818214638259.double
+Rentabilidad/1/Rentabilidad_1/1_AUTOPREVENTA_Costo Fijo.double
+Rentabilidad/1/Rentabilidad_1/2_AUTOPREVENTA_Costo Variable.double
+Rentabilidad/1/Rentabilidad_1/3_AUTOPREVENTA_Costo de Devoluciones.double
+Rentabilidad/1/Rentabilidad_1/43_GERENTES VENTA_Coordinadores Bronces.double
+Rentabilidad/1/Rentabilidad_1/44_GERENTES VENTA_Costo Gerente de Ventas Normal.double
+Rentabilidad/1/Rentabilidad_1/47_IN.double
+Rentabilidad/1/Rentabilidad_1/4_AUTOPREVENTA_Tiempos de Venta + Traslado Autopreventa Normal.double
+Rentabilidad/1/Rentabilidad_1/53_Latitud AUTO PREV.double
+Rentabilidad/1/Rentabilidad_1/57_Longitud AUTO PREV.double
+Rentabilidad/1/Rentabilidad_1/5_AUTOVENTA_Carga Paseante.double
+Rentabilidad/1/Rentabilidad_1/60_MERCADEO_Costo Refrigeración.double
+Rentabilidad/1/Rentabilidad_1/61_MERCADEO_PDE.double
+Rentabilidad/1/Rentabilidad_1/64_MERCADEO_Prorrateo Mercaderistas.double
+Rentabilidad/1/Rentabilidad_1/6_AUTOVENTA_Costo Fijo.double
+Rentabilidad/1/Rentabilidad_1/73_OP. DISTRIBUIDORES_Costo Fijo.double
+Rentabilidad/1/Rentabilidad_1/74_OP. DISTRIBUIDORES_Costo Variable.double
+Rentabilidad/1/Rentabilidad_1/76_OP. DISTRIBUIDORES_Mayoristas.double
+Rentabilidad/1/Rentabilidad_1/77_OP. DISTRIBUIDORES_NO GVF.double
+Rentabilidad/1/Rentabilidad_1/78_OP. DISTRIBUIDORES_Prorrateo Visitas.double
+Rentabilidad/1/Rentabilidad_1/79_OTROS VENTA_Costo de Rotación Pre_Televendedores.double
+Rentabilidad/1/Rentabilidad_1/7_AUTOVENTA_Costo Variable.double
+Rentabilidad/1/Rentabilidad_1/80_PREVENTA NCB_Costo de Prevendedor NCB.double
+Rentabilidad/1/Rentabilidad_1/81_PREVENTA NCB_Tiempos de Venta + Traslado Preventa NCB.double
+Rentabilidad/1/Rentabilidad_1/82_PREVENTA_Costo de Prevendedor Normal.double
+Rentabilidad/1/Rentabilidad_1/83_PREVENTA_Tiempos de Venta + Traslado Preventa Normal.double
+Rentabilidad/1/Rentabilidad_1/85_Precio Prom. CF.double
+Rentabilidad/1/Rentabilidad_1/86_Precio Prom. CU.double
+Rentabilidad/1/Rentabilidad_1/87_REPARTO_Costo Supervisores.double
+Rentabilidad/1/Rentabilidad_1/88_REPARTO_Costo de Bodegas Secundarias.double
+Rentabilidad/1/Rentabilidad_1/89_REPARTO_Costo de Depreciación.double
+Rentabilidad/1/Rentabilidad_1/8_AUTOVENTA_Tiempos de Venta + Traslado Autoventa Normal.double
+Rentabilidad/1/Rentabilidad_1/90_REPARTO_Costo de Mantenimiento.double
+Rentabilidad/1/Rentabilidad_1/91_REPARTO_Devoluciones.double
+Rentabilidad/1/Rentabilidad_1/92_REPARTO_Merma de Ruta.double
+Rentabilidad/1/Rentabilidad_1/93_REPARTO_Rutas Dinamicas- Costos Fijos.double
+Rentabilidad/1/Rentabilidad_1/94_REPARTO_Rutas Dinamicas- Costos Variables.double
+Rentabilidad/1/Rentabilidad_1/95_REPARTO_Rutas Fijas- Costos Fijos.double
+Rentabilidad/1/Rentabilidad_1/96_REPARTO_Rutas Fijas- Costos Variables.double
+Rentabilidad/1/Rentabilidad_1/97_REPARTO_Tiempos de Reparto Fijo + Variable.double
+Rentabilidad/1/Rentabilidad_1/9_BODEGA_CEDIS Propio- Costos Bodega.double
+Rentabilidad/2/Rentabilidad_2/10_BODEGA_Costo Arriendo Terceros.double
+Rentabilidad/2/Rentabilidad_2/111_T1_Cedis Propio.double
+Rentabilidad/2/Rentabilidad_2/112_T1_Distruidor Tercero.double
+Rentabilidad/2/Rentabilidad_2/116_TELEVENTA_Costo de Televendedor Normal.double
+Rentabilidad/2/Rentabilidad_2/118_TELEVENTA_Tiempos de Venta Televenta Normal.double
+Rentabilidad/2/Rentabilidad_2/119_TOTAL BODEGA C_ARRIENDOS.double
+Rentabilidad/2/Rentabilidad_2/120_TOTAL MERCADEO.double
+Rentabilidad/2/Rentabilidad_2/121_TOTAL REPARTO.double
+Rentabilidad/2/Rentabilidad_2/122_TOTAL T1.double
+Rentabilidad/2/Rentabilidad_2/123_TOTAL VENTA.double
+Rentabilidad/2/Rentabilidad_2/124_Total CdS.double
+Rentabilidad/2/Rentabilidad_2/127_Util. Bruta.double
+Rentabilidad/2/Rentabilidad_2/128_VENTA_MERMA DE VENTA.double
+Rentabilidad/2/Rentabilidad_2/12_BODEGA_Distribuidores- Costos Fijos y Variables.double
+Rentabilidad/2/Rentabilidad_2/131_VENTA_Costo Renta de Equipo Televenta Normal.double
+Rentabilidad/2/Rentabilidad_2/132_VENTA_Costo Total Mercaderistas.double
+Rentabilidad/2/Rentabilidad_2/133_VENTA_Costo de Handheld Rutas Autoventa.double
+Rentabilidad/2/Rentabilidad_2/134_VENTA_Costo de Handheld Rutas NCBs.double
+Rentabilidad/2/Rentabilidad_2/135_VENTA_Costo de Handheld Rutas Preventa.double
+Rentabilidad/2/Rentabilidad_2/136_VENTA_Costos EDI.double
+Rentabilidad/2/Rentabilidad_2/14_CF.double
+Rentabilidad/2/Rentabilidad_2/15_CU.double
+Rentabilidad/2/Rentabilidad_2/1_AUTOPREVENTA_Costo Fijo.double
+Rentabilidad/2/Rentabilidad_2/2_AUTOPREVENTA_Costo Variable.double
+Rentabilidad/2/Rentabilidad_2/3_AUTOPREVENTA_Costo de Devoluciones.double
+Rentabilidad/2/Rentabilidad_2/42_GERENTES VENTA_Coordinadores Bronces.double
+Rentabilidad/2/Rentabilidad_2/43_GERENTES VENTA_Costo Gerente de Ventas Normal.double
+Rentabilidad/2/Rentabilidad_2/46_IN.double
+Rentabilidad/2/Rentabilidad_2/4_AUTOPREVENTA_Tiempos de Venta + Traslado Autopreventa Normal.double
+Rentabilidad/2/Rentabilidad_2/52_Latitud AUTO PREV.double
+Rentabilidad/2/Rentabilidad_2/55_Longitud AUTO PREV.double
+Rentabilidad/2/Rentabilidad_2/58_MERCADEO_Costo Refrigeración.double
+Rentabilidad/2/Rentabilidad_2/59_MERCADEO_PDE.double
+Rentabilidad/2/Rentabilidad_2/5_AUTOVENTA_Carga Paseante.double
+Rentabilidad/2/Rentabilidad_2/62_MERCADEO_Prorrateo Mercaderistas.double
+Rentabilidad/2/Rentabilidad_2/6_AUTOVENTA_Costo Fijo.double
+Rentabilidad/2/Rentabilidad_2/71_OP. DISTRIBUIDORES_Costo Fijo.double
+Rentabilidad/2/Rentabilidad_2/72_OP. DISTRIBUIDORES_Costo Variable.double
+Rentabilidad/2/Rentabilidad_2/74_OP. DISTRIBUIDORES_Mayoristas.double
+Rentabilidad/2/Rentabilidad_2/75_OP. DISTRIBUIDORES_NO GVF.double
+Rentabilidad/2/Rentabilidad_2/76_OP. DISTRIBUIDORES_Prorrateo Visitas.double
+Rentabilidad/2/Rentabilidad_2/77_OTROS VENTA_Costo de Rotación Pre_Televendedores.double
+Rentabilidad/2/Rentabilidad_2/78_PREVENTA NCB_Costo de Prevendedor NCB.double
+Rentabilidad/2/Rentabilidad_2/79_PREVENTA NCB_Tiempos de Venta + Traslado Preventa NCB.double
+Rentabilidad/2/Rentabilidad_2/7_AUTOVENTA_Costo Variable.double
+Rentabilidad/2/Rentabilidad_2/80_PREVENTA_Costo de Prevendedor Normal.double
+Rentabilidad/2/Rentabilidad_2/81_PREVENTA_Tiempos de Venta + Traslado Preventa Normal.double
+Rentabilidad/2/Rentabilidad_2/83_Precio Prom. CF.double
+Rentabilidad/2/Rentabilidad_2/84_Precio Prom. CU.double
+Rentabilidad/2/Rentabilidad_2/85_REPARTO_Costo Supervisores.double
+Rentabilidad/2/Rentabilidad_2/86_REPARTO_Costo de Bodegas Secundarias.double
+Rentabilidad/2/Rentabilidad_2/87_REPARTO_Costo de Depreciación.double
+Rentabilidad/2/Rentabilidad_2/88_REPARTO_Costo de Mantenimiento.double
+Rentabilidad/2/Rentabilidad_2/89_REPARTO_Devoluciones.double
+Rentabilidad/2/Rentabilidad_2/8_AUTOVENTA_Tiempos de Venta + Traslado Autoventa Normal.double
+Rentabilidad/2/Rentabilidad_2/90_REPARTO_Merma de Ruta.double
+Rentabilidad/2/Rentabilidad_2/91_REPARTO_Rutas Dinamicas- Costos Fijos.double
+Rentabilidad/2/Rentabilidad_2/92_REPARTO_Rutas Dinamicas- Costos Variables.double
+Rentabilidad/2/Rentabilidad_2/93_REPARTO_Rutas Fijas- Costos Fijos.double
+Rentabilidad/2/Rentabilidad_2/94_REPARTO_Rutas Fijas- Costos Variables.double
+Rentabilidad/2/Rentabilidad_2/95_REPARTO_Tiempos de Reparto Fijo + Variable.double
+Rentabilidad/2/Rentabilidad_2/98_Rentabilidad.double
+Rentabilidad/2/Rentabilidad_2/9_BODEGA_CEDIS Propio- Costos Bodega.double
+Rentabilidad/3/Rentabilidad_3/100_Rentabilidad.double
+Rentabilidad/3/Rentabilidad_3/10_BODEGA_Costo Arriendo Terceros.double
+Rentabilidad/3/Rentabilidad_3/113_T1_Cedis Propio.double
+Rentabilidad/3/Rentabilidad_3/114_T1_Distruidor Tercero.double
+Rentabilidad/3/Rentabilidad_3/118_TELEVENTA_Costo de Televendedor Normal.double
+Rentabilidad/3/Rentabilidad_3/120_TELEVENTA_Tiempos de Venta Televenta Normal.double
+Rentabilidad/3/Rentabilidad_3/121_TOTAL BODEGA C_ARRIENDOS.double
+Rentabilidad/3/Rentabilidad_3/122_TOTAL MERCADEO.double
+Rentabilidad/3/Rentabilidad_3/123_TOTAL REPARTO.double
+Rentabilidad/3/Rentabilidad_3/124_TOTAL T1.double
+Rentabilidad/3/Rentabilidad_3/125_TOTAL VENTA.double
+Rentabilidad/3/Rentabilidad_3/126_Total CdS.double
+Rentabilidad/3/Rentabilidad_3/129_Util. Bruta.double
+Rentabilidad/3/Rentabilidad_3/12_BODEGA_Distribuidores- Costos Fijos y Variables.double
+Rentabilidad/3/Rentabilidad_3/130_VENTA_MERMA DE VENTA.double
+Rentabilidad/3/Rentabilidad_3/133_VENTA_Costo Renta de Equipo Televenta Normal.double
+Rentabilidad/3/Rentabilidad_3/134_VENTA_Costo Total Mercaderistas.double
+Rentabilidad/3/Rentabilidad_3/135_VENTA_Costo de Handheld Rutas Autoventa.double
+Rentabilidad/3/Rentabilidad_3/136_VENTA_Costo de Handheld Rutas NCBs.double
+Rentabilidad/3/Rentabilidad_3/137_VENTA_Costo de Handheld Rutas Preventa.double
+Rentabilidad/3/Rentabilidad_3/138_VENTA_Costos EDI.double
+Rentabilidad/3/Rentabilidad_3/14_CF.double
+Rentabilidad/3/Rentabilidad_3/15_CU.double
+Rentabilidad/3/Rentabilidad_3/16_Calculation_1880818214638259.double
+Rentabilidad/3/Rentabilidad_3/1_AUTOPREVENTA_Costo Fijo.double
+Rentabilidad/3/Rentabilidad_3/2_AUTOPREVENTA_Costo Variable.double
+Rentabilidad/3/Rentabilidad_3/3_AUTOPREVENTA_Costo de Devoluciones.double
+Rentabilidad/3/Rentabilidad_3/43_GERENTES VENTA_Coordinadores Bronces.double
+Rentabilidad/3/Rentabilidad_3/44_GERENTES VENTA_Costo Gerente de Ventas Normal.double
+Rentabilidad/3/Rentabilidad_3/47_IN.double
+Rentabilidad/3/Rentabilidad_3/4_AUTOPREVENTA_Tiempos de Venta + Traslado Autopreventa Normal.double
+Rentabilidad/3/Rentabilidad_3/53_Latitud AUTO PREV.double
+Rentabilidad/3/Rentabilidad_3/57_Longitud AUTO PREV.double
+Rentabilidad/3/Rentabilidad_3/5_AUTOVENTA_Carga Paseante.double
+Rentabilidad/3/Rentabilidad_3/60_MERCADEO_Costo Refrigeración.double
+Rentabilidad/3/Rentabilidad_3/61_MERCADEO_PDE.double
+Rentabilidad/3/Rentabilidad_3/64_MERCADEO_Prorrateo Mercaderistas.double
+Rentabilidad/3/Rentabilidad_3/6_AUTOVENTA_Costo Fijo.double
+Rentabilidad/3/Rentabilidad_3/73_OP. DISTRIBUIDORES_Costo Fijo.double
+Rentabilidad/3/Rentabilidad_3/74_OP. DISTRIBUIDORES_Costo Variable.double
+Rentabilidad/3/Rentabilidad_3/76_OP. DISTRIBUIDORES_Mayoristas.double
+Rentabilidad/3/Rentabilidad_3/77_OP. DISTRIBUIDORES_NO GVF.double
+Rentabilidad/3/Rentabilidad_3/78_OP. DISTRIBUIDORES_Prorrateo Visitas.double
+Rentabilidad/3/Rentabilidad_3/79_OTROS VENTA_Costo de Rotación Pre_Televendedores.double
+Rentabilidad/3/Rentabilidad_3/7_AUTOVENTA_Costo Variable.double
+Rentabilidad/3/Rentabilidad_3/80_PREVENTA NCB_Costo de Prevendedor NCB.double
+Rentabilidad/3/Rentabilidad_3/81_PREVENTA NCB_Tiempos de Venta + Traslado Preventa NCB.double
+Rentabilidad/3/Rentabilidad_3/82_PREVENTA_Costo de Prevendedor Normal.double
+Rentabilidad/3/Rentabilidad_3/83_PREVENTA_Tiempos de Venta + Traslado Preventa Normal.double
+Rentabilidad/3/Rentabilidad_3/85_Precio Prom. CF.double
+Rentabilidad/3/Rentabilidad_3/86_Precio Prom. CU.double
+Rentabilidad/3/Rentabilidad_3/87_REPARTO_Costo Supervisores.double
+Rentabilidad/3/Rentabilidad_3/88_REPARTO_Costo de Bodegas Secundarias.double
+Rentabilidad/3/Rentabilidad_3/89_REPARTO_Costo de Depreciación.double
+Rentabilidad/3/Rentabilidad_3/8_AUTOVENTA_Tiempos de Venta + Traslado Autoventa Normal.double
+Rentabilidad/3/Rentabilidad_3/90_REPARTO_Costo de Mantenimiento.double
+Rentabilidad/3/Rentabilidad_3/91_REPARTO_Devoluciones.double
+Rentabilidad/3/Rentabilidad_3/92_REPARTO_Merma de Ruta.double
+Rentabilidad/3/Rentabilidad_3/93_REPARTO_Rutas Dinamicas- Costos Fijos.double
+Rentabilidad/3/Rentabilidad_3/94_REPARTO_Rutas Dinamicas- Costos Variables.double
+Rentabilidad/3/Rentabilidad_3/95_REPARTO_Rutas Fijas- Costos Fijos.double
+Rentabilidad/3/Rentabilidad_3/96_REPARTO_Rutas Fijas- Costos Variables.double
+Rentabilidad/3/Rentabilidad_3/97_REPARTO_Tiempos de Reparto Fijo + Variable.double
+Rentabilidad/3/Rentabilidad_3/9_BODEGA_CEDIS Propio- Costos Bodega.double
+Rentabilidad/4/Rentabilidad_4/100_Rentabilidad.double
+Rentabilidad/4/Rentabilidad_4/10_BODEGA_Costo Arriendo Terceros.double
+Rentabilidad/4/Rentabilidad_4/113_T1_Cedis Propio.double
+Rentabilidad/4/Rentabilidad_4/114_T1_Distruidor Tercero.double
+Rentabilidad/4/Rentabilidad_4/118_TELEVENTA_Costo de Televendedor Normal.double
+Rentabilidad/4/Rentabilidad_4/120_TELEVENTA_Tiempos de Venta Televenta Normal.double
+Rentabilidad/4/Rentabilidad_4/121_TOTAL BODEGA C_ARRIENDOS.double
+Rentabilidad/4/Rentabilidad_4/122_TOTAL MERCADEO.double
+Rentabilidad/4/Rentabilidad_4/123_TOTAL REPARTO.double
+Rentabilidad/4/Rentabilidad_4/124_TOTAL T1.double
+Rentabilidad/4/Rentabilidad_4/125_TOTAL VENTA.double
+Rentabilidad/4/Rentabilidad_4/126_Total CdS.double
+Rentabilidad/4/Rentabilidad_4/129_Util. Bruta.double
+Rentabilidad/4/Rentabilidad_4/12_BODEGA_Distribuidores- Costos Fijos y Variables.double
+Rentabilidad/4/Rentabilidad_4/130_VENTA_MERMA DE VENTA.double
+Rentabilidad/4/Rentabilidad_4/133_VENTA_Costo Renta de Equipo Televenta Normal.double
+Rentabilidad/4/Rentabilidad_4/134_VENTA_Costo Total Mercaderistas.double
+Rentabilidad/4/Rentabilidad_4/135_VENTA_Costo de Handheld Rutas Autoventa.double
+Rentabilidad/4/Rentabilidad_4/136_VENTA_Costo de Handheld Rutas NCBs.double
+Rentabilidad/4/Rentabilidad_4/137_VENTA_Costo de Handheld Rutas Preventa.double
+Rentabilidad/4/Rentabilidad_4/138_VENTA_Costos EDI.double
+Rentabilidad/4/Rentabilidad_4/14_CF.double
+Rentabilidad/4/Rentabilidad_4/15_CU.double
+Rentabilidad/4/Rentabilidad_4/16_Calculation_1880818214638259.double
+Rentabilidad/4/Rentabilidad_4/1_AUTOPREVENTA_Costo Fijo.double
+Rentabilidad/4/Rentabilidad_4/2_AUTOPREVENTA_Costo Variable.double
+Rentabilidad/4/Rentabilidad_4/3_AUTOPREVENTA_Costo de Devoluciones.double
+Rentabilidad/4/Rentabilidad_4/43_GERENTES VENTA_Coordinadores Bronces.double
+Rentabilidad/4/Rentabilidad_4/44_GERENTES VENTA_Costo Gerente de Ventas Normal.double
+Rentabilidad/4/Rentabilidad_4/47_IN.double
+Rentabilidad/4/Rentabilidad_4/4_AUTOPREVENTA_Tiempos de Venta + Traslado Autopreventa Normal.double
+Rentabilidad/4/Rentabilidad_4/53_Latitud AUTO PREV.double
+Rentabilidad/4/Rentabilidad_4/57_Longitud AUTO PREV.double
+Rentabilidad/4/Rentabilidad_4/5_AUTOVENTA_Carga Paseante.double
+Rentabilidad/4/Rentabilidad_4/60_MERCADEO_Costo Refrigeración.double
+Rentabilidad/4/Rentabilidad_4/61_MERCADEO_PDE.double
+Rentabilidad/4/Rentabilidad_4/64_MERCADEO_Prorrateo Mercaderistas.double
+Rentabilidad/4/Rentabilidad_4/6_AUTOVENTA_Costo Fijo.double
+Rentabilidad/4/Rentabilidad_4/73_OP. DISTRIBUIDORES_Costo Fijo.double
+Rentabilidad/4/Rentabilidad_4/74_OP. DISTRIBUIDORES_Costo Variable.double
+Rentabilidad/4/Rentabilidad_4/76_OP. DISTRIBUIDORES_Mayoristas.double
+Rentabilidad/4/Rentabilidad_4/77_OP. DISTRIBUIDORES_NO GVF.double
+Rentabilidad/4/Rentabilidad_4/78_OP. DISTRIBUIDORES_Prorrateo Visitas.double
+Rentabilidad/4/Rentabilidad_4/79_OTROS VENTA_Costo de Rotación Pre_Televendedores.double
+Rentabilidad/4/Rentabilidad_4/7_AUTOVENTA_Costo Variable.double
+Rentabilidad/4/Rentabilidad_4/80_PREVENTA NCB_Costo de Prevendedor NCB.double
+Rentabilidad/4/Rentabilidad_4/81_PREVENTA NCB_Tiempos de Venta + Traslado Preventa NCB.double
+Rentabilidad/4/Rentabilidad_4/82_PREVENTA_Costo de Prevendedor Normal.double
+Rentabilidad/4/Rentabilidad_4/83_PREVENTA_Tiempos de Venta + Traslado Preventa Normal.double
+Rentabilidad/4/Rentabilidad_4/85_Precio Prom. CF.double
+Rentabilidad/4/Rentabilidad_4/86_Precio Prom. CU.double
+Rentabilidad/4/Rentabilidad_4/87_REPARTO_Costo Supervisores.double
+Rentabilidad/4/Rentabilidad_4/88_REPARTO_Costo de Bodegas Secundarias.double
+Rentabilidad/4/Rentabilidad_4/89_REPARTO_Costo de Depreciación.double
+Rentabilidad/4/Rentabilidad_4/8_AUTOVENTA_Tiempos de Venta + Traslado Autoventa Normal.double
+Rentabilidad/4/Rentabilidad_4/90_REPARTO_Costo de Mantenimiento.double
+Rentabilidad/4/Rentabilidad_4/91_REPARTO_Devoluciones.double
+Rentabilidad/4/Rentabilidad_4/92_REPARTO_Merma de Ruta.double
+Rentabilidad/4/Rentabilidad_4/93_REPARTO_Rutas Dinamicas- Costos Fijos.double
+Rentabilidad/4/Rentabilidad_4/94_REPARTO_Rutas Dinamicas- Costos Variables.double
+Rentabilidad/4/Rentabilidad_4/95_REPARTO_Rutas Fijas- Costos Fijos.double
+Rentabilidad/4/Rentabilidad_4/96_REPARTO_Rutas Fijas- Costos Variables.double
+Rentabilidad/4/Rentabilidad_4/97_REPARTO_Tiempos de Reparto Fijo + Variable.double
+Rentabilidad/4/Rentabilidad_4/9_BODEGA_CEDIS Propio- Costos Bodega.double
+Rentabilidad/5/Rentabilidad_5/100_Rentabilidad.double
+Rentabilidad/5/Rentabilidad_5/10_BODEGA_Costo Arriendo Terceros.double
+Rentabilidad/5/Rentabilidad_5/113_T1_Cedis Propio.double
+Rentabilidad/5/Rentabilidad_5/114_T1_Distruidor Tercero.double
+Rentabilidad/5/Rentabilidad_5/118_TELEVENTA_Costo de Televendedor Normal.double
+Rentabilidad/5/Rentabilidad_5/120_TELEVENTA_Tiempos de Venta Televenta Normal.double
+Rentabilidad/5/Rentabilidad_5/121_TOTAL BODEGA C_ARRIENDOS.double
+Rentabilidad/5/Rentabilidad_5/122_TOTAL MERCADEO.double
+Rentabilidad/5/Rentabilidad_5/123_TOTAL REPARTO.double
+Rentabilidad/5/Rentabilidad_5/124_TOTAL T1.double
+Rentabilidad/5/Rentabilidad_5/125_TOTAL VENTA.double
+Rentabilidad/5/Rentabilidad_5/126_Total CdS.double
+Rentabilidad/5/Rentabilidad_5/129_Util. Bruta.double
+Rentabilidad/5/Rentabilidad_5/12_BODEGA_Distribuidores- Costos Fijos y Variables.double
+Rentabilidad/5/Rentabilidad_5/130_VENTA_MERMA DE VENTA.double
+Rentabilidad/5/Rentabilidad_5/133_VENTA_Costo Renta de Equipo Televenta Normal.double
+Rentabilidad/5/Rentabilidad_5/134_VENTA_Costo Total Mercaderistas.double
+Rentabilidad/5/Rentabilidad_5/135_VENTA_Costo de Handheld Rutas Autoventa.double
+Rentabilidad/5/Rentabilidad_5/136_VENTA_Costo de Handheld Rutas NCBs.double
+Rentabilidad/5/Rentabilidad_5/137_VENTA_Costo de Handheld Rutas Preventa.double
+Rentabilidad/5/Rentabilidad_5/138_VENTA_Costos EDI.double
+Rentabilidad/5/Rentabilidad_5/14_CF.double
+Rentabilidad/5/Rentabilidad_5/15_CU.double
+Rentabilidad/5/Rentabilidad_5/16_Calculation_1880818214638259.double
+Rentabilidad/5/Rentabilidad_5/1_AUTOPREVENTA_Costo Fijo.double
+Rentabilidad/5/Rentabilidad_5/2_AUTOPREVENTA_Costo Variable.double
+Rentabilidad/5/Rentabilidad_5/3_AUTOPREVENTA_Costo de Devoluciones.double
+Rentabilidad/5/Rentabilidad_5/43_GERENTES VENTA_Coordinadores Bronces.double
+Rentabilidad/5/Rentabilidad_5/44_GERENTES VENTA_Costo Gerente de Ventas Normal.double
+Rentabilidad/5/Rentabilidad_5/47_IN.double
+Rentabilidad/5/Rentabilidad_5/4_AUTOPREVENTA_Tiempos de Venta + Traslado Autopreventa Normal.double
+Rentabilidad/5/Rentabilidad_5/53_Latitud AUTO PREV.double
+Rentabilidad/5/Rentabilidad_5/57_Longitud AUTO PREV.double
+Rentabilidad/5/Rentabilidad_5/5_AUTOVENTA_Carga Paseante.double
+Rentabilidad/5/Rentabilidad_5/60_MERCADEO_Costo Refrigeración.double
+Rentabilidad/5/Rentabilidad_5/61_MERCADEO_PDE.double
+Rentabilidad/5/Rentabilidad_5/64_MERCADEO_Prorrateo Mercaderistas.double
+Rentabilidad/5/Rentabilidad_5/6_AUTOVENTA_Costo Fijo.double
+Rentabilidad/5/Rentabilidad_5/73_OP. DISTRIBUIDORES_Costo Fijo.double
+Rentabilidad/5/Rentabilidad_5/74_OP. DISTRIBUIDORES_Costo Variable.double
+Rentabilidad/5/Rentabilidad_5/76_OP. DISTRIBUIDORES_Mayoristas.double
+Rentabilidad/5/Rentabilidad_5/77_OP. DISTRIBUIDORES_NO GVF.double
+Rentabilidad/5/Rentabilidad_5/78_OP. DISTRIBUIDORES_Prorrateo Visitas.double
+Rentabilidad/5/Rentabilidad_5/79_OTROS VENTA_Costo de Rotación Pre_Televendedores.double
+Rentabilidad/5/Rentabilidad_5/7_AUTOVENTA_Costo Variable.double
+Rentabilidad/5/Rentabilidad_5/80_PREVENTA NCB_Costo de Prevendedor NCB.double
+Rentabilidad/5/Rentabilidad_5/81_PREVENTA NCB_Tiempos de Venta + Traslado Preventa NCB.double
+Rentabilidad/5/Rentabilidad_5/82_PREVENTA_Costo de Prevendedor Normal.double
+Rentabilidad/5/Rentabilidad_5/83_PREVENTA_Tiempos de Venta + Traslado Preventa Normal.double
+Rentabilidad/5/Rentabilidad_5/85_Precio Prom. CF.double
+Rentabilidad/5/Rentabilidad_5/86_Precio Prom. CU.double
+Rentabilidad/5/Rentabilidad_5/87_REPARTO_Costo Supervisores.double
+Rentabilidad/5/Rentabilidad_5/88_REPARTO_Costo de Bodegas Secundarias.double
+Rentabilidad/5/Rentabilidad_5/89_REPARTO_Costo de Depreciación.double
+Rentabilidad/5/Rentabilidad_5/8_AUTOVENTA_Tiempos de Venta + Traslado Autoventa Normal.double
+Rentabilidad/5/Rentabilidad_5/90_REPARTO_Costo de Mantenimiento.double
+Rentabilidad/5/Rentabilidad_5/91_REPARTO_Devoluciones.double
+Rentabilidad/5/Rentabilidad_5/92_REPARTO_Merma de Ruta.double
+Rentabilidad/5/Rentabilidad_5/93_REPARTO_Rutas Dinamicas- Costos Fijos.double
+Rentabilidad/5/Rentabilidad_5/94_REPARTO_Rutas Dinamicas- Costos Variables.double
+Rentabilidad/5/Rentabilidad_5/95_REPARTO_Rutas Fijas- Costos Fijos.double
+Rentabilidad/5/Rentabilidad_5/96_REPARTO_Rutas Fijas- Costos Variables.double
+Rentabilidad/5/Rentabilidad_5/97_REPARTO_Tiempos de Reparto Fijo + Variable.double
+Rentabilidad/5/Rentabilidad_5/9_BODEGA_CEDIS Propio- Costos Bodega.double
+Rentabilidad/6/Rentabilidad_6/100_Rentabilidad.double
+Rentabilidad/6/Rentabilidad_6/10_BODEGA_Costo Arriendo Terceros.double
+Rentabilidad/6/Rentabilidad_6/113_T1_Cedis Propio.double
+Rentabilidad/6/Rentabilidad_6/114_T1_Distruidor Tercero.double
+Rentabilidad/6/Rentabilidad_6/118_TELEVENTA_Costo de Televendedor Normal.double
+Rentabilidad/6/Rentabilidad_6/120_TELEVENTA_Tiempos de Venta Televenta Normal.double
+Rentabilidad/6/Rentabilidad_6/121_TOTAL BODEGA C_ARRIENDOS.double
+Rentabilidad/6/Rentabilidad_6/122_TOTAL MERCADEO.double
+Rentabilidad/6/Rentabilidad_6/123_TOTAL REPARTO.double
+Rentabilidad/6/Rentabilidad_6/124_TOTAL T1.double
+Rentabilidad/6/Rentabilidad_6/125_TOTAL VENTA.double
+Rentabilidad/6/Rentabilidad_6/126_Total CdS.double
+Rentabilidad/6/Rentabilidad_6/129_Util. Bruta.double
+Rentabilidad/6/Rentabilidad_6/12_BODEGA_Distribuidores- Costos Fijos y Variables.double
+Rentabilidad/6/Rentabilidad_6/130_VENTA_MERMA DE VENTA.double
+Rentabilidad/6/Rentabilidad_6/133_VENTA_Costo Renta de Equipo Televenta Normal.double
+Rentabilidad/6/Rentabilidad_6/134_VENTA_Costo Total Mercaderistas.double
+Rentabilidad/6/Rentabilidad_6/135_VENTA_Costo de Handheld Rutas Autoventa.double
+Rentabilidad/6/Rentabilidad_6/136_VENTA_Costo de Handheld Rutas NCBs.double
+Rentabilidad/6/Rentabilidad_6/137_VENTA_Costo de Handheld Rutas Preventa.double
+Rentabilidad/6/Rentabilidad_6/138_VENTA_Costos EDI.double
+Rentabilidad/6/Rentabilidad_6/14_CF.double
+Rentabilidad/6/Rentabilidad_6/15_CU.double
+Rentabilidad/6/Rentabilidad_6/16_Calculation_1880818214638259.double
+Rentabilidad/6/Rentabilidad_6/1_AUTOPREVENTA_Costo Fijo.double
+Rentabilidad/6/Rentabilidad_6/2_AUTOPREVENTA_Costo Variable.double
+Rentabilidad/6/Rentabilidad_6/3_AUTOPREVENTA_Costo de Devoluciones.double
+Rentabilidad/6/Rentabilidad_6/43_GERENTES VENTA_Coordinadores Bronces.double
+Rentabilidad/6/Rentabilidad_6/44_GERENTES VENTA_Costo Gerente de Ventas Normal.double
+Rentabilidad/6/Rentabilidad_6/47_IN.double
+Rentabilidad/6/Rentabilidad_6/4_AUTOPREVENTA_Tiempos de Venta + Traslado Autopreventa Normal.double
+Rentabilidad/6/Rentabilidad_6/53_Latitud AUTO PREV.double
+Rentabilidad/6/Rentabilidad_6/57_Longitud AUTO PREV.double
+Rentabilidad/6/Rentabilidad_6/5_AUTOVENTA_Carga Paseante.double
+Rentabilidad/6/Rentabilidad_6/60_MERCADEO_Costo Refrigeración.double
+Rentabilidad/6/Rentabilidad_6/61_MERCADEO_PDE.double
+Rentabilidad/6/Rentabilidad_6/64_MERCADEO_Prorrateo Mercaderistas.double
+Rentabilidad/6/Rentabilidad_6/6_AUTOVENTA_Costo Fijo.double
+Rentabilidad/6/Rentabilidad_6/73_OP. DISTRIBUIDORES_Costo Fijo.double
+Rentabilidad/6/Rentabilidad_6/74_OP. DISTRIBUIDORES_Costo Variable.double
+Rentabilidad/6/Rentabilidad_6/76_OP. DISTRIBUIDORES_Mayoristas.double
+Rentabilidad/6/Rentabilidad_6/77_OP. DISTRIBUIDORES_NO GVF.double
+Rentabilidad/6/Rentabilidad_6/78_OP. DISTRIBUIDORES_Prorrateo Visitas.double
+Rentabilidad/6/Rentabilidad_6/79_OTROS VENTA_Costo de Rotación Pre_Televendedores.double
+Rentabilidad/6/Rentabilidad_6/7_AUTOVENTA_Costo Variable.double
+Rentabilidad/6/Rentabilidad_6/80_PREVENTA NCB_Costo de Prevendedor NCB.double
+Rentabilidad/6/Rentabilidad_6/81_PREVENTA NCB_Tiempos de Venta + Traslado Preventa NCB.double
+Rentabilidad/6/Rentabilidad_6/82_PREVENTA_Costo de Prevendedor Normal.double
+Rentabilidad/6/Rentabilidad_6/83_PREVENTA_Tiempos de Venta + Traslado Preventa Normal.double
+Rentabilidad/6/Rentabilidad_6/85_Precio Prom. CF.double
+Rentabilidad/6/Rentabilidad_6/86_Precio Prom. CU.double
+Rentabilidad/6/Rentabilidad_6/87_REPARTO_Costo Supervisores.double
+Rentabilidad/6/Rentabilidad_6/88_REPARTO_Costo de Bodegas Secundarias.double
+Rentabilidad/6/Rentabilidad_6/89_REPARTO_Costo de Depreciación.double
+Rentabilidad/6/Rentabilidad_6/8_AUTOVENTA_Tiempos de Venta + Traslado Autoventa Normal.double
+Rentabilidad/6/Rentabilidad_6/90_REPARTO_Costo de Mantenimiento.double
+Rentabilidad/6/Rentabilidad_6/91_REPARTO_Devoluciones.double
+Rentabilidad/6/Rentabilidad_6/92_REPARTO_Merma de Ruta.double
+Rentabilidad/6/Rentabilidad_6/93_REPARTO_Rutas Dinamicas- Costos Fijos.double
+Rentabilidad/6/Rentabilidad_6/94_REPARTO_Rutas Dinamicas- Costos Variables.double
+Rentabilidad/6/Rentabilidad_6/95_REPARTO_Rutas Fijas- Costos Fijos.double
+Rentabilidad/6/Rentabilidad_6/96_REPARTO_Rutas Fijas- Costos Variables.double
+Rentabilidad/6/Rentabilidad_6/97_REPARTO_Tiempos de Reparto Fijo + Variable.double
+Rentabilidad/6/Rentabilidad_6/9_BODEGA_CEDIS Propio- Costos Bodega.double
+Rentabilidad/7/Rentabilidad_7/100_Rentabilidad.double
+Rentabilidad/7/Rentabilidad_7/10_BODEGA_Costo Arriendo Terceros.double
+Rentabilidad/7/Rentabilidad_7/113_T1_Cedis Propio.double
+Rentabilidad/7/Rentabilidad_7/114_T1_Distruidor Tercero.double
+Rentabilidad/7/Rentabilidad_7/118_TELEVENTA_Costo de Televendedor Normal.double
+Rentabilidad/7/Rentabilidad_7/120_TELEVENTA_Tiempos de Venta Televenta Normal.double
+Rentabilidad/7/Rentabilidad_7/121_TOTAL BODEGA C_ARRIENDOS.double
+Rentabilidad/7/Rentabilidad_7/122_TOTAL MERCADEO.double
+Rentabilidad/7/Rentabilidad_7/123_TOTAL REPARTO.double
+Rentabilidad/7/Rentabilidad_7/124_TOTAL T1.double
+Rentabilidad/7/Rentabilidad_7/125_TOTAL VENTA.double
+Rentabilidad/7/Rentabilidad_7/126_Total CdS.double
+Rentabilidad/7/Rentabilidad_7/129_Util. Bruta.double
+Rentabilidad/7/Rentabilidad_7/12_BODEGA_Distribuidores- Costos Fijos y Variables.double
+Rentabilidad/7/Rentabilidad_7/130_VENTA_MERMA DE VENTA.double
+Rentabilidad/7/Rentabilidad_7/133_VENTA_Costo Renta de Equipo Televenta Normal.double
+Rentabilidad/7/Rentabilidad_7/134_VENTA_Costo Total Mercaderistas.double
+Rentabilidad/7/Rentabilidad_7/135_VENTA_Costo de Handheld Rutas Autoventa.double
+Rentabilidad/7/Rentabilidad_7/136_VENTA_Costo de Handheld Rutas NCBs.double
+Rentabilidad/7/Rentabilidad_7/137_VENTA_Costo de Handheld Rutas Preventa.double
+Rentabilidad/7/Rentabilidad_7/138_VENTA_Costos EDI.double
+Rentabilidad/7/Rentabilidad_7/14_CF.double
+Rentabilidad/7/Rentabilidad_7/15_CU.double
+Rentabilidad/7/Rentabilidad_7/16_Calculation_1880818214638259.double
+Rentabilidad/7/Rentabilidad_7/1_AUTOPREVENTA_Costo Fijo.double
+Rentabilidad/7/Rentabilidad_7/2_AUTOPREVENTA_Costo Variable.double
+Rentabilidad/7/Rentabilidad_7/3_AUTOPREVENTA_Costo de Devoluciones.double
+Rentabilidad/7/Rentabilidad_7/43_GERENTES VENTA_Coordinadores Bronces.double
+Rentabilidad/7/Rentabilidad_7/44_GERENTES VENTA_Costo Gerente de Ventas Normal.double
+Rentabilidad/7/Rentabilidad_7/47_IN.double
+Rentabilidad/7/Rentabilidad_7/4_AUTOPREVENTA_Tiempos de Venta + Traslado Autopreventa Normal.double
+Rentabilidad/7/Rentabilidad_7/53_Latitud AUTO PREV.double
+Rentabilidad/7/Rentabilidad_7/57_Longitud AUTO PREV.double
+Rentabilidad/7/Rentabilidad_7/5_AUTOVENTA_Carga Paseante.double
+Rentabilidad/7/Rentabilidad_7/60_MERCADEO_Costo Refrigeración.double
+Rentabilidad/7/Rentabilidad_7/61_MERCADEO_PDE.double
+Rentabilidad/7/Rentabilidad_7/64_MERCADEO_Prorrateo Mercaderistas.double
+Rentabilidad/7/Rentabilidad_7/6_AUTOVENTA_Costo Fijo.double
+Rentabilidad/7/Rentabilidad_7/73_OP. DISTRIBUIDORES_Costo Fijo.double
+Rentabilidad/7/Rentabilidad_7/74_OP. DISTRIBUIDORES_Costo Variable.double
+Rentabilidad/7/Rentabilidad_7/76_OP. DISTRIBUIDORES_Mayoristas.double
+Rentabilidad/7/Rentabilidad_7/77_OP. DISTRIBUIDORES_NO GVF.double
+Rentabilidad/7/Rentabilidad_7/78_OP. DISTRIBUIDORES_Prorrateo Visitas.double
+Rentabilidad/7/Rentabilidad_7/79_OTROS VENTA_Costo de Rotación Pre_Televendedores.double
+Rentabilidad/7/Rentabilidad_7/7_AUTOVENTA_Costo Variable.double
+Rentabilidad/7/Rentabilidad_7/80_PREVENTA NCB_Costo de Prevendedor NCB.double
+Rentabilidad/7/Rentabilidad_7/81_PREVENTA NCB_Tiempos de Venta + Traslado Preventa NCB.double
+Rentabilidad/7/Rentabilidad_7/82_PREVENTA_Costo de Prevendedor Normal.double
+Rentabilidad/7/Rentabilidad_7/83_PREVENTA_Tiempos de Venta + Traslado Preventa Normal.double
+Rentabilidad/7/Rentabilidad_7/85_Precio Prom. CF.double
+Rentabilidad/7/Rentabilidad_7/86_Precio Prom. CU.double
+Rentabilidad/7/Rentabilidad_7/87_REPARTO_Costo Supervisores.double
+Rentabilidad/7/Rentabilidad_7/88_REPARTO_Costo de Bodegas Secundarias.double
+Rentabilidad/7/Rentabilidad_7/89_REPARTO_Costo de Depreciación.double
+Rentabilidad/7/Rentabilidad_7/8_AUTOVENTA_Tiempos de Venta + Traslado Autoventa Normal.double
+Rentabilidad/7/Rentabilidad_7/90_REPARTO_Costo de Mantenimiento.double
+Rentabilidad/7/Rentabilidad_7/91_REPARTO_Devoluciones.double
+Rentabilidad/7/Rentabilidad_7/92_REPARTO_Merma de Ruta.double
+Rentabilidad/7/Rentabilidad_7/93_REPARTO_Rutas Dinamicas- Costos Fijos.double
+Rentabilidad/7/Rentabilidad_7/94_REPARTO_Rutas Dinamicas- Costos Variables.double
+Rentabilidad/7/Rentabilidad_7/95_REPARTO_Rutas Fijas- Costos Fijos.double
+Rentabilidad/7/Rentabilidad_7/96_REPARTO_Rutas Fijas- Costos Variables.double
+Rentabilidad/7/Rentabilidad_7/97_REPARTO_Tiempos de Reparto Fijo + Variable.double
+Rentabilidad/7/Rentabilidad_7/9_BODEGA_CEDIS Propio- Costos Bodega.double
+Rentabilidad/8/Rentabilidad_8/100_Rentabilidad.double
+Rentabilidad/8/Rentabilidad_8/10_BODEGA_Costo Arriendo Terceros.double
+Rentabilidad/8/Rentabilidad_8/113_T1_Cedis Propio.double
+Rentabilidad/8/Rentabilidad_8/114_T1_Distruidor Tercero.double
+Rentabilidad/8/Rentabilidad_8/118_TELEVENTA_Costo de Televendedor Normal.double
+Rentabilidad/8/Rentabilidad_8/120_TELEVENTA_Tiempos de Venta Televenta Normal.double
+Rentabilidad/8/Rentabilidad_8/121_TOTAL BODEGA C_ARRIENDOS.double
+Rentabilidad/8/Rentabilidad_8/122_TOTAL MERCADEO.double
+Rentabilidad/8/Rentabilidad_8/123_TOTAL REPARTO.double
+Rentabilidad/8/Rentabilidad_8/124_TOTAL T1.double
+Rentabilidad/8/Rentabilidad_8/125_TOTAL VENTA.double
+Rentabilidad/8/Rentabilidad_8/126_Total CdS.double
+Rentabilidad/8/Rentabilidad_8/129_Util. Bruta.double
+Rentabilidad/8/Rentabilidad_8/12_BODEGA_Distribuidores- Costos Fijos y Variables.double
+Rentabilidad/8/Rentabilidad_8/130_VENTA_MERMA DE VENTA.double
+Rentabilidad/8/Rentabilidad_8/133_VENTA_Costo Renta de Equipo Televenta Normal.double
+Rentabilidad/8/Rentabilidad_8/134_VENTA_Costo Total Mercaderistas.double
+Rentabilidad/8/Rentabilidad_8/135_VENTA_Costo de Handheld Rutas Autoventa.double
+Rentabilidad/8/Rentabilidad_8/136_VENTA_Costo de Handheld Rutas NCBs.double
+Rentabilidad/8/Rentabilidad_8/137_VENTA_Costo de Handheld Rutas Preventa.double
+Rentabilidad/8/Rentabilidad_8/138_VENTA_Costos EDI.double
+Rentabilidad/8/Rentabilidad_8/14_CF.double
+Rentabilidad/8/Rentabilidad_8/15_CU.double
+Rentabilidad/8/Rentabilidad_8/16_Calculation_1880818214638259.double
+Rentabilidad/8/Rentabilidad_8/1_AUTOPREVENTA_Costo Fijo.double
+Rentabilidad/8/Rentabilidad_8/2_AUTOPREVENTA_Costo Variable.double
+Rentabilidad/8/Rentabilidad_8/3_AUTOPREVENTA_Costo de Devoluciones.double
+Rentabilidad/8/Rentabilidad_8/43_GERENTES VENTA_Coordinadores Bronces.double
+Rentabilidad/8/Rentabilidad_8/44_GERENTES VENTA_Costo Gerente de Ventas Normal.double
+Rentabilidad/8/Rentabilidad_8/47_IN.double
+Rentabilidad/8/Rentabilidad_8/4_AUTOPREVENTA_Tiempos de Venta + Traslado Autopreventa Normal.double
+Rentabilidad/8/Rentabilidad_8/53_Latitud AUTO PREV.double
+Rentabilidad/8/Rentabilidad_8/57_Longitud AUTO PREV.double
+Rentabilidad/8/Rentabilidad_8/5_AUTOVENTA_Carga Paseante.double
+Rentabilidad/8/Rentabilidad_8/60_MERCADEO_Costo Refrigeración.double
+Rentabilidad/8/Rentabilidad_8/61_MERCADEO_PDE.double
+Rentabilidad/8/Rentabilidad_8/64_MERCADEO_Prorrateo Mercaderistas.double
+Rentabilidad/8/Rentabilidad_8/6_AUTOVENTA_Costo Fijo.double
+Rentabilidad/8/Rentabilidad_8/73_OP. DISTRIBUIDORES_Costo Fijo.double
+Rentabilidad/8/Rentabilidad_8/74_OP. DISTRIBUIDORES_Costo Variable.double
+Rentabilidad/8/Rentabilidad_8/76_OP. DISTRIBUIDORES_Mayoristas.double
+Rentabilidad/8/Rentabilidad_8/77_OP. DISTRIBUIDORES_NO GVF.double
+Rentabilidad/8/Rentabilidad_8/78_OP. DISTRIBUIDORES_Prorrateo Visitas.double
+Rentabilidad/8/Rentabilidad_8/79_OTROS VENTA_Costo de Rotación Pre_Televendedores.double
+Rentabilidad/8/Rentabilidad_8/7_AUTOVENTA_Costo Variable.double
+Rentabilidad/8/Rentabilidad_8/80_PREVENTA NCB_Costo de Prevendedor NCB.double
+Rentabilidad/8/Rentabilidad_8/81_PREVENTA NCB_Tiempos de Venta + Traslado Preventa NCB.double
+Rentabilidad/8/Rentabilidad_8/82_PREVENTA_Costo de Prevendedor Normal.double
+Rentabilidad/8/Rentabilidad_8/83_PREVENTA_Tiempos de Venta + Traslado Preventa Normal.double
+Rentabilidad/8/Rentabilidad_8/85_Precio Prom. CF.double
+Rentabilidad/8/Rentabilidad_8/86_Precio Prom. CU.double
+Rentabilidad/8/Rentabilidad_8/87_REPARTO_Costo Supervisores.double
+Rentabilidad/8/Rentabilidad_8/88_REPARTO_Costo de Bodegas Secundarias.double
+Rentabilidad/8/Rentabilidad_8/89_REPARTO_Costo de Depreciación.double
+Rentabilidad/8/Rentabilidad_8/8_AUTOVENTA_Tiempos de Venta + Traslado Autoventa Normal.double
+Rentabilidad/8/Rentabilidad_8/90_REPARTO_Costo de Mantenimiento.double
+Rentabilidad/8/Rentabilidad_8/91_REPARTO_Devoluciones.double
+Rentabilidad/8/Rentabilidad_8/92_REPARTO_Merma de Ruta.double
+Rentabilidad/8/Rentabilidad_8/93_REPARTO_Rutas Dinamicas- Costos Fijos.double
+Rentabilidad/8/Rentabilidad_8/94_REPARTO_Rutas Dinamicas- Costos Variables.double
+Rentabilidad/8/Rentabilidad_8/95_REPARTO_Rutas Fijas- Costos Fijos.double
+Rentabilidad/8/Rentabilidad_8/96_REPARTO_Rutas Fijas- Costos Variables.double
+Rentabilidad/8/Rentabilidad_8/97_REPARTO_Tiempos de Reparto Fijo + Variable.double
+Rentabilidad/8/Rentabilidad_8/9_BODEGA_CEDIS Propio- Costos Bodega.double
+Rentabilidad/9/Rentabilidad_9/100_Rentabilidad.double
+Rentabilidad/9/Rentabilidad_9/10_BODEGA_Costo Arriendo Terceros.double
+Rentabilidad/9/Rentabilidad_9/113_T1_Cedis Propio.double
+Rentabilidad/9/Rentabilidad_9/114_T1_Distruidor Tercero.double
+Rentabilidad/9/Rentabilidad_9/118_TELEVENTA_Costo de Televendedor Normal.double
+Rentabilidad/9/Rentabilidad_9/120_TELEVENTA_Tiempos de Venta Televenta Normal.double
+Rentabilidad/9/Rentabilidad_9/121_TOTAL BODEGA C_ARRIENDOS.double
+Rentabilidad/9/Rentabilidad_9/122_TOTAL MERCADEO.double
+Rentabilidad/9/Rentabilidad_9/123_TOTAL REPARTO.double
+Rentabilidad/9/Rentabilidad_9/124_TOTAL T1.double
+Rentabilidad/9/Rentabilidad_9/125_TOTAL VENTA.double
+Rentabilidad/9/Rentabilidad_9/126_Total CdS.double
+Rentabilidad/9/Rentabilidad_9/129_Util. Bruta.double
+Rentabilidad/9/Rentabilidad_9/12_BODEGA_Distribuidores- Costos Fijos y Variables.double
+Rentabilidad/9/Rentabilidad_9/130_VENTA_MERMA DE VENTA.double
+Rentabilidad/9/Rentabilidad_9/133_VENTA_Costo Renta de Equipo Televenta Normal.double
+Rentabilidad/9/Rentabilidad_9/134_VENTA_Costo Total Mercaderistas.double
+Rentabilidad/9/Rentabilidad_9/135_VENTA_Costo de Handheld Rutas Autoventa.double
+Rentabilidad/9/Rentabilidad_9/136_VENTA_Costo de Handheld Rutas NCBs.double
+Rentabilidad/9/Rentabilidad_9/137_VENTA_Costo de Handheld Rutas Preventa.double
+Rentabilidad/9/Rentabilidad_9/138_VENTA_Costos EDI.double
+Rentabilidad/9/Rentabilidad_9/14_CF.double
+Rentabilidad/9/Rentabilidad_9/15_CU.double
+Rentabilidad/9/Rentabilidad_9/16_Calculation_1880818214638259.double
+Rentabilidad/9/Rentabilidad_9/1_AUTOPREVENTA_Costo Fijo.double
+Rentabilidad/9/Rentabilidad_9/2_AUTOPREVENTA_Costo Variable.double
+Rentabilidad/9/Rentabilidad_9/3_AUTOPREVENTA_Costo de Devoluciones.double
+Rentabilidad/9/Rentabilidad_9/43_GERENTES VENTA_Coordinadores Bronces.double
+Rentabilidad/9/Rentabilidad_9/44_GERENTES VENTA_Costo Gerente de Ventas Normal.double
+Rentabilidad/9/Rentabilidad_9/47_IN.double
+Rentabilidad/9/Rentabilidad_9/4_AUTOPREVENTA_Tiempos de Venta + Traslado Autopreventa Normal.double
+Rentabilidad/9/Rentabilidad_9/53_Latitud AUTO PREV.double
+Rentabilidad/9/Rentabilidad_9/57_Longitud AUTO PREV.double
+Rentabilidad/9/Rentabilidad_9/5_AUTOVENTA_Carga Paseante.double
+Rentabilidad/9/Rentabilidad_9/60_MERCADEO_Costo Refrigeración.double
+Rentabilidad/9/Rentabilidad_9/61_MERCADEO_PDE.double
+Rentabilidad/9/Rentabilidad_9/64_MERCADEO_Prorrateo Mercaderistas.double
+Rentabilidad/9/Rentabilidad_9/6_AUTOVENTA_Costo Fijo.double
+Rentabilidad/9/Rentabilidad_9/73_OP. DISTRIBUIDORES_Costo Fijo.double
+Rentabilidad/9/Rentabilidad_9/74_OP. DISTRIBUIDORES_Costo Variable.double
+Rentabilidad/9/Rentabilidad_9/76_OP. DISTRIBUIDORES_Mayoristas.double
+Rentabilidad/9/Rentabilidad_9/77_OP. DISTRIBUIDORES_NO GVF.double
+Rentabilidad/9/Rentabilidad_9/78_OP. DISTRIBUIDORES_Prorrateo Visitas.double
+Rentabilidad/9/Rentabilidad_9/79_OTROS VENTA_Costo de Rotación Pre_Televendedores.double
+Rentabilidad/9/Rentabilidad_9/7_AUTOVENTA_Costo Variable.double
+Rentabilidad/9/Rentabilidad_9/80_PREVENTA NCB_Costo de Prevendedor NCB.double
+Rentabilidad/9/Rentabilidad_9/81_PREVENTA NCB_Tiempos de Venta + Traslado Preventa NCB.double
+Rentabilidad/9/Rentabilidad_9/82_PREVENTA_Costo de Prevendedor Normal.double
+Rentabilidad/9/Rentabilidad_9/83_PREVENTA_Tiempos de Venta + Traslado Preventa Normal.double
+Rentabilidad/9/Rentabilidad_9/85_Precio Prom. CF.double
+Rentabilidad/9/Rentabilidad_9/86_Precio Prom. CU.double
+Rentabilidad/9/Rentabilidad_9/87_REPARTO_Costo Supervisores.double
+Rentabilidad/9/Rentabilidad_9/88_REPARTO_Costo de Bodegas Secundarias.double
+Rentabilidad/9/Rentabilidad_9/89_REPARTO_Costo de Depreciación.double
+Rentabilidad/9/Rentabilidad_9/8_AUTOVENTA_Tiempos de Venta + Traslado Autoventa Normal.double
+Rentabilidad/9/Rentabilidad_9/90_REPARTO_Costo de Mantenimiento.double
+Rentabilidad/9/Rentabilidad_9/91_REPARTO_Devoluciones.double
+Rentabilidad/9/Rentabilidad_9/92_REPARTO_Merma de Ruta.double
+Rentabilidad/9/Rentabilidad_9/93_REPARTO_Rutas Dinamicas- Costos Fijos.double
+Rentabilidad/9/Rentabilidad_9/94_REPARTO_Rutas Dinamicas- Costos Variables.double
+Rentabilidad/9/Rentabilidad_9/95_REPARTO_Rutas Fijas- Costos Fijos.double
+Rentabilidad/9/Rentabilidad_9/96_REPARTO_Rutas Fijas- Costos Variables.double
+Rentabilidad/9/Rentabilidad_9/97_REPARTO_Tiempos de Reparto Fijo + Variable.double
+Rentabilidad/9/Rentabilidad_9/9_BODEGA_CEDIS Propio- Costos Bodega.double
+Romance/1/Romance_1/6_lat.double
+Romance/1/Romance_1/8_lng.double
+Romance/2/Romance_2/6_lat.double
+Romance/2/Romance_2/8_lng.double
+SalariesFrance/10/SalariesFrance_10/10_AG_25_29.double
+SalariesFrance/10/SalariesFrance_10/11_AG_30_39.double
+SalariesFrance/10/SalariesFrance_10/12_AG_40_49.double
+SalariesFrance/10/SalariesFrance_10/13_AG_50_54.double
+SalariesFrance/10/SalariesFrance_10/14_AG_M25.double
+SalariesFrance/10/SalariesFrance_10/15_AG_P55.double
+SalariesFrance/10/SalariesFrance_10/16_APPRENTI.double
+SalariesFrance/10/SalariesFrance_10/17_BMO_DIFFICILE.double
+SalariesFrance/10/SalariesFrance_10/18_BMO_INTENTIONS.double
+SalariesFrance/10/SalariesFrance_10/19_BMO_SAISON.double
+SalariesFrance/10/SalariesFrance_10/23_Calculation_392657618632466432.double
+SalariesFrance/10/SalariesFrance_10/24_Calculation_393783518250995712.double
+SalariesFrance/10/SalariesFrance_10/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/10/SalariesFrance_10/26_EMBAUCHES_NM1.double
+SalariesFrance/10/SalariesFrance_10/27_EMBAUCHES_NP1.double
+SalariesFrance/10/SalariesFrance_10/28_EMBAUCHE_CDD.double
+SalariesFrance/10/SalariesFrance_10/29_EMBAUCHE_CDI.double
+SalariesFrance/10/SalariesFrance_10/30_EMPSAL_NM1.double
+SalariesFrance/10/SalariesFrance_10/31_EMPSAL_NP1.double
+SalariesFrance/10/SalariesFrance_10/32_FEMMES.double
+SalariesFrance/10/SalariesFrance_10/33_HOMMES.double
+SalariesFrance/10/SalariesFrance_10/34_INTERIM_NM1.double
+SalariesFrance/10/SalariesFrance_10/35_INTERIM_NP1.double
+SalariesFrance/10/SalariesFrance_10/40_Latitude.double
+SalariesFrance/10/SalariesFrance_10/41_Longitude.double
+SalariesFrance/10/SalariesFrance_10/51_SALAIRE_BRUT.double
+SalariesFrance/10/SalariesFrance_10/52_SALAIRE_VF.double
+SalariesFrance/10/SalariesFrance_10/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/10/SalariesFrance_10/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/10/SalariesFrance_10/9_ADECCO_SALAIRES_BRUTS.double
+SalariesFrance/11/SalariesFrance_11/10_AG_25_29.double
+SalariesFrance/11/SalariesFrance_11/11_AG_30_39.double
+SalariesFrance/11/SalariesFrance_11/12_AG_40_49.double
+SalariesFrance/11/SalariesFrance_11/13_AG_50_54.double
+SalariesFrance/11/SalariesFrance_11/14_AG_M25.double
+SalariesFrance/11/SalariesFrance_11/15_AG_P55.double
+SalariesFrance/11/SalariesFrance_11/16_APPRENTI.double
+SalariesFrance/11/SalariesFrance_11/17_BMO_DIFFICILE.double
+SalariesFrance/11/SalariesFrance_11/18_BMO_INTENTIONS.double
+SalariesFrance/11/SalariesFrance_11/19_BMO_SAISON.double
+SalariesFrance/11/SalariesFrance_11/23_Calculation_392657618632466432.double
+SalariesFrance/11/SalariesFrance_11/24_Calculation_393783518250995712.double
+SalariesFrance/11/SalariesFrance_11/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/11/SalariesFrance_11/26_EMBAUCHES_NM1.double
+SalariesFrance/11/SalariesFrance_11/27_EMBAUCHES_NP1.double
+SalariesFrance/11/SalariesFrance_11/28_EMBAUCHE_CDD.double
+SalariesFrance/11/SalariesFrance_11/29_EMBAUCHE_CDI.double
+SalariesFrance/11/SalariesFrance_11/30_EMPSAL_NM1.double
+SalariesFrance/11/SalariesFrance_11/31_EMPSAL_NP1.double
+SalariesFrance/11/SalariesFrance_11/32_FEMMES.double
+SalariesFrance/11/SalariesFrance_11/33_HOMMES.double
+SalariesFrance/11/SalariesFrance_11/34_INTERIM_NM1.double
+SalariesFrance/11/SalariesFrance_11/35_INTERIM_NP1.double
+SalariesFrance/11/SalariesFrance_11/40_Latitude.double
+SalariesFrance/11/SalariesFrance_11/41_Longitude.double
+SalariesFrance/11/SalariesFrance_11/51_SALAIRE_BRUT.double
+SalariesFrance/11/SalariesFrance_11/52_SALAIRE_VF.double
+SalariesFrance/11/SalariesFrance_11/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/11/SalariesFrance_11/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/11/SalariesFrance_11/9_ADECCO_SALAIRES_BRUTS.double
+SalariesFrance/12/SalariesFrance_12/10_AG_25_29.double
+SalariesFrance/12/SalariesFrance_12/11_AG_30_39.double
+SalariesFrance/12/SalariesFrance_12/12_AG_40_49.double
+SalariesFrance/12/SalariesFrance_12/13_AG_50_54.double
+SalariesFrance/12/SalariesFrance_12/14_AG_M25.double
+SalariesFrance/12/SalariesFrance_12/15_AG_P55.double
+SalariesFrance/12/SalariesFrance_12/16_APPRENTI.double
+SalariesFrance/12/SalariesFrance_12/17_BMO_DIFFICILE.double
+SalariesFrance/12/SalariesFrance_12/18_BMO_INTENTIONS.double
+SalariesFrance/12/SalariesFrance_12/19_BMO_SAISON.double
+SalariesFrance/12/SalariesFrance_12/23_Calculation_392657618632466432.double
+SalariesFrance/12/SalariesFrance_12/24_Calculation_393783518250995712.double
+SalariesFrance/12/SalariesFrance_12/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/12/SalariesFrance_12/26_EMBAUCHES_NM1.double
+SalariesFrance/12/SalariesFrance_12/27_EMBAUCHES_NP1.double
+SalariesFrance/12/SalariesFrance_12/28_EMBAUCHE_CDD.double
+SalariesFrance/12/SalariesFrance_12/29_EMBAUCHE_CDI.double
+SalariesFrance/12/SalariesFrance_12/30_EMPSAL_NM1.double
+SalariesFrance/12/SalariesFrance_12/31_EMPSAL_NP1.double
+SalariesFrance/12/SalariesFrance_12/32_FEMMES.double
+SalariesFrance/12/SalariesFrance_12/33_HOMMES.double
+SalariesFrance/12/SalariesFrance_12/34_INTERIM_NM1.double
+SalariesFrance/12/SalariesFrance_12/35_INTERIM_NP1.double
+SalariesFrance/12/SalariesFrance_12/40_Latitude.double
+SalariesFrance/12/SalariesFrance_12/41_Longitude.double
+SalariesFrance/12/SalariesFrance_12/51_SALAIRE_BRUT.double
+SalariesFrance/12/SalariesFrance_12/52_SALAIRE_VF.double
+SalariesFrance/12/SalariesFrance_12/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/12/SalariesFrance_12/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/12/SalariesFrance_12/9_ADECCO_SALAIRES_BRUTS.double
+SalariesFrance/13/SalariesFrance_13/10_AG_25_29.double
+SalariesFrance/13/SalariesFrance_13/11_AG_30_39.double
+SalariesFrance/13/SalariesFrance_13/12_AG_40_49.double
+SalariesFrance/13/SalariesFrance_13/13_AG_50_54.double
+SalariesFrance/13/SalariesFrance_13/14_AG_M25.double
+SalariesFrance/13/SalariesFrance_13/15_AG_P55.double
+SalariesFrance/13/SalariesFrance_13/16_APPRENTI.double
+SalariesFrance/13/SalariesFrance_13/17_BMO_DIFFICILE.double
+SalariesFrance/13/SalariesFrance_13/18_BMO_INTENTIONS.double
+SalariesFrance/13/SalariesFrance_13/19_BMO_SAISON.double
+SalariesFrance/13/SalariesFrance_13/23_Calculation_392657618632466432.double
+SalariesFrance/13/SalariesFrance_13/24_Calculation_393783518250995712.double
+SalariesFrance/13/SalariesFrance_13/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/13/SalariesFrance_13/26_EMBAUCHES_NM1.double
+SalariesFrance/13/SalariesFrance_13/27_EMBAUCHES_NP1.double
+SalariesFrance/13/SalariesFrance_13/28_EMBAUCHE_CDD.double
+SalariesFrance/13/SalariesFrance_13/29_EMBAUCHE_CDI.double
+SalariesFrance/13/SalariesFrance_13/30_EMPSAL_NM1.double
+SalariesFrance/13/SalariesFrance_13/31_EMPSAL_NP1.double
+SalariesFrance/13/SalariesFrance_13/32_FEMMES.double
+SalariesFrance/13/SalariesFrance_13/33_HOMMES.double
+SalariesFrance/13/SalariesFrance_13/34_INTERIM_NM1.double
+SalariesFrance/13/SalariesFrance_13/35_INTERIM_NP1.double
+SalariesFrance/13/SalariesFrance_13/40_Latitude.double
+SalariesFrance/13/SalariesFrance_13/41_Longitude.double
+SalariesFrance/13/SalariesFrance_13/51_SALAIRE_BRUT.double
+SalariesFrance/13/SalariesFrance_13/52_SALAIRE_VF.double
+SalariesFrance/13/SalariesFrance_13/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/13/SalariesFrance_13/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/13/SalariesFrance_13/9_ADECCO_SALAIRES_BRUTS.double
+SalariesFrance/1/SalariesFrance_1/10_AG_25_29.double
+SalariesFrance/1/SalariesFrance_1/11_AG_30_39.double
+SalariesFrance/1/SalariesFrance_1/12_AG_40_49.double
+SalariesFrance/1/SalariesFrance_1/13_AG_50_54.double
+SalariesFrance/1/SalariesFrance_1/14_AG_M25.double
+SalariesFrance/1/SalariesFrance_1/15_AG_P55.double
+SalariesFrance/1/SalariesFrance_1/16_APPRENTI.double
+SalariesFrance/1/SalariesFrance_1/17_BMO_DIFFICILE.double
+SalariesFrance/1/SalariesFrance_1/18_BMO_INTENTIONS.double
+SalariesFrance/1/SalariesFrance_1/19_BMO_SAISON.double
+SalariesFrance/1/SalariesFrance_1/23_Calculation_392657618632466432.double
+SalariesFrance/1/SalariesFrance_1/24_Calculation_393783518250995712.double
+SalariesFrance/1/SalariesFrance_1/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/1/SalariesFrance_1/26_EMBAUCHES_NM1.double
+SalariesFrance/1/SalariesFrance_1/27_EMBAUCHES_NP1.double
+SalariesFrance/1/SalariesFrance_1/28_EMBAUCHE_CDD.double
+SalariesFrance/1/SalariesFrance_1/29_EMBAUCHE_CDI.double
+SalariesFrance/1/SalariesFrance_1/30_EMPSAL_NM1.double
+SalariesFrance/1/SalariesFrance_1/31_EMPSAL_NP1.double
+SalariesFrance/1/SalariesFrance_1/32_FEMMES.double
+SalariesFrance/1/SalariesFrance_1/33_HOMMES.double
+SalariesFrance/1/SalariesFrance_1/34_INTERIM_NM1.double
+SalariesFrance/1/SalariesFrance_1/35_INTERIM_NP1.double
+SalariesFrance/1/SalariesFrance_1/40_Latitude.double
+SalariesFrance/1/SalariesFrance_1/41_Longitude.double
+SalariesFrance/1/SalariesFrance_1/51_SALAIRE_BRUT.double
+SalariesFrance/1/SalariesFrance_1/52_SALAIRE_VF.double
+SalariesFrance/1/SalariesFrance_1/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/1/SalariesFrance_1/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/1/SalariesFrance_1/9_ADECCO_SALAIRES_BRUTS.double
+SalariesFrance/2/SalariesFrance_2/7_ID_TYPES_MOBILITE.double
+SalariesFrance/3/SalariesFrance_3/10_AG_25_29.double
+SalariesFrance/3/SalariesFrance_3/11_AG_30_39.double
+SalariesFrance/3/SalariesFrance_3/12_AG_40_49.double
+SalariesFrance/3/SalariesFrance_3/13_AG_50_54.double
+SalariesFrance/3/SalariesFrance_3/14_AG_M25.double
+SalariesFrance/3/SalariesFrance_3/15_AG_P55.double
+SalariesFrance/3/SalariesFrance_3/16_APPRENTI.double
+SalariesFrance/3/SalariesFrance_3/17_BMO_DIFFICILE.double
+SalariesFrance/3/SalariesFrance_3/18_BMO_INTENTIONS.double
+SalariesFrance/3/SalariesFrance_3/19_BMO_SAISON.double
+SalariesFrance/3/SalariesFrance_3/23_Calculation_392657618632466432.double
+SalariesFrance/3/SalariesFrance_3/24_Calculation_393783518250995712.double
+SalariesFrance/3/SalariesFrance_3/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/3/SalariesFrance_3/26_EMBAUCHES_NM1.double
+SalariesFrance/3/SalariesFrance_3/27_EMBAUCHES_NP1.double
+SalariesFrance/3/SalariesFrance_3/28_EMBAUCHE_CDD.double
+SalariesFrance/3/SalariesFrance_3/29_EMBAUCHE_CDI.double
+SalariesFrance/3/SalariesFrance_3/30_EMPSAL_NM1.double
+SalariesFrance/3/SalariesFrance_3/31_EMPSAL_NP1.double
+SalariesFrance/3/SalariesFrance_3/32_FEMMES.double
+SalariesFrance/3/SalariesFrance_3/33_HOMMES.double
+SalariesFrance/3/SalariesFrance_3/34_INTERIM_NM1.double
+SalariesFrance/3/SalariesFrance_3/35_INTERIM_NP1.double
+SalariesFrance/3/SalariesFrance_3/40_Latitude.double
+SalariesFrance/3/SalariesFrance_3/41_Longitude.double
+SalariesFrance/3/SalariesFrance_3/51_SALAIRE_BRUT.double
+SalariesFrance/3/SalariesFrance_3/52_SALAIRE_VF.double
+SalariesFrance/3/SalariesFrance_3/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/3/SalariesFrance_3/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/3/SalariesFrance_3/9_ADECCO_SALAIRES_BRUTS.double
+SalariesFrance/4/SalariesFrance_4/10_AG_25_29.double
+SalariesFrance/4/SalariesFrance_4/11_AG_30_39.double
+SalariesFrance/4/SalariesFrance_4/12_AG_40_49.double
+SalariesFrance/4/SalariesFrance_4/13_AG_50_54.double
+SalariesFrance/4/SalariesFrance_4/14_AG_M25.double
+SalariesFrance/4/SalariesFrance_4/15_AG_P55.double
+SalariesFrance/4/SalariesFrance_4/16_APPRENTI.double
+SalariesFrance/4/SalariesFrance_4/17_BMO_DIFFICILE.double
+SalariesFrance/4/SalariesFrance_4/18_BMO_INTENTIONS.double
+SalariesFrance/4/SalariesFrance_4/19_BMO_SAISON.double
+SalariesFrance/4/SalariesFrance_4/23_Calculation_392657618632466432.double
+SalariesFrance/4/SalariesFrance_4/24_Calculation_393783518250995712.double
+SalariesFrance/4/SalariesFrance_4/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/4/SalariesFrance_4/26_EMBAUCHES_NM1.double
+SalariesFrance/4/SalariesFrance_4/27_EMBAUCHES_NP1.double
+SalariesFrance/4/SalariesFrance_4/28_EMBAUCHE_CDD.double
+SalariesFrance/4/SalariesFrance_4/29_EMBAUCHE_CDI.double
+SalariesFrance/4/SalariesFrance_4/30_EMPSAL_NM1.double
+SalariesFrance/4/SalariesFrance_4/31_EMPSAL_NP1.double
+SalariesFrance/4/SalariesFrance_4/32_FEMMES.double
+SalariesFrance/4/SalariesFrance_4/33_HOMMES.double
+SalariesFrance/4/SalariesFrance_4/34_INTERIM_NM1.double
+SalariesFrance/4/SalariesFrance_4/35_INTERIM_NP1.double
+SalariesFrance/4/SalariesFrance_4/40_Latitude.double
+SalariesFrance/4/SalariesFrance_4/41_Longitude.double
+SalariesFrance/4/SalariesFrance_4/51_SALAIRE_BRUT.double
+SalariesFrance/4/SalariesFrance_4/52_SALAIRE_VF.double
+SalariesFrance/4/SalariesFrance_4/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/4/SalariesFrance_4/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/4/SalariesFrance_4/9_ADECCO_SALAIRES_BRUTS.double
+SalariesFrance/5/SalariesFrance_5/10_AG_25_29.double
+SalariesFrance/5/SalariesFrance_5/11_AG_30_39.double
+SalariesFrance/5/SalariesFrance_5/12_AG_40_49.double
+SalariesFrance/5/SalariesFrance_5/13_AG_50_54.double
+SalariesFrance/5/SalariesFrance_5/14_AG_M25.double
+SalariesFrance/5/SalariesFrance_5/15_AG_P55.double
+SalariesFrance/5/SalariesFrance_5/16_APPRENTI.double
+SalariesFrance/5/SalariesFrance_5/17_BMO_DIFFICILE.double
+SalariesFrance/5/SalariesFrance_5/18_BMO_INTENTIONS.double
+SalariesFrance/5/SalariesFrance_5/19_BMO_SAISON.double
+SalariesFrance/5/SalariesFrance_5/23_Calculation_392657618632466432.double
+SalariesFrance/5/SalariesFrance_5/24_Calculation_393783518250995712.double
+SalariesFrance/5/SalariesFrance_5/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/5/SalariesFrance_5/26_EMBAUCHES_NM1.double
+SalariesFrance/5/SalariesFrance_5/27_EMBAUCHES_NP1.double
+SalariesFrance/5/SalariesFrance_5/28_EMBAUCHE_CDD.double
+SalariesFrance/5/SalariesFrance_5/29_EMBAUCHE_CDI.double
+SalariesFrance/5/SalariesFrance_5/30_EMPSAL_NM1.double
+SalariesFrance/5/SalariesFrance_5/31_EMPSAL_NP1.double
+SalariesFrance/5/SalariesFrance_5/32_FEMMES.double
+SalariesFrance/5/SalariesFrance_5/33_HOMMES.double
+SalariesFrance/5/SalariesFrance_5/34_INTERIM_NM1.double
+SalariesFrance/5/SalariesFrance_5/35_INTERIM_NP1.double
+SalariesFrance/5/SalariesFrance_5/40_Latitude.double
+SalariesFrance/5/SalariesFrance_5/41_Longitude.double
+SalariesFrance/5/SalariesFrance_5/51_SALAIRE_BRUT.double
+SalariesFrance/5/SalariesFrance_5/52_SALAIRE_VF.double
+SalariesFrance/5/SalariesFrance_5/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/5/SalariesFrance_5/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/5/SalariesFrance_5/9_ADECCO_SALAIRES_BRUTS.double
+SalariesFrance/6/SalariesFrance_6/10_AG_25_29.double
+SalariesFrance/6/SalariesFrance_6/11_AG_30_39.double
+SalariesFrance/6/SalariesFrance_6/12_AG_40_49.double
+SalariesFrance/6/SalariesFrance_6/13_AG_50_54.double
+SalariesFrance/6/SalariesFrance_6/14_AG_M25.double
+SalariesFrance/6/SalariesFrance_6/15_AG_P55.double
+SalariesFrance/6/SalariesFrance_6/16_APPRENTI.double
+SalariesFrance/6/SalariesFrance_6/17_BMO_DIFFICILE.double
+SalariesFrance/6/SalariesFrance_6/18_BMO_INTENTIONS.double
+SalariesFrance/6/SalariesFrance_6/19_BMO_SAISON.double
+SalariesFrance/6/SalariesFrance_6/23_Calculation_392657618632466432.double
+SalariesFrance/6/SalariesFrance_6/24_Calculation_393783518250995712.double
+SalariesFrance/6/SalariesFrance_6/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/6/SalariesFrance_6/26_EMBAUCHES_NM1.double
+SalariesFrance/6/SalariesFrance_6/27_EMBAUCHES_NP1.double
+SalariesFrance/6/SalariesFrance_6/28_EMBAUCHE_CDD.double
+SalariesFrance/6/SalariesFrance_6/29_EMBAUCHE_CDI.double
+SalariesFrance/6/SalariesFrance_6/30_EMPSAL_NM1.double
+SalariesFrance/6/SalariesFrance_6/31_EMPSAL_NP1.double
+SalariesFrance/6/SalariesFrance_6/32_FEMMES.double
+SalariesFrance/6/SalariesFrance_6/33_HOMMES.double
+SalariesFrance/6/SalariesFrance_6/34_INTERIM_NM1.double
+SalariesFrance/6/SalariesFrance_6/35_INTERIM_NP1.double
+SalariesFrance/6/SalariesFrance_6/40_Latitude.double
+SalariesFrance/6/SalariesFrance_6/41_Longitude.double
+SalariesFrance/6/SalariesFrance_6/51_SALAIRE_BRUT.double
+SalariesFrance/6/SalariesFrance_6/52_SALAIRE_VF.double
+SalariesFrance/6/SalariesFrance_6/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/6/SalariesFrance_6/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/6/SalariesFrance_6/9_ADECCO_SALAIRES_BRUTS.double
+SalariesFrance/7/SalariesFrance_7/10_AG_25_29.double
+SalariesFrance/7/SalariesFrance_7/11_AG_30_39.double
+SalariesFrance/7/SalariesFrance_7/12_AG_40_49.double
+SalariesFrance/7/SalariesFrance_7/13_AG_50_54.double
+SalariesFrance/7/SalariesFrance_7/14_AG_M25.double
+SalariesFrance/7/SalariesFrance_7/15_AG_P55.double
+SalariesFrance/7/SalariesFrance_7/16_APPRENTI.double
+SalariesFrance/7/SalariesFrance_7/17_BMO_DIFFICILE.double
+SalariesFrance/7/SalariesFrance_7/18_BMO_INTENTIONS.double
+SalariesFrance/7/SalariesFrance_7/19_BMO_SAISON.double
+SalariesFrance/7/SalariesFrance_7/23_Calculation_392657618632466432.double
+SalariesFrance/7/SalariesFrance_7/24_Calculation_393783518250995712.double
+SalariesFrance/7/SalariesFrance_7/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/7/SalariesFrance_7/26_EMBAUCHES_NM1.double
+SalariesFrance/7/SalariesFrance_7/27_EMBAUCHES_NP1.double
+SalariesFrance/7/SalariesFrance_7/28_EMBAUCHE_CDD.double
+SalariesFrance/7/SalariesFrance_7/29_EMBAUCHE_CDI.double
+SalariesFrance/7/SalariesFrance_7/30_EMPSAL_NM1.double
+SalariesFrance/7/SalariesFrance_7/31_EMPSAL_NP1.double
+SalariesFrance/7/SalariesFrance_7/32_FEMMES.double
+SalariesFrance/7/SalariesFrance_7/33_HOMMES.double
+SalariesFrance/7/SalariesFrance_7/34_INTERIM_NM1.double
+SalariesFrance/7/SalariesFrance_7/35_INTERIM_NP1.double
+SalariesFrance/7/SalariesFrance_7/40_Latitude.double
+SalariesFrance/7/SalariesFrance_7/41_Longitude.double
+SalariesFrance/7/SalariesFrance_7/51_SALAIRE_BRUT.double
+SalariesFrance/7/SalariesFrance_7/52_SALAIRE_VF.double
+SalariesFrance/7/SalariesFrance_7/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/7/SalariesFrance_7/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/7/SalariesFrance_7/9_ADECCO_SALAIRES_BRUTS.double
+SalariesFrance/8/SalariesFrance_8/10_AG_25_29.double
+SalariesFrance/8/SalariesFrance_8/11_AG_30_39.double
+SalariesFrance/8/SalariesFrance_8/12_AG_40_49.double
+SalariesFrance/8/SalariesFrance_8/13_AG_50_54.double
+SalariesFrance/8/SalariesFrance_8/14_AG_M25.double
+SalariesFrance/8/SalariesFrance_8/15_AG_P55.double
+SalariesFrance/8/SalariesFrance_8/16_APPRENTI.double
+SalariesFrance/8/SalariesFrance_8/17_BMO_DIFFICILE.double
+SalariesFrance/8/SalariesFrance_8/18_BMO_INTENTIONS.double
+SalariesFrance/8/SalariesFrance_8/19_BMO_SAISON.double
+SalariesFrance/8/SalariesFrance_8/23_Calculation_392657618632466432.double
+SalariesFrance/8/SalariesFrance_8/24_Calculation_393783518250995712.double
+SalariesFrance/8/SalariesFrance_8/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/8/SalariesFrance_8/26_EMBAUCHES_NM1.double
+SalariesFrance/8/SalariesFrance_8/27_EMBAUCHES_NP1.double
+SalariesFrance/8/SalariesFrance_8/28_EMBAUCHE_CDD.double
+SalariesFrance/8/SalariesFrance_8/29_EMBAUCHE_CDI.double
+SalariesFrance/8/SalariesFrance_8/30_EMPSAL_NM1.double
+SalariesFrance/8/SalariesFrance_8/31_EMPSAL_NP1.double
+SalariesFrance/8/SalariesFrance_8/32_FEMMES.double
+SalariesFrance/8/SalariesFrance_8/33_HOMMES.double
+SalariesFrance/8/SalariesFrance_8/34_INTERIM_NM1.double
+SalariesFrance/8/SalariesFrance_8/35_INTERIM_NP1.double
+SalariesFrance/8/SalariesFrance_8/40_Latitude.double
+SalariesFrance/8/SalariesFrance_8/41_Longitude.double
+SalariesFrance/8/SalariesFrance_8/51_SALAIRE_BRUT.double
+SalariesFrance/8/SalariesFrance_8/52_SALAIRE_VF.double
+SalariesFrance/8/SalariesFrance_8/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/8/SalariesFrance_8/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/8/SalariesFrance_8/9_ADECCO_SALAIRES_BRUTS.double
+SalariesFrance/9/SalariesFrance_9/10_AG_25_29.double
+SalariesFrance/9/SalariesFrance_9/11_AG_30_39.double
+SalariesFrance/9/SalariesFrance_9/12_AG_40_49.double
+SalariesFrance/9/SalariesFrance_9/13_AG_50_54.double
+SalariesFrance/9/SalariesFrance_9/14_AG_M25.double
+SalariesFrance/9/SalariesFrance_9/15_AG_P55.double
+SalariesFrance/9/SalariesFrance_9/16_APPRENTI.double
+SalariesFrance/9/SalariesFrance_9/17_BMO_DIFFICILE.double
+SalariesFrance/9/SalariesFrance_9/18_BMO_INTENTIONS.double
+SalariesFrance/9/SalariesFrance_9/19_BMO_SAISON.double
+SalariesFrance/9/SalariesFrance_9/23_Calculation_392657618632466432.double
+SalariesFrance/9/SalariesFrance_9/24_Calculation_393783518250995712.double
+SalariesFrance/9/SalariesFrance_9/25_EMBAUCHES_GLOBAL.double
+SalariesFrance/9/SalariesFrance_9/26_EMBAUCHES_NM1.double
+SalariesFrance/9/SalariesFrance_9/27_EMBAUCHES_NP1.double
+SalariesFrance/9/SalariesFrance_9/28_EMBAUCHE_CDD.double
+SalariesFrance/9/SalariesFrance_9/29_EMBAUCHE_CDI.double
+SalariesFrance/9/SalariesFrance_9/30_EMPSAL_NM1.double
+SalariesFrance/9/SalariesFrance_9/31_EMPSAL_NP1.double
+SalariesFrance/9/SalariesFrance_9/32_FEMMES.double
+SalariesFrance/9/SalariesFrance_9/33_HOMMES.double
+SalariesFrance/9/SalariesFrance_9/34_INTERIM_NM1.double
+SalariesFrance/9/SalariesFrance_9/35_INTERIM_NP1.double
+SalariesFrance/9/SalariesFrance_9/40_Latitude.double
+SalariesFrance/9/SalariesFrance_9/41_Longitude.double
+SalariesFrance/9/SalariesFrance_9/51_SALAIRE_BRUT.double
+SalariesFrance/9/SalariesFrance_9/52_SALAIRE_VF.double
+SalariesFrance/9/SalariesFrance_9/7_ADECCO_NB_CANDIDATS.double
+SalariesFrance/9/SalariesFrance_9/8_ADECCO_NB_CAND_METIERS_PROCHES.double
+SalariesFrance/9/SalariesFrance_9/9_ADECCO_SALAIRES_BRUTS.double
+TableroSistemaPenal/1/TableroSistemaPenal_1/11_Calculation_7430825124450529.double
+TableroSistemaPenal/1/TableroSistemaPenal_1/15_INGRESOS.double
+TableroSistemaPenal/1/TableroSistemaPenal_1/16_Ingresos _ Garantia (copy).double
+TableroSistemaPenal/1/TableroSistemaPenal_1/4_COD DELITO.double
+TableroSistemaPenal/3/TableroSistemaPenal_3/11_ILEGALIDAD_DETENCION.double
+TableroSistemaPenal/3/TableroSistemaPenal_3/14_PRISION_PREVENTIVA.double
+TableroSistemaPenal/3/TableroSistemaPenal_3/15_PRISION_PREVENTIVA_DECRETADA.double
+TableroSistemaPenal/3/TableroSistemaPenal_3/16_PRISION_PREVENTIVA_RECHAZADA.double
+TableroSistemaPenal/3/TableroSistemaPenal_3/19_SENTENCIA.double
+TableroSistemaPenal/3/TableroSistemaPenal_3/3_CAUTELAR.double
+TableroSistemaPenal/4/TableroSistemaPenal_4/11_ILEGALIDAD_DETENCION.double
+TableroSistemaPenal/4/TableroSistemaPenal_4/14_PRISION_PREVENTIVA.double
+TableroSistemaPenal/4/TableroSistemaPenal_4/15_PRISION_PREVENTIVA_DECRETADA.double
+TableroSistemaPenal/4/TableroSistemaPenal_4/16_PRISION_PREVENTIVA_RECHAZADA.double
+TableroSistemaPenal/4/TableroSistemaPenal_4/19_SENTENCIA.double
+TableroSistemaPenal/4/TableroSistemaPenal_4/3_CAUTELAR.double
+TableroSistemaPenal/5/TableroSistemaPenal_5/11_ILEGALIDAD_DETENCION.double
+TableroSistemaPenal/5/TableroSistemaPenal_5/14_PRISION_PREVENTIVA.double
+TableroSistemaPenal/5/TableroSistemaPenal_5/15_PRISION_PREVENTIVA_DECRETADA.double
+TableroSistemaPenal/5/TableroSistemaPenal_5/16_PRISION_PREVENTIVA_RECHAZADA.double
+TableroSistemaPenal/5/TableroSistemaPenal_5/19_SENTENCIA.double
+TableroSistemaPenal/5/TableroSistemaPenal_5/3_CAUTELAR.double
+TableroSistemaPenal/7/TableroSistemaPenal_7/11_Calculation_7430825124450529.double
+TableroSistemaPenal/7/TableroSistemaPenal_7/15_INGRESOS.double
+TableroSistemaPenal/7/TableroSistemaPenal_7/16_Ingresos _ Garantia (copy).double
+TableroSistemaPenal/7/TableroSistemaPenal_7/4_COD DELITO.double
+Taxpayer/10/Taxpayer_10/26_stdev_Medicare_allowed_amt.double
+Taxpayer/10/Taxpayer_10/27_stdev_Medicare_payment_amt.double
+Taxpayer/10/Taxpayer_10/28_stdev_submitted_chrg_amt.double
+Taxpayer/10/Taxpayer_10/2_average_Medicare_allowed_amt.double
+Taxpayer/10/Taxpayer_10/3_average_Medicare_payment_amt.double
+Taxpayer/10/Taxpayer_10/4_average_submitted_chrg_amt.double
+Taxpayer/1/Taxpayer_1/26_stdev_Medicare_allowed_amt.double
+Taxpayer/1/Taxpayer_1/27_stdev_Medicare_payment_amt.double
+Taxpayer/1/Taxpayer_1/28_stdev_submitted_chrg_amt.double
+Taxpayer/1/Taxpayer_1/2_average_Medicare_allowed_amt.double
+Taxpayer/1/Taxpayer_1/3_average_Medicare_payment_amt.double
+Taxpayer/1/Taxpayer_1/4_average_submitted_chrg_amt.double
+Taxpayer/2/Taxpayer_2/26_stdev_Medicare_allowed_amt.double
+Taxpayer/2/Taxpayer_2/27_stdev_Medicare_payment_amt.double
+Taxpayer/2/Taxpayer_2/28_stdev_submitted_chrg_amt.double
+Taxpayer/2/Taxpayer_2/2_average_Medicare_allowed_amt.double
+Taxpayer/2/Taxpayer_2/3_average_Medicare_payment_amt.double
+Taxpayer/2/Taxpayer_2/4_average_submitted_chrg_amt.double
+Taxpayer/3/Taxpayer_3/26_stdev_Medicare_allowed_amt.double
+Taxpayer/3/Taxpayer_3/27_stdev_Medicare_payment_amt.double
+Taxpayer/3/Taxpayer_3/28_stdev_submitted_chrg_amt.double
+Taxpayer/3/Taxpayer_3/2_average_Medicare_allowed_amt.double
+Taxpayer/3/Taxpayer_3/3_average_Medicare_payment_amt.double
+Taxpayer/3/Taxpayer_3/4_average_submitted_chrg_amt.double
+Taxpayer/4/Taxpayer_4/26_stdev_Medicare_allowed_amt.double
+Taxpayer/4/Taxpayer_4/27_stdev_Medicare_payment_amt.double
+Taxpayer/4/Taxpayer_4/28_stdev_submitted_chrg_amt.double
+Taxpayer/4/Taxpayer_4/2_average_Medicare_allowed_amt.double
+Taxpayer/4/Taxpayer_4/3_average_Medicare_payment_amt.double
+Taxpayer/4/Taxpayer_4/4_average_submitted_chrg_amt.double
+Taxpayer/5/Taxpayer_5/26_stdev_Medicare_allowed_amt.double
+Taxpayer/5/Taxpayer_5/27_stdev_Medicare_payment_amt.double
+Taxpayer/5/Taxpayer_5/28_stdev_submitted_chrg_amt.double
+Taxpayer/5/Taxpayer_5/2_average_Medicare_allowed_amt.double
+Taxpayer/5/Taxpayer_5/3_average_Medicare_payment_amt.double
+Taxpayer/5/Taxpayer_5/4_average_submitted_chrg_amt.double
+Taxpayer/6/Taxpayer_6/26_stdev_Medicare_allowed_amt.double
+Taxpayer/6/Taxpayer_6/27_stdev_Medicare_payment_amt.double
+Taxpayer/6/Taxpayer_6/28_stdev_submitted_chrg_amt.double
+Taxpayer/6/Taxpayer_6/2_average_Medicare_allowed_amt.double
+Taxpayer/6/Taxpayer_6/3_average_Medicare_payment_amt.double
+Taxpayer/6/Taxpayer_6/4_average_submitted_chrg_amt.double
+Taxpayer/7/Taxpayer_7/26_stdev_Medicare_allowed_amt.double
+Taxpayer/7/Taxpayer_7/27_stdev_Medicare_payment_amt.double
+Taxpayer/7/Taxpayer_7/28_stdev_submitted_chrg_amt.double
+Taxpayer/7/Taxpayer_7/2_average_Medicare_allowed_amt.double
+Taxpayer/7/Taxpayer_7/3_average_Medicare_payment_amt.double
+Taxpayer/7/Taxpayer_7/4_average_submitted_chrg_amt.double
+Taxpayer/8/Taxpayer_8/26_stdev_Medicare_allowed_amt.double
+Taxpayer/8/Taxpayer_8/27_stdev_Medicare_payment_amt.double
+Taxpayer/8/Taxpayer_8/28_stdev_submitted_chrg_amt.double
+Taxpayer/8/Taxpayer_8/2_average_Medicare_allowed_amt.double
+Taxpayer/8/Taxpayer_8/3_average_Medicare_payment_amt.double
+Taxpayer/8/Taxpayer_8/4_average_submitted_chrg_amt.double
+Taxpayer/9/Taxpayer_9/26_stdev_Medicare_allowed_amt.double
+Taxpayer/9/Taxpayer_9/27_stdev_Medicare_payment_amt.double
+Taxpayer/9/Taxpayer_9/28_stdev_submitted_chrg_amt.double
+Taxpayer/9/Taxpayer_9/2_average_Medicare_allowed_amt.double
+Taxpayer/9/Taxpayer_9/3_average_Medicare_payment_amt.double
+Taxpayer/9/Taxpayer_9/4_average_submitted_chrg_amt.double
+Telco/1/Telco_1/100_ONNET_REV_P2.double
+Telco/1/Telco_1/101_ONNET_REV_P3.double
+Telco/1/Telco_1/102_ONNET_REV_P4.double
+Telco/1/Telco_1/103_ONNET_REV_P6.double
+Telco/1/Telco_1/106_RECHRG_INC_MIN_USED_P1.double
+Telco/1/Telco_1/107_RECHRG_INC_MIN_USED_P2.double
+Telco/1/Telco_1/108_RECHRG_INC_MIN_USED_P3.double
+Telco/1/Telco_1/109_RECHRG_INC_MIN_USED_P4.double
+Telco/1/Telco_1/10_CHARGD_SMS_P3.double
+Telco/1/Telco_1/110_RECHRG_INC_MIN_USED_P6.double
+Telco/1/Telco_1/111_RECHRG_TOTAL_LOAD_P1.double
+Telco/1/Telco_1/112_RECHRG_TOTAL_LOAD_P2.double
+Telco/1/Telco_1/113_RECHRG_TOTAL_LOAD_P3.double
+Telco/1/Telco_1/114_RECHRG_TOTAL_LOAD_P4.double
+Telco/1/Telco_1/115_RECHRG_TOTAL_LOAD_P6.double
+Telco/1/Telco_1/116_RECHRG_TOTAL_SUBS_P1.double
+Telco/1/Telco_1/117_RECHRG_TOTAL_SUBS_P2.double
+Telco/1/Telco_1/118_RECHRG_TOTAL_SUBS_P3.double
+Telco/1/Telco_1/119_RECHRG_TOTAL_SUBS_P4.double
+Telco/1/Telco_1/11_CHARGD_SMS_P4.double
+Telco/1/Telco_1/120_RECHRG_TOTAL_SUBS_P6.double
+Telco/1/Telco_1/121_RECHRG_TOTAL_TRANS_P1.double
+Telco/1/Telco_1/122_RECHRG_TOTAL_TRANS_P2.double
+Telco/1/Telco_1/123_RECHRG_TOTAL_TRANS_P3.double
+Telco/1/Telco_1/124_RECHRG_TOTAL_TRANS_P4.double
+Telco/1/Telco_1/125_RECHRG_TOTAL_TRANS_P6.double
+Telco/1/Telco_1/126_REVENUE_SMS_P1.double
+Telco/1/Telco_1/127_REVENUE_SMS_P2.double
+Telco/1/Telco_1/128_REVENUE_SMS_P3.double
+Telco/1/Telco_1/129_REVENUE_SMS_P4.double
+Telco/1/Telco_1/12_CHARGD_SMS_P6.double
+Telco/1/Telco_1/130_REVENUE_SMS_P6.double
+Telco/1/Telco_1/131_STATUS_END_P2.double
+Telco/1/Telco_1/132_TOTAL_CALLS_P1.double
+Telco/1/Telco_1/133_TOTAL_CALLS_P2.double
+Telco/1/Telco_1/134_TOTAL_CALLS_P3.double
+Telco/1/Telco_1/135_TOTAL_CALLS_P4.double
+Telco/1/Telco_1/136_TOTAL_CALLS_P6.double
+Telco/1/Telco_1/137_TOTAL_CALLS_REV_P1.double
+Telco/1/Telco_1/138_TOTAL_CALLS_REV_P2.double
+Telco/1/Telco_1/139_TOTAL_CALLS_REV_P3.double
+Telco/1/Telco_1/13_CHRGD_CALLS_P1.double
+Telco/1/Telco_1/140_TOTAL_CALLS_REV_P4.double
+Telco/1/Telco_1/141_TOTAL_CALLS_REV_P6.double
+Telco/1/Telco_1/142_TOTAL_INCOMING_MIN_P1.double
+Telco/1/Telco_1/143_TOTAL_INCOMING_MIN_P2.double
+Telco/1/Telco_1/144_TOTAL_INCOMING_MIN_P3.double
+Telco/1/Telco_1/145_TOTAL_INCOMING_MIN_P4.double
+Telco/1/Telco_1/146_TOTAL_INCOMING_MIN_P6.double
+Telco/1/Telco_1/147_TOTAL_INCOMING_REV_P1.double
+Telco/1/Telco_1/148_TOTAL_INCOMING_REV_P2.double
+Telco/1/Telco_1/149_TOTAL_INCOMING_REV_P3.double
+Telco/1/Telco_1/14_CHRGD_CALLS_P2.double
+Telco/1/Telco_1/150_TOTAL_INCOMING_REV_P4.double
+Telco/1/Telco_1/151_TOTAL_INCOMING_REV_P6.double
+Telco/1/Telco_1/152_TOTAL_MINS_P1.double
+Telco/1/Telco_1/153_TOTAL_MINS_P2.double
+Telco/1/Telco_1/154_TOTAL_MINS_P3.double
+Telco/1/Telco_1/155_TOTAL_MINS_P4.double
+Telco/1/Telco_1/156_TOTAL_MINS_P6.double
+Telco/1/Telco_1/157_TOTAL_OUTGOING_MIN_P1.double
+Telco/1/Telco_1/158_TOTAL_OUTGOING_MIN_P2.double
+Telco/1/Telco_1/159_TOTAL_OUTGOING_MIN_P3.double
+Telco/1/Telco_1/15_CHRGD_CALLS_P3.double
+Telco/1/Telco_1/160_TOTAL_OUTGOING_MIN_P4.double
+Telco/1/Telco_1/161_TOTAL_OUTGOING_MIN_P6.double
+Telco/1/Telco_1/162_TOTAL_SMS_P1.double
+Telco/1/Telco_1/163_TOTAL_SMS_P2.double
+Telco/1/Telco_1/164_TOTAL_SMS_P3.double
+Telco/1/Telco_1/165_TOTAL_SMS_P4.double
+Telco/1/Telco_1/166_TOTAL_SMS_P6.double
+Telco/1/Telco_1/167_TOTAL_VAS_REV_P1.double
+Telco/1/Telco_1/168_TOTAL_VAS_REV_P2.double
+Telco/1/Telco_1/169_TOTAL_VAS_REV_P3.double
+Telco/1/Telco_1/16_CHRGD_CALLS_P4.double
+Telco/1/Telco_1/170_TOTAL_VAS_REV_P4.double
+Telco/1/Telco_1/171_TOTAL_VAS_REV_P6.double
+Telco/1/Telco_1/172_TOTA_OUTGOING_REV_P1.double
+Telco/1/Telco_1/173_TOTA_OUTGOING_REV_P2.double
+Telco/1/Telco_1/174_TOTA_OUTGOING_REV_P3.double
+Telco/1/Telco_1/175_TOTA_OUTGOING_REV_P4.double
+Telco/1/Telco_1/176_TOTA_OUTGOING_REV_P6.double
+Telco/1/Telco_1/177_UNIQUE_SUBS_SMS_P1.double
+Telco/1/Telco_1/178_UNIQUE_SUBS_SMS_P2.double
+Telco/1/Telco_1/179_UNIQUE_SUBS_SMS_P3.double
+Telco/1/Telco_1/17_CHRGD_CALLS_P6.double
+Telco/1/Telco_1/180_UNIQUE_SUBS_SMS_P4.double
+Telco/1/Telco_1/181_UNIQUE_SUBS_SMS_P6.double
+Telco/1/Telco_1/18_CHRGD_MINS_P1.double
+Telco/1/Telco_1/19_CHRGD_MINS_P2.double
+Telco/1/Telco_1/20_CHRGD_MINS_P3.double
+Telco/1/Telco_1/21_CHRGD_MINS_P4.double
+Telco/1/Telco_1/22_CHRGD_MINS_P6.double
+Telco/1/Telco_1/23_CHRGD_REV_P1.double
+Telco/1/Telco_1/24_CHRGD_REV_P2.double
+Telco/1/Telco_1/25_CHRGD_REV_P3.double
+Telco/1/Telco_1/26_CHRGD_REV_P4.double
+Telco/1/Telco_1/27_CHRGD_REV_P6.double
+Telco/1/Telco_1/29_FREE_CALLS_P1.double
+Telco/1/Telco_1/2_ARPU_P1.double
+Telco/1/Telco_1/30_FREE_CALLS_P2.double
+Telco/1/Telco_1/31_FREE_CALLS_P3.double
+Telco/1/Telco_1/32_FREE_CALLS_P4.double
+Telco/1/Telco_1/33_FREE_CALLS_P6.double
+Telco/1/Telco_1/34_FREE_MINS_P1.double
+Telco/1/Telco_1/35_FREE_MINS_P2.double
+Telco/1/Telco_1/36_FREE_MINS_P3.double
+Telco/1/Telco_1/37_FREE_MINS_P4.double
+Telco/1/Telco_1/38_FREE_MINS_P6.double
+Telco/1/Telco_1/39_FREE_SMS_P1.double
+Telco/1/Telco_1/3_ARPU_P2.double
+Telco/1/Telco_1/40_FREE_SMS_P2.double
+Telco/1/Telco_1/41_FREE_SMS_P3.double
+Telco/1/Telco_1/42_FREE_SMS_P4.double
+Telco/1/Telco_1/43_FREE_SMS_P6.double
+Telco/1/Telco_1/44_IDD_CALLS_P1.double
+Telco/1/Telco_1/45_IDD_CALLS_P2.double
+Telco/1/Telco_1/46_IDD_CALLS_P3.double
+Telco/1/Telco_1/47_IDD_CALLS_P4.double
+Telco/1/Telco_1/48_IDD_CALLS_P6.double
+Telco/1/Telco_1/49_IDD_MINS_P1.double
+Telco/1/Telco_1/4_ARPU_P3.double
+Telco/1/Telco_1/50_IDD_MINS_P2.double
+Telco/1/Telco_1/51_IDD_MINS_P3.double
+Telco/1/Telco_1/52_IDD_MINS_P4.double
+Telco/1/Telco_1/53_IDD_MINS_P6.double
+Telco/1/Telco_1/54_IDD_REV_P1.double
+Telco/1/Telco_1/55_IDD_REV_P2.double
+Telco/1/Telco_1/56_IDD_REV_P3.double
+Telco/1/Telco_1/57_IDD_REV_P4.double
+Telco/1/Telco_1/58_IDD_REV_P6.double
+Telco/1/Telco_1/59_INCOMING_INC_REV_P1.double
+Telco/1/Telco_1/5_ARPU_P4.double
+Telco/1/Telco_1/60_INCOMING_INC_REV_P2.double
+Telco/1/Telco_1/61_INCOMING_INC_REV_P3.double
+Telco/1/Telco_1/62_INCOMING_INC_REV_P4.double
+Telco/1/Telco_1/63_INCOMING_INC_REV_P6.double
+Telco/1/Telco_1/64_INCOMING_TOTAL_CALLS_P1.double
+Telco/1/Telco_1/65_INCOMING_TOTAL_CALLS_P2.double
+Telco/1/Telco_1/66_INCOMING_TOTAL_CALLS_P3.double
+Telco/1/Telco_1/67_INCOMING_TOTAL_CALLS_P4.double
+Telco/1/Telco_1/68_INCOMING_TOTAL_CALLS_P6.double
+Telco/1/Telco_1/69_LAST_RCHRG_AMT.double
+Telco/1/Telco_1/6_ARPU_P6.double
+Telco/1/Telco_1/72_MSISDN.double
+Telco/1/Telco_1/74_OFFNET_CALLS_P1.double
+Telco/1/Telco_1/75_OFFNET_CALLS_P2.double
+Telco/1/Telco_1/76_OFFNET_CALLS_P3.double
+Telco/1/Telco_1/77_OFFNET_CALLS_P4.double
+Telco/1/Telco_1/78_OFFNET_CALLS_P6.double
+Telco/1/Telco_1/79_OFFNET_MINS_P1.double
+Telco/1/Telco_1/7_BALANCE_END_P2.double
+Telco/1/Telco_1/80_OFFNET_MINS_P2.double
+Telco/1/Telco_1/81_OFFNET_MINS_P3.double
+Telco/1/Telco_1/82_OFFNET_MINS_P4.double
+Telco/1/Telco_1/83_OFFNET_MINS_P6.double
+Telco/1/Telco_1/84_OFFNET_REV_P1.double
+Telco/1/Telco_1/85_OFFNET_REV_P2.double
+Telco/1/Telco_1/86_OFFNET_REV_P3.double
+Telco/1/Telco_1/87_OFFNET_REV_P4.double
+Telco/1/Telco_1/88_OFFNET_REV_P6.double
+Telco/1/Telco_1/89_ONNET_CALLS_P1.double
+Telco/1/Telco_1/8_CHARGD_SMS_P1.double
+Telco/1/Telco_1/90_ONNET_CALLS_P2.double
+Telco/1/Telco_1/91_ONNET_CALLS_P3.double
+Telco/1/Telco_1/92_ONNET_CALLS_P4.double
+Telco/1/Telco_1/93_ONNET_CALLS_P6.double
+Telco/1/Telco_1/94_ONNET_MINS_P1.double
+Telco/1/Telco_1/95_ONNET_MINS_P2.double
+Telco/1/Telco_1/96_ONNET_MINS_P3.double
+Telco/1/Telco_1/97_ONNET_MINS_P4.double
+Telco/1/Telco_1/98_ONNET_MINS_P6.double
+Telco/1/Telco_1/99_ONNET_REV_P1.double
+Telco/1/Telco_1/9_CHARGD_SMS_P2.double
+TrainsUK1/2/TrainsUK1_2/10_Pathing Allowance (mins).double
+TrainsUK1/2/TrainsUK1_2/11_Performance Allowance (mins).double
+TrainsUK1/2/TrainsUK1_2/15_RT%.double
+TrainsUK1/2/TrainsUK1_2/19_Time-to-10%.double
+TrainsUK1/2/TrainsUK1_2/1_Average Lateness.double
+TrainsUK1/2/TrainsUK1_2/20_Time-to-2%.double
+TrainsUK1/2/TrainsUK1_2/21_Time-to-5%.double
+TrainsUK1/2/TrainsUK1_2/2_Calculation_2040623161253421.double
+TrainsUK1/2/TrainsUK1_2/4_Calculation_3330422103625946.double
+TrainsUK1/2/TrainsUK1_2/7_Median Lateness.double
+TrainsUK1/3/TrainsUK1_3/10_Pathing Allowance (mins).double
+TrainsUK1/3/TrainsUK1_3/11_Performance Allowance (mins).double
+TrainsUK1/3/TrainsUK1_3/15_RT%.double
+TrainsUK1/3/TrainsUK1_3/19_Time-to-10%.double
+TrainsUK1/3/TrainsUK1_3/1_Average Lateness.double
+TrainsUK1/3/TrainsUK1_3/20_Time-to-2%.double
+TrainsUK1/3/TrainsUK1_3/21_Time-to-5%.double
+TrainsUK1/3/TrainsUK1_3/2_Calculation_2040623161253421.double
+TrainsUK1/3/TrainsUK1_3/4_Calculation_3330422103625946.double
+TrainsUK1/3/TrainsUK1_3/7_Median Lateness.double
+TrainsUK1/4/TrainsUK1_4/10_Pathing Allowance (mins).double
+TrainsUK1/4/TrainsUK1_4/11_Performance Allowance (mins).double
+TrainsUK1/4/TrainsUK1_4/15_RT%.double
+TrainsUK1/4/TrainsUK1_4/19_Time-to-10%.double
+TrainsUK1/4/TrainsUK1_4/1_Average Lateness.double
+TrainsUK1/4/TrainsUK1_4/20_Time-to-2%.double
+TrainsUK1/4/TrainsUK1_4/21_Time-to-5%.double
+TrainsUK1/4/TrainsUK1_4/2_Calculation_2040623161253421.double
+TrainsUK1/4/TrainsUK1_4/4_Calculation_3330422103625946.double
+TrainsUK1/4/TrainsUK1_4/7_Median Lateness.double
+TrainsUK2/1/TrainsUK2_1/16_Planned Total Distance Miles.double
+TrainsUK2/1/TrainsUK2_1/1_Actual Total Distance Miles.double
+TrainsUK2/1/TrainsUK2_1/23_v_Dest Lateness (WTT).double
+TrainsUK2/2/TrainsUK2_2/16_Planned Total Distance Miles.double
+TrainsUK2/2/TrainsUK2_2/1_Actual Total Distance Miles.double
+TrainsUK2/2/TrainsUK2_2/23_v_Dest Lateness (WTT).double
+Wins/1/Wins_1/102_nLODDS.double
+Wins/1/Wins_1/106_nLPER.double
+Wins/1/Wins_1/11_nAODD.double
+Wins/1/Wins_1/121_nMLO.double
+Wins/1/Wins_1/130_nPDIF.double
+Wins/1/Wins_1/138_nPSCN.double
+Wins/1/Wins_1/156_nSUPERF.double
+Wins/1/Wins_1/164_nTOPPAC.double
+Wins/1/Wins_1/166_nTOPPER.double
+Wins/1/Wins_1/168_nTOPSHF.double
+Wins/1/Wins_1/171_nTRI.double
+Wins/1/Wins_1/176_nTRN_ROIX.double
+Wins/1/Wins_1/179_nVBET.double
+Wins/1/Wins_1/180_nVEL.double
+Wins/1/Wins_1/187_nWKSC.double
+Wins/1/Wins_1/188_nWMAR.double
+Wins/1/Wins_1/191_nXBUY.double
+Wins/1/Wins_1/193_nXPROB.double
+Wins/1/Wins_1/194_nXSELL.double
+Wins/1/Wins_1/254_xPLA.double
+Wins/1/Wins_1/256_xSHO.double
+Wins/1/Wins_1/257_xWIN.double
+Wins/1/Wins_1/34_nDIST.double
+Wins/1/Wins_1/37_nEEN.double
+Wins/1/Wins_1/3_nABL1.double
+Wins/1/Wins_1/43_nEXA.double
+Wins/1/Wins_1/4_nABL2.double
+Wins/1/Wins_1/51_nFR1.double
+Wins/1/Wins_1/52_nFR2.double
+Wins/1/Wins_1/53_nFR3.double
+Wins/1/Wins_1/5_nABLF.double
+Wins/1/Wins_1/75_nK2.double
+Wins/1/Wins_1/79_nKGAPX.double
+Wins/1/Wins_1/81_nKLINE.double
+Wins/1/Wins_1/82_nKMS.double
+Wins/1/Wins_1/83_nKMSeCHART.double
+Wins/1/Wins_1/87_nK.double
+Wins/1/Wins_1/93_nLDIST.double
+Wins/2/Wins_2/10_n1CBL5.double
+Wins/2/Wins_2/11_n1CBL6.double
+Wins/2/Wins_2/12_n1CBL7.double
+Wins/2/Wins_2/13_n1CBL8.double
+Wins/2/Wins_2/142_nDIST.double
+Wins/2/Wins_2/143_nDIST1.double
+Wins/2/Wins_2/144_nDIST2.double
+Wins/2/Wins_2/145_nDIST3.double
+Wins/2/Wins_2/149_nEEN.double
+Wins/2/Wins_2/14_n1CBL9.double
+Wins/2/Wins_2/157_nEXA.double
+Wins/2/Wins_2/167_nFNBL0.double
+Wins/2/Wins_2/168_nFNBL1.double
+Wins/2/Wins_2/169_nFNBL2.double
+Wins/2/Wins_2/170_nFNBL3.double
+Wins/2/Wins_2/171_nFNBL4.double
+Wins/2/Wins_2/172_nFNBL5.double
+Wins/2/Wins_2/173_nFNBL6.double
+Wins/2/Wins_2/174_nFNBL7.double
+Wins/2/Wins_2/175_nFNBL8.double
+Wins/2/Wins_2/176_nFNBL9.double
+Wins/2/Wins_2/177_nFNT0.double
+Wins/2/Wins_2/178_nFNT1.double
+Wins/2/Wins_2/179_nFNT2.double
+Wins/2/Wins_2/180_nFNT3.double
+Wins/2/Wins_2/181_nFNT4.double
+Wins/2/Wins_2/182_nFNT5.double
+Wins/2/Wins_2/183_nFNT6.double
+Wins/2/Wins_2/184_nFNT7.double
+Wins/2/Wins_2/185_nFNT8.double
+Wins/2/Wins_2/186_nFNT9.double
+Wins/2/Wins_2/188_nFR1.double
+Wins/2/Wins_2/192_nFR2.double
+Wins/2/Wins_2/193_nFR3.double
+Wins/2/Wins_2/1_Calculation_-2642768498540482557.double
+Wins/2/Wins_2/215_nJK365_ROI.double
+Wins/2/Wins_2/226_nK2.double
+Wins/2/Wins_2/231_nKGAPX.double
+Wins/2/Wins_2/233_nKLINE.double
+Wins/2/Wins_2/234_nKLINE1.double
+Wins/2/Wins_2/235_nKLINE2.double
+Wins/2/Wins_2/236_nKMS.double
+Wins/2/Wins_2/237_nKMSeCHART.double
+Wins/2/Wins_2/241_nK.double
+Wins/2/Wins_2/247_nLDIST.double
+Wins/2/Wins_2/256_nLODDS.double
+Wins/2/Wins_2/25_n1CT0.double
+Wins/2/Wins_2/260_nLPER.double
+Wins/2/Wins_2/26_n1CT1.double
+Wins/2/Wins_2/276_nMLO.double
+Wins/2/Wins_2/277_nMLO1.double
+Wins/2/Wins_2/278_nMLO2.double
+Wins/2/Wins_2/27_n1CT2.double
+Wins/2/Wins_2/28_n1CT3.double
+Wins/2/Wins_2/29_n1CT4.double
+Wins/2/Wins_2/2_Calculation_-2642768498540609534.double
+Wins/2/Wins_2/30_n1CT5.double
+Wins/2/Wins_2/312_nODDS.double
+Wins/2/Wins_2/31_n1CT6.double
+Wins/2/Wins_2/321_nPDIF.double
+Wins/2/Wins_2/329_nPP0DIS.double
+Wins/2/Wins_2/32_n1CT7.double
+Wins/2/Wins_2/332_nPP0PAC.double
+Wins/2/Wins_2/333_nPP0PER.double
+Wins/2/Wins_2/335_nPP0SHF.double
+Wins/2/Wins_2/33_n1CT8.double
+Wins/2/Wins_2/340_nPP1DIS.double
+Wins/2/Wins_2/343_nPP1PAC.double
+Wins/2/Wins_2/344_nPP1PER.double
+Wins/2/Wins_2/346_nPP1SHF.double
+Wins/2/Wins_2/34_n1CT9.double
+Wins/2/Wins_2/351_nPP2DIS.double
+Wins/2/Wins_2/354_nPP2PAC.double
+Wins/2/Wins_2/355_nPP2PER.double
+Wins/2/Wins_2/357_nPP2SHF.double
+Wins/2/Wins_2/35_n2CBL0.double
+Wins/2/Wins_2/362_nPP3DIS.double
+Wins/2/Wins_2/365_nPP3PAC.double
+Wins/2/Wins_2/366_nPP3PER.double
+Wins/2/Wins_2/368_nPP3SHF.double
+Wins/2/Wins_2/36_n2CBL1.double
+Wins/2/Wins_2/373_nPP4DIS.double
+Wins/2/Wins_2/376_nPP4PAC.double
+Wins/2/Wins_2/377_nPP4PER.double
+Wins/2/Wins_2/379_nPP4SHF.double
+Wins/2/Wins_2/37_n2CBL2.double
+Wins/2/Wins_2/384_nPP5DIS.double
+Wins/2/Wins_2/387_nPP5PAC.double
+Wins/2/Wins_2/388_nPP5PER.double
+Wins/2/Wins_2/38_n2CBL3.double
+Wins/2/Wins_2/390_nPP5SHF.double
+Wins/2/Wins_2/395_nPP6DIS.double
+Wins/2/Wins_2/398_nPP6PAC.double
+Wins/2/Wins_2/399_nPP6PER.double
+Wins/2/Wins_2/39_n2CBL4.double
+Wins/2/Wins_2/3_Calculation_-2642768498540806143.double
+Wins/2/Wins_2/401_nPP6SHF.double
+Wins/2/Wins_2/406_nPP7DIS.double
+Wins/2/Wins_2/409_nPP7PAC.double
+Wins/2/Wins_2/40_n2CBL5.double
+Wins/2/Wins_2/410_nPP7PER.double
+Wins/2/Wins_2/412_nPP7SHF.double
+Wins/2/Wins_2/417_nPP8DIS.double
+Wins/2/Wins_2/41_n2CBL6.double
+Wins/2/Wins_2/420_nPP8PAC.double
+Wins/2/Wins_2/421_nPP8PER.double
+Wins/2/Wins_2/423_nPP8SHF.double
+Wins/2/Wins_2/428_nPP9DIS.double
+Wins/2/Wins_2/42_n2CBL7.double
+Wins/2/Wins_2/431_nPP9PAC.double
+Wins/2/Wins_2/432_nPP9PER.double
+Wins/2/Wins_2/434_nPP9SHF.double
+Wins/2/Wins_2/43_n2CBL8.double
+Wins/2/Wins_2/442_nPSCN.double
+Wins/2/Wins_2/44_n2CBL9.double
+Wins/2/Wins_2/463_nSTBL0.double
+Wins/2/Wins_2/464_nSTBL1.double
+Wins/2/Wins_2/465_nSTBL2.double
+Wins/2/Wins_2/466_nSTBL3.double
+Wins/2/Wins_2/467_nSTBL4.double
+Wins/2/Wins_2/468_nSTBL5.double
+Wins/2/Wins_2/469_nSTBL6.double
+Wins/2/Wins_2/470_nSTBL7.double
+Wins/2/Wins_2/471_nSTBL8.double
+Wins/2/Wins_2/472_nSTBL9.double
+Wins/2/Wins_2/485_nSUPERF.double
+Wins/2/Wins_2/501_nTOPPAC.double
+Wins/2/Wins_2/503_nTOPPER.double
+Wins/2/Wins_2/505_nTOPSHF.double
+Wins/2/Wins_2/508_nTR365_ROI.double
+Wins/2/Wins_2/513_nTRI.double
+Wins/2/Wins_2/518_nTRN_ROIX.double
+Wins/2/Wins_2/526_nVBET.double
+Wins/2/Wins_2/527_nVEL.double
+Wins/2/Wins_2/534_nWKSC.double
+Wins/2/Wins_2/535_nWKSC1.double
+Wins/2/Wins_2/536_nWMAR.double
+Wins/2/Wins_2/539_nXBUY.double
+Wins/2/Wins_2/541_nXPROB.double
+Wins/2/Wins_2/542_nXSELL.double
+Wins/2/Wins_2/55_n2CT0.double
+Wins/2/Wins_2/56_n2CT1.double
+Wins/2/Wins_2/57_n2CT2.double
+Wins/2/Wins_2/58_n2CT3.double
+Wins/2/Wins_2/59_n2CT4.double
+Wins/2/Wins_2/5_n1CBL0.double
+Wins/2/Wins_2/60_n2CT5.double
+Wins/2/Wins_2/61_n2CT6.double
+Wins/2/Wins_2/62_n2CT7.double
+Wins/2/Wins_2/63_n2CT8.double
+Wins/2/Wins_2/644_xPLA.double
+Wins/2/Wins_2/646_xSHO.double
+Wins/2/Wins_2/647_xWIN.double
+Wins/2/Wins_2/64_n2CT9.double
+Wins/2/Wins_2/66_nABL1.double
+Wins/2/Wins_2/67_nABL2.double
+Wins/2/Wins_2/68_nABLF.double
+Wins/2/Wins_2/6_n1CBL1.double
+Wins/2/Wins_2/74_nAML.double
+Wins/2/Wins_2/75_nAODDS.double
+Wins/2/Wins_2/76_nAODD.double
+Wins/2/Wins_2/7_n1CBL2.double
+Wins/2/Wins_2/8_n1CBL3.double
+Wins/2/Wins_2/9_n1CBL4.double
+Wins/3/Wins_3/10_n1CBL5.double
+Wins/3/Wins_3/11_n1CBL6.double
+Wins/3/Wins_3/12_n1CBL7.double
+Wins/3/Wins_3/13_n1CBL8.double
+Wins/3/Wins_3/142_nDIST.double
+Wins/3/Wins_3/143_nDIST1.double
+Wins/3/Wins_3/144_nDIST2.double
+Wins/3/Wins_3/145_nDIST3.double
+Wins/3/Wins_3/149_nEEN.double
+Wins/3/Wins_3/14_n1CBL9.double
+Wins/3/Wins_3/157_nEXA.double
+Wins/3/Wins_3/167_nFNBL0.double
+Wins/3/Wins_3/168_nFNBL1.double
+Wins/3/Wins_3/169_nFNBL2.double
+Wins/3/Wins_3/170_nFNBL3.double
+Wins/3/Wins_3/171_nFNBL4.double
+Wins/3/Wins_3/172_nFNBL5.double
+Wins/3/Wins_3/173_nFNBL6.double
+Wins/3/Wins_3/174_nFNBL7.double
+Wins/3/Wins_3/175_nFNBL8.double
+Wins/3/Wins_3/176_nFNBL9.double
+Wins/3/Wins_3/177_nFNT0.double
+Wins/3/Wins_3/178_nFNT1.double
+Wins/3/Wins_3/179_nFNT2.double
+Wins/3/Wins_3/180_nFNT3.double
+Wins/3/Wins_3/181_nFNT4.double
+Wins/3/Wins_3/182_nFNT5.double
+Wins/3/Wins_3/183_nFNT6.double
+Wins/3/Wins_3/184_nFNT7.double
+Wins/3/Wins_3/185_nFNT8.double
+Wins/3/Wins_3/186_nFNT9.double
+Wins/3/Wins_3/188_nFR1.double
+Wins/3/Wins_3/192_nFR2.double
+Wins/3/Wins_3/193_nFR3.double
+Wins/3/Wins_3/1_Calculation_-2642768498540482557.double
+Wins/3/Wins_3/215_nJK365_ROI.double
+Wins/3/Wins_3/226_nK2.double
+Wins/3/Wins_3/231_nKGAPX.double
+Wins/3/Wins_3/233_nKLINE.double
+Wins/3/Wins_3/234_nKLINE1.double
+Wins/3/Wins_3/235_nKLINE2.double
+Wins/3/Wins_3/236_nKMS.double
+Wins/3/Wins_3/237_nKMSeCHART.double
+Wins/3/Wins_3/241_nK.double
+Wins/3/Wins_3/247_nLDIST.double
+Wins/3/Wins_3/256_nLODDS.double
+Wins/3/Wins_3/25_n1CT0.double
+Wins/3/Wins_3/260_nLPER.double
+Wins/3/Wins_3/26_n1CT1.double
+Wins/3/Wins_3/276_nMLO.double
+Wins/3/Wins_3/277_nMLO1.double
+Wins/3/Wins_3/278_nMLO2.double
+Wins/3/Wins_3/27_n1CT2.double
+Wins/3/Wins_3/28_n1CT3.double
+Wins/3/Wins_3/29_n1CT4.double
+Wins/3/Wins_3/2_Calculation_-2642768498540609534.double
+Wins/3/Wins_3/30_n1CT5.double
+Wins/3/Wins_3/312_nODDS.double
+Wins/3/Wins_3/31_n1CT6.double
+Wins/3/Wins_3/321_nPDIF.double
+Wins/3/Wins_3/329_nPP0DIS.double
+Wins/3/Wins_3/32_n1CT7.double
+Wins/3/Wins_3/332_nPP0PAC.double
+Wins/3/Wins_3/333_nPP0PER.double
+Wins/3/Wins_3/335_nPP0SHF.double
+Wins/3/Wins_3/33_n1CT8.double
+Wins/3/Wins_3/340_nPP1DIS.double
+Wins/3/Wins_3/343_nPP1PAC.double
+Wins/3/Wins_3/344_nPP1PER.double
+Wins/3/Wins_3/346_nPP1SHF.double
+Wins/3/Wins_3/34_n1CT9.double
+Wins/3/Wins_3/351_nPP2DIS.double
+Wins/3/Wins_3/354_nPP2PAC.double
+Wins/3/Wins_3/355_nPP2PER.double
+Wins/3/Wins_3/357_nPP2SHF.double
+Wins/3/Wins_3/35_n2CBL0.double
+Wins/3/Wins_3/362_nPP3DIS.double
+Wins/3/Wins_3/365_nPP3PAC.double
+Wins/3/Wins_3/366_nPP3PER.double
+Wins/3/Wins_3/368_nPP3SHF.double
+Wins/3/Wins_3/36_n2CBL1.double
+Wins/3/Wins_3/373_nPP4DIS.double
+Wins/3/Wins_3/376_nPP4PAC.double
+Wins/3/Wins_3/377_nPP4PER.double
+Wins/3/Wins_3/379_nPP4SHF.double
+Wins/3/Wins_3/37_n2CBL2.double
+Wins/3/Wins_3/384_nPP5DIS.double
+Wins/3/Wins_3/387_nPP5PAC.double
+Wins/3/Wins_3/388_nPP5PER.double
+Wins/3/Wins_3/38_n2CBL3.double
+Wins/3/Wins_3/390_nPP5SHF.double
+Wins/3/Wins_3/395_nPP6DIS.double
+Wins/3/Wins_3/398_nPP6PAC.double
+Wins/3/Wins_3/399_nPP6PER.double
+Wins/3/Wins_3/39_n2CBL4.double
+Wins/3/Wins_3/3_Calculation_-2642768498540806143.double
+Wins/3/Wins_3/401_nPP6SHF.double
+Wins/3/Wins_3/406_nPP7DIS.double
+Wins/3/Wins_3/409_nPP7PAC.double
+Wins/3/Wins_3/40_n2CBL5.double
+Wins/3/Wins_3/410_nPP7PER.double
+Wins/3/Wins_3/412_nPP7SHF.double
+Wins/3/Wins_3/417_nPP8DIS.double
+Wins/3/Wins_3/41_n2CBL6.double
+Wins/3/Wins_3/420_nPP8PAC.double
+Wins/3/Wins_3/421_nPP8PER.double
+Wins/3/Wins_3/423_nPP8SHF.double
+Wins/3/Wins_3/428_nPP9DIS.double
+Wins/3/Wins_3/42_n2CBL7.double
+Wins/3/Wins_3/431_nPP9PAC.double
+Wins/3/Wins_3/432_nPP9PER.double
+Wins/3/Wins_3/434_nPP9SHF.double
+Wins/3/Wins_3/43_n2CBL8.double
+Wins/3/Wins_3/442_nPSCN.double
+Wins/3/Wins_3/44_n2CBL9.double
+Wins/3/Wins_3/463_nSTBL0.double
+Wins/3/Wins_3/464_nSTBL1.double
+Wins/3/Wins_3/465_nSTBL2.double
+Wins/3/Wins_3/466_nSTBL3.double
+Wins/3/Wins_3/467_nSTBL4.double
+Wins/3/Wins_3/468_nSTBL5.double
+Wins/3/Wins_3/469_nSTBL6.double
+Wins/3/Wins_3/470_nSTBL7.double
+Wins/3/Wins_3/471_nSTBL8.double
+Wins/3/Wins_3/472_nSTBL9.double
+Wins/3/Wins_3/485_nSUPERF.double
+Wins/3/Wins_3/501_nTOPPAC.double
+Wins/3/Wins_3/503_nTOPPER.double
+Wins/3/Wins_3/505_nTOPSHF.double
+Wins/3/Wins_3/508_nTR365_ROI.double
+Wins/3/Wins_3/513_nTRI.double
+Wins/3/Wins_3/518_nTRN_ROIX.double
+Wins/3/Wins_3/526_nVBET.double
+Wins/3/Wins_3/527_nVEL.double
+Wins/3/Wins_3/534_nWKSC.double
+Wins/3/Wins_3/535_nWKSC1.double
+Wins/3/Wins_3/536_nWMAR.double
+Wins/3/Wins_3/539_nXBUY.double
+Wins/3/Wins_3/541_nXPROB.double
+Wins/3/Wins_3/542_nXSELL.double
+Wins/3/Wins_3/55_n2CT0.double
+Wins/3/Wins_3/56_n2CT1.double
+Wins/3/Wins_3/57_n2CT2.double
+Wins/3/Wins_3/58_n2CT3.double
+Wins/3/Wins_3/59_n2CT4.double
+Wins/3/Wins_3/5_n1CBL0.double
+Wins/3/Wins_3/60_n2CT5.double
+Wins/3/Wins_3/61_n2CT6.double
+Wins/3/Wins_3/62_n2CT7.double
+Wins/3/Wins_3/63_n2CT8.double
+Wins/3/Wins_3/644_xPLA.double
+Wins/3/Wins_3/646_xSHO.double
+Wins/3/Wins_3/647_xWIN.double
+Wins/3/Wins_3/64_n2CT9.double
+Wins/3/Wins_3/66_nABL1.double
+Wins/3/Wins_3/67_nABL2.double
+Wins/3/Wins_3/68_nABLF.double
+Wins/3/Wins_3/6_n1CBL1.double
+Wins/3/Wins_3/74_nAML.double
+Wins/3/Wins_3/75_nAODDS.double
+Wins/3/Wins_3/76_nAODD.double
+Wins/3/Wins_3/7_n1CBL2.double
+Wins/3/Wins_3/8_n1CBL3.double
+Wins/3/Wins_3/9_n1CBL4.double
+Wins/4/Wins_4/10_n1CBL5.double
+Wins/4/Wins_4/11_n1CBL6.double
+Wins/4/Wins_4/12_n1CBL7.double
+Wins/4/Wins_4/13_n1CBL8.double
+Wins/4/Wins_4/142_nDIST.double
+Wins/4/Wins_4/143_nDIST1.double
+Wins/4/Wins_4/144_nDIST2.double
+Wins/4/Wins_4/145_nDIST3.double
+Wins/4/Wins_4/149_nEEN.double
+Wins/4/Wins_4/14_n1CBL9.double
+Wins/4/Wins_4/157_nEXA.double
+Wins/4/Wins_4/167_nFNBL0.double
+Wins/4/Wins_4/168_nFNBL1.double
+Wins/4/Wins_4/169_nFNBL2.double
+Wins/4/Wins_4/170_nFNBL3.double
+Wins/4/Wins_4/171_nFNBL4.double
+Wins/4/Wins_4/172_nFNBL5.double
+Wins/4/Wins_4/173_nFNBL6.double
+Wins/4/Wins_4/174_nFNBL7.double
+Wins/4/Wins_4/175_nFNBL8.double
+Wins/4/Wins_4/176_nFNBL9.double
+Wins/4/Wins_4/177_nFNT0.double
+Wins/4/Wins_4/178_nFNT1.double
+Wins/4/Wins_4/179_nFNT2.double
+Wins/4/Wins_4/180_nFNT3.double
+Wins/4/Wins_4/181_nFNT4.double
+Wins/4/Wins_4/182_nFNT5.double
+Wins/4/Wins_4/183_nFNT6.double
+Wins/4/Wins_4/184_nFNT7.double
+Wins/4/Wins_4/185_nFNT8.double
+Wins/4/Wins_4/186_nFNT9.double
+Wins/4/Wins_4/188_nFR1.double
+Wins/4/Wins_4/192_nFR2.double
+Wins/4/Wins_4/193_nFR3.double
+Wins/4/Wins_4/1_Calculation_-2642768498540482557.double
+Wins/4/Wins_4/215_nJK365_ROI.double
+Wins/4/Wins_4/226_nK2.double
+Wins/4/Wins_4/231_nKGAPX.double
+Wins/4/Wins_4/233_nKLINE.double
+Wins/4/Wins_4/234_nKLINE1.double
+Wins/4/Wins_4/235_nKLINE2.double
+Wins/4/Wins_4/236_nKMS.double
+Wins/4/Wins_4/237_nKMSeCHART.double
+Wins/4/Wins_4/241_nK.double
+Wins/4/Wins_4/247_nLDIST.double
+Wins/4/Wins_4/256_nLODDS.double
+Wins/4/Wins_4/25_n1CT0.double
+Wins/4/Wins_4/260_nLPER.double
+Wins/4/Wins_4/26_n1CT1.double
+Wins/4/Wins_4/276_nMLO.double
+Wins/4/Wins_4/277_nMLO1.double
+Wins/4/Wins_4/278_nMLO2.double
+Wins/4/Wins_4/27_n1CT2.double
+Wins/4/Wins_4/28_n1CT3.double
+Wins/4/Wins_4/29_n1CT4.double
+Wins/4/Wins_4/2_Calculation_-2642768498540609534.double
+Wins/4/Wins_4/30_n1CT5.double
+Wins/4/Wins_4/312_nODDS.double
+Wins/4/Wins_4/31_n1CT6.double
+Wins/4/Wins_4/321_nPDIF.double
+Wins/4/Wins_4/329_nPP0DIS.double
+Wins/4/Wins_4/32_n1CT7.double
+Wins/4/Wins_4/332_nPP0PAC.double
+Wins/4/Wins_4/333_nPP0PER.double
+Wins/4/Wins_4/335_nPP0SHF.double
+Wins/4/Wins_4/33_n1CT8.double
+Wins/4/Wins_4/340_nPP1DIS.double
+Wins/4/Wins_4/343_nPP1PAC.double
+Wins/4/Wins_4/344_nPP1PER.double
+Wins/4/Wins_4/346_nPP1SHF.double
+Wins/4/Wins_4/34_n1CT9.double
+Wins/4/Wins_4/351_nPP2DIS.double
+Wins/4/Wins_4/354_nPP2PAC.double
+Wins/4/Wins_4/355_nPP2PER.double
+Wins/4/Wins_4/357_nPP2SHF.double
+Wins/4/Wins_4/35_n2CBL0.double
+Wins/4/Wins_4/362_nPP3DIS.double
+Wins/4/Wins_4/365_nPP3PAC.double
+Wins/4/Wins_4/366_nPP3PER.double
+Wins/4/Wins_4/368_nPP3SHF.double
+Wins/4/Wins_4/36_n2CBL1.double
+Wins/4/Wins_4/373_nPP4DIS.double
+Wins/4/Wins_4/376_nPP4PAC.double
+Wins/4/Wins_4/377_nPP4PER.double
+Wins/4/Wins_4/379_nPP4SHF.double
+Wins/4/Wins_4/37_n2CBL2.double
+Wins/4/Wins_4/384_nPP5DIS.double
+Wins/4/Wins_4/387_nPP5PAC.double
+Wins/4/Wins_4/388_nPP5PER.double
+Wins/4/Wins_4/38_n2CBL3.double
+Wins/4/Wins_4/390_nPP5SHF.double
+Wins/4/Wins_4/395_nPP6DIS.double
+Wins/4/Wins_4/398_nPP6PAC.double
+Wins/4/Wins_4/399_nPP6PER.double
+Wins/4/Wins_4/39_n2CBL4.double
+Wins/4/Wins_4/3_Calculation_-2642768498540806143.double
+Wins/4/Wins_4/401_nPP6SHF.double
+Wins/4/Wins_4/406_nPP7DIS.double
+Wins/4/Wins_4/409_nPP7PAC.double
+Wins/4/Wins_4/40_n2CBL5.double
+Wins/4/Wins_4/410_nPP7PER.double
+Wins/4/Wins_4/412_nPP7SHF.double
+Wins/4/Wins_4/417_nPP8DIS.double
+Wins/4/Wins_4/41_n2CBL6.double
+Wins/4/Wins_4/420_nPP8PAC.double
+Wins/4/Wins_4/421_nPP8PER.double
+Wins/4/Wins_4/423_nPP8SHF.double
+Wins/4/Wins_4/428_nPP9DIS.double
+Wins/4/Wins_4/42_n2CBL7.double
+Wins/4/Wins_4/431_nPP9PAC.double
+Wins/4/Wins_4/432_nPP9PER.double
+Wins/4/Wins_4/434_nPP9SHF.double
+Wins/4/Wins_4/43_n2CBL8.double
+Wins/4/Wins_4/442_nPSCN.double
+Wins/4/Wins_4/44_n2CBL9.double
+Wins/4/Wins_4/463_nSTBL0.double
+Wins/4/Wins_4/464_nSTBL1.double
+Wins/4/Wins_4/465_nSTBL2.double
+Wins/4/Wins_4/466_nSTBL3.double
+Wins/4/Wins_4/467_nSTBL4.double
+Wins/4/Wins_4/468_nSTBL5.double
+Wins/4/Wins_4/469_nSTBL6.double
+Wins/4/Wins_4/470_nSTBL7.double
+Wins/4/Wins_4/471_nSTBL8.double
+Wins/4/Wins_4/472_nSTBL9.double
+Wins/4/Wins_4/485_nSUPERF.double
+Wins/4/Wins_4/501_nTOPPAC.double
+Wins/4/Wins_4/503_nTOPPER.double
+Wins/4/Wins_4/505_nTOPSHF.double
+Wins/4/Wins_4/508_nTR365_ROI.double
+Wins/4/Wins_4/513_nTRI.double
+Wins/4/Wins_4/518_nTRN_ROIX.double
+Wins/4/Wins_4/526_nVBET.double
+Wins/4/Wins_4/527_nVEL.double
+Wins/4/Wins_4/534_nWKSC.double
+Wins/4/Wins_4/535_nWKSC1.double
+Wins/4/Wins_4/536_nWMAR.double
+Wins/4/Wins_4/539_nXBUY.double
+Wins/4/Wins_4/541_nXPROB.double
+Wins/4/Wins_4/542_nXSELL.double
+Wins/4/Wins_4/55_n2CT0.double
+Wins/4/Wins_4/56_n2CT1.double
+Wins/4/Wins_4/57_n2CT2.double
+Wins/4/Wins_4/58_n2CT3.double
+Wins/4/Wins_4/59_n2CT4.double
+Wins/4/Wins_4/5_n1CBL0.double
+Wins/4/Wins_4/60_n2CT5.double
+Wins/4/Wins_4/61_n2CT6.double
+Wins/4/Wins_4/62_n2CT7.double
+Wins/4/Wins_4/63_n2CT8.double
+Wins/4/Wins_4/644_xPLA.double
+Wins/4/Wins_4/646_xSHO.double
+Wins/4/Wins_4/647_xWIN.double
+Wins/4/Wins_4/64_n2CT9.double
+Wins/4/Wins_4/66_nABL1.double
+Wins/4/Wins_4/67_nABL2.double
+Wins/4/Wins_4/68_nABLF.double
+Wins/4/Wins_4/6_n1CBL1.double
+Wins/4/Wins_4/74_nAML.double
+Wins/4/Wins_4/75_nAODDS.double
+Wins/4/Wins_4/76_nAODD.double
+Wins/4/Wins_4/7_n1CBL2.double
+Wins/4/Wins_4/8_n1CBL3.double
+Wins/4/Wins_4/9_n1CBL4.double

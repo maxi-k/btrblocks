@@ -3,11 +3,8 @@
 // ---------------------------------------------------------------------------
 #include <iostream>
 #include "gtest/gtest.h"
-#include "gflags/gflags.h"
-#include "compression/schemes/CSchemePool.hpp"
+#include "scheme/SchemePool.hpp"
 #include "common/SIMD.hpp"
-// ---------------------------------------------------------------------------
-DEFINE_string(fsst_stats, "", "");
 // ---------------------------------------------------------------------------
 using namespace btrblocks;
 // ---------------------------------------------------------------------------
@@ -20,8 +17,7 @@ int main(int argc, char *argv[])
    #endif
    testing::InitGoogleTest(&argc, argv);
    // -------------------------------------------------------------------------------------
-   gflags::ParseCommandLineFlags(&argc, &argv, true);
-   db::CSchemePool::available_schemes = make_unique<db::SchemesCollection>();
+   SchemePool::available_schemes = make_unique<SchemesCollection>();
    return RUN_ALL_TESTS();
 }
 // ---------------------------------------------------------------------------

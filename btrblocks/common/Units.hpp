@@ -13,8 +13,9 @@
 #include "common/SIMD.hpp"
 // -------------------------------------------------------------------------------------
 namespace btrblocks {
+inline namespace units {
 // -------------------------------------------------------------------------------------
-enum { NULL_CODE_MARGIN = 1, FSST_THRESHOLD = (16 * 1024) };
+enum { NULL_CODE_MARGIN = 1 };
 // -------------------------------------------------------------------------------------
 using std::cerr;
 using std::cout;
@@ -39,15 +40,16 @@ using s64 = int64_t;
 #define CD(num) static_cast<double>(num)
 #define CU(num) static_cast<u32>(num)
 #define CI(num) static_cast<s32>(num)
+#define CS(num) static_cast<size_t>(num)
 // -------------------------------------------------------------------------------------
 using SIZE = size_t;
 // -------------------------------------------------------------------------------------
 enum class BitmapType : u8 { ALLONES, ALLZEROS, REGULAR, FLIPPED };
 // -------------------------------------------------------------------------------------
 enum class ColumnType : u8 {
-  INTEGER = CB(DataType::Integer),
-  DOUBLE = CB(DataType::Double),
-  STRING = CB(DataType::String),
+  INTEGER = 0,
+  DOUBLE = 1,
+  STRING = 2,
   SKIP,  // SKIP THIS COLUMN
   // The next types are out of scope
   FLOAT,
@@ -73,8 +75,6 @@ inline ColumnType ConvertStringToType(const string& type_str) {
     return ColumnType::DOUBLE;
   } else if (type_str == "string") {
     return ColumnType::STRING;
-  } else if (type_str == "skip") {
-    return ColumnType::SKIP;
   } else {
     return ColumnType::SKIP;
   }
@@ -132,7 +132,8 @@ inline T* get_data(std::vector<T>& v, std::size_t s) {
 // -------------------------------------------------------------------------------------
 enum { INT_BUFFER_SIZE = (65000 * 4 * 2) };
 // -------------------------------------------------------------------------------------
-enum { AUTO_SCHEME = 255, NULL_CODE = 0 };
+enum { NULL_CODE = 0 };
 // -------------------------------------------------------------------------------------
+}  // namespace units
 }  // namespace btrblocks
 // -------------------------------------------------------------------------------------

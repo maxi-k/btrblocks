@@ -4,6 +4,12 @@
 
 set(BTR_TOOLS_DIR ${CMAKE_CURRENT_LIST_DIR})
 
-add_executable(btrtocsv ${BTR_TOOLS_DIR}/btrtocsv.cpp)
-target_include_directories(btrtocsv PRIVATE ${BTR_INCLUDE_DIR})
-target_link_libraries(btrtocsv btrblocks gflags)
+# ---------------------------------------------------------------------------
+# Task-specific tools
+# ---------------------------------------------------------------------------
+
+include("${BTR_TOOLS_DIR}/conversion/local.cmake")
+include("${BTR_TOOLS_DIR}/datasets/local.cmake")
+include("${BTR_TOOLS_DIR}/engine-comparison/local.cmake")
+include("${BTR_TOOLS_DIR}/playground/local.cmake")
+include("${BTR_TOOLS_DIR}/examples/local.cmake")

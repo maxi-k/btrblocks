@@ -1,13 +1,15 @@
 #include "Column.hpp"
+
+#include <utility>
 #include "common/Exceptions.hpp"
 // -------------------------------------------------------------------------------------
 namespace btrblocks {
 // -------------------------------------------------------------------------------------
 Column::Column(const ColumnType type,
-               const string& name,
+               string name,
                const string& data_path,
                const string& bitmap_path)
-    : type(type), name(name) {
+    : type(type), name(std::move(name)) {
   switch (type) {
     case ColumnType::INTEGER:
       data.emplace<0>(data_path.c_str());

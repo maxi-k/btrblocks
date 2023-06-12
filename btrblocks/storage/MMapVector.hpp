@@ -17,6 +17,8 @@
 #include "common/Units.hpp"
 // -------------------------------------------------------------------------------------
 namespace btrblocks {
+inline namespace mmapvector {
+// -------------------------------------------------------------------------------------
 template <class T>
 struct Vector {
   uint64_t count;
@@ -45,7 +47,7 @@ struct Vector {
   [[nodiscard]] uint64_t size() const { return count; }
   T operator[](std::size_t idx) const { return data[idx]; }
 };
-
+// -------------------------------------------------------------------------------------
 template <class T>
 void writeBinary(const char* pathname, std::vector<T>& v) {
   std::cout << "Writing binary file : " << pathname << std::endl;
@@ -58,12 +60,12 @@ void writeBinary(const char* pathname, std::vector<T>& v) {
   memcpy(data, v.data(), length);
   die_if(close(fd) == 0);
 }
-
+// -------------------------------------------------------------------------------------
 struct StringIndexSlot {
   uint64_t size;
   uint64_t offset;
 };
-
+// -------------------------------------------------------------------------------------
 template <>
 struct Vector<std::string_view> {
   struct Data {
@@ -104,6 +106,9 @@ struct Vector<std::string_view> {
     return {reinterpret_cast<char*>(data) + slot.offset, slot.size};
   }
 };
-
+// -------------------------------------------------------------------------------------
 void writeBinary(const char* pathname, std::vector<std::string>& v);
+// -------------------------------------------------------------------------------------
+}  // namespace mmapvector
 }  // namespace btrblocks
+// -------------------------------------------------------------------------------------

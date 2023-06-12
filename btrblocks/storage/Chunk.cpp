@@ -1,16 +1,16 @@
 #include "Chunk.hpp"
-#include "MMapVector.hpp"
 // -------------------------------------------------------------------------------------
 #include "common/Exceptions.hpp"
 #include "common/Utils.hpp"
 // -------------------------------------------------------------------------------------
-#include "gflags/gflags.h"
+
 // -------------------------------------------------------------------------------------
 #include <fstream>
 #include <iomanip>
 #include <memory>
 // -------------------------------------------------------------------------------------
-DEFINE_uint32(part_size_threshold, 16 * 1024 * 1024, "");
+constexpr uint32_t chunk_part_size_threshold = 16 * 1024 * 1024;
+// -------------------------------------------------------------------------------------
 namespace btrblocks {
 // -------------------------------------------------------------------------------------
 void Chunk::reset() {
@@ -231,7 +231,7 @@ bool InputChunk::compareContents(u8* their_data,
 }
 
 bool ColumnPart::canAdd(SIZE chunk_size) {
-  if (chunk_size > FLAGS_part_size_threshold) {
+  if (chunk_size > chunk_part_size_threshold) {
     // This may appear in practice, but we ignore the problem for now.
     // Although writing will work, reading the data back in may break, as we
     // assume objects to always have a maximum size of part_size_threshold.
@@ -239,7 +239,7 @@ bool ColumnPart::canAdd(SIZE chunk_size) {
         "chunks with compressed size greater than part_size_threshold "
         "unsupported");
   }
-  return (total_size + chunk_size) <= FLAGS_part_size_threshold;
+  return (total_size + chunk_size) <= chunk_part_size_threshold;
 }
 
 void ColumnPart::addCompressedChunk(vector<u8>&& chunk) {

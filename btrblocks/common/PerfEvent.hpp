@@ -173,7 +173,7 @@ struct PerfEvent {
                            bool addComma = true) {
     std::stringstream stream;
     stream << std::fixed << std::setprecision(2) << counterValue;
-    PerfEvent::printCounter(headerOut, dataOut, std::move(name), stream.str(), addComma);
+    PerfEvent::printCounter(headerOut, dataOut, name, stream.str(), addComma);
   }
 
   void printReport(std::ostream& out, uint64_t normalizationConstant) {

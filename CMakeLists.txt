@@ -1,8 +1,8 @@
 # -------------------------------------------------------------------------------
 # BtrBlocks
 # -------------------------------------------------------------------------------
-project(BtrBlocks)
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.12)
+project(BtrBlocks VERSION 0.0.1)
 
 # -------------------------------------------------------------------------------
 # Define compile-time flags
@@ -10,6 +10,8 @@ cmake_minimum_required(VERSION 3.7)
 
 option(NO_SIMD "NO_SIMD" OFF)
 option(WITH_LOGGING "WITH_LOGGING" OFF)
+option(SAMPLING_TEST_MODE "SAMPLING_TEST_MODE" OFF)
+option(ENABLE_FOR_SCHEME "ENABLE_FOR_SCHEME" OFF)
 option(BUILD_SHARED_LIBRARY "BUILD_SHARED_LIBRARY" OFF)
 
 # -------------------------------------------------------------------------------
@@ -37,21 +39,27 @@ include("cmake/clang-tidy.cmake") # Integrate clang-tidy
 find_package(Threads REQUIRED)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 
-set(CMAKE_VENDOR_DIR "${CMAKE_SOURCE_DIR}/vendor/")
+set(CMAKE_VENDOR_DIR "${CMAKE_SOURCE_DIR}/cmake/")
 
 # Compression library dependencies
 include("${CMAKE_VENDOR_DIR}/fastpfor.cmake")
-include("${CMAKE_VENDOR_DIR}/tbb.cmake")
 include("${CMAKE_VENDOR_DIR}/fsst.cmake")
 include("${CMAKE_VENDOR_DIR}/croaring.cmake")
+include("${CMAKE_VENDOR_DIR}/dynamic_bitset.cmake")
+
+# TODO(open-sourcing) dependencies I'd like to remove from the core library
+include("${CMAKE_VENDOR_DIR}/tbb.cmake")
+include("${CMAKE_VENDOR_DIR}/gflags.cmake")
+include("${CMAKE_VENDOR_DIR}/spdlog.cmake")
+include("${CMAKE_VENDOR_DIR}/yaml-cpp.cmake")
+include("${CMAKE_VENDOR_DIR}/csv-parser.cmake")
+
+# Test dependencies
+include("${CMAKE_VENDOR_DIR}/googletest.cmake")
 
 # Benchmark dependencies
 include("${CMAKE_VENDOR_DIR}/aws-sdk.cmake")
 include("${CMAKE_VENDOR_DIR}/benchmark.cmake")
-include("${CMAKE_VENDOR_DIR}/googletest.cmake")
-include("${CMAKE_VENDOR_DIR}/gflags.cmake")
-include("${CMAKE_VENDOR_DIR}/yaml-cpp.cmake")
-include("${CMAKE_VENDOR_DIR}/spdlog.cmake")
 include("${CMAKE_VENDOR_DIR}/gdouble.cmake")
 include("${CMAKE_VENDOR_DIR}/turbo.cmake")
 include("${CMAKE_VENDOR_DIR}/lz4.cmake")
@@ -60,11 +68,10 @@ include("${CMAKE_VENDOR_DIR}/lz4.cmake")
 # Components
 # ---------------------------------------------------------------------------
 
-include("${CMAKE_SOURCE_DIR}/include/local.cmake")    # public headers
 include("${CMAKE_SOURCE_DIR}/btrblocks/local.cmake")  # btrblocks library
+include("${CMAKE_SOURCE_DIR}/btrfiles/local.cmake")   # btrblocks files library
 include("${CMAKE_SOURCE_DIR}/test/local.cmake")       # btrblocks tests
 include("${CMAKE_SOURCE_DIR}/tools/local.cmake")      # btrblocks tooling
-include("${CMAKE_SOURCE_DIR}/benchmarks/local.cmake") # btrblocks benchmarks
 
 # ---------------------------------------------------------------------------
 # Linting
@@ -85,6 +92,8 @@ message(STATUS "     CMAKE_CXX_FLAGS_RELEASE    = ${CMAKE_CXX_FLAGS_RELEASE}")
 message(STATUS "[btrblocks] settings")
 message(STATUS "    NO_SIMD                     = ${NO_SIMD}")
 message(STATUS "    WITH_LOGGING                = ${WITH_LOGGING}")
+message(STATUS "    SAMPLING_TEST_MODE          = ${SAMPLING_TEST_MODE}")
+message(STATUS "    ENABLE_FOR_SCHEME           = ${ENABLE_FOR_SCHEME}")
 message(STATUS "    BUILD_SHARED_LIBRARY        = ${BUILD_SHARED_LIBRARY}")
 message(STATUS "[test] settings")
 message(STATUS "    GTEST_INCLUDE_DIR           = ${GTEST_INCLUDE_DIR}")

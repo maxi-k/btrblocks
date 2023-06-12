@@ -2,7 +2,7 @@
 // -------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------
-void TestHelper::CheckRelationCompression(Relation &relation, CMachine &compressor, const vector<u8> expected_compression_schemes)
+void TestHelper::CheckRelationCompression(Relation &relation, RelationCompressor &compressor, const vector<u8> expected_compression_schemes)
 {
    auto ranges = relation.getRanges(btrblocks::SplitStrategy::SEQUENTIAL, 999999);
    vector<BytesArray> compressed_chunks;

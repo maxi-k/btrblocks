@@ -7,7 +7,7 @@
 #include <filesystem>
 #include "compression/Datablock.hpp"
 
-namespace btrblocks::db {
+namespace btrblocks {
 
 class BtrReader {
  public:
@@ -44,4 +44,4 @@ class BtrReader {
   std::vector<boost::dynamic_bitset<>*> m_bitsets;
 };
 
-}  // namespace btrblocks::db
+}  // namespace btrblocks

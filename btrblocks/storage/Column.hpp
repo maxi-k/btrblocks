@@ -2,7 +2,6 @@
 #include "MMapVector.hpp"
 #include "common/Units.hpp"
 // -------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------
 #include <variant>
 // -------------------------------------------------------------------------------------
 namespace btrblocks {
@@ -14,10 +13,7 @@ class Column {
   std::variant<Vector<INTEGER>, Vector<DOUBLE>, Vector<str>> data;
   Vector<BITMAP> bitmap;
 
-  Column(const ColumnType type,
-         const string& name,
-         const string& data_path,
-         const string& bitmap_path);
+  Column(const ColumnType type, string name, const string& data_path, const string& bitmap_path);
   [[nodiscard]] const Vector<INTEGER>& integers() const;
   [[nodiscard]] const Vector<DOUBLE>& doubles() const;
   [[nodiscard]] const Vector<str>& strings() const;

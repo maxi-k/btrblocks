@@ -1,50 +1,16 @@
 #include "Relation.hpp"
 #include "StringArrayViewer.hpp"
+#include "btrblocks.hpp"
 #include "common/Exceptions.hpp"
-// -------------------------------------------------------------------------------------
-#include "gflags/gflags.h"
-#include "tbb/parallel_for.h"
 // -------------------------------------------------------------------------------------
 #include <mutex>
 #include <random>
 #include <regex>
 // -------------------------------------------------------------------------------------
-DEFINE_uint64(block_size, 65536, "Block(Chunk) size");
-DEFINE_string(only_type, "", "");
-// -------------------------------------------------------------------------------------
 namespace btrblocks {
 // -------------------------------------------------------------------------------------
 Relation::Relation() {
-  columns.reserve(100);  // Dirty fix: somehow columns Vector get destroyed and
-                         // never correctly restored during vector resize
-}
-// -------------------------------------------------------------------------------------
-Relation::Relation(const YAML::Node& schema, const string& columns_dir) {
-  columns.reserve(schema["columns"].size());
-  const auto& columns = schema["columns"];
-  for (u32 column_i = 0; column_i < columns.size(); column_i++) {
-    const auto& column = columns[column_i];
-    const auto column_name = column["name"].as<string>();
-    auto column_type = column["type"].as<string>();
-    if (column_type == "smallint") {
-      column_type = "integer";
-    } else if (column_type == "float") {
-      column_type = "double";
-    }
-    // -------------------------------------------------------------------------------------
-    if (FLAGS_only_type != "") {
-      if (column_type != FLAGS_only_type) {
-        continue;
-      }
-    }
-    // -------------------------------------------------------------------------------------
-    const string column_file_prefix =
-        columns_dir + std::to_string(column_i + 1) + "_" + column_name;
-    const string column_file_path = column_file_prefix + "." + column_type;
-    if (column_type == "integer" || column_type == "double" || column_type == "string") {
-      addColumn(column_file_path);
-    }
-  }
+  columns.reserve(100);
 }
 // -------------------------------------------------------------------------------------
 void Relation::addColumn(const string& column_file_path) {
@@ -70,15 +36,17 @@ void Relation::addColumn(const string& column_file_path) {
 vector<tuple<u64, u64>> Relation::getRanges(btrblocks::SplitStrategy strategy,
                                             u32 max_chunk_count) const {
   // -------------------------------------------------------------------------------------
+  auto& cfg = BtrBlocksConfig::get();
+  // -------------------------------------------------------------------------------------
   // Build all possible ranges
   vector<tuple<u64, u64>> ranges;  // (start_index, length)
-  for (u64 offset = 0; offset < tuple_count; offset += FLAGS_block_size) {
+  for (u64 offset = 0; offset < tuple_count; offset += cfg.block_size) {
     // -------------------------------------------------------------------------------------
     u64 chunk_tuple_count;
-    if (offset + FLAGS_block_size >= tuple_count) {
+    if (offset + cfg.block_size >= tuple_count) {
       chunk_tuple_count = tuple_count - offset;
     } else {
-      chunk_tuple_count = FLAGS_block_size;
+      chunk_tuple_count = cfg.block_size;
     }
     ranges.emplace_back(offset, chunk_tuple_count);
   }

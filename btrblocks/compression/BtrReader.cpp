@@ -4,10 +4,10 @@
 #include <sys/mman.h>
 #include <cassert>
 #include "common/Exceptions.hpp"
-#include "compression/schemes/CSchemePicker.hpp"
-#include "compression/schemes/v2/bitmap/RoaringBitmap.hpp"
+#include "compression/SchemePicker.hpp"
+#include "extern/RoaringBitmap.hpp"
 
-namespace btrblocks::db {
+namespace btrblocks {
 
 BtrReader::BtrReader(void* data) : data(data) {
   this->m_bitmap_wrappers = std::vector<BitmapWrapper*>(this->getChunkCount(), nullptr);
@@ -205,4 +205,4 @@ u32 BtrReader::getDecompressedDataSize(u32 index) {
     }
   }
 }
-}  // namespace btrblocks::db
+}  // namespace btrblocks
