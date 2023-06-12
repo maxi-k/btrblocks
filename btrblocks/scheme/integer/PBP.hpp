@@ -4,9 +4,9 @@
 // -------------------------------------------------------------------------------------
 namespace btrblocks::integers {
 // -------------------------------------------------------------------------------------
-struct __attribute__((packed)) XPBPStructure {  // need to be aligned by 4 because of
-                                                // FastPFor encodeArray
-  u32 u32_count;                                // number of 4 bytes written by FastPFor
+struct XPBPStructure {  // need to be aligned by 4 because of
+                        // FastPFor encodeArray
+  u32 u32_count;        // number of 4 bytes written by FastPFor
   u8 padding;
   u8 data[];
 };
