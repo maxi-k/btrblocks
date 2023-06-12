@@ -76,6 +76,7 @@ class CSchemePicker {
                        u8& scheme_code,
                        u8 force_scheme = autoScheme(),
                        const string& comment = "?") {
+    Log::debug("Compressing with max level {}", allowed_cascading_level);
     ThreadCache::get().compression_level++;
     StatsType stats = StatsType::generateStats(src, nullmap, tuple_count);
     SchemeType* preferred_scheme = nullptr;
@@ -187,7 +188,8 @@ class CSchemePicker {
         scheme_code = CB(preferred_scheme->schemeType());
         after_size = preferred_scheme->compress(src, nullmap, dest, stats, allowed_cascading_level);
       }
-      for (u8 i = 0; i < 5 - allowed_cascading_level; i++) {
+#if defined(BTR_FLAG_LOGGING) and BTR_FLAG_LOGGING
+      for (u8 i = 0; i < MyTypeWrapper::maxCascadingLevel() - allowed_cascading_level; i++) {
         ThreadCache::get() << "\t";
       }
       ThreadCache::get() << "for : " + comment + " - scheme = " +
@@ -197,6 +199,7 @@ class CSchemePicker {
                                 " after = " + std::to_string(after_size) +
                                 " gain = " + std::to_string(CD(stats.total_size) / CD(after_size)) +
                                 '\n';
+#endif
       double estimated_cf =
           preferred_scheme->expectedCompressionRatio(stats, allowed_cascading_level);
       ThreadCache::dumpPush(ConvertSchemeTypeToString(static_cast<SchemeCodeType>(scheme_code)),
@@ -245,6 +248,8 @@ class TypeWrapper<IntegerScheme, IntegerSchemeType> {
   }
   static IntegerScheme& getFORScheme() { return getScheme(IntegerSchemeType::FOR); }
   // -------------------------------------------------------------------------------------
+  static u8 maxCascadingLevel() { return BtrBlocksConfig::get().integers.max_cascade_depth; }
+  // -------------------------------------------------------------------------------------
 };
 // -------------------------------------------------------------------------------------
 template <>
@@ -268,10 +273,12 @@ class TypeWrapper<DoubleScheme, DoubleSchemeType> {
   // -------------------------------------------------------------------------------------
   static inline string getTypeName() { return "DOUBLE"; }
   // -------------------------------------------------------------------------------------
-  constexpr static bool shouldUseFOR(DOUBLE min) { return false; }
+  constexpr static bool shouldUseFOR(DOUBLE) { return false; }
   static DoubleScheme& getFORScheme() {
     throw std::logic_error("FOR not implemented for doubles.");
   }
+  // -------------------------------------------------------------------------------------
+  static u8 maxCascadingLevel() { return BtrBlocksConfig::get().doubles.max_cascade_depth; }
   // -------------------------------------------------------------------------------------
 };
 // -------------------------------------------------------------------------------------
@@ -296,10 +303,12 @@ class TypeWrapper<StringScheme, StringSchemeType> {
   // -------------------------------------------------------------------------------------
   static inline string getTypeName() { return "STRING"; }
   // -------------------------------------------------------------------------------------
-  constexpr static bool shouldUseFOR(str min) { return false; }
+  constexpr static bool shouldUseFOR(str) { return false; }
   static StringScheme& getFORScheme() {
     throw std::logic_error("FOR not implemented for strings.");
   }
+  // -------------------------------------------------------------------------------------
+  static u8 maxCascadingLevel() { return BtrBlocksConfig::get().strings.max_cascade_depth; }
   // -------------------------------------------------------------------------------------
 };
 // -------------------------------------------------------------------------------------

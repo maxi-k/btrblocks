@@ -1,6 +1,7 @@
 # BtrBlocks - Efficient Columnar Compression for Data Lakes
 
 [![Paper](https://img.shields.io/badge/paper-SIGMOD%202023-green)](https://bit.ly/btrblocks)
+[![Build](https://github.com/maxi-k/btrblocks/actions/workflows/test.yml/badge.svg)](https://github.com/maxi-k/btrblocks/actions/workflows/test.yml)
 
 ## Usage
 

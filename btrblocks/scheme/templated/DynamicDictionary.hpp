@@ -4,7 +4,7 @@
 #include "scheme/CompressionScheme.hpp"
 // -------------------------------------------------------------------------------------
 namespace btrblocks {
-__attribute__((packed)) struct DynamicDictionaryStructure {
+struct __attribute__((packed)) DynamicDictionaryStructure {
   u8 codes_scheme_code;
   u32 codes_offset;
   u8 data[];
@@ -179,6 +179,8 @@ inline void TDynamicDictionary<DOUBLE, DoubleScheme, DoubleStats, DoubleSchemeTy
   auto dict = reinterpret_cast<const DOUBLE*>(col_struct.data);
   u32 i = 0;
 #ifdef BTR_USE_SIMD
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wuninitialized"
   if (tuple_count >= 16) {
     while (i < tuple_count - 15) {
       // Load codes
@@ -204,6 +206,7 @@ inline void TDynamicDictionary<DOUBLE, DoubleScheme, DoubleStats, DoubleSchemeTy
       i += 16;
     }
   }
+#pragma GCC diagnostic pop
 #endif
 
   while (i < tuple_count) {

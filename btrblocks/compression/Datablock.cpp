@@ -52,13 +52,20 @@ u32 Datablock::writeMetadata(const std::string& path,
 }
 // -------------------------------------------------------------------------------------
 std::vector<u8> Datablock::compress(const InputChunk& input_chunk) {
-  auto& cfg = BtrBlocksConfig::get();
   // We do not now the exact output size. Therefore we allocate too much and
   // then simply make the space smaller afterwards
   const u32 size =
       sizeof(ColumnChunkMeta) + 10 * input_chunk.size + sizeof(BITMAP) * input_chunk.tuple_count;
   std::vector<u8> output(size);
-  auto meta = reinterpret_cast<ColumnChunkMeta*>(output.data());
+  auto total_size = compress(input_chunk, output.data());
+  // Resize the output vector to the actual used size
+  output.resize(total_size);
+  return output;
+}
+// -------------------------------------------------------------------------------------
+SIZE Datablock::compress(const InputChunk& input_chunk, u8* output) {
+  auto& cfg = BtrBlocksConfig::get();
+  auto meta = reinterpret_cast<ColumnChunkMeta*>(output);
   meta->tuple_count = input_chunk.tuple_count;
   meta->type = input_chunk.type;
 
@@ -130,8 +137,6 @@ std::vector<u8> Datablock::compress(const InputChunk& input_chunk) {
       input_chunk.nullmap.get(), output_data + meta->nullmap_offset, input_chunk.tuple_count);
   meta->nullmap_type = bitmap_type;
   u32 total_size = sizeof(*meta) + meta->nullmap_offset + nullmap_size;
-  // Resize the output vector to the actual used size
-  output.resize(total_size);
 
   // Print decision tree
   ThreadCache::get() << " type = " + ConvertTypeToString(input_chunk.type) +
@@ -139,7 +144,7 @@ std::vector<u8> Datablock::compress(const InputChunk& input_chunk) {
                             " after = " + std::to_string(total_size) +
                             " gain = " + std::to_string(CD(input_chunk.size) / CD(total_size)) +
                             "\n\n\n";
-  return output;
+  return total_size;
 }
 
 bool Datablock::decompress(const u8* data_in, BitmapWrapper** bitmap_out, u8* data_out) {
@@ -189,12 +194,9 @@ OutputBlockStats Datablock::compress(const Chunk& input_chunk, BytesArray& outpu
   auto& cfg = BtrBlocksConfig::get();
   const u32 db_meta_buffer_size =
       sizeof(DatablockMeta) + (relation.columns.size() * sizeof(ColumnMeta));
-  u32 input_chunk_total_data_size = 0;
+  SIZE input_chunk_total_data_size = input_chunk.size_bytes();
   // Reserve memory for output (datablock)
   if (!output_block) {
-    for (u32 column_i = 0; column_i < relation.columns.size(); column_i++) {
-      input_chunk_total_data_size += input_chunk.size(column_i);
-    }
     const u32 output_block_size =
         (db_meta_buffer_size + input_chunk_total_data_size) * 10 +
         (relation.columns.size() * sizeof(BITMAP) * input_chunk.tuple_count);
@@ -213,8 +215,9 @@ OutputBlockStats Datablock::compress(const Chunk& input_chunk, BytesArray& outpu
       .used_compression_schemes = vector<u8>(relation.columns.size(), 255),
       .total_data_size = 0,
       .total_nullmap_size = 0,
-      .total_db_size = db_meta_buffer_size};  // we are going to determine the
-                                              // size during columns analysis
+      .total_db_size = db_meta_buffer_size,
+      .compression_ratio = 0};  // we are going to determine the
+                                // size during columns analysis
   u32 db_write_offset = db_meta_buffer_size;
   // -------------------------------------------------------------------------------------
   u32 after_column_size = 0;
@@ -311,12 +314,11 @@ OutputBlockStats Datablock::compress(const Chunk& input_chunk, BytesArray& outpu
     output_db_stats.data_sizes[column_i] = after_column_size;
     // -------------------------------------------------------------------------------------
     // Print decision tree
-    ThreadCache::get() << "name = " + column.name + " type = " + ConvertTypeToString(column.type) +
-                              " before = " + std::to_string(input_chunk.size(column_i)) +
-                              " after = " + std::to_string(after_column_size) + " gain = " +
-                              std::to_string(CD(input_chunk.size(column_i)) /
-                                             CD(after_column_size)) +
-                              "\n\n\n";
+    ThreadCache::get() << "name = " << column.name << " type = " << ConvertTypeToString(column.type)
+                       << " before = " << std::to_string(input_chunk.size(column_i))
+                       << " after = " << std::to_string(after_column_size) << " gain = "
+                       << std::to_string(CD(input_chunk.size(column_i)) / CD(after_column_size))
+                       << "\n\n\n";
   }
   // -------------------------------------------------------------------------------------
   // We don't really have to calculate total size and compression ratio here :-S
@@ -422,10 +424,6 @@ void Datablock::getCompressedColumn(const BytesArray& input_db, u32 col_i, u8*& 
   } else {
     size = db_meta->attributes_meta[col_i + 1].offset - db_meta->attributes_meta[col_i].offset;
   }
-}
-// -------------------------------------------------------------------------------------
-void SchemePool::refresh() {
-  btrblocks::SchemePool::available_schemes = make_unique<btrblocks::SchemesCollection>();
 }
 // -------------------------------------------------------------------------------------
 }  // namespace btrblocks

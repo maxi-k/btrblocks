@@ -8,7 +8,6 @@
 #include <memory>
 // -------------------------------------------------------------------------------------
 namespace btrblocks {
-class Relation;
 // -------------------------------------------------------------------------------------
 class Chunk {
  public:
@@ -56,6 +55,14 @@ class Chunk {
   [[nodiscard]] inline const BITMAP* nullmap(u32 c) const { return bitmaps.get()[c].get(); }
 
   [[nodiscard]] inline SIZE size(u32 c) const { return sizes[c]; }
+
+  [[nodiscard]] inline SIZE size_bytes() const {
+    size_t result = 0;
+    for (auto col = 0u; col != relation.columns.size(); ++col) {
+      result += sizes[col];
+    }
+    return result;
+  }
 
   bool operator==(const Chunk& other) const;
 

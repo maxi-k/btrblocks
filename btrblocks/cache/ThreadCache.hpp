@@ -1,5 +1,6 @@
 #pragma once
 // ------------------------------------------------------------------------------
+#include "common/Log.hpp"
 #include "common/Units.hpp"
 // -------------------------------------------------------------------------------------
 #include <sstream>
@@ -24,13 +25,22 @@ struct ThreadCacheContainer {
   // -------------------------------------------------------------------------------------
   bool fsst = false;
   // -------------------------------------------------------------------------------------
-  std::ostream& operator<<(const string& str) {
+  std::ostream& operator<<([[maybe_unused]] const string& str) {
+#if defined(BTR_FLAG_LOGGING) and BTR_FLAG_LOGGING
     if (estimation_level == 0) {
       return (log << str);
     }
+#endif
     return log;
   }
   // -------------------------------------------------------------------------------------
+#if defined(BTR_FLAG_LOGGING) and BTR_FLAG_LOGGING
+  ThreadCacheContainer() { log << '\n'; }
+  ~ThreadCacheContainer() {
+    log << '\n';
+    Log::info("{}", log.str());
+  }
+#endif
 };
 class ThreadCache {
  public:
@@ -39,30 +49,41 @@ class ThreadCache {
     return local;
   }
   // -------------------------------------------------------------------------------------
-  static void dumpSet(string rel_name, string col_name, string col_type) {
+  static void dumpSet([[maybe_unused]] string rel_name,
+                      [[maybe_unused]] string col_name,
+                      [[maybe_unused]] string col_type) {
+#if defined(BTR_FLAG_LOGGING) and BTR_FLAG_LOGGING
     get().dump_meta.rel_name = std::move(rel_name);
     get().dump_meta.col_name = std::move(col_name);
     get().dump_meta.col_type = std::move(col_type);
+#endif
   }
   // ------------------------------------------------------------------------------
-  static void dumpPush(const string& scheme_name,
-                       double cf,
-                       u32 before,
-                       u32 after,
-                       u32 unique_count,
-                       const string& comment = "") {
+  static void dumpPush([[maybe_unused]] const string& scheme_name,
+                       [[maybe_unused]] double cf,
+                       [[maybe_unused]] u32 before,
+                       [[maybe_unused]] u32 after,
+                       [[maybe_unused]] u32 unique_count,
+                       [[maybe_unused]] const string& comment = "") {
+#if defined(BTR_FLAG_LOGGING) and BTR_FLAG_LOGGING
     get().estimation_deviation_csv
         << get().dump_meta.rel_name << '\t' << get().dump_meta.col_name << '\t'
         << get().dump_meta.col_type << '\t' << get().dump_meta.chunk_i << '\t'
         << get().compression_level << '\t' << scheme_name << '\t' << cf << '\t' << before << '\t'
         << after << '\t' << CD(before) / CD(after) << '\t' << comment << '\t' << unique_count
         << '\n';
+#endif
   }
   // ------------------------------------------------------------------------------
-  static void dumpFsst(u32 before_total, u32 before_pool, u32 after_pool, u32 after_total) {
+  static void dumpFsst([[maybe_unused]] u32 before_total,
+                       [[maybe_unused]] u32 before_pool,
+                       [[maybe_unused]] u32 after_pool,
+                       [[maybe_unused]] u32 after_total) {
+#if defined(BTR_FLAG_LOGGING) and BTR_FLAG_LOGGING
     get().fsst_csv << get().dump_meta.rel_name << '\t' << get().dump_meta.col_name << '\t'
                    << get().dump_meta.chunk_i << '\t' << before_total << '\t' << before_pool << '\t'
                    << after_pool << '\t' << after_total << '\n';
+#endif
   }
   // -------------------------------------------------------------------------------------
   static bool hasUsedFsst() {

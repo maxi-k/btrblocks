@@ -3,8 +3,8 @@
 #include <exception>
 #include <string>
 // -------------------------------------------------------------------------------------
-#define UNREACHABLE() assert(false);  // TODO
-#define TODO() assert(false);         // TODO
+#define UNREACHABLE() __builtin_unreachable();  // TODO
+#define TODO() assert(false);                   // TODO
 // -------------------------------------------------------------------------------------
 #define die_if(expr) \
   if (!(expr)) {     \

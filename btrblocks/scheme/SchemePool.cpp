@@ -1,5 +1,6 @@
 // -------------------------------------------------------------------------------------
 #include "SchemePool.hpp"
+#include "btrblocks.hpp"
 // -------------------------------------------------------------------------------------
 #include "common/Utils.hpp"
 // -------------------------------------------------------------------------------------
@@ -56,9 +57,21 @@ SchemesCollection::SchemesCollection() {
     die_if(cfg.integers.schemes.isEnabled(IntegerSchemeType::ONE_VALUE));
     die_if(cfg.integers.schemes.isEnabled(IntegerSchemeType::UNCOMPRESSED));
     // optional integer schemes
-    addIfEnabled<Uncompressed, OneValue, DynamicDictionary, RLE, FBP, PBP, Frequency, FOR,
-                 PBP_DELTA, Truncation8, Truncation16, Dictionary8, Dictionary16>(
-        integer_schemes, cfg.integers.schemes);
+    // clang-format off
+    addIfEnabled<Uncompressed,
+                 OneValue,
+                 DynamicDictionary,
+                 RLE,
+                 FBP,
+                 PBP,
+                 Frequency,
+                 FOR,
+                 PBP_DELTA,
+                 Truncation8,
+                 Truncation16,
+                 Dictionary8,
+                 Dictionary16>(integer_schemes, cfg.integers.schemes);
+    // clang-format on
   }
   // Double Schemes
   {
@@ -68,8 +81,17 @@ SchemesCollection::SchemesCollection() {
     die_if(cfg.doubles.schemes.isEnabled(DoubleSchemeType::ONE_VALUE));
     die_if(cfg.doubles.schemes.isEnabled(DoubleSchemeType::UNCOMPRESSED));
     // optional double schemes
-    addIfEnabled<Uncompressed, OneValue, DynamicDictionary, RLE, Frequency, Decimal, DoubleBP,
-                 Dictionary8, Dictionary16>(double_schemes, cfg.doubles.schemes);
+    // clang-format off
+    addIfEnabled<Uncompressed,
+                 OneValue,
+                 DynamicDictionary,
+                 RLE,
+                 Frequency,
+                 Decimal,
+                 DoubleBP,
+                 Dictionary8,
+                 Dictionary16>(double_schemes, cfg.doubles.schemes);
+    // clang-format on
   }
   // String Schemes
   {
@@ -79,12 +101,21 @@ SchemesCollection::SchemesCollection() {
     die_if(cfg.strings.schemes.isEnabled(StringSchemeType::ONE_VALUE));
     die_if(cfg.strings.schemes.isEnabled(StringSchemeType::UNCOMPRESSED));
     // optional double schemes
-    addIfEnabled<Uncompressed, OneValue, DynamicDictionary, Fsst, Dictionary8, Dictionary16>(
-        string_schemes, cfg.strings.schemes);
+    // clang-format off
+    addIfEnabled<Uncompressed,
+                 OneValue,
+                 DynamicDictionary,
+                 Fsst,
+                 Dictionary8,
+                 Dictionary16>(string_schemes, cfg.strings.schemes);
+    // clang-format on
   }
 }
 // -------------------------------------------------------------------------------------
-unique_ptr<SchemesCollection> SchemePool::available_schemes =
-    unique_ptr<SchemesCollection>(nullptr);
+unique_ptr<SchemesCollection> SchemePool::available_schemes{nullptr};
+// -------------------------------------------------------------------------------------
+void SchemePool::refresh() {
+  available_schemes = make_unique<btrblocks::SchemesCollection>();
+}
 // -------------------------------------------------------------------------------------
 }  // namespace btrblocks

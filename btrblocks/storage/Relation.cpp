@@ -2,6 +2,7 @@
 #include "StringArrayViewer.hpp"
 #include "btrblocks.hpp"
 #include "common/Exceptions.hpp"
+#include "storage/Chunk.hpp"
 // -------------------------------------------------------------------------------------
 #include <mutex>
 #include <random>
@@ -11,6 +12,11 @@ namespace btrblocks {
 // -------------------------------------------------------------------------------------
 Relation::Relation() {
   columns.reserve(100);
+}
+// -------------------------------------------------------------------------------------
+void Relation::addColumn(Column&& column) {
+  columns.push_back(std::move(column));
+  fixTupleCount();
 }
 // -------------------------------------------------------------------------------------
 void Relation::addColumn(const string& column_file_path) {
@@ -62,7 +68,7 @@ vector<tuple<u64, u64>> Relation::getRanges(btrblocks::SplitStrategy strategy,
   return ranges;
 }
 // -------------------------------------------------------------------------------------
-Chunk Relation::getChunk(vector<btrblocks::Range>& ranges, SIZE chunk_i) const {
+Chunk Relation::getChunk(const vector<btrblocks::Range>& ranges, SIZE chunk_i) const {
   auto const& range = ranges[chunk_i];
   auto offset = std::get<0>(range);
   auto chunk_tuple_count = std::get<1>(range);
@@ -130,7 +136,9 @@ Chunk Relation::getChunk(vector<btrblocks::Range>& ranges, SIZE chunk_i) const {
                std::move(c_sizes));
 }
 // -------------------------------------------------------------------------------------
-InputChunk Relation::getInputChunk(Range& range, SIZE chunk_i, u32 column) const {
+InputChunk Relation::getInputChunk(const Range& range,
+                                   [[maybe_unused]] SIZE chunk_i,
+                                   u32 column) const {
   auto offset = std::get<0>(range);
   auto chunk_tuple_count = std::get<1>(range);
 

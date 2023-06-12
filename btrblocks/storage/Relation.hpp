@@ -1,5 +1,4 @@
 #pragma once
-#include "Chunk.hpp"
 #include "Column.hpp"
 #include "common/Units.hpp"
 // -------------------------------------------------------------------------------------
@@ -20,8 +19,13 @@ class Relation {
   Relation();
   [[nodiscard]] vector<Range> getRanges(btrblocks::SplitStrategy strategy,
                                         u32 max_chunk_count) const;
-  Chunk getChunk(vector<Range>& ranges, SIZE chunk_i) const;
-  InputChunk getInputChunk(Range& range, SIZE chunk_i, u32 column) const;
+
+  [[nodiscard]] Chunk getChunk(const vector<Range>& ranges, SIZE chunk_i) const;
+  [[nodiscard]] InputChunk getInputChunk(const Range& range,
+                                         [[maybe_unused]] SIZE chunk_i,
+                                         u32 column) const;
+
+  void addColumn(Column&& column);
   void addColumn(const string& column_file_path);
 
  private:

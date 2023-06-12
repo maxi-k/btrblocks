@@ -1,0 +1,87 @@
+name: Build and Test
+on:
+  push:
+    paths:
+      - "**.c"
+      - "**.cpp"
+      - "**.h"
+      - "**/CMakeLists.txt"
+      - "**.cmake"
+      - ".github/workflows/build.yml"
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install cmake and ninja
+        uses: lukka/get-cmake@v3.24.2
+
+      - name: checkout project
+        uses: actions/checkout@v3
+
+      - name: restore build directory cache
+        id: cache-build-dir
+        uses: actions/cache@v3
+        env:
+          cache-name: btrblocks-build-dir
+        with:
+          path: build
+          key: ${{ env.cache-name }}-${{ hashFiles('cmake/*.cmake') }}-${{ hashFiles('test/DatasetGenerator.cpp') }}-${{ hashFiles('CMakeLists.txt') }}
+
+      - name: create build dir and initialize
+        if: ${{ steps.cache-build-dir.outputs.cache-hit != 'true' }}
+        run: |
+          mkdir -p build
+          cd build
+          cmake ..
+
+      - name: build and run dataset generator
+        if: ${{ steps.cache-build-dir.outputs.cache-hit != 'true' }}
+        run: |
+          cd build
+          make -j8 test_dataset_generator
+          ./test_dataset_generator
+
+  test:
+    needs: setup
+    strategy:
+      matrix:
+        build-configs:
+          - cmake-flags: '-DCMAKE_BUILD_TYPE=Debug -DWITH_LOGGING=ON -DENABLE_FOR_SCHEME=ON'
+          - cmake-flags: '-DCMAKE_BUILD_TYPE=Debug -DWITH_LOGGING=OFF -DENABLE_FOR_SCHEME=OFF'
+          - cmake-flags: '-DCMAKE_BUILD_TYPE=Release -WITH_LOGGING=OFF -DENABLE_FOR_SCHEME=OFF'
+
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: checkout project
+        uses: actions/checkout@v3
+
+      - name: restore build directory cache
+        id: cache-build-dir
+        uses: actions/cache@v3
+        env:
+          cache-name: btrblocks-build-dir
+        with:
+          path: build
+          key: ${{ env.cache-name }}-${{ hashFiles('cmake/*.cmake') }}-${{ hashFiles('test/DatasetGenerator.cpp') }}-${{ hashFiles('CMakeLists.txt') }}
+
+      - name: set compiler flags
+        run: |
+          cd build
+          cmake ${{ matrix.build-configs.cmake-flags }} ..
+
+      - name: build btrblocks
+        run: |
+          cd build
+          make -j2 btrblocks
+
+      - name: build tester
+        run: |
+          cd build
+          make -j2 tester
+
+      - name: run tester
+        run: |
+          cd build
+          ./tester

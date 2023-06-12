@@ -1,5 +1,6 @@
 // -------------------------------------------------------------------------------------
 #include "CompressionScheme.hpp"
+#include "btrblocks.hpp"
 #include "cache/ThreadCache.hpp"
 // -------------------------------------------------------------------------------------
 namespace btrblocks {

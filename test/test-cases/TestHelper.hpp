@@ -1,4 +1,5 @@
 #pragma once
+#include "btrblocks.hpp"
 #include "storage/Relation.hpp"
 #include "compression/Datablock.hpp"
 // -------------------------------------------------------------------------------------

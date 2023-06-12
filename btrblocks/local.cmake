@@ -64,6 +64,7 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
     # target_compile_options(btrblocks PUBLIC -fsanitize=address)
     target_compile_options(btrblocks PUBLIC -g)
 endif ()
+target_compile_options(btrblocks PUBLIC -Wno-unused-parameter)
 
 target_link_libraries(btrblocks Threads::Threads fsst fastpfor croaring dynamic_bitset) #asan
 

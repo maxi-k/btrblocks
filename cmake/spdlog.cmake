@@ -30,4 +30,4 @@ file(MAKE_DIRECTORY ${SPDLOG_INCLUDE_DIR})
 # provide spdlog as a library so it can be used with target_link_libraries
 add_library(spdlog INTERFACE)
 add_dependencies(spdlog spdlog_src)
-target_include_directories(spdlog INTERFACE ${SPDLOG_INCLUDE_DIR})
+target_include_directories(spdlog SYSTEM INTERFACE ${SPDLOG_INCLUDE_DIR})

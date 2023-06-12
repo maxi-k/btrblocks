@@ -1,8 +1,8 @@
 #pragma once
 // -------------------------------------------------------------------------------------
 #include "compression/Compressor.hpp"
-#include "storage/Chunk.hpp"
 #include "scheme/CompressionScheme.hpp"
+#include "storage/Chunk.hpp"
 // -------------------------------------------------------------------------------------
 #include <unordered_map>
 // -------------------------------------------------------------------------------------
@@ -67,6 +67,8 @@ class Datablock : public RelationCompressor {
                            std::vector<ColumnType> types,
                            vector<u32> part_counters,
                            u32 num_chunks);
+
+  static SIZE compress(const InputChunk& input_chunk, u8* output_buffer);
 };
 // -------------------------------------------------------------------------------------
 }  // namespace btrblocks

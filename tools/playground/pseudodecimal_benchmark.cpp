@@ -114,7 +114,7 @@ void setupSchemePool() {
 int main(int argc, char *argv[]) {
     gflags::ParseCommandLineFlags(&argc, &argv, true);
     setupSchemePool();
-    spdlog::set_level(spdlog::level::info);
+    Log::set_level(Log::level::info);
     PerfEvent perf;
     std::cerr << "using cascade depth " << FLAGS_cascade_depth << " and input file " << FLAGS_file_list_file << std::endl;
 
