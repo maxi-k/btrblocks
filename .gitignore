@@ -1,4 +1,5 @@
 .idea/
+.cache/
 bin/
 build*/
 cmake-*/
@@ -14,3 +15,5 @@ debug/
 log.txt
 git-ignore
 *#
+*.dtmp
+*.bkp

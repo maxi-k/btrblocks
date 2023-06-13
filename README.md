@@ -1,20 +1,20 @@
 # BtrBlocks - Efficient Columnar Compression for Data Lakes
 
-[Paper](https://bit.ly/btrblocks)
-
-## Components
-
-- `include/`: public headers when using this as a library
-- `btrblocks/`: the compression library, schemes, utilities, ...
-- `test/`: rudimentary tests for the library
-- `tools/`: various conversion and measurement tools
-- `benchmarks/`: comparisons to other compression formats, S3 throughput benchmarks, ...
-
-Refer to the README files in each folder for more information.
+[![Paper](https://img.shields.io/badge/paper-SIGMOD%202023-green)](https://bit.ly/btrblocks)
+[![Build](https://github.com/maxi-k/btrblocks/actions/workflows/test.yml/badge.svg?event=push)](https://github.com/maxi-k/btrblocks/actions/workflows/test.yml)
 
 ## Usage
 
-After [building](#building) the library, you can use it by including the [`btrblocks.h`](btrblocks/btrblocks.h) header.
+After [building](#building) the library, follow one of the [examples](./tools/examples) to get started.
+
+## Components
+
+- `btrblocks/`: the compression library, schemes, utilities, ...
+- `btrfiles/`: helper library for binary files and yaml schema information
+- `tools/`: various conversion, measurement and benchmarking tools
+- `test/`: rudimentary tests for the library
+
+![Dependency Graph](./doc/dependencies.svg)
 
 ## Building
 
@@ -26,7 +26,8 @@ cmake ..
 
 Then, depending on your usecase, build only the library or any of the tools:
 - build everything: `make`
-- build the library: `make btrblocks`
+- install static library and headers on your system: `sudo make install`
+- build the compression library only: `make btrblocks`
 - build the tests `make tester`
 - build the in-memory decompression speed benchmark: `make decompression_speed`
 - ...
