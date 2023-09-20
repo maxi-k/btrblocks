@@ -3,6 +3,9 @@
 [![Paper](https://img.shields.io/badge/paper-SIGMOD%202023-green)](https://bit.ly/btrblocks)
 [![Build](https://github.com/maxi-k/btrblocks/actions/workflows/test.yml/badge.svg?event=push)](https://github.com/maxi-k/btrblocks/actions/workflows/test.yml)
 
+- [Paper](https://bit.ly/btrblocks) (two-column version)
+- [Video](https://dl.acm.org/doi/10.1145/3589263) (SIGMOD 2023 presentation)
+
 ## Usage
 
 After [building](#building) the library, follow one of the [examples](./tools/examples) to get started.
