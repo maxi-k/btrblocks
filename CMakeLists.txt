@@ -71,6 +71,7 @@ include("${CMAKE_VENDOR_DIR}/lz4.cmake")
 include("${CMAKE_SOURCE_DIR}/btrblocks/local.cmake")  # btrblocks library
 include("${CMAKE_SOURCE_DIR}/btrfiles/local.cmake")   # btrblocks files library
 include("${CMAKE_SOURCE_DIR}/test/local.cmake")       # btrblocks tests
+include("${CMAKE_SOURCE_DIR}/bench/local.cmake")      # btrblocks tests
 include("${CMAKE_SOURCE_DIR}/tools/local.cmake")      # btrblocks tooling
 
 # ---------------------------------------------------------------------------
@@ -98,3 +99,6 @@ message(STATUS "    BUILD_SHARED_LIBRARY        = ${BUILD_SHARED_LIBRARY}")
 message(STATUS "[test] settings")
 message(STATUS "    GTEST_INCLUDE_DIR           = ${GTEST_INCLUDE_DIR}")
 message(STATUS "    GTEST_LIBRARY_PATH          = ${GTEST_LIBRARY_PATH}")
+message(STATUS "[bench] settings")
+message(STATUS "    BENCHMARK_INCLUDE_DIR       = ${BENCHMARK_INCLUDE_DIR}")
+message(STATUS "    BENCHMARK_LIBRARY_PATH      = ${BENCHMARK_LIBRARY_PATH}")

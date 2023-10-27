@@ -34,10 +34,12 @@ class CSchemePicker {
   static SchemeType& chooseScheme(StatsType& stats, u8 allowed_cascading_level) {
     double max_compression_ratio = 0;
     if (MyTypeWrapper::getOverrideScheme() != autoScheme()) {
+      /// IN THAT CASE THE OVERRIDE SCHEME GETS SELECTED AND USED
       auto scheme_code = MyTypeWrapper::getOverrideScheme();
       MyTypeWrapper::getOverrideScheme() = autoScheme();
       return MyTypeWrapper::getScheme(scheme_code);
     } else {
+      /// AUTOMATIC SCHEME SELECTION
       SchemeType* preferred_scheme = nullptr;
       for (auto& scheme : MyTypeWrapper::getSchemes()) {
         if (ThreadCache::get().estimation_level != 0 || ThreadCache::get().compression_level > 1) {

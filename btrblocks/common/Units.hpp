@@ -98,6 +98,7 @@ using BytesArray = std::unique_ptr<u8[]>;
 
 // -------------------------------------------------------------------------------------
 #define TEST_DATASET(file) "test-dataset/" file ""
+#define BENCHMARK_DATASET(file) "benchmark_data/" file ""
 // -------------------------------------------------------------------------------------
 template <typename T>
 inline constexpr void writeRaw(u8* base, u32 offset, T value) {
