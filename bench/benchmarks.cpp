@@ -13,8 +13,22 @@ int main(int argc, char** argv) {
 #else
   std::cout << "\033[0;31mSIMD DISABLED\033[0m" << std::endl;
 #endif
+
+  // TODO: This is probably super dumb and we should do that in the corresponding git action
+  const char* args[argc + 2];
+  for (int i = 0; i < argc; i++) {
+    args[i] = argv[i];
+  }
+  std::string out_format = "--benchmark_out_format=json";
+  std::string out_file = "--benchmark_out=./bench_results/test.json";
+
+  args[argc] = out_format.c_str();
+  args[argc + 1] = out_file.c_str();
+
+  int new_argc = argc + 2;
+
   btrbench::RegisterSingleBenchmarks();
-  benchmark::Initialize(&argc, argv);
+  benchmark::Initialize(&new_argc, const_cast<char**>(args));
   benchmark::RunSpecifiedBenchmarks();
 }
 // ---------------------------------------------------------------------------

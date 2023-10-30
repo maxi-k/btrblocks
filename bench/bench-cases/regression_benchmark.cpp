@@ -1,20 +1,22 @@
-#include "BenchmarkHelper.hpp"
 #include "benchmark/benchmark.h"
 #include "btrblocks.hpp"
 #include "scheme/SchemePool.hpp"
 #include "storage/MMapVector.hpp"
 #include "storage/Relation.hpp"
 // ---------------------------------------------------------------------------------------------------
+
+using namespace btrblocks;
+
 namespace btrbench {
 
-static const std::array<std::string, 4> string_datasets{
+static const std::vector<std::string> string_datasets{
     "1_F1.string",
     "2_F2.string",
     "6_F6.string",
     "7_F7.string"
 };
 
-static const std::array<std::string, 11> integer_datasets{
+static const std::vector<std::string> integer_datasets{
     "10_Number of Records.integer",
     "11_WNET (bin).integer",
     "10_Semana.integer",
@@ -28,18 +30,17 @@ static const std::array<std::string, 11> integer_datasets{
     "9_Ruta_SAK.integer"
 };
 
-static const std::array<std::string, 3> double_datasets{
+static const std::vector<std::string> double_datasets{
     "4_F4.double",
     "11_Venta_hoy.double",
     "5_Dev_proxima.double"
 };
 
 static void SetupSchemes(const benchmark::State& state) {
-  BtrBlocksConfig::get().integers.schemes.enableAll();
-  BtrBlocksConfig::get().integers.schemes.disable(IntegerSchemeType::TRUNCATION_8);
-  BtrBlocksConfig::get().integers.schemes.disable(IntegerSchemeType::TRUNCATION_16);
-  BtrBlocksConfig::get().doubles.schemes.enableAll();
-  BtrBlocksConfig::get().strings.schemes.enableAll();
+  BtrBlocksConfig::get().integers.schemes = defaultIntegerSchemes();
+  BtrBlocksConfig::get().doubles.schemes = defaultDoubleSchemes();
+  BtrBlocksConfig::get().strings.schemes = defaultStringSchemes();
+
   SchemePool::refresh();
 }
 
@@ -50,10 +51,11 @@ static void BtrBlocksBenchmark(benchmark::State& state, const std::string& datas
   relation.addColumn(BENCHMARK_DATASET() + dataset);
 
   for (auto _ : state) {
-    double comp_ratio_sum = 0.0;
     Datablock datablock(relation);
 
     auto ranges = relation.getRanges(btrblocks::SplitStrategy::SEQUENTIAL, 9999999);
+    double comp_ratio_avg = 0.0;
+    double size = static_cast<double>(ranges.size());
 
     vector<BytesArray> compressed_chunks;
 
@@ -63,23 +65,21 @@ static void BtrBlocksBenchmark(benchmark::State& state, const std::string& datas
       auto chunk = relation.getChunk(ranges, chunk_i);
       auto db_meta = datablock.compress(chunk, compressed_chunks[chunk_i]);
 
-      comp_ratio_sum += db_meta.compression_ratio;
+      comp_ratio_avg += db_meta.compression_ratio / size;
 
       auto decompressed_chunk = datablock.decompress(compressed_chunks[chunk_i]);
     }
-
-    double comp_ratio_avg = comp_ratio_sum / static_cast<double>(ranges.size());
 
     state.counters["comp_ratio_avg"] = benchmark::Counter(comp_ratio_avg, benchmark::Counter::Flags::kAvgThreads);
   }
 }
 
 void RegisterSingleBenchmarks() {
-  /* for (auto& dataset : integer_datasets) {
+  for (auto& dataset : integer_datasets) {
     benchmark::RegisterBenchmark(dataset.c_str(), BtrBlocksBenchmark, dataset)
         ->UseRealTime()
-        ->MinTime(5);
-  } */
+        ->MinTime(10);
+  }
   for (auto& dataset : double_datasets) {
     benchmark::RegisterBenchmark(dataset.c_str(), BtrBlocksBenchmark, dataset)
         ->UseRealTime()
@@ -88,7 +88,7 @@ void RegisterSingleBenchmarks() {
   for (auto& dataset : string_datasets) {
     benchmark::RegisterBenchmark(dataset.c_str(), BtrBlocksBenchmark, dataset)
         ->UseRealTime()
-        ->MinTime(5);
+        ->MinTime(30);
   }
 }
 }  // namespace btrblocks

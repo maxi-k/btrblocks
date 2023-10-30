@@ -5,7 +5,7 @@
 set(BTR_BENCH_DIR ${CMAKE_CURRENT_LIST_DIR})
 
 # ---------------------------------------------------------------------------
-# Tester
+# Benchmark
 # ---------------------------------------------------------------------------
 
 add_executable(benchmarks ${BTR_BENCH_DIR}/benchmarks.cpp)
