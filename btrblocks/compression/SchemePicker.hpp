@@ -185,7 +185,7 @@ class CSchemePicker {
         cerr << "!!! compressed is larger than raw: \nfor : " + comment + " - scheme = " +
                     ConvertSchemeTypeToString(static_cast<SchemeCodeType>(scheme_code))
              << " difference = " << after_size - stats.total_size << "."
-             << " Falling back to uncompressed." << endl;
+             << " Falling back to uncompressed. " << endl;
         preferred_scheme = &MyTypeWrapper::getScheme(SchemeCodeType::UNCOMPRESSED);
         scheme_code = CB(preferred_scheme->schemeType());
         after_size = preferred_scheme->compress(src, nullmap, dest, stats, allowed_cascading_level);
