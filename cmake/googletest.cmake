@@ -32,7 +32,6 @@ ExternalProject_Add(
         -DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}
     DOWNLOAD_COMMAND ""
     UPDATE_COMMAND ""
-        BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libgtest.a
 )
 
 # Build gmock
@@ -48,7 +47,6 @@ ExternalProject_Add(
         -DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}
     DOWNLOAD_COMMAND ""
     UPDATE_COMMAND ""
-        BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libgmock.a
 )
 
 # Prepare gtest

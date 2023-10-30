@@ -17,21 +17,22 @@ static const std::vector<std::string> string_datasets{
 };
 
 static const std::vector<std::string> integer_datasets{
-    "10_Number of Records.integer",
-    "11_WNET (bin).integer",
     "10_Semana.integer",
+    "12_Venta_uni_hoy.integer",
     "1_Agencia_ID.integer",
     "2_Canal_ID.integer",
     "3_Cliente_ID.integer",
     "4_Demanda_uni_equil.integer",
     "6_Dev_uni_proxima.integer",
-    "7_Number of Records.integer",
     "8_Producto_ID.integer",
     "9_Ruta_SAK.integer"
 };
 
 static const std::vector<std::string> double_datasets{
     "4_F4.double",
+    "5_F5.double",
+    "8_F8.double",
+    "9_F9.double",
     "11_Venta_hoy.double",
     // "5_Dev_proxima.double"
 };
