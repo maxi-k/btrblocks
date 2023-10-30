@@ -21,6 +21,9 @@ After [building](#building) the library, follow one of the [examples](./tools/ex
 
 ## Building
 
+We currently require an x86 platform.
+This library was built and tested on linux only.
+
 ``` sh
 mkdir build 
 cd build
