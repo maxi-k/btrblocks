@@ -68,6 +68,9 @@ int main(int argc, char** argv) {
     const Aws::String region = "eu-central-1";
 
     Aws::Client::ClientConfiguration config;
+    config.httpRequestTimeoutMs = 300000;
+    config.requestTimeoutMs = 300000;
+    config.connectTimeoutMs = 300000;
 
     if (!region.empty()) {
       config.region = region;
@@ -88,14 +91,13 @@ int main(int argc, char** argv) {
 
     auto t1 = std::chrono::high_resolution_clock::now();
 
-
     for (auto& integer_dataset : IntegerBenchmarkDatasets) {
       DownloadBenchmarkDataset(bucket_name, integer_dataset,
                             "./" + out_dir_name + "/" + integer_dataset.substr(integer_dataset.find_last_of('/') + 1), transfer_manager);
       std::string bitsetFile = integer_dataset.substr(0, integer_dataset.find_last_of('.')) + ".bitmap";
       std::cout << bitsetFile << "\n";
       DownloadBenchmarkDataset(bucket_name, bitsetFile,
-                               std::string("./").append(out_dir_name).append("/").append(integer_dataset.substr(bitsetFile.find_last_of('/') + 1)), transfer_manager);
+                               std::string("./").append(out_dir_name).append("/").append(bitsetFile.substr(bitsetFile.find_last_of('/') + 1)), transfer_manager);
     }
 
     for (auto& double_dataset : DoubleBenchmarkDatasets) {
@@ -104,7 +106,7 @@ int main(int argc, char** argv) {
       std::string bitsetFile = double_dataset.substr(0, double_dataset.find_last_of('.')) + ".bitmap";
       std::cout << bitsetFile << "\n";
       DownloadBenchmarkDataset(bucket_name, bitsetFile,
-                               std::string("./").append(out_dir_name).append("/").append(double_dataset.substr(bitsetFile.find_last_of('/') + 1)), transfer_manager);
+                               std::string("./").append(out_dir_name).append("/").append(bitsetFile.substr(bitsetFile.find_last_of('/') + 1)), transfer_manager);
     }
 
     for (auto& string_dataset : StringBenchmarkDatasets) {
@@ -113,7 +115,7 @@ int main(int argc, char** argv) {
       std::string bitsetFile = string_dataset.substr(0, string_dataset.find_last_of('.')) + ".bitmap";
       std::cout << bitsetFile << "\n";
       DownloadBenchmarkDataset(bucket_name, bitsetFile,
-                               std::string("./").append(out_dir_name).append("/").append(string_dataset.substr(bitsetFile.find_last_of('/') + 1)), transfer_manager);
+                               std::string("./").append(out_dir_name).append("/").append(bitsetFile.substr(bitsetFile.find_last_of('/') + 1)), transfer_manager);
     }
 
     auto t2 = std::chrono::high_resolution_clock::now();
