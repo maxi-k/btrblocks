@@ -13,8 +13,6 @@ using namespace Aws::Utils;
 
 const string out_dir_name = "bench-dataset";
 
-static const size_t BUFFER_SIZE = 1024 * 1024 * 1024;  // 512MB Buffer
-
 std::array<std::string, 9> IntegerBenchmarkDatasets{
     "binary/Bimbo/1/Bimbo_1/10_Semana.integer",
     "binary/Bimbo/1/Bimbo_1/12_Venta_uni_hoy.integer",
@@ -37,9 +35,6 @@ std::array<std::string , 4> StringBenchmarkDatasets{
     "binary/Arade/1/Arade_1/6_F6.string", "binary/Arade/1/Arade_1/7_F7.string"};
 
 void DownloadBenchmarkDataset(const Aws::String& bucket_name, const Aws::String& objectKey, const Aws::String& local_path, const  shared_ptr<Aws::Transfer::TransferManager>& transfer_manager) {
-  Aws::Utils::Array<unsigned char> buffer(BUFFER_SIZE);
-  Stream::PreallocatedStreamBuf streamBuffer(buffer.GetUnderlyingData(), buffer.GetLength());
-
   auto downloadHandle = transfer_manager->DownloadFile(
       bucket_name, objectKey,
       [&local_path]() {
