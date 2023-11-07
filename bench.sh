@@ -8,13 +8,16 @@ HELP="Specify server via -s flag"
 TMP_FOLDER="tmp"
 TMP_FILE="./${TMP_FOLDER}/result.json"
 
-while getopts "hs:" flag; do
+while getopts "h:s:f:" flag; do
  case $flag in
-	h) 
+	h)
 	echo "${HELP}"
 	;;
-	s) 
+	s)
 	SERVER=$OPTARG
+	;;
+	f)
+	PREFIX_FLAG="--benchmark_filter=$OPTARG"
 	;;
 	\?)
 	echo "Unknown flag"
@@ -25,7 +28,7 @@ done
 if ! [ -z "$SERVER"  ]
 then
 ssh $SERVER << EOF
-	
+
 	# Prep directories
 
 	mkdir -p btr_bench
@@ -34,15 +37,15 @@ ssh $SERVER << EOF
 	mkdir -p bench_results
 
 	# Clone git repo if necessary
-	
-	if ! [ -d "btrblocks" ] 
-	then	
+
+	if ! [ -d "btrblocks" ]
+	then
 		git clone https://github.com/seb711/btrblocks.git
 	fi
 
 	cd btrblocks
-	
-	# Get newest version and build 
+
+	# Get newest version and build
 
 	git pull
 
@@ -58,14 +61,14 @@ ssh $SERVER << EOF
 
 	# Execute benchmarks
 
-	./benchmarks --benchmark_out="./../../bench_results/result.json" --benchmark_out_format=json
-	
-	# Download result and exit	
+	./benchmarks --benchmark_out="./../../bench_results/result.json" --benchmark_out_format=json ${PREFIX_FLAG}
+
+	# Download result and exit
 
 	exit
 EOF
 
-if ! [ -d "${TMP_FOLDER}" ] 
+if ! [ -d "${TMP_FOLDER}" ]
 then
 	mkdir ${TMP_FOLDER}
 fi
@@ -81,7 +84,9 @@ WEIGHTED_COMP_RATIO_AVG=$(bc <<< "${UNCOMPRESSED_SIZE} * 1.00/ ${COMPRESSED_SIZE
 
 touch bench_result.json
 
-jq '{ benchmarks: .benchmarks, weighted_comp_ratio_avg: "'$WEIGHTED_COMP_RATIO_AVG'", compression_ratio_average: "'$COMP_RATIO_AVG'" }' ${TMP_FILE} > bench_result.json
+BENCHMARK_MAPPING='.benchmarks | map ( . + { most_used_root_scheme: .label } ) | del ( .[].label )'
+
+jq '{ weighted_comp_ratio_avg: "'$WEIGHTED_COMP_RATIO_AVG'", compression_ratio_average: "'$COMP_RATIO_AVG'", context: .context, benchmarks: ('$BENCHMARK_MAPPING') }' ${TMP_FILE} > bench_result.json
 
 rm ${TMP_FILE}
 
