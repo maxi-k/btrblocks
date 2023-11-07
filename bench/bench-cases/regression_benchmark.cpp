@@ -79,8 +79,6 @@ static void BtrBlocksBenchmark(benchmark::State& state,
 
   relation.addColumn(BENCHMARK_DATASET() + dataset);
 
-  auto c = BtrBlocksConfig::get().integers.override_scheme;
-
   unordered_map<uint8_t, size_t> scheme_occurences{};
 
   for (auto _ : state) {

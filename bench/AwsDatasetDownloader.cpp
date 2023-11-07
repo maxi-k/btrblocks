@@ -3,9 +3,9 @@
 #include <aws/core/utils/threading/Executor.h>
 #include <aws/s3/S3Client.h>
 #include <aws/transfer/TransferManager.h>
+#include <filesystem>
 #include <fstream>
 #include <iostream>
-#include <filesystem>
 
 using namespace std;
 using namespace Aws;
@@ -13,36 +13,38 @@ using namespace Aws::Utils;
 
 const string out_dir_name = "bench-dataset";
 
-std::array<std::string, 9> IntegerBenchmarkDatasets{
-    "binary/Bimbo/1/Bimbo_1/10_Semana.integer",
-    "binary/Bimbo/1/Bimbo_1/12_Venta_uni_hoy.integer",
-    "binary/Bimbo/1/Bimbo_1/1_Agencia_ID.integer",
-    "binary/Bimbo/1/Bimbo_1/2_Canal_ID.integer",
-    "binary/Bimbo/1/Bimbo_1/3_Cliente_ID.integer",
-    "binary/Bimbo/1/Bimbo_1/4_Demanda_uni_equil.integer",
-    "binary/Bimbo/1/Bimbo_1/6_Dev_uni_proxima.integer",
-    "binary/Bimbo/1/Bimbo_1/8_Producto_ID.integer",
-    "binary/Bimbo/1/Bimbo_1/9_Ruta_SAK.integer"
-};
+vector<string> IntegerBenchmarkDatasets{"binary/Bimbo/1/Bimbo_1/10_Semana.integer",
+                                        "binary/Bimbo/1/Bimbo_1/12_Venta_uni_hoy.integer",
+                                        "binary/Bimbo/1/Bimbo_1/1_Agencia_ID.integer",
+                                        "binary/Bimbo/1/Bimbo_1/2_Canal_ID.integer",
+                                        "binary/Bimbo/1/Bimbo_1/3_Cliente_ID.integer",
+                                        "binary/Bimbo/1/Bimbo_1/4_Demanda_uni_equil.integer",
+                                        "binary/Bimbo/1/Bimbo_1/6_Dev_uni_proxima.integer",
+                                        "binary/Bimbo/1/Bimbo_1/8_Producto_ID.integer",
+                                        "binary/Bimbo/1/Bimbo_1/9_Ruta_SAK.integer"};
 
-std::array<std::string , 6> DoubleBenchmarkDatasets{
+vector<string> DoubleBenchmarkDatasets{
     "binary/Arade/1/Arade_1/4_F4.double",         "binary/Arade/1/Arade_1/5_F5.double",
     "binary/Arade/1/Arade_1/8_F8.double",         "binary/Arade/1/Arade_1/9_F9.double",
     "binary/Bimbo/1/Bimbo_1/11_Venta_hoy.double", "binary/Bimbo/1/Bimbo_1/5_Dev_proxima.double"};
 
-std::array<std::string , 4> StringBenchmarkDatasets{
+vector<string> StringBenchmarkDatasets{
     "binary/Arade/1/Arade_1/1_F1.string", "binary/Arade/1/Arade_1/2_F2.string",
     "binary/Arade/1/Arade_1/6_F6.string", "binary/Arade/1/Arade_1/7_F7.string"};
 
-void DownloadBenchmarkDataset(const Aws::String& bucket_name, const Aws::String& objectKey, const Aws::String& local_path, const  shared_ptr<Aws::Transfer::TransferManager>& transfer_manager) {
-  auto downloadHandle = transfer_manager->DownloadFile(
-      bucket_name, objectKey,
-      [&local_path]() {
-        auto *stream = Aws::New<Aws::FStream>("s3file", local_path, std::ios_base::out);
-        stream->rdbuf()->pubsetbuf(nullptr, 0);
+vector<vector<string>> Datasets = {IntegerBenchmarkDatasets, DoubleBenchmarkDatasets,
+                                   StringBenchmarkDatasets};
 
-        return stream;
-      });
+void DownloadBenchmarkDataset(const Aws::String& bucket_name,
+                              const Aws::String& objectKey,
+                              const Aws::String& local_path,
+                              const shared_ptr<Aws::Transfer::TransferManager>& transfer_manager) {
+  auto downloadHandle = transfer_manager->DownloadFile(bucket_name, objectKey, [&local_path]() {
+    auto* stream = Aws::New<Aws::FStream>("s3file", local_path, std::ios_base::out);
+    stream->rdbuf()->pubsetbuf(nullptr, 0);
+
+    return stream;
+  });
 
   downloadHandle->WaitUntilFinished();
   auto downStat = downloadHandle->GetStatus();
@@ -51,6 +53,16 @@ void DownloadBenchmarkDataset(const Aws::String& bucket_name, const Aws::String&
     std::cout << "\nFile download failed:  " << err.GetMessage() << '\n';
   }
   std::cout << "\nFile download to " << local_path << " finished." << '\n';
+}
+
+bool FileExists(string path) {
+  ifstream f;
+  try {
+    f.open(path);
+    return f.good();
+  } catch (int _) {
+    return false;
+  }
 }
 
 int main(int argc, char** argv) {
@@ -79,38 +91,34 @@ int main(int argc, char** argv) {
     transfer_config.s3Client = s3_client;
 
     transfer_config.downloadProgressCallback =
-        [](const Aws::Transfer::TransferManager*,  const std::shared_ptr<const Aws::Transfer::TransferHandle>& handle)
-    { std::cout << "\r" << "Benchmark Download Progress for " << handle->GetKey() << ": " << handle->GetBytesTransferred() << " of " << handle->GetBytesTotalSize() << " bytes" << std::flush; };
+        [](const Aws::Transfer::TransferManager*,
+           const std::shared_ptr<const Aws::Transfer::TransferHandle>& handle) {
+          std::cout << "\r"
+                    << "Benchmark Download Progress for " << handle->GetKey() << ": "
+                    << handle->GetBytesTransferred() << " of " << handle->GetBytesTotalSize()
+                    << " bytes" << std::flush;
+        };
 
     auto transfer_manager = Aws::Transfer::TransferManager::Create(transfer_config);
 
     auto t1 = std::chrono::high_resolution_clock::now();
 
-    for (auto& integer_dataset : IntegerBenchmarkDatasets) {
-      DownloadBenchmarkDataset(bucket_name, integer_dataset,
-                            "./" + out_dir_name + "/" + integer_dataset.substr(integer_dataset.find_last_of('/') + 1), transfer_manager);
-      std::string bitsetFile = integer_dataset.substr(0, integer_dataset.find_last_of('.')) + ".bitmap";
-      std::cout << bitsetFile << "\n";
-      DownloadBenchmarkDataset(bucket_name, bitsetFile,
-                               std::string("./").append(out_dir_name).append("/").append(bitsetFile.substr(bitsetFile.find_last_of('/') + 1)), transfer_manager);
-    }
+    for (auto& dataset : Datasets) {
+      for (auto& objectKey : dataset) {
+        auto bitMapKey = objectKey.substr(0, objectKey.find_last_of('.')) + ".bitmap";
 
-    for (auto& double_dataset : DoubleBenchmarkDatasets) {
-      DownloadBenchmarkDataset(bucket_name, double_dataset,
-                               "./" + out_dir_name + "/" + double_dataset.substr(double_dataset.find_last_of('/') + 1), transfer_manager);
-      std::string bitsetFile = double_dataset.substr(0, double_dataset.find_last_of('.')) + ".bitmap";
-      std::cout << bitsetFile << "\n";
-      DownloadBenchmarkDataset(bucket_name, bitsetFile,
-                               std::string("./").append(out_dir_name).append("/").append(bitsetFile.substr(bitsetFile.find_last_of('/') + 1)), transfer_manager);
-    }
+        auto objectFileName = objectKey.substr(objectKey.find_last_of('/') + 1);
 
-    for (auto& string_dataset : StringBenchmarkDatasets) {
-      DownloadBenchmarkDataset(bucket_name, string_dataset,
-                               "./" + out_dir_name + "/" + string_dataset.substr(string_dataset.find_last_of('/') + 1), transfer_manager);
-      std::string bitsetFile = string_dataset.substr(0, string_dataset.find_last_of('.')) + ".bitmap";
-      std::cout << bitsetFile << "\n";
-      DownloadBenchmarkDataset(bucket_name, bitsetFile,
-                               std::string("./").append(out_dir_name).append("/").append(bitsetFile.substr(bitsetFile.find_last_of('/') + 1)), transfer_manager);
+        auto localPath = string("./").append(out_dir_name).append("/").append(objectFileName);
+
+        if (FileExists(localPath)) {
+          cout << "File: " << localPath << " already exists \n";
+          continue;
+        }
+
+        DownloadBenchmarkDataset(bucket_name, objectKey, localPath, transfer_manager);
+        DownloadBenchmarkDataset(bucket_name, bitMapKey, localPath, transfer_manager);
+      }
     }
 
     auto t2 = std::chrono::high_resolution_clock::now();
