@@ -108,23 +108,30 @@ int main(int argc, char** argv) {
         auto bitMapKey = objectKey.substr(0, objectKey.find_last_of('.')) + ".bitmap";
 
         auto objectFileName = objectKey.substr(objectKey.find_last_of('/') + 1);
+        auto bitMapFileName = bitMapKey.substr(objectKey.find_last_of('/') + 1);
 
-        auto localPath = string("./").append(out_dir_name).append("/").append(objectFileName);
+        auto localPath = string("./").append(out_dir_name).append("/");
+        auto objectPath = localPath + objectFileName;
+        auto bitMapPath = localPath + bitMapFileName;
 
-        if (FileExists(localPath)) {
-          cout << "File: " << localPath << " already exists \n";
-          continue;
+        if (!FileExists(objectPath)) {
+          DownloadBenchmarkDataset(bucket_name, objectKey, objectPath, transfer_manager);
+        } else {
+          cout << "File: " << objectPath << " already exists \n";
         }
 
-        DownloadBenchmarkDataset(bucket_name, objectKey, localPath, transfer_manager);
-        DownloadBenchmarkDataset(bucket_name, bitMapKey, localPath, transfer_manager);
+        if (!FileExists(bitMapPath)) {
+          DownloadBenchmarkDataset(bucket_name, bitMapKey, bitMapPath, transfer_manager);
+        } else {
+          cout << "File: " << objectPath << " already exists \n";
+        }
       }
     }
 
     auto t2 = std::chrono::high_resolution_clock::now();
 
     auto ms_int = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1);
-    std::cout << "Download took " << ms_int.count() << "\n";
+    std::cout << "Download took " << ms_int.count() << "ms\n";
   }
   Aws::ShutdownAPI(options);
 
