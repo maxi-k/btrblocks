@@ -61,7 +61,7 @@ include("${CMAKE_VENDOR_DIR}/googletest.cmake")
 include("${CMAKE_VENDOR_DIR}/aws-sdk.cmake")
 include("${CMAKE_VENDOR_DIR}/benchmark.cmake")
 include("${CMAKE_VENDOR_DIR}/gdouble.cmake")
-include("${CMAKE_VENDOR_DIR}/turbo.cmake")
+# include("${CMAKE_VENDOR_DIR}/turbo.cmake")
 include("${CMAKE_VENDOR_DIR}/lz4.cmake")
 
 # ---------------------------------------------------------------------------

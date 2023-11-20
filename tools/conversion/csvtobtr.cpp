@@ -15,7 +15,8 @@
 #include <yaml-cpp/yaml.h>
 #include <spdlog/spdlog.h>
 #include <tbb/parallel_for.h>
-#include <tbb/task_scheduler_init.h>
+#define TBB_PREVIEW_GLOBAL_CONTROL
+#include <tbb/global_control.h>
 // ------------------------------------------------------------------------------
 // Btr internal includes
 #include "common/Utils.hpp"
@@ -73,7 +74,8 @@ int main(int argc, char **argv)
     SchemePool::refresh();
 
     // Init TBB TODO: is that actually still necessary ?
-    tbb::task_scheduler_init init(FLAGS_threads);
+    tbb::global_control thread_ctrl(tbb::global_control::max_allowed_parallelism, FLAGS_threads);
+    spdlog::info("Using " + std::to_string(FLAGS_threads) + " threads");
 
     // Load schema
     const auto schema = YAML::LoadFile(FLAGS_yaml);
@@ -185,7 +187,7 @@ int main(int argc, char **argv)
             verify_or_die(filename, input_chunks);
             input_chunks.clear();
         }
-    });
+    }, tbb::static_partitioner());
 
     Datablock::writeMetadata(FLAGS_btr + "/metadata", types, part_counters, ranges.size());
     std::ofstream stats_stream(FLAGS_stats);

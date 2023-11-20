@@ -6,7 +6,6 @@
 #include <vector>
 // -------------------------------------------------------------------------------------
 #include <tbb/parallel_for.h>
-#include <tbb/task_scheduler_init.h>
 // -------------------------------------------------------------------------------------
 #include <aws/core/Aws.h>
 #include <aws/s3-crt/S3CrtClient.h>
@@ -179,10 +178,6 @@ int main(int argc, char** argv) {
   auto region = argv[3];
   std::stringstream bucket;
   bucket << bucket_prefix << "-" << region;
-
-  // tbb::task_scheduler_init init(1);
-
-  // tbb::task_scheduler_init init(1);
 
   Aws::SDKOptions options;
   Aws::InitAPI(options);

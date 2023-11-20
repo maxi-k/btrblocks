@@ -18,3 +18,6 @@ include("${BTR_DATASET_DIR}/string-stats/local.cmake")
 
 configure_file(${BTR_DATASET_DIR}/integer_stats.py integer_stats.py COPYONLY)
 configure_file(${BTR_DATASET_DIR}/double_stats.py double_stats.py COPYONLY)
+
+configure_file(${BTR_DATASET_DIR}/pbi-download-metadata.sh pbi-download-metadata.sh COPYONLY)
+configure_file(${BTR_DATASET_DIR}/pbi-download.sh pbi-download.sh COPYONLY)

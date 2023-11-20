@@ -33,3 +33,4 @@ target_link_libraries(decompression-speed-s3 btrblocks tbb gflags libaws-cpp-sdk
 # ---------------------------------------------------------------------------
 
 configure_file(${BTR_CONVERSION_DIR}/compare_csvs.py compare_csvs.py COPYONLY)
+configure_file(${BTR_CONVERSION_DIR}/pbi-csv-to-btr.sh pbi-csv-to-btr.sh COPYONLY)
