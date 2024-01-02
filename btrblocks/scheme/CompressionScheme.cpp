@@ -94,6 +94,8 @@ string ConvertSchemeTypeToString(DoubleSchemeType type) {
       return "DICTIONARY_8";
     case DoubleSchemeType::DICTIONARY_16:
       return "DICTIONARY_16";
+    case DoubleSchemeType::DOUBLE_BP:
+      return "DOUBLE_BP";
     case DoubleSchemeType::UNCOMPRESSED:
       return "UNCOMPRESSED";
     default:
