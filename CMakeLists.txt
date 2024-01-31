@@ -75,6 +75,12 @@ include("${CMAKE_SOURCE_DIR}/bench/local.cmake")      # btrblocks tests
 include("${CMAKE_SOURCE_DIR}/tools/local.cmake")      # btrblocks tooling
 
 # ---------------------------------------------------------------------------
+# Installation
+# ---------------------------------------------------------------------------
+# don't build everything on 'install' target
+set(CMAKE_SKIP_INSTALL_ALL_DEPENDENCY true)
+
+# ---------------------------------------------------------------------------
 # Linting
 # ---------------------------------------------------------------------------
 
@@ -88,8 +94,11 @@ endif()
 # ---------------------------------------------------------------------------
 
 message(STATUS "[compiler] settings")
+message(STATUS "     CMAKE_CXX_COMPILER         = ${CMAKE_CXX_COMPILER}")
+message(STATUS "     CMAKE_C_COMPILER           = ${CMAKE_C_COMPILER}")
 message(STATUS "     CMAKE_CXX_FLAGS            = ${CMAKE_CXX_FLAGS}")
 message(STATUS "     CMAKE_CXX_FLAGS_RELEASE    = ${CMAKE_CXX_FLAGS_RELEASE}")
+message(STATUS "     CMAKE_BUILD_TYPE           = ${CMAKE_BUILD_TYPE}")
 message(STATUS "[btrblocks] settings")
 message(STATUS "    NO_SIMD                     = ${NO_SIMD}")
 message(STATUS "    WITH_LOGGING                = ${WITH_LOGGING}")
@@ -102,3 +111,7 @@ message(STATUS "    GTEST_LIBRARY_PATH          = ${GTEST_LIBRARY_PATH}")
 message(STATUS "[bench] settings")
 message(STATUS "    BENCHMARK_INCLUDE_DIR       = ${BENCHMARK_INCLUDE_DIR}")
 message(STATUS "    BENCHMARK_LIBRARY_PATH      = ${BENCHMARK_LIBRARY_PATH}")
+message(STATUS "[install] settings")
+message(STATUS "     CMAKE_INSTALL_LIBDIR       = ${CMAKE_INSTALL_LIBDIR}")
+message(STATUS "     CMAKE_INSTALL_INCLUDEDIR   = ${CMAKE_INSTALL_INCLUDEDIR}")
+message(STATUS "     CMAKE_INSTALL_PREFIX       = ${CMAKE_INSTALL_PREFIX}")

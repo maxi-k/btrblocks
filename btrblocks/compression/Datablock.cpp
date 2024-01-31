@@ -79,6 +79,13 @@ SIZE Datablock::compress(const InputChunk& input_chunk, u8* output) {
                                     meta->compression_type);
       break;
     }
+    case ColumnType::INT64: {
+      Int64SchemePicker::compress(reinterpret_cast<INT64*>(input_chunk.data.get()),
+                                    input_chunk.nullmap.get(), output_data, input_chunk.tuple_count,
+                                    cfg.integers.max_cascade_depth, meta->nullmap_offset,
+                                    meta->compression_type);
+      break;
+    }
     case ColumnType::DOUBLE: {
       // -------------------------------------------------------------------------------------
       DoubleSchemePicker::compress(reinterpret_cast<DOUBLE*>(input_chunk.data.get()),
@@ -167,6 +174,14 @@ bool Datablock::decompress(const u8* data_in, BitmapWrapper** bitmap_out, u8* da
       requires_copy_out = false;
       break;
     }
+    case ColumnType::INT64: {
+      auto& scheme = SchemePool::available_schemes
+                         ->int64_schemes[static_cast<Int64SchemeType>(meta->compression_type)];
+      scheme->decompress(reinterpret_cast<INT64*>(data_out), *bitmap_out, meta->data,
+                         meta->tuple_count, 0);
+      requires_copy_out = false;
+      break;
+    }
     case ColumnType::DOUBLE: {
       auto& scheme = SchemePool::available_schemes
                          ->double_schemes[static_cast<DoubleSchemeType>(meta->compression_type)];
@@ -237,6 +252,20 @@ OutputBlockStats Datablock::compress(const Chunk& input_chunk, BytesArray& outpu
         // -------------------------------------------------------------------------------------
         // Compression
         IntegerSchemePicker::compress(input_chunk.array<INTEGER>(column_i), nullmap,
+                                      output_block.get() + db_write_offset, input_chunk.tuple_count,
+                                      cfg.integers.max_cascade_depth, after_column_size,
+                                      column_meta.compression_type);
+        after_column_size += sizeof(column_meta.bias);
+        // -------------------------------------------------------------------------------------
+        break;
+      }
+      case ColumnType::INT64: {
+        // First: apply FOR to remove negative numbers and decrease the range
+        // -------------------------------------------------------------------------------------
+        const BITMAP* nullmap = input_chunk.nullmap(column_i);
+        // -------------------------------------------------------------------------------------
+        // Compression
+        Int64SchemePicker::compress(input_chunk.array<INT64>(column_i), nullmap,
                                       output_block.get() + db_write_offset, input_chunk.tuple_count,
                                       cfg.integers.max_cascade_depth, after_column_size,
                                       column_meta.compression_type);
@@ -368,6 +397,19 @@ btrblocks::Chunk Datablock::decompress(const BytesArray& input_db) {
         // -------------------------------------------------------------------------------------
         auto destination_array = reinterpret_cast<INTEGER*>(columns[column_i].get());
         auto& scheme = IntegerSchemePicker::MyTypeWrapper::getScheme(column_meta.compression_type);
+        // -------------------------------------------------------------------------------------
+        scheme.decompress(destination_array, &bitmap, input_db.get() + column_meta.offset,
+                          tuple_count, 0);
+        column_requires_copy[column_i] = false;
+        break;
+      }
+      case ColumnType::INT64: {
+        // -------------------------------------------------------------------------------------
+        sizes[column_i] = sizeof(INT64) * tuple_count;
+        columns[column_i] = makeBytesArray(sizeof(INT64) * tuple_count + SIMD_EXTRA_BYTES);
+        // -------------------------------------------------------------------------------------
+        auto destination_array = reinterpret_cast<INT64*>(columns[column_i].get());
+        auto& scheme = Int64SchemePicker::MyTypeWrapper::getScheme(column_meta.compression_type);
         // -------------------------------------------------------------------------------------
         scheme.decompress(destination_array, &bitmap, input_db.get() + column_meta.offset,
                           tuple_count, 0);

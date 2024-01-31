@@ -5,7 +5,7 @@
 // these unless you really know what you are doing.
 // ------------------------------------------------------------------------------
 #include <cstdint>
-#include "scheme/SchemeType.hpp"
+#include "SchemeType.hpp"
 // ------------------------------------------------------------------------------
 namespace btrblocks {
 // ------------------------------------------------------------------------------

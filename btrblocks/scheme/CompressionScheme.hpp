@@ -14,13 +14,17 @@ namespace btrblocks {
 // -------------------------------------------------------------------------------------
 using UInteger32Stats = NumberStats<u32>;
 using SInteger32Stats = NumberStats<s32>;
+using SInt64Stats = NumberStats<s64>;
 using DoubleStats = NumberStats<DOUBLE>;
 // -------------------------------------------------------------------------------------
 struct Predicate {};
 // -------------------------------------------------------------------------------------
 string ConvertSchemeTypeToString(IntegerSchemeType type);
+string ConvertSchemeTypeToString(Int64SchemeType type);
 string ConvertSchemeTypeToString(DoubleSchemeType type);
 string ConvertSchemeTypeToString(StringSchemeType type);
+// -------------------------------------------------------------------------------------
+// Integer (32 bit)
 // -------------------------------------------------------------------------------------
 // expectedCompressionRatio should only be called at top level
 class IntegerScheme {
@@ -52,6 +56,40 @@ class IntegerScheme {
     return this->selfDescription();
   }
   virtual bool isUsable(SInteger32Stats&) { return true; }
+};
+// -------------------------------------------------------------------------------------
+// Integer (64 bit)
+// -------------------------------------------------------------------------------------
+// expectedCompressionRatio should only be called at top level
+class Int64Scheme {
+ public:
+  // -------------------------------------------------------------------------------------
+  virtual double expectedCompressionRatio(SInt64Stats& stats, [[maybe_unused]] u8 allowed_cascading_level);
+  // -------------------------------------------------------------------------------------
+  virtual u32 compress(const INT64* src,
+                       const BITMAP* nullmap,
+                       u8* dest,
+                       SInt64Stats& stats,
+                       u8 allowed_cascading_level) = 0;
+  // -------------------------------------------------------------------------------------
+  virtual void decompress(INT64* dest,
+                          BitmapWrapper* nullmap,
+                          const u8* src,
+                          u32 tuple_count,
+                          u32 level) = 0;
+  // -------------------------------------------------------------------------------------
+  virtual Int64SchemeType schemeType() = 0;
+  // -------------------------------------------------------------------------------------
+  virtual INT64 lookup(u32 id) = 0;
+  // -------------------------------------------------------------------------------------
+  virtual void scan(Predicate, BITMAP* result, const u8* src, u32 tuple_count) = 0;
+  // -------------------------------------------------------------------------------------
+  inline string selfDescription() { return ConvertSchemeTypeToString(this->schemeType()); }
+  virtual string fullDescription(const u8*) {
+    // Default implementation for schemes that do not have nested schemes
+    return this->selfDescription();
+  }
+  virtual bool isUsable(SInt64Stats&) { return true; }
 };
 // -------------------------------------------------------------------------------------
 // Double

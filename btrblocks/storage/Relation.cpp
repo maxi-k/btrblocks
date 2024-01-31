@@ -93,6 +93,13 @@ Chunk Relation::getChunk(const vector<btrblocks::Range>& ranges, SIZE chunk_i) c
                     columns[i].integers().data + offset, chunk_tuple_count * sizeof(INTEGER));
         break;
       }
+      case ColumnType::INT64: {
+        c_sizes[i] = chunk_tuple_count * sizeof(INT64);
+        c_columns[i] = std::unique_ptr<u8[]>(new u8[c_sizes[i]]);
+        std::memcpy(reinterpret_cast<void*>(c_columns[i].get()),
+                    columns[i].int64s().data + offset, chunk_tuple_count * sizeof(INTEGER));
+        break;
+      }
       case ColumnType::DOUBLE: {
         c_sizes[i] = chunk_tuple_count * sizeof(DOUBLE);
         c_columns[i] = std::unique_ptr<u8[]>(new u8[c_sizes[i]]);
@@ -154,6 +161,13 @@ InputChunk Relation::getInputChunk(const Range& range,
       data = std::unique_ptr<u8[]>(new u8[size]);
       std::memcpy(reinterpret_cast<void*>(data.get()), columns[column].integers().data + offset,
                   chunk_tuple_count * sizeof(INTEGER));
+      break;
+    }
+    case ColumnType::INT64: {
+      size = chunk_tuple_count * sizeof(INT64);
+      data = std::unique_ptr<u8[]>(new u8[size]);
+      std::memcpy(reinterpret_cast<void*>(data.get()), columns[column].int64s().data + offset,
+                  chunk_tuple_count * sizeof(INT64));
       break;
     }
     case ColumnType::DOUBLE: {

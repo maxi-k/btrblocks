@@ -7,8 +7,9 @@
 #include <string>
 #include <string_view>
 #include <vector>
-#include "common/Exceptions.hpp"
-#include "common/SIMD.hpp"
+// -------------------------------------------------------------------------------------
+#include "Exceptions.hpp"
+#include "SIMD.hpp"
 // -------------------------------------------------------------------------------------
 namespace btrblocks {
 inline namespace units {
@@ -45,13 +46,13 @@ using SIZE = size_t;
 enum class BitmapType : u8 { ALLONES, ALLZEROS, REGULAR, FLIPPED };
 // -------------------------------------------------------------------------------------
 enum class ColumnType : u8 {
-  INTEGER = 0,
+  INTEGER = 0, // int32
   DOUBLE = 1,
   STRING = 2,
+  INT64 = 3, // int64
   SKIP,  // SKIP THIS COLUMN
   // The next types are out of scope
   FLOAT,
-  BIGINT,
   SMALLINT,
   UNDEFINED
 };
@@ -59,6 +60,7 @@ using TINYINT = s8;
 using SMALLINT = s16;
 using INTEGER = s32;  // we use FOR always at the beginning so negative integers
                       // will be handled out
+using INT64 = s64;
 using UINTEGER = u32;
 using DOUBLE = double;
 using STRING = string;
@@ -73,6 +75,8 @@ inline ColumnType ConvertStringToType(const string& type_str) {
     return ColumnType::DOUBLE;
   } else if (type_str == "string") {
     return ColumnType::STRING;
+  } else if (type_str == "int64") {
+    return ColumnType::INT64;
   } else {
     return ColumnType::SKIP;
   }
@@ -85,6 +89,8 @@ inline string ConvertTypeToString(const ColumnType type_str) {
     return "double";
   } else if (type_str == ColumnType::STRING) {
     return "string";
+  } else if (type_str == ColumnType::INT64) {
+    return "int64";
   } else {
     UNREACHABLE();
     return "";
