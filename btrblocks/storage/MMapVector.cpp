@@ -11,7 +11,21 @@ void btrblocks::writeBinary(const char* pathname, std::vector<std::string>& v) {
   for (const auto& s : v) {
     fileSize += s.size() + 1;
   }
+#if defined(__linux__)
   die_if(posix_fallocate(fd, 0, fileSize) == 0);
+#elif defined(__APPLE__)
+  fstore_t store = {F_ALLOCATECONTIG, F_PEOFPOSMODE, 0, static_cast<off_t>(fileSize)};
+  // Try to get a continous chunk of disk space
+  int ret = fcntl(fd, F_PREALLOCATE, &store);
+  if(-1 == ret){
+    // OK, perhaps we are too fragmented, allocate non-continuous
+    store.fst_flags = F_ALLOCATEALL;
+    ret = fcntl(fd, F_PREALLOCATE, &store);
+    if (-1 == ret)
+      die_if(false);
+  }
+  die_if(0 == ftruncate(fd, fileSize));
+#endif
   auto data =
       reinterpret_cast<Data*>(mmap(nullptr, fileSize, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0));
   data->count = v.size();
