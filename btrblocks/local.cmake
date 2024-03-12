@@ -82,6 +82,8 @@ target_include_directories(btrblocks
     PUBLIC ${BTR_PUBLIC_INCLUDE_DIR}
     PRIVATE ${BTR_PRIVATE_INCLUDE_DIR})
 
+target_compile_options(btrblocks PRIVATE "-DCHUNKSIZE=${BTRBLOCKS_CHUNKSIZE}")
+
 # set_target_properties(btrblocks PROPERTIES PUBLIC_HEADER "${BTR_HH}")
 
 # ---------------------------------------------------------------------------

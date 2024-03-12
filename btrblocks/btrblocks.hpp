@@ -13,6 +13,11 @@
 #include "scheme/SchemeConfig.hpp"
 #include "scheme/SchemeType.hpp"
 // ------------------------------------------------------------------------------
+#ifndef CHUNKSIZE
+  #define CHUNKSIZE 16 // Define the CHUNKSIZE if it is not defined by an compile option
+  #warning "No chunk size was set, defaulting to CHUNKSIZE=16"
+#endif
+// ------------------------------------------------------------------------------
 namespace btrblocks {
 // ------------------------------------------------------------------------------
 // Global configuation used by the compression interface
@@ -21,7 +26,7 @@ enum class SchemeSelection : uint8_t { SAMPLE, TRY_ALL };
 // ------------------------------------------------------------------------------
 struct BtrBlocksConfig {
   // clang-format off
-  size_t block_size{65536};                            // max tuples in a single block
+  size_t block_size{1 << CHUNKSIZE};                   // max tuples in a single block
   uint32_t sample_size{64};                            // run size of each sample
   uint32_t sample_count{10};                           // number of samples to take
 
