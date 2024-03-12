@@ -8,9 +8,10 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wuninitialized"
 #include <headers/blockpacking.h>
-#include <headers/codecfactory.h>
+#include <headers/compositecodec.h>
 #include <headers/deltautil.h>
-#include <headers/fastpfor.h>
+#include <headers/simdfastpfor.h>
+#include <headers/variablebyte.h>
 #pragma GCC diagnostic pop
 // -------------------------------------------------------------------------------------
 using namespace btrblocks;

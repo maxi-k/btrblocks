@@ -275,7 +275,7 @@ int main(int argc, char **argv)
                integers[i] = (rand() % 100000);
                if ( rand() % 10 > 2 ) {
                   size_t repeat = 20;
-                  repeat = std::min(repeat, FLAGS_tuple_count - i - 1);
+                  repeat = std::min(static_cast<u64>(repeat), FLAGS_tuple_count - i - 1);
                   for ( size_t r_i = 1; r_i <= repeat; r_i++ ) {
                      integers[i + r_i] = integers[i];
                   }

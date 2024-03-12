@@ -42,7 +42,7 @@ u32 Fsst::compress(const btrblocks::StringArrayViewer src,
 
   // Prepare decoder and write header
   fsst_encoder_t* encoder =
-      fsst_create(stats.tuple_count, input_string_lengths.get(), input_string_buffers.get(), 0);
+      fsst_create(stats.tuple_count, (unsigned long*) input_string_lengths.get(), input_string_buffers.get(), 0);
   die_if(fsst_export(encoder, write_ptr) > 0);
   auto fsst_table_used_space = FSST_MAXHEADER;
   write_ptr += fsst_table_used_space;
@@ -51,10 +51,10 @@ u32 Fsst::compress(const btrblocks::StringArrayViewer src,
   // Compress strings
   // TODO whyever this is fake(?), fix it.
   const u64 output_buffer_size = 7 + 4 * stats.total_length;  // fake
-  if (fsst_compress(encoder, stats.tuple_count, input_string_lengths.get(),
-                    input_string_buffers.get(), output_buffer_size, write_ptr,
-                    output_string_lengths.get(),
-                    output_string_buffers.get()) != stats.tuple_count) {
+  if (fsst_compress(encoder, stats.tuple_count,  (unsigned long*) input_string_lengths.get(),
+                     input_string_buffers.get(), output_buffer_size, write_ptr,
+                     (unsigned long*)  output_string_lengths.get(),
+                     output_string_buffers.get()) != stats.tuple_count) {
     throw Generic_Exception("FSST Compression failed !");
   }
   u64 fsst_strings_used_space =

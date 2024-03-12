@@ -41,6 +41,11 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 set(CMAKE_VENDOR_DIR "${CMAKE_SOURCE_DIR}/cmake/")
 
+if (${IS_AARCH64})
+  message(STATUS "SIMDE IS BEING USED")
+  include("${CMAKE_VENDOR_DIR}/simde.cmake")
+endif ()
+
 # Compression library dependencies
 include("${CMAKE_VENDOR_DIR}/fastpfor.cmake")
 include("${CMAKE_VENDOR_DIR}/fsst.cmake")
@@ -61,7 +66,6 @@ include("${CMAKE_VENDOR_DIR}/googletest.cmake")
 include("${CMAKE_VENDOR_DIR}/aws-sdk.cmake")
 include("${CMAKE_VENDOR_DIR}/benchmark.cmake")
 include("${CMAKE_VENDOR_DIR}/gdouble.cmake")
-include("${CMAKE_VENDOR_DIR}/turbo.cmake")
 include("${CMAKE_VENDOR_DIR}/lz4.cmake")
 
 # ---------------------------------------------------------------------------

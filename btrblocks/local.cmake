@@ -72,6 +72,11 @@ if (${WITH_LOGGING})
     target_link_libraries(btrblocks spdlog)
 endif()
 
+# we have to import simde for simd functionality on arm
+if ((NOT "${IS_AARCH64}" STREQUAL "") AND NOT ${NO_SIMD})
+    target_link_libraries(btrblocks simde)
+endif ()
+
 # TODO including everything as public headers, as this is a research library
 # later on we might want to extract a minimal public interface.
 set(BTR_PUBLIC_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR})
