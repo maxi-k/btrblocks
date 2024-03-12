@@ -9,7 +9,7 @@ ExternalProject_Add(
     fastpfor_src
     PREFIX "vendor/lemire/fastpfor"
     GIT_REPOSITORY "https://github.com/lemire/FastPFor.git"
-    GIT_TAG 773283d4a11fa2440a1b3b28fd77f775e86d7898
+    GIT_TAG master
     TIMEOUT 10
     UPDATE_COMMAND "" # to prevent rebuilding everytime
     INSTALL_COMMAND ""
