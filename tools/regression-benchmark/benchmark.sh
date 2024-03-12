@@ -17,7 +17,7 @@ sync_uris() {
     fi
 
     btr_dir="./csvtobtrdata/btrblocks/$name/"
-    mkdir -p "$btr_dir" || rm -rf "$btr_dir"/*
+    mkdir -p "$btr_dir" || rm -rf "${$btr_dir:?}"/*
     bin_dir="./csvtobtrdata/btrblocks_bin/$name/"
     echo "aws s3 sync $uri $bin_dir"
     if [[ ! -d $bin_dir ]]; then
