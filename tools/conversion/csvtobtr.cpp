@@ -16,6 +16,9 @@
 #include <spdlog/spdlog.h>
 #include <tbb/parallel_for.h>
 #include <tbb/task_scheduler_init.h>
+#include <thread>
+#define TBB_PREVIEW_GLOBAL_CONTROL 1
+#include "tbb/global_control.h"
 // ------------------------------------------------------------------------------
 // Btr internal includes
 #include "common/Utils.hpp"
@@ -42,7 +45,7 @@ DEFINE_bool(create_btr, false, "If false will exit after binary creation");
 DEFINE_bool(verify, true, "Verify that decompression works");
 DEFINE_int32(chunk, -1, "Select a specific chunk to measure");
 DEFINE_int32(column, -1, "Select a specific column to measure");
-DEFINE_uint32(threads, 8, "");
+DEFINE_uint32(threads, -1, "");
 // ------------------------------------------------------------------------------
 using namespace btrblocks;
 // ------------------------------------------------------------------------------
@@ -72,8 +75,13 @@ int main(int argc, char **argv)
     // This seems necessary to be
     SchemePool::refresh();
 
-    // Init TBB TODO: is that actually still necessary ?
-    tbb::task_scheduler_init init(FLAGS_threads);
+    if (FLAGS_threads < 1) {
+      tbb::global_control c(tbb::global_control::max_allowed_parallelism,
+                            std::thread::hardware_concurrency());
+    } else {
+      tbb::global_control c(tbb::global_control::max_allowed_parallelism,
+                            FLAGS_threads);
+    }
 
     // Load schema
     const auto schema = YAML::LoadFile(FLAGS_yaml);
@@ -124,7 +132,7 @@ int main(int argc, char **argv)
 
     // Prepare datastructures for btr compression
     //auto ranges = relation.getRanges(static_cast<SplitStrategy>(1), 9999);
-    auto ranges = relation.getRanges(SplitStrategy::SEQUENTIAL, 9999);
+    auto ranges = relation.getRanges(SplitStrategy::SEQUENTIAL, -1);
     assert(ranges.size() > 0);
     Datablock datablockV2(relation);
     std::filesystem::create_directory(FLAGS_btr);
