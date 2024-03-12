@@ -22,7 +22,7 @@ target_link_libraries(btrmeta btrblocks gflags)
 
 add_executable(decompression-speed ${BTR_CONVERSION_DIR}/decompression-speed.cpp)
 target_include_directories(decompression-speed PRIVATE ${BTR_INCLUDE_DIR})
-target_link_libraries(decompression-speed btrblocks tbb gflags)
+target_link_libraries(decompression-speed btrfiles btrblocks tbb gflags)
 
 add_executable(decompression-speed-s3 ${BTR_CONVERSION_DIR}/decompression-speed-s3.cpp)
 target_include_directories(decompression-speed-s3 PRIVATE ${BTR_INCLUDE_DIR})

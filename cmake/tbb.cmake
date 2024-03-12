@@ -9,18 +9,17 @@ find_package(Git REQUIRED)
 ExternalProject_Add(
     tbb_src
     PREFIX "vendor/intel/tbb"
-    GIT_REPOSITORY "https://github.com/wjakob/tbb.git"
-    GIT_TAG b066defc0229a1e92d7a200eb3fe0f7e35945d95
+    GIT_REPOSITORY "https://github.com/seb711/oneTBB.git"
+    GIT_TAG master
     TIMEOUT 10
     BUILD_COMMAND  make
     UPDATE_COMMAND "" # to prevent rebuilding everytime
     INSTALL_COMMAND ""
     CMAKE_ARGS
-    -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/vendor/tbb_cpp
     -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
     -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
-    -DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}
-    -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
+    -DCMAKE_LIBRARY_OUTPUT_DIRECTORY:STRING=./lib
+    -DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS} -DTBB_TEST:BOOL=OFF
 )
 
 # Prepare json

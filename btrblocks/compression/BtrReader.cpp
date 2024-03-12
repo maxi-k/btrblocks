@@ -197,7 +197,7 @@ u32 BtrReader::getDecompressedDataSize(u32 index) {
 
       auto input_data = static_cast<const u8*>(meta->data);
       BitmapWrapper* bitmapWrapper = this->getBitmap(index);
-      u32 size = scheme.getTotalLength(input_data, meta->tuple_count, bitmapWrapper);
+      u32 size = scheme.getDecompressedSize(input_data, meta->tuple_count, bitmapWrapper);
       return size;
     }
     default: {
