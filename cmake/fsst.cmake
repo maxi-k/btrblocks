@@ -17,7 +17,7 @@ ExternalProject_Add(
         fsst_src
         PREFIX "vendor/cwida/fsst"
         GIT_REPOSITORY "https://github.com/cwida/fsst.git"
-        GIT_TAG c8719ef0aa3740da9685ad2738bb9c8ecc327944
+        GIT_TAG aaa3a0cedfe191607f6884a6781cc2d0e97d203c
         TIMEOUT 10
         UPDATE_COMMAND "" # to prevent rebuilding everytime
         INSTALL_COMMAND ""
