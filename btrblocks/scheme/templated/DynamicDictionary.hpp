@@ -1,4 +1,5 @@
 #pragma once
+#include <immintrin.h>
 #include "common/Utils.hpp"
 #include "compression/SchemePicker.hpp"
 #include "scheme/CompressionScheme.hpp"
@@ -46,6 +47,7 @@ class TDynamicDictionary {
     auto dict_end = reinterpret_cast<NumberType*>(col_struct.data) + distinct_i;
     // -------------------------------------------------------------------------------------
     vector<INTEGER> codes;
+    codes.reserve(stats.tuple_count);
     for (u32 row_i = 0; row_i < stats.tuple_count; row_i++) {
       auto it = std::lower_bound(dict_begin, dict_end, src[row_i]);
       if (it == dict_end) {
@@ -54,6 +56,7 @@ class TDynamicDictionary {
       die_if(it != dict_end);
       codes.push_back(std::distance(dict_begin, it));
     }
+    assert(codes.size() == stats.tuple_count);
     // -------------------------------------------------------------------------------------
     // Compress codes
     auto write_ptr = reinterpret_cast<u8*>(dict_end);
@@ -200,6 +203,65 @@ inline void TDynamicDictionary<DOUBLE, DoubleScheme, DoubleStats, DoubleSchemeTy
       _mm256_storeu_pd(dest + 4, values_1);
       _mm256_storeu_pd(dest + 8, values_2);
       _mm256_storeu_pd(dest + 12, values_3);
+
+      dest += 16;
+      codes += 16;
+      i += 16;
+    }
+  }
+#pragma GCC diagnostic pop
+#endif
+
+  while (i < tuple_count) {
+    *dest++ = dict[*codes++];
+    i++;
+  }
+}
+
+
+template <>
+inline void TDynamicDictionary<INT64, Int64Scheme, SInt64Stats, Int64SchemeType>::
+    decompressColumn(INT64* dest, BitmapWrapper*, const u8* src, u32 tuple_count, u32 level) {
+  BTR_IFSIMD({
+    static_assert(sizeof(*dest) == 8);
+    static_assert(SIMD_EXTRA_BYTES >= 4 * sizeof(__m256d));
+  })
+
+  auto& col_struct = *reinterpret_cast<const DynamicDictionaryStructure*>(src);
+
+  // Decode codes
+  thread_local std::vector<std::vector<INTEGER>> codes_v;
+  auto codes = get_level_data(codes_v, tuple_count + SIMD_EXTRA_ELEMENTS(INTEGER), level);
+  IntegerScheme& scheme =
+      IntegerSchemePicker::MyTypeWrapper::getScheme(col_struct.codes_scheme_code);
+  scheme.decompress(codes, nullptr, col_struct.data + col_struct.codes_offset, tuple_count,
+                    level + 1);
+
+  auto dict = reinterpret_cast<const INT64*>(col_struct.data);
+  u32 i = 0;
+#ifdef BTR_USE_SIMD
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wuninitialized"
+  if (tuple_count >= 16) {
+    while (i < tuple_count - 15) {
+      // Load codes
+      __m128i codes_0 = _mm_loadu_si128(reinterpret_cast<__m128i*>(codes + 0));
+      __m128i codes_1 = _mm_loadu_si128(reinterpret_cast<__m128i*>(codes + 4));
+      __m128i codes_2 = _mm_loadu_si128(reinterpret_cast<__m128i*>(codes + 8));
+      __m128i codes_3 = _mm_loadu_si128(reinterpret_cast<__m128i*>(codes + 12));
+
+      // gather values
+      __m256i values_0 = _mm256_i32gather_epi64(reinterpret_cast<const long long int*>(dict), codes_0, 8);
+      __m256i values_1 = _mm256_i32gather_epi64(reinterpret_cast<const long long int*>(dict), codes_1, 8);
+      __m256i values_2 = _mm256_i32gather_epi64(reinterpret_cast<const long long int*>(dict), codes_2, 8);
+      __m256i values_3 = _mm256_i32gather_epi64(reinterpret_cast<const long long int*>(dict), codes_3, 8);
+
+      // store values
+      // we assume only avx2, but _mm256_storeu_epi64 is avx512, so we have to cast
+      _mm256_storeu_si256(reinterpret_cast<__m256i*>(dest + 0), values_0);
+      _mm256_storeu_si256(reinterpret_cast<__m256i*>(dest + 4), values_1);
+      _mm256_storeu_si256(reinterpret_cast<__m256i*>(dest + 8), values_2);
+      _mm256_storeu_si256(reinterpret_cast<__m256i*>(dest + 12), values_3);
 
       dest += 16;
       codes += 16;

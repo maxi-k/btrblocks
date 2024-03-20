@@ -32,6 +32,13 @@ struct BtrBlocksConfig {
   } integers;
 
   struct {
+    Int64SchemeSet schemes{defaultInt64Schemes()};   // enabled int64 schemes
+    Int64SchemeType override_scheme{autoScheme()};     // force using this scheme for int64 columns
+    uint8_t max_cascade_depth{3};                      // maximum recursive compression calls
+  } int64s;
+
+
+  struct {
     DoubleSchemeSet schemes{defaultDoubleSchemes()};   // enabled double schemes
     DoubleSchemeType override_scheme{autoScheme()};    // force using this scheme for double columns
     uint8_t max_cascade_depth{3};                      // maximum recursive compression calls

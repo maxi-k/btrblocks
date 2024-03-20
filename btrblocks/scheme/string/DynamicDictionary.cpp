@@ -86,8 +86,8 @@ u32 DynamicDictionary::compress(const btrblocks::StringArrayViewer src,
     // Encoder
     // TODO: use memcpy instead of export/import (Note: I still use
     // FSST_MAXHEADER ~2KiB )
-    fsst_encoder_t* encoder =
-        fsst_create(fsst_n, input_string_lengths.get(), input_string_buffers.get(), 0);
+    fsst_encoder_t* encoder = fsst_create(fsst_n, input_string_lengths.get(), input_string_buffers.get(), 0);
+    Utils::defer destroy_encoder([&]() { fsst_destroy(encoder); });
     die_if(fsst_export(encoder, write_ptr) > 0);
     auto fsst_table_used_space = FSST_MAXHEADER;
     // -------------------------------------------------------------------------------------
