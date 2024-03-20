@@ -58,6 +58,7 @@ enum class DoubleSchemeType : uint8_t {
   FREQUENCY = 4,
   PSEUDODECIMAL = 5,
   ALP_RD = 6,
+  ALP = 7,
   // legacy schemes
   DOUBLE_BP = 28,
   DICTIONARY_8 = 29,

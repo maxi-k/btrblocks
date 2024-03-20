@@ -9,6 +9,7 @@
 #include "scheme/double/RLE.hpp"
 #include "scheme/double/DoubleBP.hpp"
 #include "scheme/double/AlpRD.hpp"
+#include "scheme/double/Alp.hpp"
 #include "scheme/integer/PBP.hpp"
 #include "scheme/double/Pseudodecimal.hpp"
 #include "scheme/CompressionScheme.hpp"
@@ -48,7 +49,7 @@ std::string ensure_file(const std::string& object) {
   _cmd << "bash -c 'mkdir -p columns; test -f \"" << outfile
        << "\" && echo \"file exists, skipping download\" || (echo "
           "\"downloading file\"; aws s3 cp \""
-       << bucket << object << "\" \"" << outfile << "\")'";
+       << bucket << object << "\" \"" << outfile << "\"" << " --no-sign" << ")'";
   std::string cmd(_cmd.str());
   spdlog::info("running {}", cmd);
   system(cmd.c_str());
@@ -155,17 +156,23 @@ int main(int argc, char *argv[]) {
       // doubles::DoubleBP bp;
       // test_compression(bp, stats, doubles.data, doubles.count, perf, 0);
 
-      perf.setParam("scheme", "decimal");
-      doubles::Decimal pd;
-      // test_compression(pd, stats, doubles.data, doubles.count, perf, 1);
-      // test_compression(pd, stats, doubles.data, doubles.count, perf, 2);
-      test_compression(pd, stats, doubles.data, doubles.count, perf, 3);
+      // perf.setParam("scheme", "decimal");
+      // doubles::Decimal pd;
+      // // test_compression(pd, stats, doubles.data, doubles.count, perf, 1);
+      // // test_compression(pd, stats, doubles.data, doubles.count, perf, 2);
+      // test_compression(pd, stats, doubles.data, doubles.count, perf, 3);
 
-      perf.setParam("scheme", "alprd");
-      doubles::AlpRD alp;
+      perf.setParam("scheme", "alp");
+      doubles::Alp alp;
       // test_compression(alp, stats, doubles.data, doubles.count, perf, 1);
       // test_compression(alp, stats, doubles.data, doubles.count, perf, 2);
       test_compression(alp, stats, doubles.data, doubles.count, perf, 3);
+
+      perf.setParam("scheme", "alprd");
+      doubles::AlpRD alprd;
+      // test_compression(alp, stats, doubles.data, doubles.count, perf, 1);
+      // test_compression(alp, stats, doubles.data, doubles.count, perf, 2);
+      test_compression(alprd, stats, doubles.data, doubles.count, perf, 3);
 
 
       perf.setParam("scheme", "dict");

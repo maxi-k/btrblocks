@@ -28,6 +28,7 @@
 #include "scheme/double/Pseudodecimal.hpp"
 #include "scheme/double/RLE.hpp"
 #include "scheme/double/AlpRD.hpp"
+#include "scheme/double/Alp.hpp"
 #include "scheme/double/Uncompressed.hpp"
 // legacy schemes
 #include "scheme/double/DoubleBP.hpp"
@@ -117,6 +118,7 @@ SchemesCollection::SchemesCollection() {
                  Frequency,
                  Decimal,
                  AlpRD,
+                 Alp,
                  DoubleBP,
                  Dictionary8,
                  Dictionary16>(double_schemes, cfg.doubles.schemes);

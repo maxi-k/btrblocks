@@ -95,7 +95,7 @@ u32 MaxExponent::compress(const DOUBLE* src,
       cout.precision(std::numeric_limits<double>::max_digits10);
       double wtf = current_double * 1000000.0;
       cout << src[row_i] << '\t' << current_double << '\t' << wtf << endl;
-      not_convertable++;
+      // not_convertable++;
       printDouble(current_double);
     }
   }

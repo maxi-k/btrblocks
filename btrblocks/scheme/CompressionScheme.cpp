@@ -123,6 +123,8 @@ string ConvertSchemeTypeToString(DoubleSchemeType type) {
       return "PSEUDODECIMAL";
     case DoubleSchemeType::ALP_RD:
       return "ALP_RD";
+    case DoubleSchemeType::ALP:
+      return "ALP";
     case DoubleSchemeType::RLE:
       return "RLE";
     case DoubleSchemeType::DICT:
