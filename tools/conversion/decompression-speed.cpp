@@ -5,7 +5,6 @@
 #include <random>
 #include <thread>
 // -------------------------------------------------------------------------------------
-#define TBB_PREVIEW_GLOBAL_CONTROL 1
 #include "gflags/gflags.h"
 #include "tbb/global_control.h"
 #include "tbb/parallel_for.h"
@@ -313,11 +312,11 @@ int main(int argc, char **argv) {
 
   if (FLAGS_output_summary) {
     double average_runtime = static_cast<double>(total_runtime) / static_cast<double>(FLAGS_reps);
-    double mb = static_cast<double>(total_size_verify) / (1024.0 * 1024.0);
+    double mb = static_cast<double>(total_size) / (1024.0 * 1024.0);
     double s = average_runtime / (1000.0 * 1000.0);
     double mbs = mb / s;
 
-    std::cout << std::to_string(average_runtime) << ", " << total_compressed_size  << ", " << total_size_verify << ", " << std::to_string((double)total_size_verify / (double)total_compressed_size) << '\n';
+    std::cout << std::to_string(average_runtime) << ", " << total_compressed_size << ", " << total_size  << ", " << total_size_verify << ", " << std::to_string((double)total_size / (double)total_compressed_size) << '\n';
 
     /* std::cout << "Total:"
               << " " << total_compressed_size << " Bytes"
