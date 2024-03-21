@@ -9,56 +9,6 @@
 // -------------------------------------------------------------------------------------
 namespace btrblocks::doubles {
 // -------------------------------------------------------------------------------------
-struct AlpEncodingIndices {
-  uint8_t exponent;
-  uint8_t factor;
-
-  AlpEncodingIndices(uint8_t exponent, uint8_t factor) : exponent(exponent), factor(factor) {
-  }
-
-  AlpEncodingIndices() : exponent(0), factor(0) {
-  }
-};
-
-struct AlpEncodingIndicesEquality {
-  bool operator()(const AlpEncodingIndices &a, const AlpEncodingIndices &b) const {
-    return a.exponent == b.exponent && a.factor == b.factor;
-  }
-};
-
-typedef uint64_t hash_t;
-struct AlpEncodingIndicesHash {
-  hash_t operator()(const AlpEncodingIndices &encoding_indices) const {
-    uint8_t h1 = std::hash<uint8_t>{}(encoding_indices.exponent);
-    uint8_t h2 = std::hash<uint8_t>{}(encoding_indices.factor);
-    return h1 ^ h2;
-  }
-};
-
-struct AlpStructure {
-  // ---------------------------------------------------------------------------------
-  u32 patches_offset;
-  u32 exceptions_offset;
-  // ---------------------------------------------------------------------------------
-  u32 encoded_count;
-  u32 exceptions_count;
-  AlpEncodingIndices vector_encoding_indices;
-  u8 encoding_scheme, patches_scheme, exceptions_scheme;
-  // ---------------------------------------------------------------------------------
-  u8 data[]; // here should be values_encoded, patches, exceptions_map
-};
-
-struct AlpCombination {
-  AlpEncodingIndices encoding_indices;
-  uint64_t n_appearances;
-  uint64_t estimated_compression_size;
-
-  AlpCombination(AlpEncodingIndices encoding_indices, uint64_t n_appearances, uint64_t estimated_compression_size)
-      : encoding_indices(encoding_indices), n_appearances(n_appearances),
-        estimated_compression_size(estimated_compression_size) {
-  }
-};
-// -------------------------------------------------------------------------------------
 class Alp : public DoubleScheme {
  public:
   u32 compress(const DOUBLE* src,
@@ -75,6 +25,56 @@ class Alp : public DoubleScheme {
   std::string fullDescription(const u8* src) override;
   inline DoubleSchemeType schemeType() override { return staticSchemeType(); }
   inline static DoubleSchemeType staticSchemeType() { return DoubleSchemeType::ALP; }
+
+  struct EncodingIndices {
+    uint8_t exponent;
+    uint8_t factor;
+
+    EncodingIndices(uint8_t exponent, uint8_t factor) : exponent(exponent), factor(factor) {
+    }
+
+    EncodingIndices() : exponent(0), factor(0) {
+    }
+  };
+
+  struct EncodingIndicesEquality {
+    bool operator()(const EncodingIndices &a, const EncodingIndices &b) const {
+      return a.exponent == b.exponent && a.factor == b.factor;
+    }
+  };
+
+  typedef uint64_t hash_t;
+  struct EncodingIndicesHash {
+    hash_t operator()(const EncodingIndices &encoding_indices) const {
+      uint8_t h1 = std::hash<uint8_t>{}(encoding_indices.exponent);
+      uint8_t h2 = std::hash<uint8_t>{}(encoding_indices.factor);
+      return h1 ^ h2;
+    }
+  };
+
+  struct IndicesAppearancesCombination {
+    EncodingIndices encoding_indices;
+    uint64_t n_appearances;
+    uint64_t estimated_compression_size;
+
+    IndicesAppearancesCombination(EncodingIndices encoding_indices, uint64_t n_appearances, uint64_t estimated_compression_size)
+        : encoding_indices(encoding_indices), n_appearances(n_appearances),
+          estimated_compression_size(estimated_compression_size) {
+    }
+  };
+};
+// -------------------------------------------------------------------------------------
+struct AlpStructure {
+  // ---------------------------------------------------------------------------------
+  u32 exceptions_positions_offset;
+  u32 exceptions_offset;
+  // ---------------------------------------------------------------------------------
+  u32 encoded_count;
+  u32 exceptions_count;
+  Alp::EncodingIndices vector_encoding_indices;
+  u8 encoding_scheme, exceptions_positions_scheme, exceptions_scheme;
+  // ---------------------------------------------------------------------------------
+  u8 data[]; // here should be values_encoded, patches, exceptions_map
 };
 // -------------------------------------------------------------------------------------
 } // namespace btrblocks::doubles

@@ -10,6 +10,7 @@
 #include <cmath>
 #include <iomanip>
 #include <roaring/roaring.hh>
+#include <immintrin.h>
 // -------------------------------------------------------------------------------------
 using namespace std;
 // -------------------------------------------------------------------------------------
@@ -19,10 +20,6 @@ using namespace std;
 // - https://github.com/duckdb/duckdb/pull/9635/
 // -------------------------------------------------------------------------------------
 namespace btrblocks::doubles {
-// -------------------------------------------------------------------------------------
-// make future generalization to floats easier
-using T = DOUBLE;
-using ExactType = uint64_t;
 // -------------------------------------------------------------------------------------
 bool Alp::isUsable(DoubleStats& stats) {
   // TODO
@@ -146,8 +143,8 @@ static int64_t NumberToInt64(double n) {
 /*
 	 * Encoding a single value with ALP
  */
-static int64_t EncodeValue(T value, AlpEncodingIndices encoding_indices) {
-  T tmp_encoded_value = value * EXP_ARR[encoding_indices.exponent] *
+static int64_t EncodeValue(DOUBLE value, Alp::EncodingIndices encoding_indices) {
+  DOUBLE tmp_encoded_value = value * EXP_ARR[encoding_indices.exponent] *
                         FRAC_ARR[encoding_indices.factor];
   int64_t encoded_value = NumberToInt64(tmp_encoded_value);
   return encoded_value;
@@ -156,11 +153,31 @@ static int64_t EncodeValue(T value, AlpEncodingIndices encoding_indices) {
 /*
 	 * Decoding a single value with ALP
  */
-static T DecodeValue(int64_t encoded_value, AlpEncodingIndices encoding_indices) {
+static DOUBLE DecodeValue(int64_t encoded_value, Alp::EncodingIndices encoding_indices) {
   //! The cast to T is needed to prevent a signed integer overflow
-  T decoded_value = static_cast<T>(encoded_value) * FACT_ARR[encoding_indices.factor] *
+  DOUBLE decoded_value = static_cast<DOUBLE>(encoded_value * FACT_ARR[encoding_indices.factor]) *
                     FRAC_ARR[encoding_indices.exponent];
   return decoded_value;
+}
+
+inline __m256d int64_to_double256(__m256i x){                   /*  Mysticial's fast int64_to_double. Works for inputs in the range: (-2^51, 2^51)  */
+  x = _mm256_add_epi64(x, _mm256_castpd_si256(_mm256_set1_pd(0x0018000000000000)));
+  return _mm256_sub_pd(_mm256_castsi256_pd(x), _mm256_set1_pd(0x0018000000000000));
+}
+
+static __m256d DecodeValue(__m256i encoded_value, Alp::EncodingIndices encoding_indices) {
+  // Load factor and exponent from encoding_indices into SIMD registers
+  __m256d factor = _mm256_set1_pd(static_cast<double>(FACT_ARR[encoding_indices.factor]));
+  __m256d exponent = _mm256_set1_pd(FRAC_ARR[encoding_indices.exponent]);
+
+  // Convert encoded_value to double precision floating point SIMD register
+  __m256d encoded_double = int64_to_double256(encoded_value);
+
+  // Multiply encoded_value with factorClang-Tidy: '_mm256_mul_pd' is a non-portable x86_64 intrinsic function
+  __m256d scaled_value = _mm256_mul_pd(encoded_double, factor);
+
+  // Multiply scaled_value with exponent
+  return _mm256_mul_pd(scaled_value, exponent);
 }
 
 /*
@@ -170,7 +187,7 @@ static T DecodeValue(int64_t encoded_value, AlpEncodingIndices encoding_indices)
 	 * Third criteria is bigger exponent
 	 * Fourth criteria is bigger factor
  */
-static bool CompareALPCombinations(const AlpCombination &c1, const AlpCombination &c2) {
+static bool CompareALPCombinations(const Alp::IndicesAppearancesCombination &c1, const Alp::IndicesAppearancesCombination &c2) {
   return (c1.n_appearances > c2.n_appearances) ||
          (c1.n_appearances == c2.n_appearances &&
           (c1.estimated_compression_size < c2.estimated_compression_size)) ||
@@ -187,18 +204,18 @@ static bool CompareALPCombinations(const AlpCombination &c1, const AlpCombinatio
 	 * Dry compress a vector (ideally a sample) to estimate ALP compression size given a exponent and factor
  */
 template <bool PENALIZE_EXCEPTIONS>
-static uint64_t DryCompressToEstimateSize(const vector<T> &input_vector, AlpEncodingIndices encoding_indices) {
+static uint64_t DryCompressToEstimateSize(const vector<DOUBLE> &input_vector, Alp::EncodingIndices encoding_indices) {
   size_t n_values = input_vector.size();
   size_t exceptions_count = 0;
   size_t non_exceptions_count = 0;
-  uint32_t estimated_bits_per_value = 0;
+  uint32_t estimated_bits_per_value;
   uint64_t estimated_compression_size = 0;
   int64_t max_encoded_value = std::numeric_limits<int64_t>::lowest();
   int64_t min_encoded_value = std::numeric_limits<int64_t>::max();
 
-  for (const T &value : input_vector) {
+  for (const DOUBLE &value : input_vector) {
     int64_t encoded_value = EncodeValue(value, encoding_indices);
-    T decoded_value = DecodeValue(encoded_value, encoding_indices);
+    DOUBLE decoded_value = DecodeValue(encoded_value, encoding_indices);
     if (decoded_value == value) {
       non_exceptions_count++;
       max_encoded_value = std::max(encoded_value, max_encoded_value);
@@ -227,13 +244,13 @@ static uint64_t DryCompressToEstimateSize(const vector<T> &input_vector, AlpEnco
 	 * This function is called once per segment
 	 * This operates over ALP first level samples
  */
-static vector<AlpCombination> FindTopKCombinations(const vector<vector<T>> &vectors_sampled) {
-  unordered_map<AlpEncodingIndices, uint64_t, AlpEncodingIndicesHash, AlpEncodingIndicesEquality>
+static vector<Alp::IndicesAppearancesCombination> FindTopKCombinations(const vector<vector<DOUBLE>> &vectors_sampled) {
+  unordered_map<Alp::EncodingIndices, uint64_t, Alp::EncodingIndicesHash, Alp::EncodingIndicesEquality>
       best_k_combinations_hash;
   // For each vector sampled
   for (auto &sampled_vector : vectors_sampled) {
     size_t n_samples = sampled_vector.size();
-    AlpEncodingIndices best_encoding_indices = {MAX_EXPONENT,
+    Alp::EncodingIndices best_encoding_indices = {MAX_EXPONENT,
                                                 MAX_EXPONENT};
 
     //! We start our optimization with the worst possible total bits obtained from compression
@@ -241,14 +258,14 @@ static vector<AlpCombination> FindTopKCombinations(const vector<vector<T>> &vect
                              (n_samples * EXACT_TYPE_BITSIZE);
 
     // N of appearances is irrelevant at this phase; we search for the best compression for the vector
-    AlpCombination best_combination = {best_encoding_indices, 0, best_total_bits};
+    Alp::IndicesAppearancesCombination best_combination = {best_encoding_indices, 0, best_total_bits};
     //! We try all combinations in search for the one which minimize the compression size
     for (int8_t exp_idx = MAX_EXPONENT; exp_idx >= 0; exp_idx--) {
       for (int8_t factor_idx = exp_idx; factor_idx >= 0; factor_idx--) {
-        AlpEncodingIndices current_encoding_indices = {(uint8_t)exp_idx, (uint8_t)factor_idx};
+        Alp::EncodingIndices current_encoding_indices = {static_cast<uint8_t>(exp_idx), static_cast<uint8_t>(factor_idx)};
         uint64_t estimated_compression_size =
             DryCompressToEstimateSize<true>(sampled_vector, current_encoding_indices);
-        AlpCombination current_combination = {current_encoding_indices, 0, estimated_compression_size};
+        Alp::IndicesAppearancesCombination current_combination = {current_encoding_indices, 0, estimated_compression_size};
         if (CompareALPCombinations(current_combination, best_combination)) {
           best_combination = current_combination;
         }
@@ -259,7 +276,7 @@ static vector<AlpCombination> FindTopKCombinations(const vector<vector<T>> &vect
 
   // Convert our hash to a Combination vector to be able to sort
   // Note that this vector is always small (< 10 combinations)
-  vector<AlpCombination> best_k_combinations;
+  vector<Alp::IndicesAppearancesCombination> best_k_combinations;
   for (auto const &combination : best_k_combinations_hash) {
     best_k_combinations.emplace_back(
         combination.first,  // Encoding Indices
@@ -270,9 +287,9 @@ static vector<AlpCombination> FindTopKCombinations(const vector<vector<T>> &vect
   sort(best_k_combinations.begin(), best_k_combinations.end(), CompareALPCombinations);
 
   // Save k' best combinations
-  vector<AlpCombination> max_best_k_combinations;
+  vector<Alp::IndicesAppearancesCombination> max_best_k_combinations;
 
-  for (size_t i = 0; i < std::min(MAX_COMBINATIONS, (uint8_t)best_k_combinations.size()); i++) {
+  for (size_t i = 0; i < std::min(MAX_COMBINATIONS, static_cast<uint8_t>(best_k_combinations.size())); i++) {
     max_best_k_combinations.push_back(best_k_combinations[i]);
   }
 
@@ -283,15 +300,15 @@ static vector<AlpCombination> FindTopKCombinations(const vector<vector<T>> &vect
 	 * Find the best combination of factor-exponent for a vector from within the best k combinations
 	 * This is ALP second level sampling
  */
-static AlpEncodingIndices FindBestFactorAndExponent(const T *input_vector, size_t n_values, vector<AlpCombination>& best_k_combinations) {
+static Alp::EncodingIndices FindBestFactorAndExponent(const DOUBLE *input_vector, size_t n_values, vector<Alp::IndicesAppearancesCombination>& best_k_combinations) {
   //! We sample equidistant values within a vector; to do this we skip a fixed number of values
-  vector<T> vector_sample;
-  uint32_t idx_increments = std::max(1, (int32_t)std::ceil((double)n_values / SAMPLES_PER_VECTOR));
+  vector<DOUBLE> vector_sample;
+  uint32_t idx_increments = std::max(1, static_cast<int32_t>(std::ceil(static_cast<double>(n_values) / SAMPLES_PER_VECTOR)));
   for (size_t i = 0; i < n_values; i += idx_increments) {
     vector_sample.push_back(input_vector[i]);
   }
 
-  AlpEncodingIndices best_encoding_indices = {0, 0};
+  Alp::EncodingIndices best_encoding_indices = {0, 0};
   uint64_t best_total_bits = std::numeric_limits<int64_t>::max();
   size_t worse_total_bits_counter = 0;
 
@@ -317,15 +334,15 @@ static AlpEncodingIndices FindBestFactorAndExponent(const T *input_vector, size_
   return best_encoding_indices;
 }
 
-static vector<AlpCombination> getTopKCombinations(btrblocks::DoubleStats& stats) {
-  tuple<vector<T>, vector<BITMAP>> sample_tuple = stats.samples(RG_SAMPLES, SAMPLES_PER_VECTOR);
-  vector<T>& sampleCon = std::get<0>(sample_tuple);
+static vector<Alp::IndicesAppearancesCombination> getTopKCombinations(btrblocks::DoubleStats& stats) {
+  tuple<vector<DOUBLE>, vector<BITMAP>> sample_tuple = stats.samples(RG_SAMPLES, SAMPLES_PER_VECTOR);
+  vector<DOUBLE>& sampleCon = std::get<0>(sample_tuple);
 
-  vector<vector<T>> vectors_sampled;
+  vector<vector<DOUBLE>> vectors_sampled;
 
   for (size_t t = 0; t < sampleCon.size();) {
     size_t upper_limit = t == RG_SAMPLES - 1 ? sampleCon.size() : t + SAMPLES_PER_VECTOR;
-    vectors_sampled.emplace_back(&sampleCon[t],&sampleCon[upper_limit]);
+    vectors_sampled.emplace_back(&sampleCon[t], &sampleCon[upper_limit]);
     t += SAMPLES_PER_VECTOR;
   }
 
@@ -347,18 +364,19 @@ u32 Alp::compress(const DOUBLE* src,
   // first we need to find the best exponent and factor
   auto best_k_combinations = getTopKCombinations(stats);
   col_struct.vector_encoding_indices = FindBestFactorAndExponent(src, stats.tuple_count, best_k_combinations);
-  AlpEncodingIndices& vector_encoding_indices = col_struct.vector_encoding_indices;
+  Alp::EncodingIndices& vector_encoding_indices = col_struct.vector_encoding_indices;
 
-  std::cout << "vector_encoding_indices exp: " << unsigned(vector_encoding_indices.exponent) << " factor: " << unsigned(vector_encoding_indices.factor) << std::endl;
+  std::cout << "vector_encoding_indices exp: " << static_cast<unsigned>(vector_encoding_indices.exponent) << " factor: " << static_cast<unsigned>(vector_encoding_indices.factor) << '\n';
 
 
   // Encoding Floating-Point to Int64
   //! We encode all the values regardless of their correctness to recover the original floating-point
   for (size_t i = 0; i < stats.tuple_count; i++) {
-    T actual_value = src[i];
+    DOUBLE actual_value = src[i];
     int64_t encoded_value = EncodeValue(actual_value, vector_encoding_indices);
-    T decoded_value = DecodeValue(encoded_value, vector_encoding_indices);
-    encoded_integers[i] = encoded_value;
+    DOUBLE decoded_value = DecodeValue(encoded_value, vector_encoding_indices);
+    // TODO: THIS DOESNT SEEM TO BE VERY EFFICIENT (DUCKDB DOES THIS BETTER)
+    encoded_integers[i] = decoded_value != actual_value ? 0 : encoded_value;
     //! We detect exceptions using a predicated comparison
     auto is_exception = (decoded_value != actual_value);
     if (is_exception) {
@@ -381,7 +399,7 @@ u32 Alp::compress(const DOUBLE* src,
   // Replacing that first non exception value on the vector exceptions
   for (size_t i = 0; i < exceptions.size(); i++) {
     size_t exception_pos = exceptions_positions[i];
-    T actual_value = src[exception_pos];
+    DOUBLE actual_value = src[exception_pos];
     encoded_integers[exception_pos] = a_non_exception_value;
     exceptions[i] = actual_value;
   }
@@ -390,7 +408,6 @@ u32 Alp::compress(const DOUBLE* src,
 
   auto write_ptr = col_struct.data;
 
-  // Analyze FFOR
   // compress encoded_integers with special shit
   if  (!encoded_integers.empty()) {
     u32 used_space;
@@ -403,15 +420,15 @@ u32 Alp::compress(const DOUBLE* src,
   }
 
   // compress patches
-  col_struct.patches_offset = write_ptr - col_struct.data;
+  col_struct.exceptions_positions_offset = write_ptr - col_struct.data;
   {
     u32 used_space;
     IntegerSchemePicker::compress(reinterpret_cast<INTEGER*>(exceptions_positions.data()), nullptr,
                                   write_ptr, exceptions_positions.size(), allowed_cascading_level - 1,
-                                  used_space, col_struct.patches_scheme, autoScheme(),
+                                  used_space, col_struct.exceptions_positions_scheme, autoScheme(),
                                   "patches");
     write_ptr += used_space;
-    Log::debug("Alp patches c = {} s = {}", CI(col_struct.patches_scheme), CI(used_space));
+    Log::debug("Alp patches c = {} s = {}", CI(col_struct.exceptions_positions_scheme), CI(used_space));
   }
 
   col_struct.exceptions_offset = write_ptr - col_struct.data;
@@ -422,7 +439,7 @@ u32 Alp::compress(const DOUBLE* src,
         reinterpret_cast<DOUBLE*>(exceptions.data()), nullptr, write_ptr, exceptions.size(), allowed_cascading_level - 1,
         used_space, col_struct.exceptions_scheme, autoScheme(), "alp encoded integers");
     write_ptr += used_space;
-    Log::debug("Alp right c = {} s = {}", CI(col_struct.exceptions_scheme), CI(used_space));
+    Log::debug("Alp exceptions c = {} s = {}", CI(col_struct.exceptions_scheme), CI(used_space));
   }
 
   return write_ptr - dest;
@@ -446,7 +463,7 @@ void Alp::decompress(DOUBLE* dest,
   auto exceptions_ptr = get_level_data(exceptions_v, col_struct.exceptions_count, level);
   auto patches_ptr = get_level_data(patches_v, col_struct.exceptions_count, level);
 
-  AlpEncodingIndices encodingIndices = col_struct.vector_encoding_indices;
+  Alp::EncodingIndices encodingIndices = col_struct.vector_encoding_indices;
 
   // unconditionally decompress dictionary and right part
   Int64Scheme& encoded_scheme =
@@ -455,8 +472,8 @@ void Alp::decompress(DOUBLE* dest,
                             col_struct.encoded_count, level + 1);
 
   IntegerScheme& exception_positions_scheme =
-      IntegerSchemePicker::MyTypeWrapper::getScheme(col_struct.patches_scheme);
-  exception_positions_scheme.decompress(patches_v[level].data(), nullptr, col_struct.data + col_struct.patches_offset,
+      IntegerSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_positions_scheme);
+  exception_positions_scheme.decompress(patches_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_positions_offset,
                                         col_struct.exceptions_count, level + 1);
 
   DoubleScheme& exceptions_scheme =
@@ -464,16 +481,36 @@ void Alp::decompress(DOUBLE* dest,
   exceptions_scheme.decompress(exceptions_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_offset,
                                col_struct.exceptions_count, level + 1);
 
+  // TODO: THIS SHOULD ALL BE SIMDED
+  // https://godbolt.org/z/83YWW6K7x
+
+  // static DOUBLE DecodeValue(int64_t encoded_value, Alp::EncodingIndices encoding_indices) {
+  //   //! The cast to T is needed to prevent a signed integer overflow
+  //   DOUBLE decoded_value = static_cast<DOUBLE>(encoded_value * FACT_ARR[encoding_indices.factor]) *
+  //                          FRAC_ARR[encoding_indices.exponent];
+  //   return decoded_value;
+  // }
+
   // decompress left part if not everything is a patch
   if (col_struct.encoded_count > 0) {
+    // TODO: MAYBE THINK ABOUT USING ALIGNED LOADS
     // Decode
-    for (u32 i = 0; i != col_struct.encoded_count; ++i) {
-      auto encoded_integer = static_cast<int64_t>(encoded_integer_ptr[i]);
-      exact_dest[i] = DecodeValue(encoded_integer, encodingIndices);
+    auto write_ptr = dest;
+    auto read_ptr = encoded_integer_ptr;
+    auto target_ptr = exact_dest + col_struct.encoded_count;
+
+    while (write_ptr < target_ptr) {
+      __m256i encoded_integers = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(read_ptr));
+      __m256d decoded_values = DecodeValue(encoded_integers, encodingIndices);
+      _mm256_storeu_pd(write_ptr, decoded_values);
+
+      write_ptr += 4;
+      read_ptr += 4;
     }
   }
 
   // patches
+  // TODO: SCATTER/GATHER WOULD BE NEEDED HERE NOT AVAILABLE IN AVX2
   for (u32 i = 0; i != col_struct.exceptions_count; i++) {
     exact_dest[patches_ptr[i]] = exceptions_ptr[i];
   }
