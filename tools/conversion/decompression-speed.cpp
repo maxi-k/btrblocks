@@ -317,7 +317,7 @@ int main(int argc, char **argv) {
     double s = average_runtime / (1000.0 * 1000.0);
     double mbs = mb / s;
 
-    std::cout << std::to_string(average_runtime) << ", " << total_compressed_size << ", " << total_size  << ", " << total_size_verify << ", " << std::to_string((double)total_size / (double)total_compressed_size) << '\n';
+    std::cout << std::to_string(average_runtime) << ", " << total_compressed_size  << ", " << total_size_verify << ", " << std::to_string((double)total_size_verify / (double)total_compressed_size) << '\n';
 
     /* std::cout << "Total:"
               << " " << total_compressed_size << " Bytes"
