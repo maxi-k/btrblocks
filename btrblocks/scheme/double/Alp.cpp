@@ -481,28 +481,27 @@ void Alp::decompress(DOUBLE* dest,
   // TODO: THIS SHOULD ALL BE SIMDED
   // https://godbolt.org/z/83YWW6K7x
 
-  // static DOUBLE DecodeValue(int64_t encoded_value, Alp::EncodingIndices encoding_indices) {
-  //   //! The cast to T is needed to prevent a signed integer overflow
-  //   DOUBLE decoded_value = static_cast<DOUBLE>(encoded_value * FACT_ARR[encoding_indices.factor]) *
-  //                          FRAC_ARR[encoding_indices.exponent];
-  //   return decoded_value;
-  // }
-
   // decompress left part if not everything is a patch
   if (col_struct.encoded_count > 0) {
     // TODO: MAYBE THINK ABOUT USING ALIGNED LOADS
     // Decode
-    auto write_ptr = dest;
+    auto write_ptr = exact_dest;
     auto read_ptr = encoded_integer_ptr;
     auto target_ptr = exact_dest + col_struct.encoded_count;
+    auto target_read_ptr = exact_dest + col_struct.encoded_count;
 
-    while (write_ptr < target_ptr) {
+    while (write_ptr + 4 < target_ptr) {
       __m256i encoded_integers = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(read_ptr));
       __m256d decoded_values = DecodeValue(encoded_integers, encodingIndices);
       _mm256_storeu_pd(write_ptr, decoded_values);
 
       write_ptr += 4;
       read_ptr += 4;
+    }
+
+    while (write_ptr < target_ptr) {
+      auto encoded_integer = static_cast<int64_t>(*(read_ptr++));
+      *(write_ptr++) = DecodeValue(encoded_integer, encodingIndices);
     }
   }
 
