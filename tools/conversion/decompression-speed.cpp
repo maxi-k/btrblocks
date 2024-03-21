@@ -5,6 +5,7 @@
 #include <random>
 #include <thread>
 // -------------------------------------------------------------------------------------
+#define TBB_PREVIEW_GLOBAL_CONTROL 1
 #include "gflags/gflags.h"
 #include "tbb/global_control.h"
 #include "tbb/parallel_for.h"
