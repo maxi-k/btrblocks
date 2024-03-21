@@ -151,7 +151,7 @@ bool OneValue::decompressNoCopy(u8* dest,
                                 const u8* src,
                                 u32 tuple_count,
                                 u32) {
-  if (nullmap->type() == BitmapType::ALLZEROS) {
+  if (nullmap && nullmap->type() == BitmapType::ALLZEROS) {
     return true;
   }
 

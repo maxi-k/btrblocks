@@ -14,11 +14,14 @@ Column::Column(const ColumnType type,
     case ColumnType::INTEGER:
       data.emplace<0>(data_path.c_str());
       break;
-    case ColumnType::DOUBLE:
+    case ColumnType::INT64:
       data.emplace<1>(data_path.c_str());
       break;
-    case ColumnType::STRING:
+    case ColumnType::DOUBLE:
       data.emplace<2>(data_path.c_str());
+      break;
+    case ColumnType::STRING:
+      data.emplace<3>(data_path.c_str());
       break;
     default:
       UNREACHABLE();
@@ -35,6 +38,8 @@ Column::Column(string name, Data&& data, Vector<BITMAP>&& bitmap)
           return ColumnType::DOUBLE;
         } else if (std::holds_alternative<Vector<str>>(d)) {
           return ColumnType::STRING;
+        } else if (std::holds_alternative<Vector<INT64>>(d)) {
+          return ColumnType::INT64;
         } else {
           UNREACHABLE();
         }
@@ -52,12 +57,16 @@ const Vector<INTEGER>& Column::integers() const {
   return std::get<0>(data);
 }
 // -------------------------------------------------------------------------------------
-const Vector<DOUBLE>& Column::doubles() const {
+const Vector<INT64>& Column::int64s() const {
   return std::get<1>(data);
 }
 // -------------------------------------------------------------------------------------
-const Vector<str>& Column::strings() const {
+const Vector<DOUBLE>& Column::doubles() const {
   return std::get<2>(data);
+}
+// -------------------------------------------------------------------------------------
+const Vector<str>& Column::strings() const {
+  return std::get<3>(data);
 }
 // -------------------------------------------------------------------------------------
 const Vector<BITMAP>& Column::bitmaps() const {
@@ -72,6 +81,9 @@ SIZE Column::sizeInBytes() const {
   switch (type) {
     case ColumnType::INTEGER:
       return integers().size() * sizeof(INTEGER);
+      break;
+    case ColumnType::INT64:
+      return int64s().size() * sizeof(INTEGER);
       break;
     case ColumnType::DOUBLE:
       return doubles().size() * sizeof(DOUBLE);

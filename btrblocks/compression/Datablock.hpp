@@ -1,6 +1,6 @@
 #pragma once
 // -------------------------------------------------------------------------------------
-#include "compression/Compressor.hpp"
+#include "Compressor.hpp"
 #include "scheme/CompressionScheme.hpp"
 #include "storage/Chunk.hpp"
 // -------------------------------------------------------------------------------------

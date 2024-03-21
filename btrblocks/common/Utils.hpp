@@ -4,12 +4,21 @@
 #include <cstring>
 #include <fstream>
 // -------------------------------------------------------------------------------------
-#include "common/Units.hpp"
+#include "Units.hpp"
 // -------------------------------------------------------------------------------------
 namespace btrblocks {
 // -------------------------------------------------------------------------------------
 class Utils {
  public:
+  template <typename F>
+  struct defer {
+    F fn;
+    [[nodiscard]] explicit defer(F fn) : fn(fn) {}
+    defer(const defer& o) = delete;
+    defer(defer&& o) = delete;
+    ~defer() { fn(); }
+  };
+
   static constexpr u64 alignBy(u64 num, u64 alignment, u64& diff) {
     u64 new_num = (num + alignment - 1) & ~(alignment - 1);
     diff = new_num - num;
@@ -26,6 +35,13 @@ class Utils {
   static constexpr u32 getBitsNeeded(s32 input) {
     if (input < 0) {
       return 32;
+    }
+    return std::max(std::floor(std::log2(input)) + 1, 1.0);
+  }
+
+  static constexpr u32 getBitsNeeded(s64 input) {
+    if (input < 0) {
+      return 64;
     }
     return std::max(std::floor(std::log2(input)) + 1, 1.0);
   }

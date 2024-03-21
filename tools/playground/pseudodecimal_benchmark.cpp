@@ -8,6 +8,8 @@
 #include "scheme/double/Frequency.hpp"
 #include "scheme/double/RLE.hpp"
 #include "scheme/double/DoubleBP.hpp"
+#include "scheme/double/AlpRD.hpp"
+#include "scheme/double/Alp.hpp"
 #include "scheme/integer/PBP.hpp"
 #include "scheme/double/Pseudodecimal.hpp"
 #include "scheme/CompressionScheme.hpp"
@@ -47,7 +49,7 @@ std::string ensure_file(const std::string& object) {
   _cmd << "bash -c 'mkdir -p columns; test -f \"" << outfile
        << "\" && echo \"file exists, skipping download\" || (echo "
           "\"downloading file\"; aws s3 cp \""
-       << bucket << object << "\" \"" << outfile << "\")'";
+       << bucket << object << "\" \"" << outfile << "\"" << " --no-sign" << ")'";
   std::string cmd(_cmd.str());
   spdlog::info("running {}", cmd);
   system(cmd.c_str());
@@ -71,6 +73,11 @@ bool test_compression(DoubleScheme &scheme, DoubleStats& stats, T* src, size_t s
       output_bytes = scheme.compress(src_ptr, nullptr, compressed_ptr, stats, cascade);
       //std::cout << "cf: " << 1.0 * size * sizeof(T) / output_bytes << std::endl;
       e.setParam("compr", (1.0 * size * sizeof(T)) / output_bytes);
+    }
+
+    if (output_bytes == std::numeric_limits<uint32_t>::max()) {
+      std::cerr << "Compression with " << ConvertSchemeTypeToString(scheme.schemeType()) << " failed." << std::endl;
+      return 1;
     }
 
     e.setParam("phase", "decompression");
@@ -145,27 +152,48 @@ int main(int argc, char *argv[]) {
         stats = DoubleStats::generateStats(doubles.data, nullptr, doubles.size());
       }
 
-      perf.setParam("scheme", "bitpack");
-      doubles::DoubleBP bp;
-      test_compression(bp, stats, doubles.data, doubles.count, perf, 0);
+      // perf.setParam("scheme", "bitpack");
+      // doubles::DoubleBP bp;
+      // test_compression(bp, stats, doubles.data, doubles.count, perf, 0);
 
-      perf.setParam("scheme", "decimal");
-      doubles::Decimal pd;
-      test_compression(pd, stats, doubles.data, doubles.count, perf, 1);
-      test_compression(pd, stats, doubles.data, doubles.count, perf, 2);
+      // perf.setParam("scheme", "decimal");
+      // doubles::Decimal pd;
+      // // test_compression(pd, stats, doubles.data, doubles.count, perf, 1);
+      // // test_compression(pd, stats, doubles.data, doubles.count, perf, 2);
+      // test_compression(pd, stats, doubles.data, doubles.count, perf, 3);
+
+      perf.setParam("scheme", "alp");
+      doubles::Alp alp;
+      // test_compression(alp, stats, doubles.data, doubles.count, perf, 1);
+      // test_compression(alp, stats, doubles.data, doubles.count, perf, 2);
+      test_compression(alp, stats, doubles.data, doubles.count, perf, 3);
+
+      perf.setParam("scheme", "alprd");
+      doubles::AlpRD alprd;
+      // test_compression(alp, stats, doubles.data, doubles.count, perf, 1);
+      // test_compression(alp, stats, doubles.data, doubles.count, perf, 2);
+      test_compression(alprd, stats, doubles.data, doubles.count, perf, 3);
+
 
       perf.setParam("scheme", "dict");
       doubles::DynamicDictionary dict;
-      test_compression(dict, stats, doubles.data, doubles.count, perf, 1);
-      test_compression(dict, stats, doubles.data, doubles.count, perf, 2);
+      // test_compression(dict, stats, doubles.data, doubles.count, perf, 1);
+      // test_compression(dict, stats, doubles.data, doubles.count, perf, 2);
+      test_compression(dict, stats, doubles.data, doubles.count, perf, 3);
+
 
       perf.setParam("scheme", "rle");
       doubles::RLE rle;
-      test_compression(rle, stats, doubles.data, doubles.count, perf, 1);
-      test_compression(dict, stats, doubles.data, doubles.count, perf, 2);
+      // test_compression(rle, stats, doubles.data, doubles.count, perf, 1);
+      // test_compression(dict, stats, doubles.data, doubles.count, perf, 2);
+      test_compression(dict, stats, doubles.data, doubles.count, perf, 3);
 
-      //perf.setParam("scheme", "freq");
-      //doubles::Frequency freq;
+
+      perf.setParam("scheme", "freq");
+      legacy::doubles::Frequency freq;
+      //test_compression(freq, stats, doubles.data, doubles.count, perf, 1);
+      //test_compression(freq, stats, doubles.data, doubles.count, perf, 2);
+      test_compression(freq, stats, doubles.data, doubles.count, perf, 3);
       //test_compression(freq, stats, doubles.data, doubles.count, perf, 1);
       //test_compression(freq, stats, doubles.data, doubles.count, perf, 2);
     }

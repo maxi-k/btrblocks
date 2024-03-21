@@ -43,6 +43,7 @@ u32 Fsst::compress(const btrblocks::StringArrayViewer src,
   // Prepare decoder and write header
   fsst_encoder_t* encoder =
       fsst_create(stats.tuple_count, input_string_lengths.get(), input_string_buffers.get(), 0);
+  Utils::defer destory_encoder([&encoder]() { fsst_destroy(encoder); });
   die_if(fsst_export(encoder, write_ptr) > 0);
   auto fsst_table_used_space = FSST_MAXHEADER;
   write_ptr += fsst_table_used_space;

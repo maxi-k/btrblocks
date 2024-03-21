@@ -32,7 +32,7 @@ void printDouble(double input) {
 namespace btrblocks::legacy::doubles {
 
 const u8 max_exponent = 22;
-const u8 exponent_exception_code = 23;
+// const u8 exponent_exception_code = 23;
 static const double exact_powers_of_ten[] = {
     1.0,  // 10^0
     10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, 10000000.0, 100000000.0, 1000000000.0,
@@ -64,7 +64,7 @@ u32 MaxExponent::compress(const DOUBLE* src,
   auto& col_struct = *reinterpret_cast<MaxExponentStructure*>(dest);
   vector<INTEGER> sd_v;
   vector<DOUBLE> p_v;  // patches
-  u32 not_convertable = 0;
+  // u32 not_convertable = 0;
   for (u32 row_i = 0; row_i < stats.tuple_count; row_i++) {
     u32 e;
     u64 sd;
@@ -80,7 +80,7 @@ u32 MaxExponent::compress(const DOUBLE* src,
       double if_converted_back = CD(sd) / exact_powers_of_ten[e];
       if (if_converted_back == current_double &&
           ((std::floor(std::log2(sd)) + 1) <= max_exponent_scheme_siginifcant_digit_bits_limit)) {
-        convertable = true;
+        // not_convertable++;
         break;
       }
     }
@@ -95,7 +95,7 @@ u32 MaxExponent::compress(const DOUBLE* src,
       cout.precision(std::numeric_limits<double>::max_digits10);
       double wtf = current_double * 1000000.0;
       cout << src[row_i] << '\t' << current_double << '\t' << wtf << endl;
-      not_convertable++;
+      // not_convertable++;
       printDouble(current_double);
     }
   }

@@ -45,6 +45,26 @@ double IntegerScheme::expectedCompressionRatio(SInteger32Stats& stats, u8 allowe
   return CD(total_before) / CD(total_after);
 }
 // -------------------------------------------------------------------------------------
+double Int64Scheme::expectedCompressionRatio(SInt64Stats& stats, u8 allowed_cascading_level) {
+  auto& cfg = BtrBlocksConfig::get();
+  auto dest = makeBytesArray(CS(cfg.sample_size) * cfg.sample_count * sizeof(INT64) * 100);
+  u32 total_before = 0;
+  u32 total_after = 0;
+  if (ThreadCache::get().estimation_level++ >= 1) {
+    total_before += stats.total_size;
+    total_after += compress(stats.src, stats.bitmap, dest.get(), stats, allowed_cascading_level);
+  } else {
+    auto sample = stats.samples(cfg.sample_count, cfg.sample_size);
+    SInt64Stats c_stats = SInt64Stats::generateStats(
+        std::get<0>(sample).data(), std::get<1>(sample).data(), std::get<0>(sample).size());
+    total_before += c_stats.total_size;
+    total_after += compress(std::get<0>(sample).data(), std::get<1>(sample).data(), dest.get(),
+                            c_stats, allowed_cascading_level);
+  }
+  ThreadCache::get().estimation_level--;
+  return CD(total_before) / CD(total_after);
+}
+// -------------------------------------------------------------------------------------
 string ConvertSchemeTypeToString(IntegerSchemeType type) {
   switch (type) {
     case IntegerSchemeType::PFOR:
@@ -77,11 +97,34 @@ string ConvertSchemeTypeToString(IntegerSchemeType type) {
       throw Generic_Exception("Unknown IntegerSchemeType");
   }
 }
+// -------------------------------------------------------------------------------------
+string ConvertSchemeTypeToString(Int64SchemeType type) {
+  switch (type) {
+    case Int64SchemeType::PFOR:
+      return "PFOR";
+    case Int64SchemeType::BP:
+      return "BP";
+    case Int64SchemeType::RLE:
+      return "RLE";
+    case Int64SchemeType::DICT:
+      return "DICT";
+    case Int64SchemeType::ONE_VALUE:
+      return "ONE_VALUE";
+    case Int64SchemeType::UNCOMPRESSED:
+      return "UNCOMPRESSED";
+    default:
+      throw Generic_Exception("Unknown Int64SchemeType");
+  }
+}
 // ------------------------------------------------------------------------------
 string ConvertSchemeTypeToString(DoubleSchemeType type) {
   switch (type) {
     case DoubleSchemeType::PSEUDODECIMAL:
       return "PSEUDODECIMAL";
+    case DoubleSchemeType::ALP_RD:
+      return "ALP_RD";
+    case DoubleSchemeType::ALP:
+      return "ALP";
     case DoubleSchemeType::RLE:
       return "RLE";
     case DoubleSchemeType::DICT:

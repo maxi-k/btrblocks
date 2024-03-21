@@ -61,6 +61,19 @@ bool Chunk::operator==(const btrblocks::Chunk& other) const {
             }
             break;
           }
+          case ColumnType::INT64: {
+            auto me = reinterpret_cast<INT64*>(columns[column_i].get())[row_i];
+            auto they = reinterpret_cast<INT64*>(other.columns[column_i].get())[row_i];
+            if (me != they) {
+              cerr << "== : INT64 column (" << relation.columns[column_i].name
+                   << ") data are not identical\t"
+                   << "row_i = " << row_i << endl
+                   << me << endl
+                   << they << endl;
+              return false;
+            }
+            break;
+          }
           case ColumnType::DOUBLE: {
             auto me = reinterpret_cast<DOUBLE*>(columns[column_i].get())[row_i];
             auto they = reinterpret_cast<DOUBLE*>(other.columns[column_i].get())[row_i];
@@ -166,6 +179,22 @@ bool InputChunk::compareContents(u8* their_data,
 
       auto their_ints = reinterpret_cast<INTEGER*>(their_data);
       auto my_ints = reinterpret_cast<INTEGER*>(this->data.get());
+      for (u64 idx = 0; idx < their_tuple_count; idx++) {
+        if (this->nullmap[idx] && my_ints[idx] != their_ints[idx]) {
+          std::cerr << "Integer data is not equal at index " << idx << " Expected: " << my_ints[idx]
+                    << " Got: " << their_ints[idx] << std::endl;
+          return false;
+        }
+      }
+      break;
+    }
+    case ColumnType::INT64: {
+      if (requires_copy) {
+        throw Generic_Exception("requires_copy not implemented for type INT64");
+      }
+
+      auto their_ints = reinterpret_cast<INT64*>(their_data);
+      auto my_ints = reinterpret_cast<INT64*>(this->data.get());
       for (u64 idx = 0; idx < their_tuple_count; idx++) {
         if (this->nullmap[idx] && my_ints[idx] != their_ints[idx]) {
           std::cerr << "Integer data is not equal at index " << idx << " Expected: " << my_ints[idx]
