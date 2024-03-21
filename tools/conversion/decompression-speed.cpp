@@ -313,7 +313,7 @@ int main(int argc, char **argv) {
 
   if (FLAGS_output_summary) {
     double average_runtime = static_cast<double>(total_runtime) / static_cast<double>(FLAGS_reps);
-    double mb = static_cast<double>(total_size) / (1024.0 * 1024.0);
+    double mb = static_cast<double>(total_size_verify) / (1024.0 * 1024.0);
     double s = average_runtime / (1000.0 * 1000.0);
     double mbs = mb / s;
 
