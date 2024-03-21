@@ -366,9 +366,6 @@ u32 Alp::compress(const DOUBLE* src,
   col_struct.vector_encoding_indices = FindBestFactorAndExponent(src, stats.tuple_count, best_k_combinations);
   Alp::EncodingIndices& vector_encoding_indices = col_struct.vector_encoding_indices;
 
-  std::cout << "vector_encoding_indices exp: " << static_cast<unsigned>(vector_encoding_indices.exponent) << " factor: " << static_cast<unsigned>(vector_encoding_indices.factor) << '\n';
-
-
   // Encoding Floating-Point to Int64
   //! We encode all the values regardless of their correctness to recover the original floating-point
   for (size_t i = 0; i < stats.tuple_count; i++) {
