@@ -69,7 +69,7 @@ using DoubleSchemeSet = SchemeSet<DoubleSchemeType>;
 constexpr DoubleSchemeSet defaultDoubleSchemes() {
   return {DoubleSchemeType::UNCOMPRESSED, DoubleSchemeType::ONE_VALUE,
           DoubleSchemeType::DICT,         DoubleSchemeType::RLE,
-          DoubleSchemeType::FREQUENCY,    DoubleSchemeType::PSEUDODECIMAL, DoubleSchemeType::ALP};
+          DoubleSchemeType::FREQUENCY,    DoubleSchemeType::PSEUDODECIMAL};
 };
 // ------------------------------------------------------------------------------
 enum class StringSchemeType : uint8_t {
