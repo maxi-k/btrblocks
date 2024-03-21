@@ -12,12 +12,10 @@
 // ------------------------------------------------------------------------------
 // External libs
 #include <gflags/gflags.h>
-#include <yaml-cpp/yaml.h>
 #include <spdlog/spdlog.h>
 #include <tbb/parallel_for.h>
-#include <tbb/task_scheduler_init.h>
+#include <yaml-cpp/yaml.h>
 #include <thread>
-#define TBB_PREVIEW_GLOBAL_CONTROL 1
 #include "tbb/global_control.h"
 // ------------------------------------------------------------------------------
 // Btr internal includes
