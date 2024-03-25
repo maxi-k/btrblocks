@@ -8,7 +8,7 @@ namespace btrblocks {
 // -------------------------------------------------------------------------------------
 class Column {
  public:
-  using Data = std::variant<Vector<INTEGER>, Vector<INT64>, Vector<DOUBLE>, Vector<str>>;
+  using Data = std::variant<Vector<INTEGER>, Vector<DOUBLE>, Vector<str>, Vector<INT64>>;
   const ColumnType type;
   const string name;
   Data data;
