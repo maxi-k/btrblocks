@@ -160,7 +160,6 @@ static DOUBLE DecodeValue(int64_t encoded_value, Alp::EncodingIndices encoding_i
   return decoded_value;
 }
 
-/*
 static __m256d int64_to_double256(__m256i x){                 //  Mysticial's fast int64_to_double. Works for inputs in the range: (-2^51, 2^51)
   x = _mm256_add_epi64(x, _mm256_castpd_si256(_mm256_set1_pd(0x0018000000000000)));
   return _mm256_sub_pd(_mm256_castsi256_pd(x), _mm256_set1_pd(0x0018000000000000));
@@ -180,7 +179,7 @@ static __m256d DecodeValue(__m256i encoded_value, Alp::EncodingIndices encoding_
   // Multiply scaled_value with exponent
   return _mm256_mul_pd(scaled_value, exponent);
 }
-*/
+
 
 /*
 	 * Return TRUE if c1 is a better combination than c2
@@ -494,12 +493,14 @@ void Alp::decompress(DOUBLE* dest,
   // https://godbolt.org/z/83YWW6K7x
 
   // decompress left part if not everything is a patch
-  /*if (col_struct.encoded_count > 0) {
+  if (col_struct.encoded_count > 0) {
+    #ifdef BTR_USE_SIMD
+
     // TODO: MAYBE THINK ABOUT USING ALIGNED LOADS
     // Decode
-    auto write_ptr = exact_dest;
+    auto write_ptr = dest;
     auto read_ptr = encoded_integer_ptr;
-    auto target_ptr = exact_dest + col_struct.encoded_count;
+    auto target_ptr = dest + col_struct.encoded_count;
 
     while (write_ptr + 4 < target_ptr) {
       __m256i encoded_integers = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(read_ptr));
@@ -514,14 +515,12 @@ void Alp::decompress(DOUBLE* dest,
       auto encoded_integer = static_cast<int64_t>(*(read_ptr++));
       *(write_ptr++) = DecodeValue(encoded_integer, encodingIndices);
     }
-  }*/
-  // decompress left part if not everything is a patch
-  if (col_struct.encoded_count > 0) {
-    // Decode
+#else
     for (u32 i = 0; i != col_struct.encoded_count; i++) {
       auto encoded_integer = static_cast<int64_t>(encoded_integer_ptr[i]);
       dest[i] = DecodeValue(encoded_integer, encodingIndices);
     }
+#endif
   }
 
   // patches
