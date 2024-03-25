@@ -55,6 +55,7 @@ void verify_or_die(const std::string& filename, const std::vector<InputChunk> &i
   thread_local std::vector<char> compressed_data;
   Utils::readFileToMemory(filename, compressed_data);
   BtrReader reader(compressed_data.data());
+  std::cout << "decompression started" << std::endl;
   for (SIZE chunk_i = 0; chunk_i < reader.getChunkCount(); chunk_i++) {
     std::vector<u8> output(reader.getDecompressedSize(chunk_i));
     bool requires_copy = reader.readColumn(output, chunk_i);
@@ -64,6 +65,7 @@ void verify_or_die(const std::string& filename, const std::vector<InputChunk> &i
       throw Generic_Exception("Decompression yields different contents");
     }
   }
+  std::cout << "decompression ended" << std::endl;
 }
 // ------------------------------------------------------------------------------
 int main(int argc, char **argv)
