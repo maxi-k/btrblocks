@@ -14,13 +14,13 @@ Column::Column(const ColumnType type,
     case ColumnType::INTEGER:
       data.emplace<0>(data_path.c_str());
       break;
-    case ColumnType::INT64:
+    case ColumnType::DOUBLE:
       data.emplace<1>(data_path.c_str());
       break;
-    case ColumnType::DOUBLE:
+    case ColumnType::STRING:
       data.emplace<2>(data_path.c_str());
       break;
-    case ColumnType::STRING:
+    case ColumnType::INT64:
       data.emplace<3>(data_path.c_str());
       break;
     default:
