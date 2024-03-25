@@ -43,7 +43,7 @@ DEFINE_bool(create_btr, false, "If false will exit after binary creation");
 DEFINE_bool(verify, true, "Verify that decompression works");
 DEFINE_int32(chunk, -1, "Select a specific chunk to measure");
 DEFINE_int32(column, -1, "Select a specific column to measure");
-DEFINE_uint32(threads, 8, "");
+DEFINE_uint32(threads, -1, "");
 // ------------------------------------------------------------------------------
 using namespace btrblocks;
 // ------------------------------------------------------------------------------
