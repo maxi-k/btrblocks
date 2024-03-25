@@ -11,7 +11,7 @@
 namespace btrblocks {
 // -------------------------------------------------------------------------------------
 Relation::Relation() {
-  columns.reserve(100);
+  columns.reserve(200);
 }
 // -------------------------------------------------------------------------------------
 void Relation::addColumn(Column&& column) {
