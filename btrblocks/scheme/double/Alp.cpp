@@ -160,7 +160,8 @@ static DOUBLE DecodeValue(int64_t encoded_value, Alp::EncodingIndices encoding_i
   return decoded_value;
 }
 
-inline __m256d int64_to_double256(__m256i x){                   /*  Mysticial's fast int64_to_double. Works for inputs in the range: (-2^51, 2^51)  */
+/*
+static __m256d int64_to_double256(__m256i x){                 //  Mysticial's fast int64_to_double. Works for inputs in the range: (-2^51, 2^51)
   x = _mm256_add_epi64(x, _mm256_castpd_si256(_mm256_set1_pd(0x0018000000000000)));
   return _mm256_sub_pd(_mm256_castsi256_pd(x), _mm256_set1_pd(0x0018000000000000));
 }
@@ -179,6 +180,7 @@ static __m256d DecodeValue(__m256i encoded_value, Alp::EncodingIndices encoding_
   // Multiply scaled_value with exponent
   return _mm256_mul_pd(scaled_value, exponent);
 }
+*/
 
 /*
 	 * Return TRUE if c1 is a better combination than c2
@@ -341,8 +343,9 @@ static vector<Alp::IndicesAppearancesCombination> getTopKCombinations(btrblocks:
   vector<vector<DOUBLE>> vectors_sampled;
 
   for (size_t t = 0; t < sampleCon.size();) {
-    size_t upper_limit = t == RG_SAMPLES - 1 ? sampleCon.size() : t + SAMPLES_PER_VECTOR;
-    vectors_sampled.emplace_back(&sampleCon[t], &sampleCon[upper_limit]);
+    // size_t upper_limit = t == RG_SAMPLES - 1 ? sampleCon.size() : t + SAMPLES_PER_VECTOR;
+    DOUBLE* upper_limit = (t + SAMPLES_PER_VECTOR) < sampleCon.size() ? &sampleCon[t + SAMPLES_PER_VECTOR] : (sampleCon.data() + sampleCon.size());
+    vectors_sampled.emplace_back(&sampleCon[t], upper_limit);
     t += SAMPLES_PER_VECTOR;
   }
 
@@ -368,15 +371,14 @@ u32 Alp::compress(const DOUBLE* src,
 
   // Encoding Floating-Point to Int64
   //! We encode all the values regardless of their correctness to recover the original floating-point
-  for (size_t i = 0; i < stats.tuple_count; i++) {
+  for (size_t i = 0; i < stats.tuple_count; ++i) {
     DOUBLE actual_value = src[i];
     int64_t encoded_value = EncodeValue(actual_value, vector_encoding_indices);
     DOUBLE decoded_value = DecodeValue(encoded_value, vector_encoding_indices);
     // TODO: THIS DOESNT SEEM TO BE VERY EFFICIENT (DUCKDB DOES THIS BETTER)
-    encoded_integers[i] = decoded_value != actual_value ? 0 : encoded_value;
+    encoded_integers[i] = encoded_value;
     //! We detect exceptions using a predicated comparison
-    auto is_exception = (decoded_value != actual_value);
-    if (is_exception) {
+    if (decoded_value != actual_value) {
       exceptions_positions.push_back(static_cast<INTEGER>(i));
     }
   }
@@ -384,59 +386,67 @@ u32 Alp::compress(const DOUBLE* src,
 
   // Finding first non exception value
   int64_t a_non_exception_value = 0;
-  for (size_t i = 0; i < exceptions_positions.size(); i++) {
-    if (i != exceptions_positions[i]) {
+  for (size_t i = 0; i < exceptions_positions.size(); ++i) {
+    if (i != static_cast<size_t>(exceptions_positions[i])) {
       a_non_exception_value = encoded_integers[i];
       break;
     }
   }
 
-  vector<DOUBLE> exceptions(exceptions_positions.size());
+  vector<DOUBLE> exceptions;
 
   // Replacing that first non exception value on the vector exceptions
-  for (size_t i = 0; i < exceptions.size(); i++) {
+  for (size_t i = 0; i < exceptions_positions.size(); ++i) {
     size_t exception_pos = exceptions_positions[i];
     DOUBLE actual_value = src[exception_pos];
     encoded_integers[exception_pos] = a_non_exception_value;
-    exceptions[i] = actual_value;
+    exceptions.push_back(actual_value);
   }
+
+  assert((exceptions_positions.size()) == exceptions.size());
+  assert((encoded_integers.size()) == stats.tuple_count);
 
   col_struct.exceptions_count = exceptions.size();
 
-  auto write_ptr = col_struct.data;
+  // allowed_cascading_level = 1;
 
+  auto write_ptr = col_struct.data;
   // compress encoded_integers with special shit
   if  (!encoded_integers.empty()) {
     u32 used_space;
     /// statically setting bitpacking here; test better options
     Int64SchemePicker::compress(
-        reinterpret_cast<int64_t*>(encoded_integers.data()), nullptr, write_ptr, encoded_integers.size(), allowed_cascading_level - 1,
+        reinterpret_cast<int64_t*>(encoded_integers.data()), nullptr, write_ptr, stats.tuple_count, allowed_cascading_level - 1,
         used_space, col_struct.encoding_scheme, autoScheme(), "alp encoded integers");
     write_ptr += used_space;
     Log::debug("Alp right c = {} s = {}", CI(col_struct.encoding_scheme), CI(used_space));
   }
 
-  // compress patches
-  col_struct.exceptions_positions_offset = write_ptr - col_struct.data;
-  {
-    u32 used_space;
-    IntegerSchemePicker::compress(reinterpret_cast<INTEGER*>(exceptions_positions.data()), nullptr,
-                                  write_ptr, exceptions_positions.size(), allowed_cascading_level - 1,
-                                  used_space, col_struct.exceptions_positions_scheme, autoScheme(),
-                                  "patches");
-    write_ptr += used_space;
-    Log::debug("Alp patches c = {} s = {}", CI(col_struct.exceptions_positions_scheme), CI(used_space));
-  }
-
-  col_struct.exceptions_offset = write_ptr - col_struct.data;
   if  (!exceptions.empty()) {
-    u32 used_space;
-    /// statically setting bitpacking here; test better options
-    DoubleSchemePicker::compress(
-        reinterpret_cast<DOUBLE*>(exceptions.data()), nullptr, write_ptr, exceptions.size(), allowed_cascading_level - 1,
-        used_space, col_struct.exceptions_scheme, autoScheme(), "alp encoded integers");
-    write_ptr += used_space;
-    Log::debug("Alp exceptions c = {} s = {}", CI(col_struct.exceptions_scheme), CI(used_space));
+    // compress patches
+    col_struct.exceptions_positions_offset = write_ptr - col_struct.data;
+    {
+      u32 used_space;
+      IntegerSchemePicker::compress(
+          reinterpret_cast<INTEGER*>(exceptions_positions.data()), nullptr, write_ptr,
+          exceptions_positions.size(), allowed_cascading_level - 1, used_space,
+          col_struct.exceptions_positions_scheme, autoScheme(), "patches");
+      write_ptr += used_space;
+      Log::debug("Alp patches c = {} s = {}", CI(col_struct.exceptions_positions_scheme),
+                 CI(used_space));
+    }
+
+    col_struct.exceptions_offset = write_ptr - col_struct.data;
+    {
+      u32 used_space;
+      /// statically setting bitpacking here; test better options
+      DoubleSchemePicker::compress(reinterpret_cast<DOUBLE*>(exceptions.data()), nullptr, write_ptr,
+                                   exceptions.size(), allowed_cascading_level - 1, used_space,
+                                   col_struct.exceptions_scheme, autoScheme(),
+                                   "alp encoded integers");
+      write_ptr += used_space;
+      Log::debug("Alp exceptions c = {} s = {}", CI(col_struct.exceptions_scheme), CI(used_space));
+    }
   }
 
   return write_ptr - dest;
@@ -450,13 +460,12 @@ void Alp::decompress(DOUBLE* dest,
                 u32 tuple_count,
                 u32 level) {
   const auto& col_struct = *reinterpret_cast<const AlpStructure*>(src);
-  auto* exact_dest = reinterpret_cast<DOUBLE*>(dest);
 
   // decompression memory
-  thread_local vector<vector<int64_t>> encoded_integer_v;
+  thread_local vector<vector<INT64>> encoded_integer_v;
   thread_local vector<vector<DOUBLE>> exceptions_v;
   thread_local vector<vector<INTEGER>> patches_v;
-  auto encoded_integer_ptr = get_level_data(encoded_integer_v, col_struct.encoded_count, level);
+  auto encoded_integer_ptr = get_level_data(encoded_integer_v, col_struct.encoded_count + SIMD_EXTRA_ELEMENTS(INT64), level);
   auto exceptions_ptr = get_level_data(exceptions_v, col_struct.exceptions_count, level);
   auto patches_ptr = get_level_data(patches_v, col_struct.exceptions_count, level);
 
@@ -468,27 +477,29 @@ void Alp::decompress(DOUBLE* dest,
   encoded_scheme.decompress(encoded_integer_v[level].data(), nullptr, col_struct.data,
                             col_struct.encoded_count, level + 1);
 
-  IntegerScheme& exception_positions_scheme =
-      IntegerSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_positions_scheme);
-  exception_positions_scheme.decompress(patches_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_positions_offset,
-                                        col_struct.exceptions_count, level + 1);
+  if (col_struct.exceptions_count > 0) {
+    IntegerScheme& exception_positions_scheme =
+        IntegerSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_positions_scheme);
+    exception_positions_scheme.decompress(patches_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_positions_offset,
+                                          col_struct.exceptions_count, level + 1);
 
-  DoubleScheme& exceptions_scheme =
-      DoubleSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_scheme);
-  exceptions_scheme.decompress(exceptions_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_offset,
-                               col_struct.exceptions_count, level + 1);
+    DoubleScheme& exceptions_scheme =
+        DoubleSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_scheme);
+    exceptions_scheme.decompress(exceptions_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_offset,
+                                 col_struct.exceptions_count, level + 1);
+  }
+
 
   // TODO: THIS SHOULD ALL BE SIMDED
   // https://godbolt.org/z/83YWW6K7x
 
   // decompress left part if not everything is a patch
-  if (col_struct.encoded_count > 0) {
+  /*if (col_struct.encoded_count > 0) {
     // TODO: MAYBE THINK ABOUT USING ALIGNED LOADS
     // Decode
     auto write_ptr = exact_dest;
     auto read_ptr = encoded_integer_ptr;
     auto target_ptr = exact_dest + col_struct.encoded_count;
-    auto target_read_ptr = exact_dest + col_struct.encoded_count;
 
     while (write_ptr + 4 < target_ptr) {
       __m256i encoded_integers = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(read_ptr));
@@ -503,12 +514,20 @@ void Alp::decompress(DOUBLE* dest,
       auto encoded_integer = static_cast<int64_t>(*(read_ptr++));
       *(write_ptr++) = DecodeValue(encoded_integer, encodingIndices);
     }
+  }*/
+  // decompress left part if not everything is a patch
+  if (col_struct.encoded_count > 0) {
+    // Decode
+    for (u32 i = 0; i != col_struct.encoded_count; i++) {
+      auto encoded_integer = static_cast<int64_t>(encoded_integer_ptr[i]);
+      dest[i] = DecodeValue(encoded_integer, encodingIndices);
+    }
   }
 
   // patches
   // TODO: SCATTER/GATHER WOULD BE NEEDED HERE NOT AVAILABLE IN AVX2
   for (u32 i = 0; i != col_struct.exceptions_count; i++) {
-    exact_dest[patches_ptr[i]] = exceptions_ptr[i];
+    dest[patches_ptr[i]] = exceptions_ptr[i];
   }
 }
 // -------------------------------------------------------------------------------------
