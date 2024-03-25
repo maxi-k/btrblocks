@@ -39,7 +39,7 @@ struct Vector {
   }
 
   void readBinary(const char* pathname) {
-    std::cout << "Reading binary file : " << pathname << std::endl;
+    //z      std::cout << "Reading binary file : " << pathname << std::endl;
     int fd = open(pathname, O_RDONLY);
     if (fd == -1) {
       cout << pathname << endl;
@@ -48,13 +48,8 @@ struct Vector {
     struct stat sb;
     die_if(fstat(fd, &sb) != -1);
     count = static_cast<uint64_t>(sb.st_size) / sizeof(T);
-    std::cout << "File count : " << count << std::endl;
     data = new T[count];
-    std::cout << "Read binary file : " << pathname << std::endl;
-    uint64_t read_count = read(fd, data, sb.st_size);
-    std::cout << "File count : " << read_count << " should be " << sb.st_size << std::endl;
     die_if(read(fd, data, sb.st_size) == sb.st_size);
-    std::cout << "try close: " << pathname << std::endl;
     die_if(close(fd) == 0);
   }
 
