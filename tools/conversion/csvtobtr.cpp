@@ -77,8 +77,14 @@ int main(int argc, char **argv)
 
   // Init TBB TODO: is that actually still necessary ?
   // tbb::task_scheduler_init init(FLAGS_threads);
-  tbb::global_control c(tbb::global_control::max_allowed_parallelism,
-                        std::thread::hardware_concurrency());
+  if (FLAGS_threads <= 0) {
+    tbb::global_control c(tbb::global_control::max_allowed_parallelism,
+                          std::thread::hardware_concurrency());
+  } else {
+    tbb::global_control c(tbb::global_control::max_allowed_parallelism,
+                          FLAGS_threads);
+  }
+
 
   // Load schema
   const auto schema = YAML::LoadFile(FLAGS_yaml);
