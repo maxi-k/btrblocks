@@ -160,6 +160,31 @@ static DOUBLE DecodeValue(int64_t encoded_value, Alp::EncodingIndices encoding_i
   return decoded_value;
 }
 
+static __m256i _mm256_mul_epi64(__m256i *a, __m256i *b) {
+  // Multiply the lower 32 bits of each 64-bit element
+  __m256i lo_product = _mm256_mullo_epi32(*a, *b);
+
+  // Shift the input vectors to the right to multiply the upper 32 bits
+  __m256i a_hi = _mm256_srli_epi64(*a, 32);
+  __m256i b_hi = _mm256_srli_epi64(*b, 32);
+
+  // Multiply the upper 32 bits of each 64-bit element
+  __m256i hi_product = _mm256_mullo_epi32(a_hi, b_hi);
+
+  // Multiply the lower and higher 32-bit parts to get the middle part of the product
+  __m256i mid_product = _mm256_mullo_epi32(*a, b_hi);
+  __m256i mid_product_2 = _mm256_mullo_epi32(a_hi, *b);
+
+  // Shift the middle parts to the correct position
+  mid_product = _mm256_slli_epi64(mid_product, 32);
+  mid_product_2 = _mm256_slli_epi64(mid_product_2, 32);
+
+  // Combine the products
+  __m256i result = _mm256_add_epi64(lo_product, mid_product);
+  result = _mm256_add_epi64(result, mid_product_2);
+  return  _mm256_add_epi64(result, hi_product);
+}
+
 static __m256d int64_to_double256(__m256i x){                 //  Mysticial's fast int64_to_double. Works for inputs in the range: (-2^51, 2^51)
   x = _mm256_add_epi64(x, _mm256_castpd_si256(_mm256_set1_pd(0x0018000000000000)));
   return _mm256_sub_pd(_mm256_castsi256_pd(x), _mm256_set1_pd(0x0018000000000000));
@@ -167,17 +192,14 @@ static __m256d int64_to_double256(__m256i x){                 //  Mysticial's fa
 
 static __m256d DecodeValue(__m256i encoded_value, Alp::EncodingIndices encoding_indices) {
   // Load factor and exponent from encoding_indices into SIMD registers
-  __m256d factor = _mm256_set1_pd(static_cast<double>(FACT_ARR[encoding_indices.factor]));
+  __m256i factor = _mm256_set1_epi64x(FACT_ARR[encoding_indices.factor]);
   __m256d exponent = _mm256_set1_pd(FRAC_ARR[encoding_indices.exponent]);
 
   // Convert encoded_value to double precision floating point SIMD register
-  __m256d encoded_double = int64_to_double256(encoded_value);
-
-  // Multiply encoded_value with factorClang-Tidy: '_mm256_mul_pd' is a non-portable x86_64 intrinsic function
-  __m256d scaled_value = _mm256_mul_pd(encoded_double, factor);
+  __m256d encoded_double = int64_to_double256(_mm256_mul_epi64(&encoded_value, &factor));
 
   // Multiply scaled_value with exponent
-  return _mm256_mul_pd(scaled_value, exponent);
+  return _mm256_mul_pd(encoded_double, exponent);
 }
 
 
@@ -494,7 +516,7 @@ void Alp::decompress(DOUBLE* dest,
 
   // decompress left part if not everything is a patch
   if (col_struct.encoded_count > 0) {
-    #ifdef BTR_USE_SIMD
+    #ifndef BTR_USE_SIMD
 
     // TODO: MAYBE THINK ABOUT USING ALIGNED LOADS
     // Decode
