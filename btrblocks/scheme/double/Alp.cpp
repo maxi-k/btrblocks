@@ -495,23 +495,6 @@ void Alp::decompress(DOUBLE* dest,
   encoded_scheme.decompress(encoded_integer_v[level].data(), nullptr, col_struct.data,
                             col_struct.encoded_count, level + 1);
 
-  if (col_struct.exceptions_count > 0) {
-    thread_local vector<vector<DOUBLE>> exceptions_v;
-    thread_local vector<vector<INTEGER>> patches_v;
-    auto exceptions_ptr = get_level_data(exceptions_v, col_struct.exceptions_count, level);
-    auto patches_ptr = get_level_data(patches_v, col_struct.exceptions_count, level);
-
-    IntegerScheme& exception_positions_scheme =
-        IntegerSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_positions_scheme);
-    exception_positions_scheme.decompress(patches_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_positions_offset,
-                                          col_struct.exceptions_count, level + 1);
-
-    DoubleScheme& exceptions_scheme =
-        DoubleSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_scheme);
-    exceptions_scheme.decompress(exceptions_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_offset,
-                                 col_struct.exceptions_count, level + 1);
-  }
-
 
   // TODO: THIS SHOULD ALL BE SIMDED
   // https://godbolt.org/z/83YWW6K7x
@@ -547,10 +530,27 @@ void Alp::decompress(DOUBLE* dest,
 #endif
   }
 
-  // patches
-  // TODO: SCATTER/GATHER WOULD BE NEEDED HERE NOT AVAILABLE IN AVX2
-  for (u32 i = 0; i != col_struct.exceptions_count; i++) {
-    dest[patches_ptr[i]] = exceptions_ptr[i];
+  if (col_struct.exceptions_count > 0) {
+    thread_local vector<vector<DOUBLE>> exceptions_v;
+    thread_local vector<vector<INTEGER>> patches_v;
+    auto exceptions_ptr = get_level_data(exceptions_v, col_struct.exceptions_count, level);
+    auto patches_ptr = get_level_data(patches_v, col_struct.exceptions_count, level);
+
+    IntegerScheme& exception_positions_scheme =
+        IntegerSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_positions_scheme);
+    exception_positions_scheme.decompress(patches_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_positions_offset,
+                                          col_struct.exceptions_count, level + 1);
+
+    DoubleScheme& exceptions_scheme =
+        DoubleSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_scheme);
+    exceptions_scheme.decompress(exceptions_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_offset,
+                                 col_struct.exceptions_count, level + 1);
+
+    // patches
+    // TODO: SCATTER/GATHER WOULD BE NEEDED HERE NOT AVAILABLE IN AVX2
+    for (u32 i = 0; i != col_struct.exceptions_count; i++) {
+      dest[patches_ptr[i]] = exceptions_ptr[i];
+    }
   }
 }
 // -------------------------------------------------------------------------------------
