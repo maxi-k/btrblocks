@@ -167,6 +167,8 @@ inline void TRLE<INTEGER, IntegerScheme, SInteger32Stats, IntegerSchemeType>::de
   for (u32 run_i = 0; run_i < col_struct.runs_count; run_i++) {
     auto target_ptr = write_ptr + counts[run_i];
 
+    std::cout << counts[run_i] << std::endl;
+
     /*
      * I tried several variation for vectorizing this. Using AVX2 directly is
      * the fastest even when there are many very short runs. The penalty of
