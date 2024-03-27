@@ -484,7 +484,7 @@ void Alp::decompress(DOUBLE* dest,
 
   // decompression memory
   thread_local vector<vector<INT64>> encoded_integer_v;
-  auto encoded_integer_ptr = get_level_data(encoded_integer_v, col_struct.encoded_count, level);
+  auto encoded_integer_ptr = get_level_data(encoded_integer_v, col_struct.encoded_count + SIMD_EXTRA_ELEMENTS(INT64), level);
 
 
   Alp::EncodingIndices encodingIndices = col_struct.vector_encoding_indices;
@@ -533,8 +533,8 @@ void Alp::decompress(DOUBLE* dest,
   if (col_struct.exceptions_count > 0) {
     thread_local vector<vector<DOUBLE>> exceptions_v;
     thread_local vector<vector<INTEGER>> patches_v;
-    auto exceptions_ptr = get_level_data(exceptions_v, col_struct.exceptions_count, level);
-    auto patches_ptr = get_level_data(patches_v, col_struct.exceptions_count, level);
+    auto exceptions_ptr = get_level_data(exceptions_v, col_struct.exceptions_count + SIMD_EXTRA_ELEMENTS(INTEGER), level);
+    auto patches_ptr = get_level_data(patches_v, col_struct.exceptions_count + SIMD_EXTRA_ELEMENTS(DOUBLE), level);
 
     IntegerScheme& exception_positions_scheme =
         IntegerSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_positions_scheme);
