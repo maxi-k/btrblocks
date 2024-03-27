@@ -155,7 +155,7 @@ static int64_t EncodeValue(DOUBLE value, Alp::EncodingIndices encoding_indices) 
  */
 static DOUBLE DecodeValue(int64_t encoded_value, Alp::EncodingIndices encoding_indices) {
   //! The cast to T is needed to prevent a signed integer overflow
-  DOUBLE decoded_value = static_cast<DOUBLE>(encoded_value * FACT_ARR[encoding_indices.factor]) *
+  DOUBLE decoded_value = static_cast<DOUBLE>(encoded_value) * FACT_ARR[encoding_indices.factor] *
                     FRAC_ARR[encoding_indices.exponent];
   return decoded_value;
 }
