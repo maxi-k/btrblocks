@@ -23,7 +23,7 @@
 // SIMD instruction can become faster when they are allowed to make writes out
 // of bounds. This spares us any out of bound checks and therefore many
 // branches. The extra data simply gets overwritten or ignored.
-#define SIMD_EXTRA_BYTES (sizeof(__m256i) * 4) // TODO: I DONT THINK THIS WORKS WITH A 64BIT TYPE
+#define SIMD_EXTRA_BYTES (sizeof(__m256i) * 8) // TODO: I DONT THINK THIS WORKS WITH A 64BIT TYPE
 #define SIMD_EXTRA_ELEMENTS(TYPE) (SIMD_EXTRA_BYTES / sizeof(TYPE))
 
 #endif  // BTR_FLAG_NO_SIMD
