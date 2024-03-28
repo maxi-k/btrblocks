@@ -321,7 +321,7 @@ u32 Alp::compress(const DOUBLE* src,
   auto best_k_combinations = getTopKCombinations(stats);
   col_struct.vector_encoding_indices = findBestFactorAndExponent(src, stats.tuple_count, best_k_combinations);
   Alp::EncodingIndices& vector_encoding_indices = col_struct.vector_encoding_indices;
-
+  // std::cout << "factor: " << static_cast<size_t>(vector_encoding_indices.factor) << " exp: " << static_cast<size_t>(vector_encoding_indices.exponent) << std::endl;
   // Encoding Floating-Point to Int64
   //! We encode all the values regardless of their correctness to recover the original floating-point
   for (size_t i = 0; i < stats.tuple_count; ++i) {
@@ -456,7 +456,6 @@ void Alp::decompress(DOUBLE* dest,
 
     // patches
     // this is done sequentially but in the optimal case
-    // this shouldnt be a lot of numbers
     for (u32 i = 0; i != col_struct.exceptions_count; i++) {
       dest[patches_ptr[i]] = exceptions_ptr[i];
     }

@@ -18,8 +18,8 @@ namespace btrblocks::int64s {
 u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats, u8) {
   auto& col_struct = *reinterpret_cast<XPBPStructure*>(dest);
   // -------------------------------------------------------------------------------------
-  FPFor fast_pfor;
-  size_t compressed_codes_size = 4 * stats.tuple_count + 1024;  // not really used
+  FPFor64Impl fast_pfor;
+  size_t compressed_codes_size = 2 * stats.tuple_count + 1024;  // not really used
   // -------------------------------------------------------------------------------------
   auto dest_integer = reinterpret_cast<u64>(col_struct.data);
   u64 padding;
@@ -27,8 +27,8 @@ u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats,
   col_struct.padding = padding;
   auto dest_4_aligned = reinterpret_cast<u32*>(dest_integer);
   // -------------------------------------------------------------------------------------
-  // 2x tuple count because we're actually compressing longs
-  fast_pfor.compress(reinterpret_cast<const u32*>(src), stats.tuple_count * 2, dest_4_aligned,
+  fast_pfor.compress(reinterpret_cast<const FPFor64Impl::data_t*>(src), (stats.tuple_count - (stats.tuple_count % 128)),
+                     reinterpret_cast<u32*>(dest_4_aligned),
                      compressed_codes_size);
   col_struct.u32_count = compressed_codes_size;
   // -------------------------------------------------------------------------------------
@@ -38,12 +38,13 @@ u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats,
 void PBP::decompress(INT64* dest, BitmapWrapper*, const u8* src, u32 tuple_count, u32 level) {
   auto& col_struct = *reinterpret_cast<const XPBPStructure*>(src);
   // -------------------------------------------------------------------------------------
-  FPFor fast_pfor;
-  SIZE decompressed_codes_size = tuple_count * 2; // 2x tuple count because we actually compressed longs
+  FPFor64Impl fast_pfor;
+  SIZE decompressed_codes_size = tuple_count; // 2x tuple count because we actually compressed longs
   auto encoded_array =
-      const_cast<u32*>(reinterpret_cast<const u32*>(col_struct.data + col_struct.padding));
-  if (fast_pfor.decompress(encoded_array, col_struct.u32_count, reinterpret_cast<u32*>(dest),
-                           decompressed_codes_size) != encoded_array + col_struct.u32_count) {
+      reinterpret_cast<const FPFor64Impl::data_t*>(col_struct.data + col_struct.padding);
+  if (fast_pfor.decompress(reinterpret_cast<const u32*>(encoded_array), col_struct.u32_count,
+                           reinterpret_cast<FPFor64Impl::data_t*>(dest),
+                           decompressed_codes_size) != reinterpret_cast<const u32*>(encoded_array + col_struct.u32_count)) {
     throw Generic_Exception("Decompressing XPBP failed");
   }
   assert(decompressed_codes_size == tuple_count*2);
