@@ -33,7 +33,7 @@ string Alp::fullDescription(const u8* src) {
   return result;
 }
 // -------------------------------------------------------------------------------------
-// constants functions
+// constants for ALP
 // Largest double which fits into an int64
 static constexpr double ENCODING_UPPER_LIMIT = 9223372036854774784;
 static constexpr double ENCODING_LOWER_LIMIT = -9223372036854774784;
@@ -117,100 +117,35 @@ static constexpr double FRAC_ARR[] = {1.0,
                                       0.00000000000000000001};
 // -------------------------------------------------------------------------------------
 // helper functions
-// what we need to do here is getting the correct exponent and factor like in duckdb
-// here basic helper functions
+// following methods are strongly based on the DuckDB implementation of DuckDB
 
-/*
-	 * Check for special values which are impossible for ALP to encode
-	 * because they cannot be cast to int64 without an undefined behaviour
- */
-static bool IsImpossibleToEncode(double n) {
+static bool isImpossibleToEncode(double n) {
   return (std::isnan(n) || std::isinf(n)) || n > ENCODING_UPPER_LIMIT ||
          n < ENCODING_LOWER_LIMIT || (n == 0.0 && std::signbit(n)); //! Verification for -0.0
 }
 
-/*
-	 * Conversion from a Floating-Point number to Int64 without rounding
- */
-static int64_t NumberToInt64(double n) {
-  if (IsImpossibleToEncode(n)) {
+static int64_t numberToInt64(double n) {
+  if (isImpossibleToEncode(n)) {
     return ENCODING_UPPER_LIMIT;
   }
   n = n + MAGIC_NUMBER - MAGIC_NUMBER;
   return static_cast<int64_t>(n);
 }
 
-/*
-	 * Encoding a single value with ALP
- */
-static int64_t EncodeValue(DOUBLE value, Alp::EncodingIndices encoding_indices) {
+static int64_t encodeValue(DOUBLE value, Alp::EncodingIndices encoding_indices) {
   DOUBLE tmp_encoded_value = value * EXP_ARR[encoding_indices.exponent] *
                         FRAC_ARR[encoding_indices.factor];
-  int64_t encoded_value = NumberToInt64(tmp_encoded_value);
+  int64_t encoded_value = numberToInt64(tmp_encoded_value);
   return encoded_value;
 }
 
-/*
-	 * Decoding a single value with ALP
- */
-static DOUBLE DecodeValue(int64_t encoded_value, Alp::EncodingIndices encoding_indices) {
-  //! The cast to T is needed to prevent a signed integer overflow
+static DOUBLE decodeValue(int64_t encoded_value, Alp::EncodingIndices encoding_indices) {
   DOUBLE decoded_value = static_cast<DOUBLE>(encoded_value) * FACT_ARR[encoding_indices.factor] *
                     FRAC_ARR[encoding_indices.exponent];
   return decoded_value;
 }
 
-static __m256i _mm256_mul_epi64(__m256i *a, __m256i *b) {
-  // Multiply the lower 32 bits of each 64-bit element
-  __m256i lo_product = _mm256_mullo_epi32(*a, *b);
-
-  // Shift the input vectors to the right to multiply the upper 32 bits
-  __m256i a_hi = _mm256_srli_epi64(*a, 32);
-  __m256i b_hi = _mm256_srli_epi64(*b, 32);
-
-  // Multiply the upper 32 bits of each 64-bit element
-  __m256i hi_product = _mm256_mullo_epi32(a_hi, b_hi);
-
-  // Multiply the lower and higher 32-bit parts to get the middle part of the product
-  __m256i mid_product = _mm256_mullo_epi32(*a, b_hi);
-  __m256i mid_product_2 = _mm256_mullo_epi32(a_hi, *b);
-
-  // Shift the middle parts to the correct position
-  mid_product = _mm256_slli_epi64(mid_product, 32);
-  mid_product_2 = _mm256_slli_epi64(mid_product_2, 32);
-
-  // Combine the products
-  __m256i result = _mm256_add_epi64(lo_product, mid_product);
-  result = _mm256_add_epi64(result, mid_product_2);
-  return  _mm256_add_epi64(result, hi_product);
-}
-
-static __m256d int64_to_double256(__m256i x){                 //  Mysticial's fast int64_to_double. Works for inputs in the range: (-2^51, 2^51)
-  x = _mm256_add_epi64(x, _mm256_castpd_si256(_mm256_set1_pd(0x0018000000000000)));
-  return _mm256_sub_pd(_mm256_castsi256_pd(x), _mm256_set1_pd(0x0018000000000000));
-}
-
-static __m256d DecodeValue(__m256i encoded_value, Alp::EncodingIndices encoding_indices) {
-  // Load factor and exponent from encoding_indices into SIMD registers
-  __m256i factor = _mm256_set1_epi64x(FACT_ARR[encoding_indices.factor]);
-  __m256d exponent = _mm256_set1_pd(FRAC_ARR[encoding_indices.exponent]);
-
-  // Convert encoded_value to double precision floating point SIMD register
-  __m256d encoded_double = int64_to_double256(_mm256_mul_epi64(&encoded_value, &factor));
-
-  // Multiply scaled_value with exponent
-  return _mm256_mul_pd(encoded_double, exponent);
-}
-
-
-/*
-	 * Return TRUE if c1 is a better combination than c2
-	 * First criteria is number of times it appears as best combination
-	 * Second criteria is the estimated compression size
-	 * Third criteria is bigger exponent
-	 * Fourth criteria is bigger factor
- */
-static bool CompareALPCombinations(const Alp::IndicesAppearancesCombination &c1, const Alp::IndicesAppearancesCombination &c2) {
+static bool compareALPCombinations(const Alp::IndicesAppearancesCombination &c1, const Alp::IndicesAppearancesCombination &c2) {
   return (c1.n_appearances > c2.n_appearances) ||
          (c1.n_appearances == c2.n_appearances &&
           (c1.estimated_compression_size < c2.estimated_compression_size)) ||
@@ -223,11 +158,8 @@ static bool CompareALPCombinations(const Alp::IndicesAppearancesCombination &c1,
           (c2.encoding_indices.factor < c1.encoding_indices.factor));
 }
 
-/*
-	 * Dry compress a vector (ideally a sample) to estimate ALP compression size given a exponent and factor
- */
 template <bool PENALIZE_EXCEPTIONS>
-static uint64_t DryCompressToEstimateSize(const vector<DOUBLE> &input_vector, Alp::EncodingIndices encoding_indices) {
+static uint64_t dryCompressToEstimateSize(const vector<DOUBLE> &input_vector, Alp::EncodingIndices encoding_indices) {
   size_t n_values = input_vector.size();
   size_t exceptions_count = 0;
   size_t non_exceptions_count = 0;
@@ -237,8 +169,8 @@ static uint64_t DryCompressToEstimateSize(const vector<DOUBLE> &input_vector, Al
   int64_t min_encoded_value = std::numeric_limits<int64_t>::max();
 
   for (const DOUBLE &value : input_vector) {
-    int64_t encoded_value = EncodeValue(value, encoding_indices);
-    DOUBLE decoded_value = DecodeValue(encoded_value, encoding_indices);
+    int64_t encoded_value = encodeValue(value, encoding_indices);
+    DOUBLE decoded_value = decodeValue(encoded_value, encoding_indices);
     if (decoded_value == value) {
       non_exceptions_count++;
       max_encoded_value = std::max(encoded_value, max_encoded_value);
@@ -267,7 +199,7 @@ static uint64_t DryCompressToEstimateSize(const vector<DOUBLE> &input_vector, Al
 	 * This function is called once per segment
 	 * This operates over ALP first level samples
  */
-static vector<Alp::IndicesAppearancesCombination> FindTopKCombinations(const vector<vector<DOUBLE>> &vectors_sampled) {
+static vector<Alp::IndicesAppearancesCombination> findTopKCombinations(const vector<vector<DOUBLE>> &vectors_sampled) {
   unordered_map<Alp::EncodingIndices, uint64_t, Alp::EncodingIndicesHash, Alp::EncodingIndicesEquality>
       best_k_combinations_hash;
   // For each vector sampled
@@ -287,9 +219,9 @@ static vector<Alp::IndicesAppearancesCombination> FindTopKCombinations(const vec
       for (int8_t factor_idx = exp_idx; factor_idx >= 0; factor_idx--) {
         Alp::EncodingIndices current_encoding_indices = {static_cast<uint8_t>(exp_idx), static_cast<uint8_t>(factor_idx)};
         uint64_t estimated_compression_size =
-            DryCompressToEstimateSize<true>(sampled_vector, current_encoding_indices);
+            dryCompressToEstimateSize<true>(sampled_vector, current_encoding_indices);
         Alp::IndicesAppearancesCombination current_combination = {current_encoding_indices, 0, estimated_compression_size};
-        if (CompareALPCombinations(current_combination, best_combination)) {
+        if (compareALPCombinations(current_combination, best_combination)) {
           best_combination = current_combination;
         }
       }
@@ -307,7 +239,7 @@ static vector<Alp::IndicesAppearancesCombination> FindTopKCombinations(const vec
         0 // Compression size is irrelevant at this phase since we compare combinations from different vectors
     );
   }
-  sort(best_k_combinations.begin(), best_k_combinations.end(), CompareALPCombinations);
+  sort(best_k_combinations.begin(), best_k_combinations.end(), compareALPCombinations);
 
   // Save k' best combinations
   vector<Alp::IndicesAppearancesCombination> max_best_k_combinations;
@@ -323,7 +255,7 @@ static vector<Alp::IndicesAppearancesCombination> FindTopKCombinations(const vec
 	 * Find the best combination of factor-exponent for a vector from within the best k combinations
 	 * This is ALP second level sampling
  */
-static Alp::EncodingIndices FindBestFactorAndExponent(const DOUBLE *input_vector, size_t n_values, vector<Alp::IndicesAppearancesCombination>& best_k_combinations) {
+static Alp::EncodingIndices findBestFactorAndExponent(const DOUBLE *input_vector, size_t n_values, vector<Alp::IndicesAppearancesCombination>& best_k_combinations) {
   //! We sample equidistant values within a vector; to do this we skip a fixed number of values
   vector<DOUBLE> vector_sample;
   uint32_t idx_increments = std::max(1, static_cast<int32_t>(std::ceil(static_cast<double>(n_values) / SAMPLES_PER_VECTOR)));
@@ -338,7 +270,7 @@ static Alp::EncodingIndices FindBestFactorAndExponent(const DOUBLE *input_vector
   //! We try each K combination in search for the one which minimize the compression size in the vector
   for (auto &combination : best_k_combinations) {
     uint64_t estimated_compression_size =
-        DryCompressToEstimateSize<false>(vector_sample, combination.encoding_indices);
+        dryCompressToEstimateSize<false>(vector_sample, combination.encoding_indices);
 
     // If current compression size is worse (higher) or equal than the current best combination
     if (estimated_compression_size >= best_total_bits) {
@@ -370,7 +302,7 @@ static vector<Alp::IndicesAppearancesCombination> getTopKCombinations(btrblocks:
     t += SAMPLES_PER_VECTOR;
   }
 
-  return FindTopKCombinations(vectors_sampled);
+  return findTopKCombinations(vectors_sampled);
 }
 
 // -------------------------------------------------------------------------------------
@@ -387,15 +319,15 @@ u32 Alp::compress(const DOUBLE* src,
   vector<INTEGER> exceptions_positions;
   // first we need to find the best exponent and factor
   auto best_k_combinations = getTopKCombinations(stats);
-  col_struct.vector_encoding_indices = FindBestFactorAndExponent(src, stats.tuple_count, best_k_combinations);
+  col_struct.vector_encoding_indices = findBestFactorAndExponent(src, stats.tuple_count, best_k_combinations);
   Alp::EncodingIndices& vector_encoding_indices = col_struct.vector_encoding_indices;
 
   // Encoding Floating-Point to Int64
   //! We encode all the values regardless of their correctness to recover the original floating-point
   for (size_t i = 0; i < stats.tuple_count; ++i) {
     DOUBLE actual_value = src[i];
-    int64_t encoded_value = EncodeValue(actual_value, vector_encoding_indices);
-    DOUBLE decoded_value = DecodeValue(encoded_value, vector_encoding_indices);
+    int64_t encoded_value = encodeValue(actual_value, vector_encoding_indices);
+    DOUBLE decoded_value = decodeValue(encoded_value, vector_encoding_indices);
     // TODO: THIS DOESNT SEEM TO BE VERY EFFICIENT (DUCKDB DOES THIS BETTER)
     encoded_integers[i] = encoded_value;
     //! We detect exceptions using a predicated comparison
@@ -417,8 +349,7 @@ u32 Alp::compress(const DOUBLE* src,
   vector<DOUBLE> exceptions;
 
   // Replacing that first non exception value on the vector exceptions
-  for (size_t i = 0; i < exceptions_positions.size(); ++i) {
-    size_t exception_pos = exceptions_positions[i];
+  for (uint64_t exception_pos : exceptions_positions) {
     DOUBLE actual_value = src[exception_pos];
     encoded_integers[exception_pos] = a_non_exception_value;
     exceptions.push_back(actual_value);
@@ -501,33 +432,10 @@ void Alp::decompress(DOUBLE* dest,
 
   // decompress left part if not everything is a patch
   if (col_struct.encoded_count > 0) {
-    #ifndef BTR_USE_SIMD
-
-    // TODO: MAYBE THINK ABOUT USING ALIGNED LOADS
-    // Decode
-    auto write_ptr = dest;
-    auto read_ptr = encoded_integer_ptr;
-    auto target_ptr = dest + col_struct.encoded_count;
-
-    while (write_ptr + 4 < target_ptr) {
-      __m256i encoded_integers = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(read_ptr));
-      __m256d decoded_values = DecodeValue(encoded_integers, encodingIndices);
-      _mm256_storeu_pd(write_ptr, decoded_values);
-
-      write_ptr += 4;
-      read_ptr += 4;
-    }
-
-    while (write_ptr < target_ptr) {
-      auto encoded_integer = static_cast<int64_t>(*(read_ptr++));
-      *(write_ptr++) = DecodeValue(encoded_integer, encodingIndices);
-    }
-#else
     for (u32 i = 0; i != col_struct.encoded_count; i++) {
       auto encoded_integer = static_cast<int64_t>(encoded_integer_ptr[i]);
-      dest[i] = DecodeValue(encoded_integer, encodingIndices);
+      dest[i] = decodeValue(encoded_integer, encodingIndices);
     }
-#endif
   }
 
   if (col_struct.exceptions_count > 0) {
@@ -547,7 +455,8 @@ void Alp::decompress(DOUBLE* dest,
                                  col_struct.exceptions_count, level + 1);
 
     // patches
-    // TODO: SCATTER/GATHER WOULD BE NEEDED HERE NOT AVAILABLE IN AVX2
+    // this is done sequentially but in the optimal case
+    // this shouldnt be a lot of numbers
     for (u32 i = 0; i != col_struct.exceptions_count; i++) {
       dest[patches_ptr[i]] = exceptions_ptr[i];
     }
