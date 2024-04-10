@@ -12,9 +12,15 @@
 #include <cmath>
 // -------------------------------------------------------------------------------------
 // whether to use the compression ratio estimation for FBP
-constexpr bool auto_fpb = true;
+constexpr bool auto_fpb = false;
 // -------------------------------------------------------------------------------------
 namespace btrblocks::int64s {
+// -------------------------------------------------------------------------------------
+double PBP::expectedCompressionRatio(SInt64Stats& stats, u8 allowed_cascading_level) {
+  stats.tuple_count = stats.tuple_count & ~255ul;
+  stats.total_size = stats.tuple_count * sizeof(INT64);
+  return Int64Scheme::expectedCompressionRatio(stats, allowed_cascading_level);
+}
 // -------------------------------------------------------------------------------------
 u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats, u8 allowed_cascading_level) {
   auto& col_struct = *reinterpret_cast<XPBP64Structure*>(dest);
@@ -22,7 +28,7 @@ u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats,
   FPFor64Impl fast_pfor;
   size_t compressed_codes_size;  // not really used
   // -------------------------------------------------------------------------------------
-  size_t fast_pfor_compressed_count = stats.tuple_count - (stats.tuple_count % 128);
+  size_t fast_pfor_compressed_count = stats.tuple_count & ~255ul;
   auto write_ptr = reinterpret_cast<u8*>(col_struct.data);
   // -------------------------------------------------------------------------------------
   // TODO: FastPFOR wants multiple of 128/256 of numbers -> so what to do with the rest?

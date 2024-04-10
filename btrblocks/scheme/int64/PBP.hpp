@@ -21,6 +21,7 @@ struct XFBP64Structure {  // need to be aligned by 4 because of
 // -------------------------------------------------------------------------------------
 class PBP : public Int64Scheme {
  public:
+  double expectedCompressionRatio(SInt64Stats& stats, u8 allowed_cascading_level) override;
   u32 compress(const INT64* src,
                const BITMAP* nullmap,
                u8* dest,
