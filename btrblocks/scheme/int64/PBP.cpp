@@ -29,7 +29,7 @@ u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats,
   //       1. just store them without further compression
   //       2. compress them further -> but i dont think this would do a lot
   if (fast_pfor_compressed_count > 0) {
-    auto dest_integer = reinterpret_cast<intptr_t>(write_ptr);
+    auto dest_integer = reinterpret_cast<u64>(write_ptr);
     u64 padding;
     dest_integer = Utils::alignBy(dest_integer, 16, padding);
     col_struct.padding = padding;
@@ -38,12 +38,12 @@ u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats,
     fast_pfor.compress(reinterpret_cast<const FPFor64Impl::data_t*>(src), fast_pfor_compressed_count,
                        reinterpret_cast<u32*>(dest_4_aligned),
                        compressed_codes_size);
-    write_ptr = reinterpret_cast<u8*>(dest_4_aligned) + compressed_codes_size * sizeof(INT64);
+    write_ptr = reinterpret_cast<u8*>(dest_4_aligned + compressed_codes_size);
     col_struct.fastpfor_count = fast_pfor_compressed_count;
   }
   // -------------------------------------------------------------------------------------
   // store the padded rest of the data
-  if ((stats.tuple_count & 255) > 0 && false) {
+  if ((stats.tuple_count & 255) > 0) {
     u32 used_space;
     col_struct.padded_values_offset = write_ptr - dest;
 
@@ -55,7 +55,7 @@ u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats,
   }
 
   // -------------------------------------------------------------------------------------
-  return dest - write_ptr;
+  return write_ptr - dest;
 }
 // -------------------------------------------------------------------------------------
 void PBP::decompress(INT64* dest, BitmapWrapper*, const u8* src, u32 tuple_count, u32 level) {
