@@ -34,7 +34,7 @@ struct LemiereImpl<FastPForCodec::FBP, uint32_t>::impl {
 template <>
 struct LemiereImpl<FastPForCodec::FPF, uint64_t>::impl {
   // TODO Adnan did not use SIMDBinaryPacking in the original? ask him why
-  FastPForLib::FastPForImpl<8, uint64_t> codec;
+  FastPForLib::FastPForImpl<4, uint64_t> codec;
 };
 // -------------------------------------------------------------------------------------
 template <FastPForCodec Codec, class T>

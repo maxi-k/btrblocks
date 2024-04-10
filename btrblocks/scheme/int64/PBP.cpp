@@ -12,15 +12,9 @@
 #include <cmath>
 // -------------------------------------------------------------------------------------
 // whether to use the compression ratio estimation for FBP
-constexpr bool auto_fpb = false;
+constexpr bool auto_fpb = true;
 // -------------------------------------------------------------------------------------
 namespace btrblocks::int64s {
-// -------------------------------------------------------------------------------------
-double PBP::expectedCompressionRatio(SInt64Stats& stats, u8 allowed_cascading_level) {
-  stats.tuple_count = stats.tuple_count & ~255ul;
-  stats.total_size = stats.tuple_count * sizeof(INT64);
-  return Int64Scheme::expectedCompressionRatio(stats, allowed_cascading_level);
-}
 // -------------------------------------------------------------------------------------
 u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats, u8 allowed_cascading_level) {
   auto& col_struct = *reinterpret_cast<XPBP64Structure*>(dest);
@@ -28,7 +22,7 @@ u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats,
   FPFor64Impl fast_pfor;
   size_t compressed_codes_size;  // not really used
   // -------------------------------------------------------------------------------------
-  size_t fast_pfor_compressed_count = stats.tuple_count & ~255ul;
+  size_t fast_pfor_compressed_count = stats.tuple_count & ~127ul;
   auto write_ptr = reinterpret_cast<u8*>(col_struct.data);
   // -------------------------------------------------------------------------------------
   // TODO: FastPFOR wants multiple of 128/256 of numbers -> so what to do with the rest?
@@ -49,12 +43,12 @@ u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats,
   }
   // -------------------------------------------------------------------------------------
   // store the padded rest of the data
-  if (stats.tuple_count - fast_pfor_compressed_count > 0) {
+  if ((stats.tuple_count & 255) > 0 && false) {
     u32 used_space;
     col_struct.padded_values_offset = write_ptr - dest;
 
     Int64SchemePicker::compress(
-        src + fast_pfor_compressed_count, nullptr, write_ptr, stats.tuple_count - fast_pfor_compressed_count, allowed_cascading_level - 1,
+        src + fast_pfor_compressed_count, nullptr, write_ptr, stats.tuple_count & 127, allowed_cascading_level - 1,
         used_space, col_struct.encoding_scheme_padded, autoScheme(), "padded numbers");
 
     write_ptr += used_space;
