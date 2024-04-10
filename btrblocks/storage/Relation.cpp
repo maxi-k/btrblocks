@@ -147,6 +147,7 @@ InputChunk Relation::getInputChunk(const Range& range,
   auto offset = std::get<0>(range);
   auto chunk_tuple_count = std::get<1>(range);
 
+  // todo: why is the bitmap chunk_tuple_count * sizeof(BITMAP)?
   auto bitmap = std::unique_ptr<BITMAP[]>(new BITMAP[chunk_tuple_count * sizeof(BITMAP)]);
   std::memcpy(reinterpret_cast<void*>(bitmap.get()), columns[column].bitmaps().data + offset,
               chunk_tuple_count * sizeof(BITMAP));

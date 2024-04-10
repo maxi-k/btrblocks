@@ -16,7 +16,7 @@ constexpr bool auto_fpb = true;
 namespace btrblocks::int64s {
 // -------------------------------------------------------------------------------------
 u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats, u8) {
-  auto& col_struct = *reinterpret_cast<XPBPStructure*>(dest);
+  auto& col_struct = *reinterpret_cast<XPBP64Structure*>(dest);
   // -------------------------------------------------------------------------------------
   FPFor64Impl fast_pfor;
   size_t compressed_codes_size = 2 * stats.tuple_count + 1024;  // not really used
@@ -27,16 +27,19 @@ u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats,
   col_struct.padding = padding;
   auto dest_4_aligned = reinterpret_cast<u32*>(dest_integer);
   // -------------------------------------------------------------------------------------
+  // TODO: FastPFOR wants multiple of 128/256 of numbers -> so what to do with the rest?
+  //       1. just store them without further compression
+  //       2. compress them further -> but i dont think this would do a lot
   fast_pfor.compress(reinterpret_cast<const FPFor64Impl::data_t*>(src), (stats.tuple_count - (stats.tuple_count % 128)),
                      reinterpret_cast<u32*>(dest_4_aligned),
                      compressed_codes_size);
   col_struct.u32_count = compressed_codes_size;
   // -------------------------------------------------------------------------------------
-  return sizeof(XPBPStructure) + compressed_codes_size * sizeof(u32) + 16 /*For padding */;
+  return sizeof(XPBP64Structure) + compressed_codes_size * sizeof(u32) + 16 /*For padding */;
 }
 // -------------------------------------------------------------------------------------
 void PBP::decompress(INT64* dest, BitmapWrapper*, const u8* src, u32 tuple_count, u32 level) {
-  auto& col_struct = *reinterpret_cast<const XPBPStructure*>(src);
+  auto& col_struct = *reinterpret_cast<const XPBP64Structure*>(src);
   // -------------------------------------------------------------------------------------
   FPFor64Impl fast_pfor;
   SIZE decompressed_codes_size = tuple_count; // 2x tuple count because we actually compressed longs
@@ -66,7 +69,7 @@ double FBP::expectedCompressionRatio(SInt64Stats& stats, u8 allowed_cascading_le
 }
 // -------------------------------------------------------------------------------------
 u32 FBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats, u8) {
-  auto& col_struct = *reinterpret_cast<XPBPStructure*>(dest);
+  auto& col_struct = *reinterpret_cast<XPBP64Structure*>(dest);
   // -------------------------------------------------------------------------------------
   FBPImpl fast_pfor;
   size_t compressed_codes_size = 4 * stats.tuple_count + 1024;  // not really used
@@ -82,11 +85,11 @@ u32 FBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats,
                      compressed_codes_size);
   col_struct.u32_count = compressed_codes_size;
   // -------------------------------------------------------------------------------------
-  return sizeof(XPBPStructure) + compressed_codes_size * sizeof(u32);
+  return sizeof(XPBP64Structure) + compressed_codes_size * sizeof(u32);
 }
 // -------------------------------------------------------------------------------------
 void FBP::decompress(INT64* dest, BitmapWrapper*, const u8* src, u32 tuple_count, u32 level) {
-  auto& col_struct = *reinterpret_cast<const XPBPStructure*>(src);
+  auto& col_struct = *reinterpret_cast<const XPBP64Structure*>(src);
   // -------------------------------------------------------------------------------------
   FBPImpl codec;
   SIZE decompressed_codes_size = tuple_count*2;

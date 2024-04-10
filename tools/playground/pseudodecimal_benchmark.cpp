@@ -25,7 +25,7 @@
 // -------------------------------------------------------------------------------------
 DEFINE_string(file_list_file, "pbi-double-columns.txt", "file-list");
 DEFINE_int32(cascade_depth, 3, "cascade");
-DEFINE_int32(chunk_size, 1 << 10, "chunk_size");
+DEFINE_int32(chunk_size, 1 << 16, "chunk_size");
 // -------------------------------------------------------------------------------------
 // example2.double: s3://public-bi-benchmark/binary/Telco/1/Telco_1/106_RECHRG_INC_MIN_USED_P1.double
 // example2.bitmap: s3://public-bi-benchmark/binary/Telco/1/Telco_1/106_RECHRG_INC_MIN_USED_P1.bitmap
