@@ -53,9 +53,8 @@ std::string ensure_file(const std::string& object) {
   std::string outfile = "columns/" + object;
   std::stringstream _cmd;
   _cmd << "bash -c 'mkdir -p columns; mkdir -p " << FLAGS_btr << "; test -f \"" << outfile
-       << "\" && echo \"file exists, skipping download\" || (echo "
-          "\"downloading file\"; aws s3 cp \""
-       << bucket << object << "\" \"" << outfile << "\"" << " --no-sign" << ")'";
+       << "\" || (aws s3 cp \""
+       << bucket << object << "\" \"" << outfile << "\"" << " --no-sign 2>&1 > /dev/null" << ")'";
   std::string cmd(_cmd.str());
   // spdlog::info("running {}", cmd);
   system(cmd.c_str());
