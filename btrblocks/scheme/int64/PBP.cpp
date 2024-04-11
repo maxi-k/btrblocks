@@ -62,11 +62,11 @@ void PBP::decompress(INT64* dest, BitmapWrapper*, const u8* src, u32 tuple_count
   auto& col_struct = *reinterpret_cast<const XPBP64Structure*>(src);
   // -------------------------------------------------------------------------------------
   FPFor64Impl fast_pfor;
-  SIZE decompressed_codes_size = col_struct.fastpfor_count * sizeof(u64); // 2x tuple count because we actually compressed longs
-  if (col_struct.fastpfor_count) {
+  SIZE decompressed_codes_size = tuple_count * sizeof(u64) + 1024; // 2x tuple count because we actually compressed longs
+  if (col_struct.fastpfor_count > 0) {
     auto encoded_array =
         reinterpret_cast<const u32*>(col_struct.data + col_struct.padding);
-    fast_pfor.decompress(encoded_array, col_struct.fastpfor_count,
+    fast_pfor.decompress(encoded_array, col_struct.fastpfor_count * 2, // value is measured in uint32_t therefore we need to double it
                          reinterpret_cast<FPFor64Impl::data_t*>(dest),
                          decompressed_codes_size);
     assert(decompressed_codes_size == col_struct.fastpfor_count);
