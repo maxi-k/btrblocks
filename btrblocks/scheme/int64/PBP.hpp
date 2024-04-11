@@ -6,10 +6,10 @@ namespace btrblocks::int64s {
 // -------------------------------------------------------------------------------------
 struct XPBP64Structure {  // need to be aligned by 4 because of
                         // FastPFor encodeArray
-  u32 fastpfor_count;
-  u8 padding;
-  u8 encoding_scheme_padded;
-  u32 padded_values_offset;
+  u64 padding = 0;
+  u32 fastpfor_count = 0;
+  u32 padded_values_offset = 0;
+  u8 encoding_scheme_padded = 0;
   u8 data[];
 };
 struct XFBP64Structure {  // need to be aligned by 4 because of
