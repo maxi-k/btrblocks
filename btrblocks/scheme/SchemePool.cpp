@@ -117,7 +117,7 @@ SchemesCollection::SchemesCollection() {
                  RLE,
                  Frequency,
                  Decimal,
-                 AlpRD,
+                 // AlpRD,
                  Alp,
                  DoubleBP,
                  Dictionary8,
