@@ -64,6 +64,8 @@ class Alp : public DoubleScheme {
   };
 };
 // -------------------------------------------------------------------------------------
+static constexpr u32 BATCH_SIZE = 1 << 12;
+
 struct AlpStructure {
   // ---------------------------------------------------------------------------------
   u32 exceptions_positions_offset;
@@ -71,7 +73,12 @@ struct AlpStructure {
   // ---------------------------------------------------------------------------------
   u32 encoded_count;
   u32 exceptions_count;
-  Alp::EncodingIndices vector_encoding_indices;
+  u32 batch_count;
+  // ---------------------------------------------------------------------------------
+  std::array<Alp::EncodingIndices, (1 << 16) / BATCH_SIZE> vector_encoding_indices; // 16 is now 'magic' -> block_size / alp_block_size = 1 << 16 / 1 << 12 = 1 << 4 = 16
+  std::array<u32, (1 << 16) / BATCH_SIZE> batch_encoded_count{0}; // 16 is now 'magic' -> block_size / alp_block_size = 1 << 16 / 1 << 12 = 1 << 4 = 16
+  std::array<u32, (1 << 16) / BATCH_SIZE> batch_exception_count{0}; // 16 is now 'magic' -> block_size / alp_block_size = 1 << 16 / 1 << 12 = 1 << 4 = 16
+
   u8 encoding_scheme, exceptions_positions_scheme, exceptions_scheme;
   // ---------------------------------------------------------------------------------
   u8 data[]; // here should be values_encoded, patches, exceptions_map

@@ -38,7 +38,7 @@ string Alp::fullDescription(const u8* src) {
 static constexpr double ENCODING_UPPER_LIMIT = 9223372036854774784;
 static constexpr double ENCODING_LOWER_LIMIT = -9223372036854774784;
 
-static constexpr uint8_t SAMPLING_EARLY_EXIT_THRESHOLD = 2;
+static constexpr uint8_t SAMPLING_EARLY_EXIT_THRESHOLD = 3;
 static constexpr uint8_t EXCEPTION_POSITION_SIZE = sizeof(uint16_t);
 static constexpr uint8_t EXACT_TYPE_BITSIZE = sizeof(double) * 8;
 
@@ -118,7 +118,6 @@ static constexpr double FRAC_ARR[] = {1.0,
 // -------------------------------------------------------------------------------------
 // helper functions
 // following methods are strongly based on the DuckDB implementation of DuckDB
-
 static bool isImpossibleToEncode(double n) {
   return (std::isnan(n) || std::isinf(n)) || n > ENCODING_UPPER_LIMIT ||
          n < ENCODING_LOWER_LIMIT || (n == 0.0 && std::signbit(n)); //! Verification for -0.0
@@ -296,7 +295,6 @@ static vector<Alp::IndicesAppearancesCombination> getTopKCombinations(btrblocks:
   vector<vector<DOUBLE>> vectors_sampled;
 
   for (size_t t = 0; t < sampleCon.size();) {
-    // size_t upper_limit = t == RG_SAMPLES - 1 ? sampleCon.size() : t + SAMPLES_PER_VECTOR;
     DOUBLE* upper_limit = (t + SAMPLES_PER_VECTOR) < sampleCon.size() ? &sampleCon[t + SAMPLES_PER_VECTOR] : (sampleCon.data() + sampleCon.size());
     vectors_sampled.emplace_back(&sampleCon[t], upper_limit);
     t += SAMPLES_PER_VECTOR;
@@ -315,55 +313,74 @@ u32 Alp::compress(const DOUBLE* src,
              u8 allowed_cascading_level) {
   auto& col_struct = *reinterpret_cast<AlpStructure*>(dest);
 
-  vector<int64_t> encoded_integers(stats.tuple_count);
+  vector<INT64> encoded_integers(stats.tuple_count);
   vector<INTEGER> exceptions_positions;
+  vector<DOUBLE> exceptions;
   // first we need to find the best exponent and factor
   auto best_k_combinations = getTopKCombinations(stats);
-  col_struct.vector_encoding_indices = findBestFactorAndExponent(src, stats.tuple_count, best_k_combinations);
-  Alp::EncodingIndices& vector_encoding_indices = col_struct.vector_encoding_indices;
-  // std::cout << "factor: " << static_cast<size_t>(vector_encoding_indices.factor) << " exp: " << static_cast<size_t>(vector_encoding_indices.exponent) << std::endl;
-  // Encoding Floating-Point to Int64
-  //! We encode all the values regardless of their correctness to recover the original floating-point
-  for (size_t i = 0; i < stats.tuple_count; ++i) {
-    DOUBLE actual_value = src[i];
-    int64_t encoded_value = encodeValue(actual_value, vector_encoding_indices);
-    DOUBLE decoded_value = decodeValue(encoded_value, vector_encoding_indices);
-    // TODO: THIS DOESNT SEEM TO BE VERY EFFICIENT (DUCKDB DOES THIS BETTER)
-    encoded_integers[i] = encoded_value;
-    //! We detect exceptions using a predicated comparison
-    if (decoded_value != actual_value) {
-      exceptions_positions.push_back(static_cast<INTEGER>(i));
+  u32 current_batch = 0;
+  u32 previous_exceptions_size = 0;
+
+  // we do the alp batched for two reasons:
+  // 1. we hope that the factor and exponent pairs are more effective
+  // 2. in btrblocks we work with 1 << 16 blocks and these are not too cache efficient
+  //    with the batched method we hope for better performance in decompression
+  for (u32 i = 0; i < stats.tuple_count; i += BATCH_SIZE, ++current_batch) {
+    u32 batch_exception_count = 0;
+
+    u32 batch_tuple_count = std::min(i + BATCH_SIZE, stats.tuple_count) - i;
+    auto best_vector_encoding_pair = findBestFactorAndExponent(src + i, batch_tuple_count, best_k_combinations);
+    col_struct.vector_encoding_indices[current_batch] = best_vector_encoding_pair;
+
+    // Encoding Floating-Point to Int64
+    //! We encode all the values regardless of their correctness to recover the original floating-point
+    for (u32 j = 0; j < batch_tuple_count; ++j) {
+      u32 current_pos = j + i;
+
+      DOUBLE actual_value = src[current_pos];
+      int64_t encoded_value = encodeValue(actual_value, best_vector_encoding_pair);
+      DOUBLE decoded_value = decodeValue(encoded_value, best_vector_encoding_pair);
+      // TODO: THIS DOESNT SEEM TO BE VERY EFFICIENT (DUCKDB DOES THIS BETTER)
+      encoded_integers[current_pos] = encoded_value;
+      //! We detect exceptions using a predicated comparison
+      if (decoded_value != actual_value) {
+        batch_exception_count++;
+        exceptions_positions.push_back(static_cast<INTEGER>(j));
+      }
     }
-  }
-  col_struct.encoded_count = stats.tuple_count;
 
-  // Finding first non exception value
-  int64_t a_non_exception_value = 0;
-  for (size_t i = 0; i < exceptions_positions.size(); ++i) {
-    if (i != static_cast<size_t>(exceptions_positions[i])) {
-      a_non_exception_value = encoded_integers[i];
-      break;
+    // Finding first non exception value
+    int64_t a_non_exception_value = 0;
+    for (size_t j = 0; j < batch_exception_count; ++j) {
+      // no worries that exceptions_positions get accessed out of bounds
+      if (i + j != static_cast<size_t>(exceptions_positions[previous_exceptions_size + j])) {
+        a_non_exception_value = encoded_integers[i + j];
+        break;
+      }
     }
-  }
 
-  vector<DOUBLE> exceptions;
+    // Replacing that first non exception value on the vector exceptions
+    for (size_t j = 0; j < batch_exception_count; ++j) {
+      auto exception_pos = i + exceptions_positions[previous_exceptions_size + j];
+      DOUBLE actual_value = src[exception_pos];
+      encoded_integers[exception_pos] = a_non_exception_value;
+      exceptions.push_back(actual_value);
+    }
 
-  // Replacing that first non exception value on the vector exceptions
-  for (uint64_t exception_pos : exceptions_positions) {
-    DOUBLE actual_value = src[exception_pos];
-    encoded_integers[exception_pos] = a_non_exception_value;
-    exceptions.push_back(actual_value);
+    col_struct.batch_exception_count[current_batch] = batch_exception_count;
+    col_struct.batch_encoded_count[current_batch] = batch_tuple_count;
+    previous_exceptions_size = exceptions.size();
   }
 
   assert((exceptions_positions.size()) == exceptions.size());
   assert((encoded_integers.size()) == stats.tuple_count);
 
   col_struct.exceptions_count = exceptions.size();
-
-  // allowed_cascading_level = 1;
+  col_struct.encoded_count = stats.tuple_count;
+  col_struct.batch_count = current_batch;
 
   auto write_ptr = col_struct.data;
-  // compress encoded_integers with special shit
+  // compress encoded_integers with int64 scheme -> in the most cases fastpfor
   if  (!encoded_integers.empty()) {
     u32 used_space;
     /// statically setting bitpacking here; test better options
@@ -382,7 +399,7 @@ u32 Alp::compress(const DOUBLE* src,
       IntegerSchemePicker::compress(
           reinterpret_cast<INTEGER*>(exceptions_positions.data()), nullptr, write_ptr,
           exceptions_positions.size(), allowed_cascading_level - 1, used_space,
-          col_struct.exceptions_positions_scheme, autoScheme(), "patches");
+          col_struct.exceptions_positions_scheme, autoScheme(), "patches positions");
       write_ptr += used_space;
       Log::debug("Alp patches c = {} s = {}", CI(col_struct.exceptions_positions_scheme),
                  CI(used_space));
@@ -391,11 +408,11 @@ u32 Alp::compress(const DOUBLE* src,
     col_struct.exceptions_offset = write_ptr - col_struct.data;
     {
       u32 used_space;
-      /// statically setting bitpacking here; test better options
+
       DoubleSchemePicker::compress(reinterpret_cast<DOUBLE*>(exceptions.data()), nullptr, write_ptr,
                                    exceptions.size(), allowed_cascading_level - 1, used_space,
                                    col_struct.exceptions_scheme, autoScheme(),
-                                   "alp encoded integers");
+                                   "alp exception doubles");
       write_ptr += used_space;
       Log::debug("Alp exceptions c = {} s = {}", CI(col_struct.exceptions_scheme), CI(used_space));
     }
@@ -418,32 +435,18 @@ void Alp::decompress(DOUBLE* dest,
   auto encoded_integer_ptr = get_level_data(encoded_integer_v, col_struct.encoded_count + SIMD_EXTRA_ELEMENTS(INT64), level);
 
 
-  Alp::EncodingIndices encodingIndices = col_struct.vector_encoding_indices;
-
   // unconditionally decompress dictionary and right part
   Int64Scheme& encoded_scheme =
       Int64SchemePicker::MyTypeWrapper::getScheme(col_struct.encoding_scheme);
   encoded_scheme.decompress(encoded_integer_v[level].data(), nullptr, col_struct.data,
                             col_struct.encoded_count, level + 1);
 
-
-  // TODO: THIS SHOULD ALL BE SIMDED
-  // https://godbolt.org/z/83YWW6K7x
-
-  // decompress left part if not everything is a patch
-  if (col_struct.encoded_count > 0) {
-    for (u32 i = 0; i != col_struct.encoded_count; i++) {
-      auto encoded_integer = static_cast<int64_t>(encoded_integer_ptr[i]);
-      dest[i] = decodeValue(encoded_integer, encodingIndices);
-    }
-  }
+  thread_local vector<vector<DOUBLE>> exceptions_v;
+  thread_local vector<vector<INTEGER>> patches_v;
+  auto exceptions_ptr = get_level_data(exceptions_v, col_struct.exceptions_count + SIMD_EXTRA_ELEMENTS(DOUBLE), level);
+  auto patches_ptr = get_level_data(patches_v, col_struct.exceptions_count + SIMD_EXTRA_ELEMENTS(INTEGER), level);
 
   if (col_struct.exceptions_count > 0) {
-    thread_local vector<vector<DOUBLE>> exceptions_v;
-    thread_local vector<vector<INTEGER>> patches_v;
-    auto exceptions_ptr = get_level_data(exceptions_v, col_struct.exceptions_count + SIMD_EXTRA_ELEMENTS(DOUBLE), level);
-    auto patches_ptr = get_level_data(patches_v, col_struct.exceptions_count + SIMD_EXTRA_ELEMENTS(INTEGER), level);
-
     IntegerScheme& exception_positions_scheme =
         IntegerSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_positions_scheme);
     exception_positions_scheme.decompress(patches_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_positions_offset,
@@ -453,11 +456,26 @@ void Alp::decompress(DOUBLE* dest,
         DoubleSchemePicker::MyTypeWrapper::getScheme(col_struct.exceptions_scheme);
     exceptions_scheme.decompress(exceptions_v[level].data(), nullptr, col_struct.data + col_struct.exceptions_offset,
                                  col_struct.exceptions_count, level + 1);
+  }
 
-    // patches
-    // this is done sequentially but in the optimal case
-    for (u32 i = 0; i != col_struct.exceptions_count; i++) {
-      dest[patches_ptr[i]] = exceptions_ptr[i];
+  // alp logic
+  u32 current_batch = 0;
+  u32 prev_exceptions_count = 0;
+  for (u32 i = 0; i < col_struct.encoded_count; i += BATCH_SIZE, ++current_batch) {
+    // decompress left part if not everything is a patch
+    if (col_struct.batch_encoded_count[current_batch] > 0) {
+      for (u32 j = 0; j != col_struct.batch_encoded_count[current_batch]; j++) {
+        auto encoded_integer = static_cast<int64_t>(encoded_integer_ptr[i + j]);
+        dest[i + j] = decodeValue(encoded_integer, col_struct.vector_encoding_indices[current_batch]);
+      }
+
+      // patches
+      // this is done sequentially but in the optimal case
+      for (u32 j = 0; j != col_struct.batch_exception_count[current_batch]; j++) {
+        dest[i + patches_ptr[prev_exceptions_count + j]] = exceptions_ptr[prev_exceptions_count + j];
+      }
+
+      prev_exceptions_count += col_struct.batch_exception_count[current_batch];
     }
   }
 }

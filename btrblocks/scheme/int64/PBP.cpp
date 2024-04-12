@@ -42,7 +42,7 @@ u32 PBP::compress(const INT64* src, const BITMAP*, u8* dest, SInt64Stats& stats,
     col_struct.fastpfor_count = fast_pfor_compressed_count;
   }
   // -------------------------------------------------------------------------------------
-  // store the padded rest of the data
+  // compress rest of the data
   if ((stats.tuple_count & 127) > 0) {
     u32 used_space;
     col_struct.padded_values_offset = write_ptr - col_struct.data;
@@ -62,7 +62,7 @@ void PBP::decompress(INT64* dest, BitmapWrapper*, const u8* src, u32 tuple_count
   auto& col_struct = *reinterpret_cast<const XPBP64Structure*>(src);
   // -------------------------------------------------------------------------------------
   FPFor64Impl fast_pfor;
-  SIZE decompressed_codes_size = tuple_count * sizeof(u64) + 1024; // 2x tuple count because we actually compressed longs
+  SIZE decompressed_codes_size = tuple_count * sizeof(u64);
   if (col_struct.fastpfor_count > 0) {
     auto encoded_array =
         reinterpret_cast<const u32*>(col_struct.data + col_struct.padding);
