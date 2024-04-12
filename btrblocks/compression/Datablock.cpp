@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <exception>
 #include <fstream>
+#include <memory>
 #include <limits>
 #include <numeric>
 #include <roaring/roaring.hh>
@@ -79,6 +80,13 @@ SIZE Datablock::compress(const InputChunk& input_chunk, u8* output) {
                                     meta->compression_type);
       break;
     }
+    case ColumnType::INT64: {
+      Int64SchemePicker::compress(reinterpret_cast<INT64*>(input_chunk.data.get()),
+                                  input_chunk.nullmap.get(), output_data, input_chunk.tuple_count,
+                                  cfg.integers.max_cascade_depth, meta->nullmap_offset,
+                                  meta->compression_type);
+      break;
+    }
     case ColumnType::DOUBLE: {
       // -------------------------------------------------------------------------------------
       DoubleSchemePicker::compress(reinterpret_cast<DOUBLE*>(input_chunk.data.get()),
@@ -111,11 +119,11 @@ SIZE Datablock::compress(const InputChunk& input_chunk, u8* output) {
       for (u8 i = 0; i < 5 - cfg.strings.max_cascade_depth; i++) {
         ThreadCache::get() << "\t";
       }
-      ThreadCache::get() << "for : ? - scheme = " +
-                                ConvertSchemeTypeToString(preferred_scheme.schemeType());
-      +" before = " + std::to_string(stats.total_size) +
-          " after = " + std::to_string(after_column_size) +
-          " gain = " + std::to_string(CD(stats.total_size) / CD(after_column_size)) + '\n';
+      ThreadCache::get() << "for : ? - scheme = " <<
+          ConvertSchemeTypeToString(preferred_scheme.schemeType())
+                         << " before = " << std::to_string(stats.total_size) <<
+          " after = " << std::to_string(after_column_size) <<
+          " gain = " << std::to_string(CD(stats.total_size) / CD(after_column_size)) << '\n';
 
       double estimated_cf =
           CD(stats.total_size) / CD(after_column_size);  // we only have one scheme for strings
@@ -139,10 +147,10 @@ SIZE Datablock::compress(const InputChunk& input_chunk, u8* output) {
   u32 total_size = sizeof(*meta) + meta->nullmap_offset + nullmap_size;
 
   // Print decision tree
-  ThreadCache::get() << " type = " + ConvertTypeToString(input_chunk.type) +
-                            " before = " + std::to_string(input_chunk.size) +
-                            " after = " + std::to_string(total_size) +
-                            " gain = " + std::to_string(CD(input_chunk.size) / CD(total_size)) +
+  ThreadCache::get() << " type = " << ConvertTypeToString(input_chunk.type) +
+                            " before = " << input_chunk.size <<
+                            " after = " << total_size <<
+                            " gain = " << CD(input_chunk.size) / CD(total_size) <<
                             "\n\n\n";
   return total_size;
 }
@@ -163,6 +171,14 @@ bool Datablock::decompress(const u8* data_in, BitmapWrapper** bitmap_out, u8* da
       auto& scheme = SchemePool::available_schemes
                          ->integer_schemes[static_cast<IntegerSchemeType>(meta->compression_type)];
       scheme->decompress(reinterpret_cast<INTEGER*>(data_out), *bitmap_out, meta->data,
+                         meta->tuple_count, 0);
+      requires_copy_out = false;
+      break;
+    }
+    case ColumnType::INT64: {
+      auto& scheme = SchemePool::available_schemes
+                         ->int64_schemes[static_cast<Int64SchemeType>(meta->compression_type)];
+      scheme->decompress(reinterpret_cast<INT64*>(data_out), *bitmap_out, meta->data,
                          meta->tuple_count, 0);
       requires_copy_out = false;
       break;
@@ -240,6 +256,20 @@ OutputBlockStats Datablock::compress(const Chunk& input_chunk, BytesArray& outpu
                                       output_block.get() + db_write_offset, input_chunk.tuple_count,
                                       cfg.integers.max_cascade_depth, after_column_size,
                                       column_meta.compression_type);
+        after_column_size += sizeof(column_meta.bias);
+        // -------------------------------------------------------------------------------------
+        break;
+      }
+      case ColumnType::INT64: {
+        // First: apply FOR to remove negative numbers and decrease the range
+        // -------------------------------------------------------------------------------------
+        const BITMAP* nullmap = input_chunk.nullmap(column_i);
+        // -------------------------------------------------------------------------------------
+        // Compression
+        Int64SchemePicker::compress(input_chunk.array<INT64>(column_i), nullmap,
+                                    output_block.get() + db_write_offset, input_chunk.tuple_count,
+                                    cfg.integers.max_cascade_depth, after_column_size,
+                                    column_meta.compression_type);
         after_column_size += sizeof(column_meta.bias);
         // -------------------------------------------------------------------------------------
         break;
@@ -368,6 +398,19 @@ btrblocks::Chunk Datablock::decompress(const BytesArray& input_db) {
         // -------------------------------------------------------------------------------------
         auto destination_array = reinterpret_cast<INTEGER*>(columns[column_i].get());
         auto& scheme = IntegerSchemePicker::MyTypeWrapper::getScheme(column_meta.compression_type);
+        // -------------------------------------------------------------------------------------
+        scheme.decompress(destination_array, &bitmap, input_db.get() + column_meta.offset,
+                          tuple_count, 0);
+        column_requires_copy[column_i] = false;
+        break;
+      }
+      case ColumnType::INT64: {
+        // -------------------------------------------------------------------------------------
+        sizes[column_i] = sizeof(INT64) * tuple_count;
+        columns[column_i] = makeBytesArray(sizeof(INT64) * tuple_count + SIMD_EXTRA_BYTES);
+        // -------------------------------------------------------------------------------------
+        auto destination_array = reinterpret_cast<INT64*>(columns[column_i].get());
+        auto& scheme = Int64SchemePicker::MyTypeWrapper::getScheme(column_meta.compression_type);
         // -------------------------------------------------------------------------------------
         scheme.decompress(destination_array, &bitmap, input_db.get() + column_meta.offset,
                           tuple_count, 0);

@@ -39,7 +39,7 @@ struct Vector {
   }
 
   void readBinary(const char* pathname) {
-    //      std::cout << "Reading binary file : " << pathname << std::endl;
+    //z      std::cout << "Reading binary file : " << pathname << std::endl;
     int fd = open(pathname, O_RDONLY);
     if (fd == -1) {
       cout << pathname << endl;

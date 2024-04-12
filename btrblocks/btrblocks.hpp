@@ -21,7 +21,7 @@ enum class SchemeSelection : uint8_t { SAMPLE, TRY_ALL };
 // ------------------------------------------------------------------------------
 struct BtrBlocksConfig {
   // clang-format off
-  size_t block_size{65536};                            // max tuples in a single block
+  size_t block_size{1 << 16};                            // max tuples in a single block
   uint32_t sample_size{64};                            // run size of each sample
   uint32_t sample_count{10};                           // number of samples to take
 
@@ -30,6 +30,13 @@ struct BtrBlocksConfig {
     IntegerSchemeType override_scheme{autoScheme()};   // force using this scheme for integer columns
     uint8_t max_cascade_depth{3};                      // maximum recursive compression calls
   } integers;
+
+  struct {
+    Int64SchemeSet schemes{defaultInt64Schemes()};   // enabled int64 schemes
+    Int64SchemeType override_scheme{autoScheme()};     // force using this scheme for int64 columns
+    uint8_t max_cascade_depth{3};                      // maximum recursive compression calls
+  } int64s;
+
 
   struct {
     DoubleSchemeSet schemes{defaultDoubleSchemes()};   // enabled double schemes

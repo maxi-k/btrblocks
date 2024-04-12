@@ -1,4 +1,5 @@
 #pragma once
+#include <immintrin.h>
 #include "compression/SchemePicker.hpp"
 #include "scheme/CompressionScheme.hpp"
 // -------------------------------------------------------------------------------------
@@ -165,7 +166,6 @@ inline void TRLE<INTEGER, IntegerScheme, SInteger32Stats, IntegerSchemeType>::de
 #ifdef BTR_USE_SIMD
   for (u32 run_i = 0; run_i < col_struct.runs_count; run_i++) {
     auto target_ptr = write_ptr + counts[run_i];
-
     /*
      * I tried several variation for vectorizing this. Using AVX2 directly is
      * the fastest even when there are many very short runs. The penalty of
@@ -234,6 +234,70 @@ inline void TRLE<DOUBLE, DoubleScheme, DoubleStats, DoubleSchemeType>::decompres
     while (write_ptr < target_ptr) {
       // store is performed in a single cycle
       _mm256_storeu_pd(write_ptr, vec);
+      write_ptr += 4;
+    }
+    write_ptr = target_ptr;
+  }
+#else
+  for (u32 run_i = 0; run_i < col_struct.runs_count; run_i++) {
+    auto val = values[run_i];
+    auto target_ptr = write_ptr + counts[run_i];
+    while (write_ptr != target_ptr) {
+      *write_ptr++ = val;
+    }
+  }
+#endif
+}
+// ------------------------------------------------------------------------
+
+template <>
+inline void TRLE<INT64, Int64Scheme, SInt64Stats, Int64SchemeType>::decompressColumn(
+    INT64* dest,
+    BitmapWrapper*,
+    const u8* src,
+    u32 tuple_count,
+    u32 level) {
+  static_assert(sizeof(*dest) == 8);
+
+  const auto& col_struct = *reinterpret_cast<const RLEStructure*>(src);
+  // -------------------------------------------------------------------------------------
+  // Decompress values
+  thread_local std::vector<std::vector<INT64>> values_v;
+  auto values =
+      get_level_data(values_v, col_struct.runs_count + SIMD_EXTRA_ELEMENTS(INT64), level);
+  {
+    Int64Scheme& scheme =
+        TypeWrapper<Int64Scheme, Int64SchemeType>::getScheme(col_struct.values_scheme_code);
+    scheme.decompress(values, nullptr, col_struct.data, col_struct.runs_count, level + 1);
+  }
+  // -------------------------------------------------------------------------------------
+  // Decompress counts
+  thread_local std::vector<std::vector<INTEGER>> counts_v;
+  auto counts =
+      get_level_data(counts_v, col_struct.runs_count + SIMD_EXTRA_ELEMENTS(INTEGER), level);
+  {
+    IntegerScheme& scheme =
+        TypeWrapper<IntegerScheme, IntegerSchemeType>::getScheme(col_struct.counts_scheme_code);
+    scheme.decompress(counts, nullptr, col_struct.data + col_struct.runs_count_offset,
+                      col_struct.runs_count, level + 1);
+  }
+  // -------------------------------------------------------------------------------------
+  auto write_ptr = dest;
+#ifdef BTR_USE_SIMD
+  for (u32 run_i = 0; run_i < col_struct.runs_count; run_i++) {
+    auto target_ptr = write_ptr + counts[run_i];
+
+    /*
+     * I tried several variation for vectorizing this. Using AVX2 directly is
+     * the fastest even when there are many very short runs. The penalty of
+     * branching simply outweighs the few instructions saved by not using AVX2
+     * for short runs
+     */
+    // set is a sequential operation
+    __m256i vec = _mm256_set1_epi64x(values[run_i]);
+    while (write_ptr < target_ptr) {
+      // store is performed in a single cycle
+      _mm256_storeu_si256(reinterpret_cast<__m256i*>(write_ptr), vec);
       write_ptr += 4;
     }
     write_ptr = target_ptr;

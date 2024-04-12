@@ -8,15 +8,17 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wuninitialized"
 #include <headers/blockpacking.h>
-#include <headers/codecfactory.h>
+#include <headers/compositecodec.h>
 #include <headers/deltautil.h>
+#include <headers/simdfastpfor.h>
+#include <headers/variablebyte.h>
 #include <headers/fastpfor.h>
 #pragma GCC diagnostic pop
 // -------------------------------------------------------------------------------------
 using namespace btrblocks;
 // -------------------------------------------------------------------------------------
 template <>
-struct LemiereImpl<FastPForCodec::FPF>::impl {
+struct LemiereImpl<FastPForCodec::FPF, uint32_t>::impl {
   // using codec_t = BTR_IFELSESIMD(FastPForLib::SIMDFastPFor<8>,
   // FastPForLib::FastPFor<8>);
   using codec_t = FastPForLib::SIMDFastPFor<8>;
@@ -24,26 +26,32 @@ struct LemiereImpl<FastPForCodec::FPF>::impl {
 };
 // -------------------------------------------------------------------------------------
 template <>
-struct LemiereImpl<FastPForCodec::FBP>::impl {
+struct LemiereImpl<FastPForCodec::FBP, uint32_t>::impl {
   // TODO Adnan did not use SIMDBinaryPacking in the original? ask him why
   FastPForLib::CompositeCodec<FastPForLib::FastBinaryPacking<32>, FastPForLib::VariableByte> codec;
 };
 // -------------------------------------------------------------------------------------
-template <FastPForCodec Codec>
-LemiereImpl<Codec>::LemiereImpl() : pImpl(new LemiereImpl<Codec>::impl) {}
+template <>
+struct LemiereImpl<FastPForCodec::FPF, uint64_t>::impl {
+  // TODO Adnan did not use SIMDBinaryPacking in the original? ask him why
+  FastPForLib::FastPForImpl<4, uint64_t> codec;
+};
 // -------------------------------------------------------------------------------------
-template <FastPForCodec Codec>
-LemiereImpl<Codec>::~LemiereImpl() = default;
+template <FastPForCodec Codec, class T>
+LemiereImpl<Codec, T>::LemiereImpl() : pImpl(new LemiereImpl<Codec, T>::impl) {}
 // -------------------------------------------------------------------------------------
-template <FastPForCodec Codec>
-u32 LemiereImpl<Codec>::compress(const data_t* src, u32 count, data_t* dest, SIZE& outsize) {
+template <FastPForCodec Codec, class T>
+LemiereImpl<Codec, T>::~LemiereImpl() = default;
+// -------------------------------------------------------------------------------------
+template <FastPForCodec Codec, class T>
+u32 LemiereImpl<Codec, T>::compress(const T* src, u32 count, u32* dest, SIZE& outsize) {
   auto& codec = this->pImpl->codec;
   codec.encodeArray(src, count, dest, outsize);
   return outsize;
 }
 // -------------------------------------------------------------------------------------
-template <FastPForCodec Codec>
-const typename LemiereImpl<Codec>::data_t* LemiereImpl<Codec>::decompress(const data_t* src,
+template <FastPForCodec Codec, class T>
+const u32* LemiereImpl<Codec, T>::decompress(const u32* src,
                                                                           u32 count,
                                                                           data_t* dest,
                                                                           SIZE& outsize) {
@@ -51,18 +59,41 @@ const typename LemiereImpl<Codec>::data_t* LemiereImpl<Codec>::decompress(const 
   return codec.decodeArray(src, count, dest, outsize);
 }
 // -------------------------------------------------------------------------------------
-template <FastPForCodec Codec>
-void LemiereImpl<Codec>::applyDelta(data_t* src, size_t count) {
+template <>
+void LemiereImpl<FastPForCodec::FPF, uint32_t>::applyDelta(uint32_t* src, size_t count) {
   using namespace FastPForLib;
   FastPForLib::Delta::deltaSIMD(src, count);
 }
 // -------------------------------------------------------------------------------------
-template <FastPForCodec Codec>
-void LemiereImpl<Codec>::revertDelta(data_t* src, size_t count) {
+template <>
+void LemiereImpl<FastPForCodec::FPF, uint32_t>::revertDelta(uint32_t * src, size_t count) {
   using namespace FastPForLib;
   FastPForLib::Delta::inverseDeltaSIMD(src, count);
 }
 // -------------------------------------------------------------------------------------
-template struct LemiereImpl<FastPForCodec::FPF>;
-template struct LemiereImpl<FastPForCodec::FBP>;
+template <>
+void LemiereImpl<FastPForCodec::FBP, uint32_t>::applyDelta(uint32_t* src, size_t count) {
+  using namespace FastPForLib;
+  FastPForLib::Delta::deltaSIMD(src, count);
+}
+// -------------------------------------------------------------------------------------
+template <>
+void LemiereImpl<FastPForCodec::FBP, uint32_t>::revertDelta(uint32_t * src, size_t count) {
+  using namespace FastPForLib;
+  FastPForLib::Delta::inverseDeltaSIMD(src, count);
+}
+// -------------------------------------------------------------------------------------
+template <>
+void LemiereImpl<FastPForCodec::FPF, uint64_t>::applyDelta(uint64_t* src, size_t count) {
+  throw std::logic_error("not implemented");
+}
+// -------------------------------------------------------------------------------------
+template <>
+void LemiereImpl<FastPForCodec::FPF, uint64_t>::revertDelta(uint64_t * src, size_t count) {
+  throw std::logic_error("not implemented");
+}
+// -------------------------------------------------------------------------------------
+template struct LemiereImpl<FastPForCodec::FPF, uint32_t>;
+template struct LemiereImpl<FastPForCodec::FBP, uint32_t>;
+template struct LemiereImpl<FastPForCodec::FPF, uint64_t>;
 // -------------------------------------------------------------------------------------

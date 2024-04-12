@@ -52,6 +52,15 @@ bool BtrReader::readColumn(std::vector<u8>& output_chunk_v, u32 index) {
       scheme.decompress(destination_array, bitmap, input_data, tuple_count, 0);
       break;
     }
+    case ColumnType::INT64: {
+      // Prepare destination array
+      auto destination_array = reinterpret_cast<INT64*>(output_chunk);
+
+      // Fetch the scheme from metadata
+      auto& scheme = Int64SchemePicker::MyTypeWrapper::getScheme(meta->compression_type);
+      scheme.decompress(destination_array, bitmap, input_data, tuple_count, 0);
+      break;
+    }
     case ColumnType::DOUBLE: {
       // Prepare destination array
       auto destination_array = reinterpret_cast<DOUBLE*>(output_chunk);
@@ -83,6 +92,10 @@ string BtrReader::getSchemeDescription(u32 index) {
       auto& scheme = IntegerSchemePicker::MyTypeWrapper::getScheme(compression);
       return scheme.fullDescription(src);
     }
+    case ColumnType::INT64: {
+      auto& scheme = Int64SchemePicker::MyTypeWrapper::getScheme(compression);
+      return scheme.fullDescription(src);
+    }
     case ColumnType::DOUBLE: {
       auto& scheme = DoubleSchemePicker::MyTypeWrapper::getScheme(compression);
       return scheme.fullDescription(src);
@@ -105,6 +118,10 @@ string BtrReader::getBasicSchemeDescription(u32 index) {
   switch (meta->type) {
     case ColumnType::INTEGER: {
       auto& scheme = IntegerSchemePicker::MyTypeWrapper::getScheme(compression);
+      return scheme.selfDescription();
+    }
+    case ColumnType::INT64: {
+      auto& scheme = Int64SchemePicker::MyTypeWrapper::getScheme(compression);
       return scheme.selfDescription();
     }
     case ColumnType::DOUBLE: {
@@ -163,6 +180,9 @@ u32 BtrReader::getDecompressedSize(u32 index) {
     case ColumnType::INTEGER: {
       return sizeof(INTEGER) * meta->tuple_count;
     }
+    case ColumnType::INT64: {
+      return sizeof(INT64) * meta->tuple_count;
+    }
     case ColumnType::DOUBLE: {
       return sizeof(DOUBLE) * meta->tuple_count;
     }
@@ -189,6 +209,9 @@ u32 BtrReader::getDecompressedDataSize(u32 index) {
     case ColumnType::INTEGER: {
       return sizeof(INTEGER) * meta->tuple_count;
     }
+    case ColumnType::INT64: {
+      return sizeof(INT64) * meta->tuple_count;
+    }
     case ColumnType::DOUBLE: {
       return sizeof(DOUBLE) * meta->tuple_count;
     }
@@ -197,7 +220,7 @@ u32 BtrReader::getDecompressedDataSize(u32 index) {
 
       auto input_data = static_cast<const u8*>(meta->data);
       BitmapWrapper* bitmapWrapper = this->getBitmap(index);
-      u32 size = scheme.getTotalLength(input_data, meta->tuple_count, bitmapWrapper);
+      u32 size = scheme.getDecompressedSize(input_data, meta->tuple_count, bitmapWrapper);
       return size;
     }
     default: {

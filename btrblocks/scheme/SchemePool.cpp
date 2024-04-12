@@ -15,10 +15,20 @@
 #include "scheme/integer/FixedDictionary.hpp"
 #include "scheme/integer/Truncation.hpp"
 // -------------------------------------------------------------------------------------
+#include "scheme/int64/DynamicDictionary.hpp"
+#include "scheme/int64/OneValue.hpp"
+#include "scheme/int64/PBP.hpp"
+#include "scheme/int64/RLE.hpp"
+#include "scheme/int64/Uncompressed.hpp"
+// legacy schemes
+#include "scheme/int64/Truncation.hpp"
+// -------------------------------------------------------------------------------------
 #include "scheme/double/DynamicDictionary.hpp"
 #include "scheme/double/OneValue.hpp"
 #include "scheme/double/Pseudodecimal.hpp"
 #include "scheme/double/RLE.hpp"
+#include "scheme/double/AlpRD.hpp"
+#include "scheme/double/Alp.hpp"
 #include "scheme/double/Uncompressed.hpp"
 // legacy schemes
 #include "scheme/double/DoubleBP.hpp"
@@ -73,6 +83,25 @@ SchemesCollection::SchemesCollection() {
                  Dictionary16>(integer_schemes, cfg.integers.schemes);
     // clang-format on
   }
+  // Int64 schemes
+  {
+    using namespace legacy::int64s;
+    using namespace int64s;
+    // required schemes
+    die_if(cfg.int64s.schemes.isEnabled(Int64SchemeType::ONE_VALUE));
+    die_if(cfg.int64s.schemes.isEnabled(Int64SchemeType::UNCOMPRESSED));
+    // optional integer schemes
+    // clang-format off
+    addIfEnabled<Uncompressed,
+                 OneValue,
+                 DynamicDictionary,
+                 RLE,
+                 FBP,
+                 PBP,
+                 Truncation8,
+                 Truncation16>(int64_schemes, cfg.int64s.schemes);
+    // clang-format on
+  }
   // Double Schemes
   {
     using namespace legacy::doubles;
@@ -88,6 +117,8 @@ SchemesCollection::SchemesCollection() {
                  RLE,
                  Frequency,
                  Decimal,
+                 // AlpRD,
+                 Alp,
                  DoubleBP,
                  Dictionary8,
                  Dictionary16>(double_schemes, cfg.doubles.schemes);

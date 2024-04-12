@@ -180,10 +180,10 @@ class CSchemePicker {
     }
     if (ThreadCache::get().isOnHotPath()) {
       if ((after_size > stats.total_size)) {
-        cerr << "!!! compressed is larger than raw: \nfor : " + comment + " - scheme = " +
-                    ConvertSchemeTypeToString(static_cast<SchemeCodeType>(scheme_code))
-             << " difference = " << after_size - stats.total_size << "."
-             << " Falling back to uncompressed." << endl;
+        // cerr << "!!! compressed is larger than raw: \nfor : " + comment + " - scheme = " +
+        //             ConvertSchemeTypeToString(static_cast<SchemeCodeType>(scheme_code))
+        //      << " difference = " << after_size - stats.total_size << "."
+        //      << " Falling back to uncompressed." << endl;
         preferred_scheme = &MyTypeWrapper::getScheme(SchemeCodeType::UNCOMPRESSED);
         scheme_code = CB(preferred_scheme->schemeType());
         after_size = preferred_scheme->compress(src, nullmap, dest, stats, allowed_cascading_level);
@@ -253,6 +253,36 @@ class TypeWrapper<IntegerScheme, IntegerSchemeType> {
 };
 // -------------------------------------------------------------------------------------
 template <>
+class TypeWrapper<Int64Scheme, Int64SchemeType> {
+ public:
+  // -------------------------------------------------------------------------------------
+  static std::unordered_map<Int64SchemeType, unique_ptr<Int64Scheme>>& getSchemes() {
+    return SchemePool::available_schemes->int64_schemes;
+  }
+  // -------------------------------------------------------------------------------------
+  static Int64Scheme& getScheme(Int64SchemeType code) { return *getSchemes()[code]; }
+  // -------------------------------------------------------------------------------------
+  static Int64Scheme& getScheme(u8 code) {
+    return *getSchemes()[static_cast<Int64SchemeType>(code)];
+  }
+  // -------------------------------------------------------------------------------------
+  static u8& getOverrideScheme() {
+    auto& ref = BtrBlocksConfig::get().int64s.override_scheme;
+    return reinterpret_cast<u8&>(ref);
+  }
+  // -------------------------------------------------------------------------------------
+  static inline string getTypeName() { return "INT64"; }
+  // -------------------------------------------------------------------------------------
+  constexpr static bool shouldUseFOR(INT64) {return false;}
+  static IntegerScheme& getFORScheme() {
+    throw std::logic_error("FOR not implemented for int64 yet.");
+  }
+  // -------------------------------------------------------------------------------------
+  static u8 maxCascadingLevel() { return BtrBlocksConfig::get().int64s.max_cascade_depth; }
+  // -------------------------------------------------------------------------------------
+};
+// -------------------------------------------------------------------------------------
+template <>
 class TypeWrapper<DoubleScheme, DoubleSchemeType> {
  public:
   // -------------------------------------------------------------------------------------
@@ -312,8 +342,8 @@ class TypeWrapper<StringScheme, StringSchemeType> {
   // -------------------------------------------------------------------------------------
 };
 // -------------------------------------------------------------------------------------
-using IntegerSchemePicker =
-    CSchemePicker<INTEGER, IntegerScheme, SInteger32Stats, IntegerSchemeType>;
+using IntegerSchemePicker = CSchemePicker<INTEGER, IntegerScheme, SInteger32Stats, IntegerSchemeType>;
+using Int64SchemePicker = CSchemePicker<INT64, Int64Scheme, SInt64Stats, Int64SchemeType>;
 using DoubleSchemePicker = CSchemePicker<DOUBLE, DoubleScheme, DoubleStats, DoubleSchemeType>;
 using StringSchemePicker = CSchemePicker<str, StringScheme, StringStats, StringSchemeType>;
 }  // namespace btrblocks
