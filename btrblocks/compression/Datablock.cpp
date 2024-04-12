@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <exception>
 #include <fstream>
+#include <memory>
 #include <limits>
 #include <numeric>
 #include <roaring/roaring.hh>
