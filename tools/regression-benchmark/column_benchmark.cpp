@@ -216,7 +216,12 @@ void decompress(size_t num_parts, size_t tuple_count, PerfEvent& e) {
   e.setParam("phase", "decompression");
   {
     PerfEventBlock blk(e, tuple_count);
+    auto start_time = std::chrono::steady_clock::now();
     measure_decompression(num_parts, readers);
+    auto end_time = std::chrono::steady_clock::now();
+    auto runtime = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+
+    e.setParam("runtime", runtime.count());
   }
 }
 
