@@ -150,6 +150,7 @@ size_t compress(DOUBLE* uncompressed_data, SIZE tuple_count, PerfEvent& e) {
   e.setParam("phase", "compression");
   {
     PerfEventBlock blk(e, tuple_count);
+    auto start_time = std::chrono::steady_clock::now();
     for (SIZE chunk_i = 0; chunk_i < ranges.size(); chunk_i++) {
       auto input_chunk = getInputChunk(ranges[chunk_i], chunk_i, uncompressed_data);
       std::vector<u8> compressed_data = Datablock::compress(input_chunk);
@@ -174,10 +175,16 @@ size_t compress(DOUBLE* uncompressed_data, SIZE tuple_count, PerfEvent& e) {
       input_chunks.clear();
     }
 
+    auto end_time = std::chrono::steady_clock::now();
+    auto runtime = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+
+    e.setParam("runtime", runtime.count());
     e.setParam("compr_size", compressed_size);
     e.setParam("uncompr_size", uncompressed_size);
     e.setParam("factor", (1.0 * uncompressed_size) / compressed_size);
+    e.setParam("bit ratio (alp paper)", (sizeof(DOUBLE) * 8) / ((1.0 * uncompressed_size) / compressed_size));
   }
+
 
   return part_counter;
 }
@@ -225,6 +232,7 @@ bool test_compression(DOUBLE* src, size_t size, PerfEvent& e) {
 void setupSchemePool() {
   SchemePool::refresh();
   auto& schemes = *SchemePool::available_schemes;
+
   return;
   // double: DOUBLE_BP, UNCOMPRESSED,
   for (auto it = schemes.double_schemes.begin();
@@ -283,15 +291,6 @@ int main(int argc, char *argv[]) {
     perf.setParam("column", nextfile);
 
     test_compression(doubles.data, doubles.count, perf);
-
-
-    //perf.setParam("scheme", "freq");
-    //legacy::doubles::Frequency freq;
-    //test_compression(freq, stats, doubles.data, doubles.count, perf, 1);
-    //test_compression(freq, stats, doubles.data, doubles.count, perf, 2);
-    //test_compression(freq, stats, doubles.data, doubles.count, perf, 3);
-    //test_compression(freq, stats, doubles.data, doubles.count, perf, 1);
-    //test_compression(freq, stats, doubles.data, doubles.count, perf, 2);
   }
 }
 // -------------------------------------------------------------------------------------

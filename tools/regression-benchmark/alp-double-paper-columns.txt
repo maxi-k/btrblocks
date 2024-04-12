@@ -1,0 +1,13 @@
+Arade/1/Arade_1/4_F4.double
+CMSprovider/1/CMSprovider_1/1_AVERAGE_MEDICARE_ALLOWED_AMT.double
+CMSprovider/2/CMSprovider_2/25_STDEV_MEDICARE_PAYMENT_AMT.double
+CMSprovider/2/CMSprovider_2/9_LINE_SRVC_CNT.double
+Food/1/Food_1/6_volume_total_bytes.double
+CommonGovernment/10/CommonGovernment_10/10_baseandalloptionsvalue.double
+CommonGovernment/10/CommonGovernment_10/26_ftsdollar.double
+CommonGovernment/10/CommonGovernment_10/30_gsadollar.double
+CommonGovernment/10/CommonGovernment_10/31_gsaotherdollar.double
+CommonGovernment/10/CommonGovernment_10/40_pbsdollar.double
+Medicare3/1/Medicare3_1/1_AVERAGE_MEDICARE_ALLOWED_AMT.double
+Medicare3/1/Medicare3_1/9_LINE_SRVC_CNT.double
+NYC/2/NYC_2/29_Longitude.double
