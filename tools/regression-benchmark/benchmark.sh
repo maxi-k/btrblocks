@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# Exit on error
+set -e
 
 # Function to read CSV file and sync URIs
 sync_uris() {
@@ -13,15 +16,15 @@ sync_uris() {
 
     if [[ ! -f "./csvtobtrdata/yaml/$name/$schemaname" ]]; then
       mkdir ./csvtobtrdata/yaml/$name -p
-      aws s3 cp $yaml ./csvtobtrdata/yaml/$name/ --no-sign
+      aws s3 cp $yaml ./csvtobtrdata/yaml/$name/ --request-payer requester
     fi
 
     btr_dir="./csvtobtrdata/btrblocks/$name/"
     mkdir -p "$btr_dir" || rm -rf "${$btr_dir:?}"/*
     bin_dir="./csvtobtrdata/btrblocks_bin/$name/"
-    echo "aws s3 sync $uri $bin_dir"
+    echo "aws s3 sync $uri $bin_dir --request-payer requester"
     if [[ ! -d $bin_dir ]]; then
-      aws s3 sync $uri $bin_dir --no-sign
+      aws s3 sync --request-payer requester $uri $bin_dir
     fi
 
     yaml_file="./csvtobtrdata/yaml/$name/$schemaname"
@@ -35,12 +38,13 @@ sync_uris() {
 }
 
 # install things
-sudo apt-get install libssl-dev libcurl4-openssl-dev aws-cli -y
+# sudo apt-get update && sudo apt-get install libssl-dev libcurl4-openssl-dev -y
+command -v aws &>/dev/null || { echo >&2 "Please install the aws cli"; exit 1; }
 
 # build the benchmark thing
 output_file="results.csv"
-rm $output_file
-mkdir tmpbuild
+rm -f $output_file
+mkdir -p tmpbuild
 cd tmpbuild
 
 dataset="../datasets.csv"
@@ -51,7 +55,7 @@ if [[ ! -f $dataset ]]; then
 fi
 
 cmake ../../.. -DCMAKE_BUILD_TYPE=Release
-make csvtobtr
-make decompression-speed
+make -j csvtobtr
+make -j decompression-speed
 sync_uris $dataset $output_file
 
