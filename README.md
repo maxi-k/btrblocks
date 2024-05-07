@@ -40,6 +40,8 @@ Then, depending on your usecase, build only the library or any of the tools:
 
 For a list of all valid targets, run `make help`.
 
+Library was built and tested on Linux (x86, ARM) and MacOS (ARM).
+
 ## Contributors
 
 Adnan Alhomssi

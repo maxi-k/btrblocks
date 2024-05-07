@@ -14,7 +14,11 @@
 #else  // USE_SIMD
 // ------------------------------------------------------------------------------
 
+#if (defined(__x86_64__) || defined(__i386__))
 #include <immintrin.h>
+#elif defined(__aarch64__)
+#include <simde/x86/avx512.h>
+#endif
 
 #define BTR_IFSIMD(x...) x
 #define BTR_IFELSESIMD(a, b) a
