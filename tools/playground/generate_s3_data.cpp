@@ -6,7 +6,8 @@
 #include <vector>
 // -------------------------------------------------------------------------------------
 #include <tbb/parallel_for.h>
-#include <tbb/task_scheduler_init.h>
+#define TBB_PREVIEW_GLOBAL_CONTROL 1
+#include <tbb/global_control.h>
 // -------------------------------------------------------------------------------------
 #include <aws/core/Aws.h>
 #include <aws/s3-crt/S3CrtClient.h>
@@ -180,9 +181,7 @@ int main(int argc, char** argv) {
   std::stringstream bucket;
   bucket << bucket_prefix << "-" << region;
 
-  // tbb::task_scheduler_init init(1);
-
-  // tbb::task_scheduler_init init(1);
+  //  tbb::global_control c(tbb::global_control::max_allowed_parallelism, 1);
 
   Aws::SDKOptions options;
   Aws::InitAPI(options);
